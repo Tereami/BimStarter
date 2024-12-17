@@ -1,0 +1,3 @@
+﻿Загрузить/в базу
+Загрузить семейство в библиотеку Bim-Starter. Файл семейства должен быть закрыт.
+http://bim-starter.com/plugins/familieslibrary/

@@ -1,0 +1,3 @@
+﻿Библиотека/семейств
+Открывает панель для работы с библиотекой семейств.
+http://bim-starter.com/plugins/familieslibrary/

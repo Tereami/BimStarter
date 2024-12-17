@@ -1,0 +1,3 @@
+﻿Write link
+Batch fill parameters is RVT links
+http://bim-starter.com/plugins/writelink/

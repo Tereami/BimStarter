@@ -84,6 +84,16 @@
 		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
+	  <None Remove="BatchPrintYay_data\CommandBatchPrint.Russian.txt" />
+	  <None Remove="BatchPrintYay_data\CommandBatchPrint.txt" />
+	  <None Remove="BatchPrintYay_data\CommandBatchPrint_large.png" />
+	  <None Remove="BatchPrintYay_data\CommandBatchPrint_small.png" />
+	  <None Remove="BatchPrintYay_data\CommandRefreshSchedules.Russian.txt" />
+	  <None Remove="BatchPrintYay_data\CommandRefreshSchedules.txt" />
+	  <None Remove="BatchPrintYay_data\CommandRefreshSchedules_large.png" />
+	  <None Remove="BatchPrintYay_data\CommandRefreshSchedules_small.png" />
+	</ItemGroup>
+	<ItemGroup>
 		<Reference Include="RbsLogger">
 			<HintPath>..\..\RbsLogger\RbsLogger\bin\Debug\RbsLogger.dll</HintPath>
 		</Reference>
@@ -244,6 +254,30 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
+		<Content Include="BatchPrintYay_data\CommandBatchPrint.Russian.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandBatchPrint.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandBatchPrint_large.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandBatchPrint_small.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandRefreshSchedules.Russian.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandRefreshSchedules.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandRefreshSchedules_large.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="BatchPrintYay_data\CommandRefreshSchedules_small.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="formats.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>

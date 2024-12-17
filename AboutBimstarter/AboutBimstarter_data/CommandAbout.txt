@@ -1,0 +1,3 @@
+﻿About
+An information about the program and the author.
+http://bim-starter.com

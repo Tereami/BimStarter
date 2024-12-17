@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>ArchParametrisation</Name>
+    <Assembly>
+      ArchParametrisation.dll
+    </Assembly>
+    <ClientId>4a8c243b-300b-4595-b33e-3be6434e53b7</ClientId>
+    <FullClassName>ArchParametrisation.App</FullClassName>
+    <VendorId>BIM-Starter</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

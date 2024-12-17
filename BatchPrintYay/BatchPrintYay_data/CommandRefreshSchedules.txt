@@ -1,0 +1,3 @@
+﻿Refresh schedules
+Fix the issue when after changing of the schedule it doesnt refresh on the sheet
+http://bim-starter.com/plugins/refreshschedules/

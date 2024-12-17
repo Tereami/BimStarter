@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="txtbxMirroredParameter.Text" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="txtbxMirroredText.Text" xml:space="preserve">
+    <value>Л</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>383, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Будут обработаны все экземпляры семейств со свойством Mirrored = true</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>в параметр:</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Вписать текст:</value>
+  </data>
+  <data name="chkbxActivateMirrored.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="chkbxActivateMirrored.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Отзеркаленные элементы</value>
+  </data>
+  <data name="chkBoxCalculateOneRoomOpenings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 17</value>
+  </data>
+  <data name="chkBoxCalculateOneRoomOpenings.Text" xml:space="preserve">
+    <value>Учитывать проемы в пределах одного помещения</value>
+  </data>
+  <data name="txtbxOpeningsAreaParam.Text" xml:space="preserve">
+    <value>АР_ПлощадьПроёмов</value>
+  </data>
+  <data name="txtbxOpeningHeightParam.Text" xml:space="preserve">
+    <value>Высота</value>
+  </data>
+  <data name="txtbxOpeningWidthParam.Text" xml:space="preserve">
+    <value>Ширина</value>
+  </data>
+  <data name="chkbxActivateOpeningsArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="chkbxActivateOpeningsArea.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Будут найдены проёмы (окна/двери) в стенах, ограничивающих помещение, и площадь проёмов будет вписана в соответствующий параметр в помещении.</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>и высоты:</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 13</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Параметр для прощади проёмов:</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Параметр ширины проёма:</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Площадь проёмов</value>
+  </data>
+  <data name="checkBoxUseRoomNames.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 17</value>
+  </data>
+  <data name="checkBoxUseRoomNames.Text" xml:space="preserve">
+    <value>Использовать Имя помещения вместо номера</value>
+  </data>
+  <data name="chkbxFloorsIncludeInFinishing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 17</value>
+  </data>
+  <data name="chkbxFloorsIncludeInFinishing.Text" xml:space="preserve">
+    <value>Учитывать полы в отделке</value>
+  </data>
+  <data name="chkboxRoomFinishingSequenceNumbers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="chkboxRoomFinishingSequenceNumbers.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>В каждое помещение будут прописаны номера помещений, имеющих тот же тип отделки.</value>
+  </data>
+  <data name="txtbxWallNumbers.Text" xml:space="preserve">
+    <value>АР_НомераПоТипуСтен</value>
+  </data>
+  <data name="txtbxFloorNumbers.Text" xml:space="preserve">
+    <value>АР_НомераПоТипуПола</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 13</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Перечисление по типу отделки:</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 13</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Перечисление по типу пола:</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Помещения по типу отделки</value>
+  </data>
+  <data name="txtbxFinishingRoomNumberParam.Text" xml:space="preserve">
+    <value>АР_НомерПомещения</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 13</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Параметр номера помещения:</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Параметр номера квартиры:</value>
+  </data>
+  <data name="txtbxFlatNumber.Text" xml:space="preserve">
+    <value>АР_НомерКвартиры</value>
+  </data>
+  <data name="RommName.HeaderText" xml:space="preserve">
+    <value>Имя помещения</value>
+  </data>
+  <data name="RoomCoeff.HeaderText" xml:space="preserve">
+    <value>Коэффициент площади</value>
+  </data>
+  <data name="RoomIsLiving.HeaderText" xml:space="preserve">
+    <value>Жилое</value>
+  </data>
+  <data name="chkbxActivateFlatography.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="chkbxActivateFlatography.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Данные помещений:</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 13</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Метка жилого помещения:</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 13</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Параметр коэффициента площади:</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 13</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Параметр для количества комнат:</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 13</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Площадь квартиры жилая:</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 13</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Общая площадь квартиры:</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 13</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Параметр площади квартиры:</value>
+  </data>
+  <data name="txtbxIsLivingParam.Text" xml:space="preserve">
+    <value>Помещение жилое</value>
+  </data>
+  <data name="txtbxAreaCoeff.Text" xml:space="preserve">
+    <value>АР_КоэффПлощади</value>
+  </data>
+  <data name="txtbxRoomCount.Text" xml:space="preserve">
+    <value>АР_КолвоКомнат</value>
+  </data>
+  <data name="txtbxFlatLivingArea.Text" xml:space="preserve">
+    <value>АР_ПлощадьКвартирыЖилая</value>
+  </data>
+  <data name="txtbxFlatSumArea.Text" xml:space="preserve">
+    <value>АР_ПлощадьКвартирыОбщая</value>
+  </data>
+  <data name="txtbxFlatArea.Text" xml:space="preserve">
+    <value>АР_ПлощадьКвартиры</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Квартирография</value>
+  </data>
+  <data name="chxbxRoomNumberToFinishing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="chxbxRoomNumberToFinishing.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>В отделку, выполненную "Стенами", будет прописан номер помещения, которое они окружают.</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Принадлежность 3D-отделки к помещениям</value>
+  </data>
+  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 23</value>
+  </data>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Сброс настроек</value>
+  </data>
+</root>

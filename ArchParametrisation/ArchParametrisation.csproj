@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<UseWindowsForms>true</UseWindowsForms>
-		<UseWPF>true</UseWPF>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 			None
@@ -16,7 +15,7 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net46</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2017</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2017</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2017</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2018|AnyCPU' ">
@@ -24,23 +23,23 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net46</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2018</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2018</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2018</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2019|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
 		<TargetFramework>net47</TargetFramework>
-		<OutputPath>bin</OutputPath>
-		<DefineConstants>DEBUG;R2019</DefineConstants>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2019</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2019</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2020|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
 		<TargetFramework>net47</TargetFramework>
-		<OutputPath>bin</OutputPath>
-		<DefineConstants>DEBUG;R2020</DefineConstants>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2020</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2020</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2021|AnyCPU' ">
@@ -48,7 +47,7 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net48</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2021</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2021</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2021</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2022|AnyCPU' ">
@@ -56,7 +55,7 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net48</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2022</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2022</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2022</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2023|AnyCPU' ">
@@ -64,7 +63,7 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net48</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2023</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2023</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2023</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2024|AnyCPU' ">
@@ -72,7 +71,7 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net48</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2024</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2024</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2024</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2025|AnyCPU' ">
@@ -80,11 +79,12 @@
 		<Optimize>false</Optimize>
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;R2025</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
 	</PropertyGroup>
+
 	<Choose>
-		<When Condition=" '$(Configuration)'=='R2017' or '$(Configuration)'=='Debug'">
+		<When Condition=" '$(Configuration)'=='R2017' ">
 			<ItemGroup>
 				<Reference Include="RevitAPI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
@@ -92,6 +92,10 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2017\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -106,6 +110,10 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2018\AdWindows.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2019' ">
@@ -116,6 +124,10 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -130,6 +142,10 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2020\AdWindows.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2021' ">
@@ -140,6 +156,10 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2021\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -154,6 +174,10 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2022\AdWindows.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2023' ">
@@ -164,6 +188,10 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2023\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -178,6 +206,10 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2024\AdWindows.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2025' ">
@@ -190,70 +222,42 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
+				<Reference Include="AdWindows">
+					<HintPath>C:\Program Files\Autodesk\Revit 2025\AdWindows.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
 			</ItemGroup>
 		</When>
 	</Choose>
 	<ItemGroup>
-	  <None Remove="RibbonBimStarter_data\CommandCheckFamilies.Russian.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandCheckFamilies.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandCheckFamilies_large.png" />
-	  <None Remove="RibbonBimStarter_data\CommandCheckFamilies_small.png" />
-	  <None Remove="RibbonBimStarter_data\CommandShowPane.Russian.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandShowPane.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandShowPane_large.png" />
-	  <None Remove="RibbonBimStarter_data\CommandShowPane_small.png" />
-	  <None Remove="RibbonBimStarter_data\CommandUploadFamily.Russian.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandUploadFamily.txt" />
-	  <None Remove="RibbonBimStarter_data\CommandUploadFamily_large.png" />
-	  <None Remove="RibbonBimStarter_data\CommandUploadFamily_small.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Content Include="RibbonBimStarter_data\CommandCheckFamilies.Russian.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandCheckFamilies.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandCheckFamilies_large.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandCheckFamilies_small.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandShowPane.Russian.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandShowPane.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandShowPane_large.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandShowPane_small.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandUploadFamily.Russian.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandUploadFamily.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandUploadFamily_large.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="RibbonBimStarter_data\CommandUploadFamily_small.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
-	</Target>
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
-	</Target>
+	<ItemGroup>
+	  <Compile Update="MyStrings.ru-RU.Designer.cs">
+	    <DependentUpon>MyStrings.ru-RU.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="MyStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MyStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
+	    <LastGenOutput>MyStrings.ru-RU.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="MyStrings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="ArchParametrisation.addin">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

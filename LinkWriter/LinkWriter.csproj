@@ -259,6 +259,26 @@
 		</When>
 	</Choose>
 	<ItemGroup>
+	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock.Russian.txt" />
+	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock.txt" />
+	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock_large.png" />
+	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock_small.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock.Russian.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock_large.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock_small.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+	<ItemGroup>
 	  <ProjectReference Include="..\Tools.LinksManager\Tools.LinksManager.csproj" />
 	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	</ItemGroup>

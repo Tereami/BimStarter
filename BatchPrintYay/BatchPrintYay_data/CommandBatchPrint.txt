@@ -1,0 +1,3 @@
+﻿Print
+Batch print selected sheets by sheet sizes and with other functions
+http://bim-starter.com/plugins/batchprint/

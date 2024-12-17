@@ -236,4 +236,24 @@
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
 	</Target>
+	<ItemGroup>
+	  <None Remove="AboutBimstarter_data\CommandAbout.Russian.txt" />
+	  <None Remove="AboutBimstarter_data\CommandAbout.txt" />
+	  <None Remove="AboutBimstarter_data\CommandAbout_large.png" />
+	  <None Remove="AboutBimstarter_data\CommandAbout_small.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="AboutBimstarter_data\CommandAbout.Russian.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="AboutBimstarter_data\CommandAbout.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="AboutBimstarter_data\CommandAbout_large.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="AboutBimstarter_data\CommandAbout_small.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 </Project>

@@ -1,0 +1,3 @@
+﻿Add by analog
+Add shared parameters to the family similar as other family
+http://bim-starter.com/plugins/addparameter/

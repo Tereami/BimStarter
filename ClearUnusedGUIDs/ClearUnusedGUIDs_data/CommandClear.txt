@@ -1,0 +1,3 @@
+﻿Clear/GUID
+Show the list of all shared parameter definitions in the current document and allow to delete them. WARNING! PLEASE BE CAREFUL USING THIS PLUGIN!
+http://bim-starter.com/plugins/clearguid/

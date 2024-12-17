@@ -1,0 +1,3 @@
+﻿Add parameter
+Batch add shared parameter to the opened family
+http://bim-starter.com/plugins/addparameter/

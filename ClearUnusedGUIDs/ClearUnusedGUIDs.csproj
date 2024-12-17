@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<UseWindowsForms>true</UseWindowsForms>
 		<UseWPF>true</UseWPF>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -193,6 +193,58 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+	<ItemGroup>
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParameters.Russian.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParameters.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParameters_large.png" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParameters_small.png" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParamsByAnalog.Russian.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParamsByAnalog.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParamsByAnalog_large.png" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandAddParamsByAnalog_small.png" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandClear.Russian.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandClear.txt" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandClear_large.png" />
+	  <None Remove="ClearUnusedGUIDs_data\CommandClear_small.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParameters.Russian.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParameters.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParameters_large.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParameters_small.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParamsByAnalog.Russian.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParamsByAnalog.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParamsByAnalog_large.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandAddParamsByAnalog_small.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandClear.Russian.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandClear.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandClear_large.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ClearUnusedGUIDs_data\CommandClear_small.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
