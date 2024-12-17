@@ -27,11 +27,11 @@ namespace ArchParametrisation
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Trace.Listeners.Clear();
-            Trace.Listeners.Add(new RbsLogger.Logger("ArchParametrisation"));
+            Trace.Listeners.Add(new Tools.Logger.Logger("ArchParametrisation"));
 
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
-            SettingsSaver.Saver<Settings> settingsSaver = new SettingsSaver.Saver<Settings>();
+            Tools.SettingsSaver.Saver<Settings> settingsSaver = new Tools.SettingsSaver.Saver<Settings>();
             Settings sets = settingsSaver.Activate("ArchParametrisation");
             Debug.WriteLine($"Settings is loaded");
 

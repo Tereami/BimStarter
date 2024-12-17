@@ -1,0 +1,3 @@
+﻿Arch parameters
+Write several parameter to the Architectural model
+http://bim-starter.com/plugins/parameterwriter/

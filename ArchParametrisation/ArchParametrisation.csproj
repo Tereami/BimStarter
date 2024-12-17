@@ -229,9 +229,28 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+
+	<ItemGroup>
+	  <Content Include="ArchParametrisation_data\CmdArchParametrisation.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ArchParametrisation_data\CmdArchParametrisation.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ArchParametrisation_data\CmdArchParametrisation_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ArchParametrisation_data\CmdArchParametrisation_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="MyStrings.ru-RU.Designer.cs">
@@ -257,7 +276,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Update="ArchParametrisation.addin">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
+	</Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
+	</Target>
 </Project>

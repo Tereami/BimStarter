@@ -255,28 +255,28 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="BatchPrintYay_data\CommandBatchPrint.Russian.txt">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandBatchPrint.txt">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandBatchPrint_large.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandBatchPrint_small.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandRefreshSchedules.Russian.txt">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandRefreshSchedules.txt">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandRefreshSchedules_large.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="BatchPrintYay_data\CommandRefreshSchedules_small.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="formats.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
