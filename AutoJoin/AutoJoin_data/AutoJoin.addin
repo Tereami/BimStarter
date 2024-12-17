@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>AutoJoin</Name>
+    <Assembly>
+      AutoJoin.dll
+    </Assembly>
+    <ClientId>79425d93-0de8-4c79-bee8-7b17b56472d7</ClientId>
+    <FullClassName>AutoJoin.AppAutoJoin</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

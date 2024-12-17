@@ -1,0 +1,3 @@
+﻿Disjoin
+Cancel the join between selected elements. It is useful for elements that join automatically when you dont need this behaviour.
+http://bim-starter.com/plugins/autojoin/

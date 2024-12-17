@@ -1,0 +1,3 @@
+﻿Cope
+Batch create the copne bettwen selected steel beams and columns.
+http://bim-starter.com/plugins/autojoin/
