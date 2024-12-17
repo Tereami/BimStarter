@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>GroupedAssembly</Name>
+    <Assembly>
+      GroupedAssembly.dll
+    </Assembly>
+    <ClientId>2e2ccbff-f31a-4bc2-a79b-d6c6622bd6d5</ClientId>
+    <FullClassName>GroupedAssembly.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

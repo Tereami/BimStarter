@@ -1,0 +1,3 @@
+﻿Group-assembly
+Create assembly that will contain nested shared families. Also allows to create Group and Assembly from the same elements, and disjoin ends of the beam for more stability.
+http://bim-starter.com/plugins/groupedassembly/
