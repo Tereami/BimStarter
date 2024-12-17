@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>FixSlowFile</Name>
+    <Assembly>
+      FixSlowFile.dll
+    </Assembly>
+    <ClientId>d6364c4d-43e6-4dae-beed-d97432232443</ClientId>
+    <FullClassName>FixSlowFile.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

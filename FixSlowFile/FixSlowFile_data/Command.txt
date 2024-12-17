@@ -1,0 +1,3 @@
+﻿Fix slow file
+Fix the issue when sheets open very slow when they contains rebar schedules. The plugin resets rebar parameters and write them again. It requeres several minutes to work.
+http://bim-starter.com/plugins/fixslowfile/
