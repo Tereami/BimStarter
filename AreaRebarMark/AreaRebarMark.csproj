@@ -1,0 +1,222 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+			None
+		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
+		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2017|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net46</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2017</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2017</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2018|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net46</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2018</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2018</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2019|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net47</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2019</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2019</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2020|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net47</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2020</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2020</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2021|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net48</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2021</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2021</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2022|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net48</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2022</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2022</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2023|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net48</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2023</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2023</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2024|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net48</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2024</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2024</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2025|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
+	</PropertyGroup>
+	<Choose>
+		<When Condition=" '$(Configuration)'=='R2017' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2018' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2019' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2020' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2021' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2022' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2023' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2024' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2025' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2025\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+	</Choose>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="AreaRebarMark_data\CommandManualStart.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="AreaRebarMark_data\CommandManualStart.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="AreaRebarMark_data\CommandManualStart_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="AreaRebarMark_data\CommandManualStart_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+		<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
+	</Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
+	</Target>
+</Project>

@@ -1,0 +1,3 @@
+﻿Area mark
+Transfer the mark value from Rebars to their container - Area Reiforcement
+http://bim-starter.com/plugins/arearebarmark
