@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>Autonumber</Name>
+    <Assembly>
+      Autonumber.dll
+    </Assembly>
+    <ClientId>1065d870-4543-4683-8a0e-fc2e1b4a4201</ClientId>
+    <FullClassName>Autonumber.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

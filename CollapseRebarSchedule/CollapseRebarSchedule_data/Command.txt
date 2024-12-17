@@ -1,0 +1,3 @@
+﻿Narrow/rebar bill
+Hide empty columns and show non-empty columns in the horizontal rebar summary schedule.
+http://bim-starter.com/plugins/collapserebarschedule/
