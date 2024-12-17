@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RevitWorksets</Name>
+    <Assembly>
+      RevitWorksets.dll
+    </Assembly>
+    <ClientId>0ef02cb6-5e18-4e15-a91a-177c6f964273</ClientId>
+    <FullClassName>RevitWorksets.App</FullClassName>
+    <VendorId>Weandrevit</VendorId>
+    <VendorDescription>weandrevit.ru</VendorDescription>
+  </AddIn>
+</RevitAddIns>

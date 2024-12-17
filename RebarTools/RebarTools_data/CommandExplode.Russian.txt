@@ -1,0 +1,3 @@
+﻿Взорвать
+Разделяет массив арматурных стержней на отдельные стержни
+http://bim-starter.com/plugins/exploderebarset/

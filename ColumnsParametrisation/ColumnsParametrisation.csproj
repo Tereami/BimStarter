@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<UseWindowsForms>true</UseWindowsForms>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 			None
@@ -197,23 +198,44 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
-	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="AreaRebarMark_data\CommandManualStart.Russian.txt">
+		<Compile Update="MyStrings.ru-RU.Designer.cs">
+			<DependentUpon>MyStrings.ru-RU.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="MyStrings.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MyStrings.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="MyStrings.ru-RU.resx">
+			<LastGenOutput>MyStrings.ru-RU.Designer.cs</LastGenOutput>
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="MyStrings.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="ColumnsParametrisation_data\Command.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AreaRebarMark_data\CommandManualStart.txt">
+	  <None Update="ColumnsParametrisation_data\Command.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AreaRebarMark_data\CommandManualStart_large.png">
+	  <None Update="ColumnsParametrisation_data\Command_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AreaRebarMark_data\CommandManualStart_small.png">
+	  <None Update="ColumnsParametrisation_data\Command_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
-		<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">

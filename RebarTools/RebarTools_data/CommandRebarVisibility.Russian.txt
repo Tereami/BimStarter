@@ -1,0 +1,3 @@
+﻿Графика/стержней
+Отображение всей арматуры на 3D-виде как объемный элемент
+http://bim-starter.com/plugins/rebarvisibility/

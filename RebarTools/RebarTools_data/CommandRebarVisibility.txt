@@ -1,0 +1,3 @@
+﻿Rebar/graphics
+Show rebars as solid bodies at the 3D view. Also allow show or hide rebar as unobsqured on 2D views.
+http://bim-starter.com/plugins/rebarvisibility/

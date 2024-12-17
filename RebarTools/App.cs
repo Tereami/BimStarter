@@ -13,11 +13,9 @@
 #region Usings
 using Autodesk.Revit.UI;
 #endregion
-namespace AreaRebarMark
+namespace RebarTools
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-
-    //данный класс необходим только для автономного запуска плагина не в составе панели BimStarter
     public class App : IExternalApplication
     {
         public static string assemblyPath = "";
@@ -28,11 +26,32 @@ namespace AreaRebarMark
             try { application.CreateRibbonTab(tabName); } catch { }
 
             RibbonPanel panel1 = application.CreateRibbonPanel(tabName, "Армирование");
-            PushButton btn = panel1.AddItem(new PushButtonData(
-                "AreaMark",
+            _ = panel1.AddItem(new PushButtonData(
+                nameof(CommandAreaMark),
                 "Марка по площади",
                 assemblyPath,
-                "AreaRebarMark.CommandManualStart")
+                $"{nameof(RebarTools)}.{nameof(CommandAreaMark)}")
+                ) as PushButton;
+
+            _ = panel1.AddItem(new PushButtonData(
+                nameof(CommandExplode),
+                "Взорвать",
+                assemblyPath,
+                $"{nameof(RebarTools)}.{nameof(CommandExplode)}")
+                ) as PushButton;
+
+            _ = panel1.AddItem(new PushButtonData(
+                nameof(CommandRebarPresentation),
+                "Скрыть",
+                assemblyPath,
+                $"{nameof(RebarTools)}.{nameof(CommandRebarPresentation)}")
+                ) as PushButton;
+
+            _ = panel1.AddItem(new PushButtonData(
+                nameof(CommandRebarVisibility),
+                "Как тело",
+                assemblyPath,
+                $"{nameof(RebarTools)}.{nameof(CommandRebarVisibility)}")
                 ) as PushButton;
 
             return Result.Succeeded;

@@ -19,10 +19,10 @@ using System.Diagnostics;
 using System.Linq;
 #endregion
 
-namespace AreaRebarMark
+namespace RebarTools
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    class CommandManualStart : IExternalCommand
+    class CommandAreaMark : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

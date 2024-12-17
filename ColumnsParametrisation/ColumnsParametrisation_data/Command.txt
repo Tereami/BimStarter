@@ -1,0 +1,3 @@
+﻿Mark columns
+Write columns and pilons mark by size, characteristics and reinforcement type
+https://bim-starter.com/family?guid=1c047ecd-ec65-4a82-bd13-9ef314516d9f

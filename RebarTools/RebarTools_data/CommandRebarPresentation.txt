@@ -1,0 +1,3 @@
+﻿Hide
+Hide all rebar bars in the rebar set excludes the first, last and middle bars.
+http://bim-starter.com/plugins/rebarpresentation/
