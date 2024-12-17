@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net46</TargetFramework>
+		<Deterministic>False</Deterministic>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
+		<OutputPath>bin\</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net46</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2017</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2017</AssemblyName>
+	</PropertyGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
+	</Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
+	</Target>
+</Project>

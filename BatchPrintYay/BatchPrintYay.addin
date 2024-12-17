@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>BatchPrintYay</Name>
+    <Assembly>
+      BatchPrintYay.dll
+    </Assembly>
+    <ClientId>a666b372-13fa-442a-8a18-fce286c19ccf</ClientId>
+    <FullClassName>BatchPrintYay.App</FullClassName>
+    <VendorId>Weandrevit</VendorId>
+    <VendorDescription>weandrevit.ru</VendorDescription>
+  </AddIn>
+</RevitAddIns>
