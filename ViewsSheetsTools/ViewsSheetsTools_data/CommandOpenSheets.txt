@@ -1,0 +1,3 @@
+﻿Open sheets
+Open all sheets which are selected in the Project browser.
+http://bim-starter.com/plugins/opensheets/

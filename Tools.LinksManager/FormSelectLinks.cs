@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Tools.LinksManager;
 
-namespace LinkWriter
+namespace Tools.LinksManager
 {
     public partial class FormSelectLinks : System.Windows.Forms.Form
     {
         public List<MyRevitLinkDocument> selectedLinks;
-        public FormSelectLinks(List<MyRevitLinkDocument> links)
+        private bool AllowMultiselect = false;
+        public FormSelectLinks(List<MyRevitLinkDocument> links, bool allowMultiselect)
         {
             InitializeComponent();
-
+            AllowMultiselect = allowMultiselect;
             checkedListBox1.Items.Clear();
             checkedListBox1.Items.AddRange(links.ToArray());
         }
@@ -28,6 +28,16 @@ namespace LinkWriter
             selectedLinks = checkedListBox1.CheckedItems.Cast<MyRevitLinkDocument>().ToList();
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (AllowMultiselect) return;
+
+            for (int i = 0; i < checkedListBox1.Items.Count; ++i)
+            {
+                if (i != e.Index) checkedListBox1.SetItemChecked(i, false);
+            }
         }
     }
 }

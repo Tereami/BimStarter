@@ -1,0 +1,3 @@
+﻿Set number
+Fix the issue when it's impossible to set repeated number for sheet, grid, viewport ar room. Select required element and launch this plugin. It works by adding invisible symbols to the end of the value. The plugin find correct symbol automatically.
+http://bim-starter.com/plugins/viewportnumbers/

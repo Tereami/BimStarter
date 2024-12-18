@@ -1,0 +1,3 @@
+﻿Copy/template
+Cop selected view templates from one project to another
+http://bim-starter.com/plugins/copytemplates/

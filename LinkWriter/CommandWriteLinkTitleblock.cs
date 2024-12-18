@@ -55,7 +55,7 @@ namespace LinkWriter
 
             List<MyRevitLinkDocument> linkDocs = myMainDoc.GetLinkDocuments();
 
-            FormSelectLinks formSelectLinks = new FormSelectLinks(linkDocs);
+            FormSelectLinks formSelectLinks = new FormSelectLinks(linkDocs, true);
             if (formSelectLinks.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 Trace.WriteLine("Cancelled");

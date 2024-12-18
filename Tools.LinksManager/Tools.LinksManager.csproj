@@ -86,6 +86,11 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="FormSelectLinks.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	</ItemGroup>
 	<Choose>
 		<When Condition=" '$(Configuration)'=='R2017' ">
 			<ItemGroup>
