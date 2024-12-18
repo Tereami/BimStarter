@@ -1,0 +1,3 @@
+﻿Fill by view
+Write parameters in elements visible on views with special names. For examle 3D view with the name Filler#Mark=1 - write 1 in the Mark parameter for all elements on this view.
+http://bim-starter.com/plugins/parameterwriter/

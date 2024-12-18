@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>ParameterWriter</Name>
+    <Assembly>
+      ParameterWriter.dll
+    </Assembly>
+    <ClientId>4f82ab2e-52a9-4175-8586-c03a0bee8ce1</ClientId>
+    <FullClassName>ParameterWriter.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
