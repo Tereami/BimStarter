@@ -11,17 +11,14 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2021, all rigths reserved.*/
 #endregion
 #region usings
+using Autodesk.Revit.DB;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
+using System.Linq;
 #endregion
 
-namespace AutoJoin
+namespace Tools.Model
 {
     public static class Intersection
     {
@@ -67,6 +64,33 @@ namespace AutoJoin
             return check;
         }
 
+        /// <summary>
+        /// Проверить пересечение линии и элемента
+        /// </summary>
+        public static List<XYZ> CheckIntersectCurveAndElement(Curve curve, Element elem)
+        {
+            GeometryElement geoElem = elem.get_Geometry(new Options());
+            List<Solid> solids = Intersection.GetSolidsOfElement(geoElem);
+            List<XYZ> intersectPoints = new List<XYZ>();
+            foreach (Solid sol in solids)
+            {
+                foreach (Face face in sol.Faces)
+                {
+                    IntersectionResultArray resultArray;
+                    SetComparisonResult intersectCheck = face.Intersect(curve, out resultArray);
+                    if (intersectCheck == SetComparisonResult.Overlap)
+                    {
+                        foreach (IntersectionResult ir in resultArray)
+                        {
+                            XYZ point = ir.XYZPoint;
+                            intersectPoints.Add(point);
+                        }
+                    }
+
+                }
+            }
+            return intersectPoints;
+        }
 
 
         /// <summary>
@@ -241,8 +265,7 @@ namespace AutoJoin
         /// </summary>
         public static bool CutElement(Document doc, Element elemForCut, Element elemWithVoid)
         {
-            Debug.WriteLine("Try cut elem " + elemForCut.Id.GetElementIdValue().ToString()
-                    + " by elem " + elemWithVoid.Id.GetElementIdValue().ToString());
+            Debug.WriteLine($"Try cut elem {elemForCut.Id} by elem {elemWithVoid.Id}");
 
             //Проверяю, можно ли вырезать геометрию из данного элемента
             bool check1 = InstanceVoidCutUtils.CanBeCutWithVoid(elemForCut);
@@ -254,7 +277,7 @@ namespace AutoJoin
             bool check3 = InstanceVoidCutUtils.InstanceVoidCutExists(elemForCut, elemWithVoid);
 
             //Если одно из условий не выполняется - возвращаю false
-            if(!check1 || !check2 || check3)
+            if (!check1 || !check2 || check3)
             {
                 Debug.WriteLine("Unable to cut");
                 return false;
@@ -266,7 +289,7 @@ namespace AutoJoin
                 Debug.WriteLine("Cut success");
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine("Cut exception " + ex.Message);
                 return false;

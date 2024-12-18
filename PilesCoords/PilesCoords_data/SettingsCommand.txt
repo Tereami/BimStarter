@@ -1,0 +1,3 @@
+﻿Settings
+Settings of the piles plugin
+http://bim-starter.com/plugins/piles/

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>PilesCoords</Name>
+    <Assembly>
+      PilesCoords.dll
+    </Assembly>
+    <ClientId>c3d344ff-5ffe-4ce7-949e-f28a0a2c8984</ClientId>
+    <FullClassName>PilesCoords.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

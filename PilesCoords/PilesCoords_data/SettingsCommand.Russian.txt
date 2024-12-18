@@ -1,0 +1,3 @@
+﻿Настройки
+Настройки плагина обработки свай
+http://bim-starter.com/plugins/piles/

@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup>
-		<OutputType>Library</OutputType>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ProjectGuid>c3d344ff-5ffe-4ce7-949e-f28a0a2c8984</ProjectGuid>
 		<UseWindowsForms>true</UseWindowsForms>
-		<UseWPF>true</UseWPF>
+		<Deterministic>False</Deterministic>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 			None
@@ -83,8 +84,9 @@
 		<DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
 	</PropertyGroup>
+
 	<Choose>
-		<When Condition=" '$(Configuration)'=='R2017' or '$(Configuration)'=='Debug'">
+		<When Condition=" '$(Configuration)'=='R2017' ">
 			<ItemGroup>
 				<Reference Include="RevitAPI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
@@ -193,98 +195,84 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-	</ItemGroup>
-	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Compile Update="MyStrings.ru-RU.Designer.cs">
-	    <DependentUpon>MyStrings.ru-RU.resx</DependentUpon>
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	  </Compile>
-	  <Compile Update="MyStrings.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>MyStrings.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
-	    <LastGenOutput>MyStrings.ru-RU.Designer.cs</LastGenOutput>
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="MyStrings.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-	  <None Update="AutoJoin_data\AutoJoin.addin">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut.Russian.txt">
+	  <None Update="PilesCoords_data\Command.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut.txt">
+	  <None Update="PilesCoords_data\Command.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut_large.png">
+	  <None Update="PilesCoords_data\Command_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut_small.png">
+	  <None Update="PilesCoords_data\Command_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin.Russian.txt">
+	  <None Update="PilesCoords_data\PileCutCommand.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin.txt">
+	  <None Update="PilesCoords_data\PileCutCommand.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin_large.png">
+	  <None Update="PilesCoords_data\PileCutCommand_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin_small.png">
+	  <None Update="PilesCoords_data\PileCutCommand_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin.Russian.txt">
+	  <None Update="PilesCoords_data\PilesCalculateRangeCommand.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin.txt">
+	  <None Update="PilesCoords_data\PilesCalculateRangeCommand.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin_large.png">
+	  <None Update="PilesCoords_data\PilesCalculateRangeCommand_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin_small.png">
+	  <None Update="PilesCoords_data\PilesCalculateRangeCommand_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope.Russian.txt">
+	  <None Update="PilesCoords_data\PilesElevationCommand.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope.txt">
+	  <None Update="PilesCoords_data\PilesElevationCommand.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope_large.png">
+	  <None Update="PilesCoords_data\PilesElevationCommand_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope_small.png">
+	  <None Update="PilesCoords_data\PilesElevationCommand_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder.Russian.txt">
+	  <None Update="PilesCoords_data\PilesNumberingCommand.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder.txt">
+	  <None Update="PilesCoords_data\PilesNumberingCommand.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder_large.png">
+	  <None Update="PilesCoords_data\PilesNumberingCommand_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder_small.png">
+	  <None Update="PilesCoords_data\PilesNumberingCommand_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="PilesCoords_data\SettingsCommand.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="PilesCoords_data\SettingsCommand.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="PilesCoords_data\SettingsCommand_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="PilesCoords_data\SettingsCommand_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

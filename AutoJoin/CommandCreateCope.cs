@@ -58,7 +58,7 @@ namespace AutoJoin
 
                         try
                         {
-                            bool check = Intersection.CheckElementsIsIntersect(doc, f1, f2);
+                            bool check = Tools.Model.Intersection.CheckElementsIsIntersect(doc, f1, f2);
                             if (check == false) continue;
 
                             StructuralInstanceUsage su1 = f1.StructuralUsage;
