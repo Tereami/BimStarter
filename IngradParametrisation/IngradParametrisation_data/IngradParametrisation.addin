@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>IngradParametrisation</Name>
+    <Assembly>
+      IngradParametrisation.dll
+    </Assembly>
+    <ClientId>1183eac0-1a69-49bf-9865-de8cd2978cb1</ClientId>
+    <FullClassName>IngradParametrisation.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

@@ -1,0 +1,3 @@
+﻿Ingrad parametrisation
+Write parameters in the model by the BIM-standard of INGRAD company.
+https://ingrad.ru
