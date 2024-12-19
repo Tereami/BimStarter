@@ -79,5 +79,54 @@ namespace Tools.Geometry
             }
             return mainSolid;
         }
+
+        /// <summary>
+        /// Проверить, содержит ли данный элемент объемную 3D-геометрию
+        /// </summary>
+        public static bool ContainsSolids(Element elem)
+        {
+            GeometryElement geoElem = elem.get_Geometry(new Options());
+            if (geoElem == null) return false;
+
+            bool check = ContainsSolids(geoElem);
+            return check;
+        }
+
+        /// <summary>
+        /// Проверить, содержит ли данный элемент объемную 3D-геометрию
+        /// </summary>
+        public static bool ContainsSolids(GeometryElement geoElem)
+        {
+            if (geoElem == null) return false;
+
+            foreach (GeometryObject geoObj in geoElem)
+            {
+                if (geoObj is Solid)
+                {
+                    return true;
+                }
+                if (geoObj is GeometryInstance)
+                {
+                    GeometryInstance geomIns = geoObj as GeometryInstance;
+                    GeometryElement instGeoElement = geomIns.GetInstanceGeometry();
+                    return ContainsSolids(instGeoElement);
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Получить все ребра из солида
+        /// </summary>
+        public static List<Curve> GetAllCurves(Solid solid)
+        {
+            List<Curve> curves = new List<Curve>();
+            foreach (Face face in solid.Faces)
+            {
+                curves.AddRange(Tools.Geometry.FaceUtils.GetFaceOuterBoundary(face));
+            }
+
+            return curves;
+        }
     }
 }

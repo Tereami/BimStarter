@@ -67,7 +67,7 @@ namespace Tools.Geometry
 
 
 
-        public static List<Curve> GetFaceOuterBoundary(PlanarFace face)
+        public static List<Curve> GetFaceOuterBoundary(Face face)
         {
             EdgeArrayArray eaa = face.EdgeLoops;
             List<Curve> curves = new List<Curve>();

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RevitPlatesWeight</Name>
+    <Assembly>
+      RevitPlatesWeight.dll
+    </Assembly>
+    <ClientId>4c0755f1-ec64-4e3b-8826-a0c316537487</ClientId>
+    <FullClassName>RevitPlatesWeight.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

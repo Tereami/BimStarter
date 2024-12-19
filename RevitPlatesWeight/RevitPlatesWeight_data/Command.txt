@@ -1,0 +1,3 @@
+﻿Plates weight
+Calculate weight of steel plates which were created by the Steel tab
+http://bim-starter.com/plugins/platesweight

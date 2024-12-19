@@ -11,11 +11,10 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
-#endregion
-
-
 using Autodesk.Revit.DB;
 using System;
+using System.Collections.Generic;
+#endregion
 
 namespace Tools.Geometry
 {
@@ -57,6 +56,26 @@ namespace Tools.Geometry
         static public bool IsVertical(CylindricalFace f)
         {
             return IsVertical(f.Axis);
+        }
+
+        public static double FindTheLongestCurveLength(View v, Element elem)
+        {
+            Options opt = new Options { View = v };
+            GeometryElement geoElem = elem.get_Geometry(opt);
+            List<Solid> solids = Tools.Geometry.Solids.GetSolidsFromElement(geoElem);
+
+            double length = 0;
+
+            foreach (Solid sol in solids)
+            {
+                List<Curve> curves = Tools.Geometry.Solids.GetAllCurves(sol);
+                foreach (Curve c in curves)
+                {
+                    if (c.Length > length)
+                        length = c.Length;
+                }
+            }
+            return length;
         }
     }
 }
