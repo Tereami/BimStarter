@@ -88,6 +88,15 @@ namespace ParameterWriter {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong....
+        /// </summary>
+        public static string ErrorSomethingWentWrong {
+            get {
+                return ResourceManager.GetString("ErrorSomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  elems..
         /// </summary>
         public static string ForElements {
@@ -174,6 +183,33 @@ namespace ParameterWriter {
         public static string ScenariosProcessed {
             get {
                 return ResourceManager.GetString("ScenariosProcessed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an element to copy properties.
+        /// </summary>
+        public static string TextSelectElementToCopy {
+            get {
+                return ResourceManager.GetString("TextSelectElementToCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set properties.
+        /// </summary>
+        public static string TransactionPropertiesCopy {
+            get {
+                return ResourceManager.GetString("TransactionPropertiesCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set type.
+        /// </summary>
+        public static string TransactionTypeCopy {
+            get {
+                return ResourceManager.GetString("TransactionTypeCopy", resourceCulture);
             }
         }
         

@@ -1,0 +1,3 @@
+﻿Super-brush
+This plugin is alike the builtin function Match Type Preperties but unluke it also copy other parameters, for example Mark, wall height, etc.
+http://bim-starter.com/plugins/propertiescopy/

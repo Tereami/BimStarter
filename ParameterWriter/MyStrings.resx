@@ -126,6 +126,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="ErrorSomethingWentWrong" xml:space="preserve">
+    <value>Something went wrong...</value>
+  </data>
   <data name="ForElements" xml:space="preserve">
     <value> elems.</value>
   </data>
@@ -155,6 +158,15 @@
   </data>
   <data name="ScenariosProcessed" xml:space="preserve">
     <value>Scenarios processed: </value>
+  </data>
+  <data name="TextSelectElementToCopy" xml:space="preserve">
+    <value>Select an element to copy properties</value>
+  </data>
+  <data name="TransactionPropertiesCopy" xml:space="preserve">
+    <value>Set properties</value>
+  </data>
+  <data name="TransactionTypeCopy" xml:space="preserve">
+    <value>Set type</value>
   </data>
   <data name="UnsopportedConvert" xml:space="preserve">
     <value>Unsoppurted conversion</value>

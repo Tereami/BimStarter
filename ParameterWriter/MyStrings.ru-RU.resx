@@ -126,6 +126,9 @@
   <data name="Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
+  <data name="ErrorFailedToGetHost" xml:space="preserve">
+    <value>Не удалось получить родительский элемент для элемента id</value>
+  </data>
   <data name="ForElements" xml:space="preserve">
     <value> эл-тов</value>
   </data>
@@ -155,6 +158,15 @@
   </data>
   <data name="ScenariosProcessed" xml:space="preserve">
     <value>Обработано сценариев: </value>
+  </data>
+  <data name="TextSelectElementToCopy" xml:space="preserve">
+    <value>Выберите элемент, с которого нужно скопировать свойства</value>
+  </data>
+  <data name="TransactionPropertiesCopy" xml:space="preserve">
+    <value>Копирование свойств</value>
+  </data>
+  <data name="TransactionTypeCopy" xml:space="preserve">
+    <value>Назначение типа</value>
   </data>
   <data name="UnsopportedConvert" xml:space="preserve">
     <value>Не поддерживается преобразование</value>

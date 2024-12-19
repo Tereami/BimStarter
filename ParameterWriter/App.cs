@@ -42,12 +42,20 @@ namespace ParameterWriter
                 $"{projectName}.{commandName}")
                 ) as PushButton;
 
-            string commandName2 = nameof(CommandWriteView);
+            commandName = nameof(CommandWriteView);
             _ = panel.AddItem(new PushButtonData(
-                commandName2,
-                commandName2,
+                commandName,
+                commandName,
                 assemblyPath,
-                $"{projectName}.{commandName2}")
+                $"{projectName}.{commandName}")
+                ) as PushButton;
+
+            commandName = nameof(CommandPropertiesCopy);
+            _ = panel.AddItem(new PushButtonData(
+                commandName,
+                commandName,
+                assemblyPath,
+                $"{projectName}.{commandName}")
                 ) as PushButton;
 
             return Result.Succeeded;

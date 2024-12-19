@@ -198,6 +198,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -222,6 +223,18 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="ParameterWriter_data\Command.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="ParameterWriter_data\CommandPropertiesCopy.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="ParameterWriter_data\CommandPropertiesCopy.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="ParameterWriter_data\CommandPropertiesCopy_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="ParameterWriter_data\CommandPropertiesCopy_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="ParameterWriter_data\CommandWriteView.Russian.txt">
