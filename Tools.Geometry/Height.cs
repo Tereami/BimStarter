@@ -14,12 +14,42 @@ Zuev Aleksandr, 2021, all rigths reserved.*/
 using Autodesk.Revit.DB;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 #endregion
 
-namespace Tools.Model
+namespace Tools.Geometry
 {
-    public static class GeometryUtils
+    public static class Height
     {
+        public static double GetZoneHeigth(List<Curve> lines)
+        {
+            List<XYZ> points = new List<XYZ>();
+            XYZ bottomPoint = lines.First().GetEndPoint(0);
+            XYZ topPoint = lines.First().GetEndPoint(1);
+
+            foreach (Curve curve in lines)
+            {
+                points.Add(curve.GetEndPoint(0));
+                points.Add(curve.GetEndPoint(1));
+            }
+
+            foreach (XYZ point in points)
+            {
+                if (point.Z > topPoint.Z)
+                {
+                    topPoint = point;
+                }
+                if (point.Z < bottomPoint.Z)
+                {
+                    bottomPoint = point;
+                }
+            }
+
+            double heigth = topPoint.Z - bottomPoint.Z;
+            Trace.WriteLine($"Zone height: {heigth * 304.8}");
+            return heigth;
+        }
+
         public static XYZ[] GetMaxMinHeightPoints(List<Solid> solids)
         {
             XYZ maxZpoint = new XYZ(0, 0, -9999999);
@@ -50,42 +80,43 @@ namespace Tools.Model
         }
 
 
-        public static List<Solid> GetSolidsFromElement(Element elem)
+        public static XYZ GetTopPoint(List<XYZ> points)
         {
-            Options opt = new Options();
-            opt.ComputeReferences = true;
-            opt.DetailLevel = ViewDetailLevel.Fine;
-            GeometryElement geoElem = elem.get_Geometry(opt);
-
-            List<Solid> solids = GetSolidsFromElement(geoElem);
-            return solids;
-        }
-
-        public static List<Solid> GetSolidsFromElement(GeometryElement geoElem)
-        {
-            Trace.WriteLine("Get solids from geoelem");
-            List<Solid> solids = new List<Solid>();
-
-            foreach (GeometryObject geoObj in geoElem)
+            XYZ topPoint = points[0];
+            for (int i = 1; i < points.Count; i++)
             {
-                if (geoObj is Solid)
+                XYZ curPoint = points[i];
+                if (curPoint.Z > topPoint.Z)
                 {
-                    Solid solid = geoObj as Solid;
-                    if (solid == null) continue;
-                    if (solid.Volume == 0) continue;
-                    solids.Add(solid);
-                    continue;
-                }
-                if (geoObj is GeometryInstance)
-                {
-                    GeometryInstance geomIns = geoObj as GeometryInstance;
-                    GeometryElement instGeoElement = geomIns.GetInstanceGeometry();
-                    List<Solid> solids2 = GetSolidsFromElement(instGeoElement);
-                    solids.AddRange(solids2);
+                    topPoint = curPoint;
                 }
             }
-            Trace.WriteLine("Solids found: " + solids.Count.ToString());
-            return solids;
+            return topPoint;
         }
+        public static XYZ GetBottomPoint(List<XYZ> points)
+        {
+            XYZ topPoint = points[0];
+            for (int i = 1; i < points.Count; i++)
+            {
+                XYZ curPoint = points[i];
+                if (curPoint.Z < topPoint.Z)
+                {
+                    topPoint = curPoint;
+                }
+            }
+            return topPoint;
+        }
+
+        /// <summary>
+        /// Получает нижнюю точку линии
+        /// </summary>
+        public static XYZ GetBottomPoint(Curve curve)
+        {
+            XYZ p1 = curve.GetEndPoint(0);
+            XYZ p2 = curve.GetEndPoint(1);
+            if (p1.Z < p2.Z) return p1;
+            return p2;
+        }
+
     }
 }

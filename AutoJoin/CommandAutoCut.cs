@@ -55,7 +55,7 @@ namespace AutoJoin
             Element voidElem = doc.GetElement(ids.First());
 
             //получаю список элементов, которые пересекает данный элемент
-            List<Element> elems = Tools.Model.Intersection.GetAllIntersectionElements(doc, voidElem);
+            List<Element> elems = Tools.Geometry.Intersection.GetAllIntersectionElements(doc, voidElem);
             Debug.WriteLine("Intersected elements: " + elems.Count.ToString());
 
             if (elems == null)
@@ -69,7 +69,7 @@ namespace AutoJoin
                 t.Start(MyStrings.TransactionCut);
                 foreach (Element curElem in elems)
                 {
-                    Tools.Model.Intersection.CutElement(doc, curElem, voidElem);
+                    Tools.Geometry.Intersection.CutElement(doc, curElem, voidElem);
                 }
                 t.Commit();
             }

@@ -1,0 +1,3 @@
+﻿Стены
+Фоновое армирование стен при помощи Армирования по площади
+http://bim-starter.com/plugins/areareinforcement/

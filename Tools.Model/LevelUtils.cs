@@ -66,9 +66,9 @@ namespace Tools.Model
             if (levId == ElementId.InvalidElementId)
             {
                 Trace.WriteLine("Try to get level by geometry");
-                List<Solid> solids = GeometryUtils.GetSolidsFromElement(elem);
+                List<Solid> solids = Tools.Geometry.Solids.GetSolidsFromElement(elem);
                 if (solids.Count == 0) return null;
-                XYZ[] maxmin = GeometryUtils.GetMaxMinHeightPoints(solids);
+                XYZ[] maxmin = Tools.Geometry.Height.GetMaxMinHeightPoints(solids);
                 XYZ minPoint = maxmin[1];
                 levId = GetNearestLevel(minPoint, doc);
             }

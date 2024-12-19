@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<ProjectGuid>a421f772-4228-4f74-9109-46cf2b32d1fb</ProjectGuid>
+		<ProjectGuid>713710b4-5106-4434-8fb0-a064373d68c3</ProjectGuid>
 		<Deterministic>False</Deterministic>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
@@ -200,7 +200,4 @@
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
 	</Target>
-	<ItemGroup>
-	  <ProjectReference Include="..\Tools.Geometry\Tools.Geometry.csproj" />
-	</ItemGroup>
 </Project>

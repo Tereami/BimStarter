@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Linq;
 #endregion
 
-namespace Tools.Model
+namespace Tools.Geometry
 {
     public static class Intersection
     {
@@ -70,7 +70,7 @@ namespace Tools.Model
         public static List<XYZ> CheckIntersectCurveAndElement(Curve curve, Element elem)
         {
             GeometryElement geoElem = elem.get_Geometry(new Options());
-            List<Solid> solids = Intersection.GetSolidsOfElement(geoElem);
+            List<Solid> solids = GetSolidsOfElement(geoElem);
             List<XYZ> intersectPoints = new List<XYZ>();
             foreach (Solid sol in solids)
             {

@@ -1,0 +1,3 @@
+﻿Slab rebar
+Put Area rebar in the Slabs and Floors
+http://bim-starter.com/plugins/areareinforcement/

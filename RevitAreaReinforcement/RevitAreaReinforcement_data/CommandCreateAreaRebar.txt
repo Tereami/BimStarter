@@ -1,0 +1,3 @@
+﻿Walls rebar
+Put Area reinforcement in the selected walls
+http://bim-starter.com/plugins/areareinforcement/

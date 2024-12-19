@@ -76,7 +76,7 @@ namespace PilesCoords
 
                     foreach (Element slab in slabs)
                     {
-                        List<XYZ> intersectPoints = Tools.Model.Intersection.CheckIntersectCurveAndElement(slabLine, slab);
+                        List<XYZ> intersectPoints = Tools.Geometry.Intersection.CheckIntersectCurveAndElement(slabLine, slab);
 
                         if (intersectPoints.Count > 0)
                         {
@@ -90,7 +90,7 @@ namespace PilesCoords
                         continue;
                     }
 
-                    XYZ slabBottomPoint = Tools.Model.Boundary.GetBottomPoint(intersectPointsWithAllSlabs);
+                    XYZ slabBottomPoint = Tools.Geometry.Height.GetBottomPoint(intersectPointsWithAllSlabs);
 
                     double cutLength = pileTopPointBeforeCut.Z - slabBottomPoint.Z - (sets.pileDepth / 304.8);
                     Trace.WriteLine("Cut length: " + (cutLength * 304.8).ToString("F2"));

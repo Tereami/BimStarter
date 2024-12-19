@@ -92,7 +92,7 @@ namespace AutoJoin
                         }
 
                         //проверить, пересекаются ли элементы, если не пересекаются - пропустить
-                        bool isIntersects = Tools.Model.Intersection.CheckElementsIsIntersect(doc, elem1, elem2);
+                        bool isIntersects = Tools.Geometry.Intersection.CheckElementsIsIntersect(doc, elem1, elem2);
                         if (!isIntersects)
                         {
                             Debug.WriteLine("Elements dont have intersection");

@@ -1,0 +1,3 @@
+﻿Fix area
+Fix the Handles of the Area Reinforcement that was created by the plugin. Please plug the Shortcuts xml-file from the plugin folder. 
+http://bim-starter.com/plugins/areareinforcement/

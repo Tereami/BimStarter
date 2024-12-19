@@ -1,0 +1,6 @@
+﻿<Shortcuts>
+	<ShortcutItem CommandName="Выбрать по коду" CommandId="ID_SELECT_BY_ID" Shortcuts="VK#мл" Paths="Управление&gt;Сведения" />
+	<ShortcutItem CommandName="Редактировать эскиз; Редактировать границу; Редактировать проекцию; Редактировать траекторию" CommandId="Dialog_Essentials_SketchEdit:Control_Essentials_EditSketch" Shortcuts="HH#рр" Paths="Контекстные вкладки&gt;Режим" />
+	<ShortcutItem CommandName="Вставить:С выравниванием по тому же месту" CommandId="ID_EDIT_PASTE_ALIGNED_SAME_PLACE" Shortcuts="DV#вм" Paths="Изменить&gt;Буфер обмена" />
+	<ShortcutItem CommandName="Выход из режима редактирования" CommandId="ID_FINISH_SKETCH" Shortcuts="DH#вр" Paths="Контекстные вкладки&gt;Режим" />
+</Shortcuts>

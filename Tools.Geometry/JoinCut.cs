@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace Tools.Model
+namespace Tools.Geometry
 {
     public static class JoinCut
     {

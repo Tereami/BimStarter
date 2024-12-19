@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RevitAreaReinforcement</Name>
+    <Assembly>
+      RevitAreaReinforcement.dll
+    </Assembly>
+    <ClientId>2ead14c2-4cd8-46f9-aebb-70334a895e50</ClientId>
+    <FullClassName>RevitAreaReinforcement.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

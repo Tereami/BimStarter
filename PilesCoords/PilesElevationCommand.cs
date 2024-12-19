@@ -70,7 +70,7 @@ namespace PilesCoords
 
                     foreach (Element slab in slabs)
                     {
-                        List<XYZ> intersectPoints = Tools.Model.Intersection.CheckIntersectCurveAndElement(slabLine, slab);
+                        List<XYZ> intersectPoints = Tools.Geometry.Intersection.CheckIntersectCurveAndElement(slabLine, slab);
 
                         if (intersectPoints.Count > 0)
                         {
@@ -78,7 +78,7 @@ namespace PilesCoords
                         }
                     }
 
-                    XYZ slabBottomPoint = Tools.Model.Boundary.GetBottomPoint(intersectPointsWithAllSlabs);
+                    XYZ slabBottomPoint = Tools.Geometry.Height.GetBottomPoint(intersectPointsWithAllSlabs);
                     Trace.WriteLine("SlabBottomPoint Z = " + (slabBottomPoint.Z * 304.8).ToString("F1"));
                     Parameter elevParam = pile.LookupParameter(sets.paramSlabBottomElev);
                     if (elevParam == null)
