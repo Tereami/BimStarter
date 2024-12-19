@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RevitViewFilters</Name>
+    <Assembly>
+      RevitViewFilters.dll
+    </Assembly>
+    <ClientId>8624673c-7c94-40fc-ac6f-2d52825ad2c6</ClientId>
+    <FullClassName>RevitViewFilters.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

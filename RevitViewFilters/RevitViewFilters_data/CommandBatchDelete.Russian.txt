@@ -1,0 +1,3 @@
+﻿Удалить/фильтры
+Пакетное удаления фильтров графики.
+http://bim-starter.com/plugins/viewfilters/

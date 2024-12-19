@@ -1,0 +1,3 @@
+﻿Delete/filters
+Batch delete View filters
+http://bim-starter.com/plugins/viewfilters/

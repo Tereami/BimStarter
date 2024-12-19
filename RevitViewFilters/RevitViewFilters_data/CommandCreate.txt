@@ -1,0 +1,3 @@
+﻿Create/filters
+Batch create View filters by CSV file. Examples are in the plugin folder.
+http://bim-starter.com/plugins/viewfilters/

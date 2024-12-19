@@ -1,0 +1,3 @@
+﻿Wall/hatch
+Highlight walls with different hatches by wall height and type.
+http://bim-starter.com/plugins/wallhatch/

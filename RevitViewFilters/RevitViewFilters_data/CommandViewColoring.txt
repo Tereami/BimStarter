@@ -1,0 +1,3 @@
+﻿Colorize
+Create view filters and colorize elements on the current view by values of selected parameter.
+http://bim-starter.com/plugins/coloring/

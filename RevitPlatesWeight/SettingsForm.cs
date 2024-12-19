@@ -62,6 +62,9 @@ namespace RevitPlatesWeight
 
 
             this.labelPath.Text = xmlpath;
+
+            string ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.Text += " ver." + ver;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
