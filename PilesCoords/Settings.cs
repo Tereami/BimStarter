@@ -53,7 +53,7 @@ namespace PilesCoords
         public bool sortByCutLength_Table2 = true;
         public bool sortBySlabElev_Table2 = false;
 
-        private static string xmlPath = "";
+        //private static string xmlPath = "";
 
 
     }

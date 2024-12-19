@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<ProjectGuid>1183eac0-1a69-49bf-9865-de8cd2978cb1</ProjectGuid>
 		<Deterministic>False</Deterministic>
+		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>

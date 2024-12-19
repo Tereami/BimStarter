@@ -1,0 +1,3 @@
+﻿Settings
+Set parameters and family names names which will be processed by Elevations plugin.
+http://bim-starter.com/plugins/elevation/

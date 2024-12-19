@@ -62,7 +62,12 @@ namespace Tools.Geometry
 
         public static string InchesToStringMillimeters(double inches)
         {
+#if R2017 || R2018 || R2019 || R2020
             double mm = UnitUtils.ConvertFromInternalUnits(inches, DisplayUnitType.DUT_MILLIMETERS);
+#else
+            double mm = UnitUtils.ConvertFromInternalUnits(inches, UnitTypeId.Millimeters);
+#endif
+
             string text = mm.ToString("0.#");
             return text;
         }

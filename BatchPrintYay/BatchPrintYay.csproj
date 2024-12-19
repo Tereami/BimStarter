@@ -249,8 +249,8 @@
 		</When>
 	</Choose>
 	<ItemGroup>
-		<None Update="BatchPrintYay.addin">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		<None Update="BatchPrintYay_data\BatchPrintYay.addin">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 	<ItemGroup>

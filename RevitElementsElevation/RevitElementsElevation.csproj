@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<ProjectGuid>713710b4-5106-4434-8fb0-a064373d68c3</ProjectGuid>
+		<ProjectGuid>c8b3f5b4-bb15-4eb4-9a04-b4691f014197</ProjectGuid>
 		<Deterministic>False</Deterministic>
 		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -195,6 +195,45 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
+	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="MyStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MyStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="MyStrings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="RevitElementsElevation_data\Command.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitElementsElevation_data\Command.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitElementsElevation_data\Command_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitElementsElevation_data\Command_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>

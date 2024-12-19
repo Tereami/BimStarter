@@ -148,7 +148,7 @@ namespace IngradParametrisation
                     }
 
                     //заполняю номер этажа
-                    Level baseLevel = LevelUtils.GetLevelOfElement(elem, doc);
+                    Level baseLevel = LevelUtils.GetLevelOfElement(elem);
                     if (baseLevel != null)
                     {
                         string floorNumber = LevelUtils.GetFloorNumberByLevel(baseLevel, floorTextPosition);
