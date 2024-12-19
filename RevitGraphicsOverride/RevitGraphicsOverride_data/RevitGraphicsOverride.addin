@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RevitGraphicsOverride</Name>
+    <Assembly>
+      RevitGraphicsOverride.dll
+    </Assembly>
+    <ClientId>88a9036c-f1b4-4ac2-9d23-5ad11feb2922</ClientId>
+    <FullClassName>RevitGraphicsOverride.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

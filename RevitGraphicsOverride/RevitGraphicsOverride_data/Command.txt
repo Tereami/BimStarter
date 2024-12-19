@@ -1,0 +1,3 @@
+﻿Overrides
+Find elements with Graphics that was overrided "By element". Recommended to avoid this function and use override "By category" and "By filter".
+http://bim-starter.com/plugins/graphicsoverride/
