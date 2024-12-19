@@ -1,0 +1,3 @@
+﻿Sketches
+Create sketches for the bended rebars as raster images. Please open a rebar sketch schedule and select all rows after and the lauch this plugin. This plugin requires the Sketch Library. Please press F1 for the more information.
+http://bim-starter.com/plugins/rebarsketch/

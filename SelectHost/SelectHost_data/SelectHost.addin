@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>SelectHost</Name>
+    <Assembly>
+      SelectHost.dll
+    </Assembly>
+    <ClientId>dd581ed6-e8d8-4368-9f86-943087059b9a</ClientId>
+    <FullClassName>SelectHost.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

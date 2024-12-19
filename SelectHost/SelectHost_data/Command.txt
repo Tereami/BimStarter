@@ -1,0 +1,3 @@
+﻿Find/host
+Find the host element for selected element, for example the host wall for the Door, tha parent family for the embed family, etc.
+http://bim-starter.com/plugins/gethost/

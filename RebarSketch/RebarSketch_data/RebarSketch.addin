@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RebarSketch</Name>
+    <Assembly>
+      RebarSketch.dll
+    </Assembly>
+    <ClientId>db14a557-6fde-4159-b0e0-a4c9a172d29a</ClientId>
+    <FullClassName>RebarSketch.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
