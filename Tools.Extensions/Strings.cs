@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Tools.Extensions
 {
@@ -21,6 +22,11 @@ namespace Tools.Extensions
             return keysAndRange;
         }
 
+        /// <summary>
+        /// Возвращает строку, где подряд идущие числа из массива заменены на прочерк, и перечислены через запятую
+        /// </summary>
+        /// <param name="marks"></param>
+        /// <returns></returns>
         public static string GetMarksRange(List<int> marks)
         {
             if (marks.Count == 1) return marks[0].ToString();
@@ -45,6 +51,22 @@ namespace Tools.Extensions
             }
             range += marks[marks.Count - 1];
             Trace.WriteLine("Marks range: " + range);
+            return range;
+        }
+
+        /// <summary>
+        /// Возвращает строку, где подряд идущие числа из массива заменены на прочерк, и перечислены через запятую
+        /// </summary>
+        /// <param name="marksString"></param>
+        /// <returns></returns>
+        public static string GetMarksRange(List<string> marksString)
+        {
+            List<int> marks = marksString
+                .Select(i => System.Convert.ToInt32(System.Text.RegularExpressions.Regex.Replace(i, @"[^\d]+", "")))
+                .ToList();
+
+            string range = GetMarksRange(marks);
+
             return range;
         }
     }

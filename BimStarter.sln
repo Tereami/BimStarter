@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoJoin", "AutoJoin\AutoJo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autonumber", "Autonumber\Autonumber.csproj", "{1065D870-4543-4683-8A0E-FC2E1B4A4201}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollapseRebarSchedule", "CollapseRebarSchedule\CollapseRebarSchedule.csproj", "{CA08AF92-0B7B-444F-A53C-354718E35B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchedulesTools", "CollapseRebarSchedule\SchedulesTools.csproj", "{CA08AF92-0B7B-444F-A53C-354718E35B2A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColumnsParametrisation", "ColumnsParametrisation\ColumnsParametrisation.csproj", "{9ED1CB56-C65E-4F96-B34B-5CB01361227F}"
 EndProject

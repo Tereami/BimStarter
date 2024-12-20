@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CollapseRebarSchedule {
+namespace SchedulesTools {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CollapseRebarSchedule {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CollapseRebarSchedule.MyStrings", typeof(MyStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchedulesTools.MyStrings", typeof(MyStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,6 +70,24 @@ namespace CollapseRebarSchedule {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rows minimum count is 3 pcs..
+        /// </summary>
+        public static string Error3Row {
+            get {
+                return ResourceManager.GetString("Error3Row", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your schedule is not a Schedules table. Please use WEANDREVIT template..
+        /// </summary>
+        public static string ErrorIncorrectSchedule {
+            get {
+                return ResourceManager.GetString("ErrorIncorrectSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The border column not found. This field should divide hidden calculate fields from visible fields. The column&apos;s name must begins with the symbol &quot;=&quot;.
         /// </summary>
         public static string ErrorNoEndColumn {
@@ -79,11 +97,83 @@ namespace CollapseRebarSchedule {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A schedules table is not placed on a first sheet..
+        /// </summary>
+        public static string ErrorNoScheduleOnFirstSheet {
+            get {
+                return ResourceManager.GetString("ErrorNoScheduleOnFirstSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedules are not found! Please set Name for schedules as following: STR_Slab_*Slab rebar schedule*. A text bettwen * symbols will be shown in a schedules table..
+        /// </summary>
+        public static string ErrorNoSchedulesFound {
+            get {
+                return ResourceManager.GetString("ErrorNoSchedulesFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please open or select on a sheet your Rebar calculation schedule.
         /// </summary>
         public static string ErrorNoSelectedSchedule {
             get {
                 return ResourceManager.GetString("ErrorNoSelectedSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A sheet complect parameter is empty.
+        /// </summary>
+        public static string ErrorNoSheetComplect {
+            get {
+                return ResourceManager.GetString("ErrorNoSheetComplect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The schedules table is placed on several sheets! Failes to define a sheet set.
+        /// </summary>
+        public static string ErrorTwoSheets {
+            get {
+                return ResourceManager.GetString("ErrorTwoSheets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please open a schedules table or select it on a sheet.
+        /// </summary>
+        public static string MsgSelectOrOpen {
+            get {
+                return ResourceManager.GetString("MsgSelectOrOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a schedules table on a sheet.
+        /// </summary>
+        public static string MsgSelectSchedule {
+            get {
+                return ResourceManager.GetString("MsgSelectSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADSK_SheetNumber.
+        /// </summary>
+        public static string ParameterSheetNumber {
+            get {
+                return ResourceManager.GetString("ParameterSheetNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mng.SheetComplect.
+        /// </summary>
+        public static string ParameterSheetSet {
+            get {
+                return ResourceManager.GetString("ParameterSheetSet", resourceCulture);
             }
         }
         

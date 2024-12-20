@@ -120,11 +120,41 @@
   <data name="Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
+  <data name="Error3Row" xml:space="preserve">
+    <value>Строк должно быть не менее 3 штук.</value>
+  </data>
+  <data name="ErrorIncorrectSchedule" xml:space="preserve">
+    <value>Активная спецификация - не ведомость спецификаций.</value>
+  </data>
   <data name="ErrorNoEndColumn" xml:space="preserve">
     <value>Не найден столбец, отделяющий скрытые расчетные столбы. Имя столбца должно начинаться с символа ="</value>
   </data>
+  <data name="ErrorNoScheduleOnFirstSheet" xml:space="preserve">
+    <value>Ведомость спецификаций не размещена на листе общих данных</value>
+  </data>
+  <data name="ErrorNoSchedulesFound" xml:space="preserve">
+    <value>Подходящие спецификаци не найдены! Задайте имя нужных спецификаций с использованием символа * по аналогу: КЖ0_Детали_*Спецификация конструкций*</value>
+  </data>
   <data name="ErrorNoSelectedSchedule" xml:space="preserve">
     <value>Откройте или выделите на листе Ведомость расхода стали</value>
+  </data>
+  <data name="ErrorNoSheetComplect" xml:space="preserve">
+    <value>Не задан Комплект у листа, на котором расположена Ведомость спецификаций</value>
+  </data>
+  <data name="ErrorTwoSheets" xml:space="preserve">
+    <value>Ведомость размещена на нескольких листах! Невозможно определить принадлежность к комплекту</value>
+  </data>
+  <data name="MsgSelectOrOpen" xml:space="preserve">
+    <value>Перед запуском плагина откройте ведомость спецификаций или выберите её на листе общих данных.</value>
+  </data>
+  <data name="MsgSelectSchedule" xml:space="preserve">
+    <value>Выберите ведомость спецификаций на листе</value>
+  </data>
+  <data name="ParameterSheetNumber" xml:space="preserve">
+    <value>SHT_Номер листа</value>
+  </data>
+  <data name="ParameterSheetSet" xml:space="preserve">
+    <value>Орг.КомплектЧертежей</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Отчет</value>

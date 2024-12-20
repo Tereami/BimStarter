@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
   <AddIn Type="Application">    
-    <Name>CollapseRebarSchedule</Name>
+    <Name>SchedulesTools</Name>
     <Assembly>
-      CollapseRebarSchedule.dll
-    </Assembly>
+		SchedulesTools.dll
+	</Assembly>
     <ClientId>ca08af92-0b7b-444f-a53c-354718e35b2a</ClientId>
-    <FullClassName>CollapseRebarSchedule.App</FullClassName>
+    <FullClassName>SchedulesTools.App</FullClassName>
     <VendorId>BIMSTARTER</VendorId>
     <VendorDescription>https://bim-starter.com</VendorDescription>
   </AddIn>

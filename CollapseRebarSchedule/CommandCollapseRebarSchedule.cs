@@ -19,10 +19,10 @@ using System.Linq;
 #endregion
 
 
-namespace CollapseRebarSchedule
+namespace SchedulesTools
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class Command : IExternalCommand
+    public class CommandCollapseRebarSchedule : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

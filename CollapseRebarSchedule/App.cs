@@ -11,14 +11,12 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2024, all rights reserved.*/
 #endregion
 #region Usings
-using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using System;
 #endregion
 
 [assembly: System.Reflection.AssemblyVersion("1.0.*")]
 
-namespace CollapseRebarSchedule
+namespace SchedulesTools
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     [Autodesk.Revit.Attributes.Regeneration(Autodesk.Revit.Attributes.RegenerationOption.Manual)]
@@ -34,12 +32,14 @@ namespace CollapseRebarSchedule
             try { application.CreateRibbonTab(tabName); }
             catch { }
 
-            RibbonPanel panel = application.CreateRibbonPanel(tabName, "CollapseRebarSchedule panel");
-            PushButton btn = panel.AddItem(new PushButtonData(
-                "CollapseRebarSchedule",
-                "CollapseRebarSchedule",
+            string projectName = nameof(SchedulesTools);
+            RibbonPanel panel = application.CreateRibbonPanel(tabName, $"{projectName} panel");
+            string commandName = nameof(CommandCollapseRebarSchedule);
+            _ = panel.AddItem(new PushButtonData(
+                commandName,
+                commandName,
                 assemblyPath,
-                "CollapseRebarSchedule.Command")
+                $"{projectName}.{commandName}")
                 ) as PushButton;
 
             return Result.Succeeded;

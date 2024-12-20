@@ -117,61 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkBoxGetLinkFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 17</value>
   </data>
-  <data name="Error3Row" xml:space="preserve">
-    <value>Rows minimum count is 3 pcs.</value>
+  <data name="checkBoxGetLinkFiles.Text" xml:space="preserve">
+    <value>Учитывать связанные файлы</value>
   </data>
-  <data name="ErrorIncorrectSchedule" xml:space="preserve">
-    <value>Your schedule is not a Schedules table. Please use WEANDREVIT template.</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 13</value>
   </data>
-  <data name="ErrorNoEndColumn" xml:space="preserve">
-    <value>The border column not found. This field should divide hidden calculate fields from visible fields. The column's name must begins with the symbol "="</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Параметр комплекта:</value>
   </data>
-  <data name="ErrorNoScheduleOnFirstSheet" xml:space="preserve">
-    <value>A schedules table is not placed on a first sheet.</value>
+  <data name="radioButtonUseComplects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 17</value>
   </data>
-  <data name="ErrorNoSchedulesFound" xml:space="preserve">
-    <value>Schedules are not found! Please set Name for schedules as following: STR_Slab_*Slab rebar schedule*. A text bettwen * symbols will be shown in a schedules table.</value>
+  <data name="radioButtonUseComplects.Text" xml:space="preserve">
+    <value>Только в текущем комплекте</value>
   </data>
-  <data name="ErrorNoSelectedSchedule" xml:space="preserve">
-    <value>Please open or select on a sheet your Rebar calculation schedule</value>
+  <data name="radioAllProject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 17</value>
   </data>
-  <data name="ErrorNoSheetComplect" xml:space="preserve">
-    <value>A sheet complect parameter is empty</value>
+  <data name="radioAllProject.Text" xml:space="preserve">
+    <value>Во всём файле</value>
   </data>
-  <data name="ErrorTwoSheets" xml:space="preserve">
-    <value>The schedules table is placed on several sheets! Failes to define a sheet set</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Поиск листов</value>
   </data>
-  <data name="MsgSelectOrOpen" xml:space="preserve">
-    <value>Please open a schedules table or select it on a sheet</value>
+  <data name="radioButtonCustomSheetNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 17</value>
   </data>
-  <data name="MsgSelectSchedule" xml:space="preserve">
-    <value>Please select a schedules table on a sheet</value>
+  <data name="radioButtonCustomSheetNumber.Text" xml:space="preserve">
+    <value>Пользовательский параметр:</value>
   </data>
-  <data name="ParameterSheetNumber" xml:space="preserve">
-    <value>ADSK_SheetNumber</value>
+  <data name="radioButtonUseStandardSheetNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 17</value>
   </data>
-  <data name="ParameterSheetSet" xml:space="preserve">
-    <value>Mng.SheetComplect</value>
+  <data name="radioButtonUseStandardSheetNumber.Text" xml:space="preserve">
+    <value>Стандартный номер листа</value>
   </data>
-  <data name="Result" xml:space="preserve">
-    <value>Result</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Номер листа</value>
   </data>
-  <data name="ResultMessage" xml:space="preserve">
-    <value>Done! Fields found</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 13</value>
   </data>
-  <data name="ResultMessageHidden" xml:space="preserve">
-    <value>Hide fields</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Коэфф. увеличения высоты строки:</value>
   </data>
-  <data name="ResultMessageOpened" xml:space="preserve">
-    <value>Opened fields</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 13</value>
   </data>
-  <data name="ResultNoFields" xml:space="preserve">
-    <value>No hidden or opened fields. No schedule update required.</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Высота строки, мм:</value>
   </data>
-  <data name="TransactionName" xml:space="preserve">
-    <value>Collapse rebar schedule</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>_Символ новой строки:</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Перенос строки при символах более:</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Размеры ячеек</value>
+  </data>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
 </root>

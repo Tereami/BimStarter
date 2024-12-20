@@ -197,7 +197,9 @@
 	</Choose>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -218,16 +220,40 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="CollapseRebarSchedule_data\Command.Russian.txt">
+	  <None Update="SchedulesTools_data\CommandCollapseRebarSchedule.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="CollapseRebarSchedule_data\Command.txt">
+	  <None Update="SchedulesTools_data\CommandCollapseRebarSchedule.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="CollapseRebarSchedule_data\Command_large.png">
+	  <None Update="SchedulesTools_data\CommandCollapseRebarSchedule_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="CollapseRebarSchedule_data\Command_small.png">
+	  <None Update="SchedulesTools_data\CommandCollapseRebarSchedule_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandCreateTable.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandCreateTable.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandCreateTable_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandCreateTable_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandRevisionClouds.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandRevisionClouds.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandRevisionClouds_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="SchedulesTools_data\CommandRevisionClouds_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
