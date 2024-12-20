@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<ProjectGuid>42a47291-b848-4158-9dc7-8d3d94ae2aa3</ProjectGuid>
 		<Deterministic>False</Deterministic>
+		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-		<UseWindowsForms>true</UseWindowsForms>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 			None
 		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -83,32 +84,7 @@
 		<DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
 	</PropertyGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="FormLog.cs" />
-	  <Compile Update="MyStrings.ru-RU.Designer.cs">
-	    <DependentUpon>MyStrings.ru-RU.resx</DependentUpon>
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	  </Compile>
-	  <Compile Update="MyStrings.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>MyStrings.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
-	    <LastGenOutput>MyStrings.ru-RU.Designer.cs</LastGenOutput>
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="MyStrings.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	</ItemGroup>
+
 	<Choose>
 		<When Condition=" '$(Configuration)'=='R2017' ">
 			<ItemGroup>
@@ -118,10 +94,6 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2017\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -136,10 +108,6 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2018\AdWindows.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2019' ">
@@ -150,10 +118,6 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2019\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -168,10 +132,6 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2020\AdWindows.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2021' ">
@@ -182,10 +142,6 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIUI.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2021\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -200,10 +156,6 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2022\AdWindows.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2023' ">
@@ -214,10 +166,6 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2023\AdWindows.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 			</ItemGroup>
@@ -232,10 +180,6 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2024\AdWindows.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
 			</ItemGroup>
 		</When>
 		<When Condition=" '$(Configuration)'=='R2025' ">
@@ -248,17 +192,53 @@
 					<HintPath>C:\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
-				<Reference Include="AdWindows">
-					<HintPath>C:\Program Files\Autodesk\Revit 2025\AdWindows.dll</HintPath>
-					<Private>False</Private>
-				</Reference>
 			</ItemGroup>
 		</When>
 	</Choose>
+
+	<ItemGroup>
+	  <Compile Remove="Workset\**" />
+	  <EmbeddedResource Remove="Workset\**" />
+	  <None Remove="Workset\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="RevitWorksets_data\Command.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitWorksets_data\Command.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitWorksets_data\Command_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitWorksets_data\Command_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
+	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="MyStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MyStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="MyStrings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-	  <Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
+		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
 	</Target>
 </Project>

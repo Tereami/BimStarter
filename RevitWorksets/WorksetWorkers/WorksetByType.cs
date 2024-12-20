@@ -10,51 +10,41 @@ as long as you credit the author by linking back and license your new creations 
 This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
-using Autodesk.Revit.DB;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
-namespace Tools.Forms
+namespace RevitWorksets.WorksetWorkers
 {
-    public class RevitCategory
+    [Serializable]
+    public class WorksetByType : WorksetBy
     {
-        public BuiltInCategory InternalCategory { get; set; }
+        public List<string> TypeNames;
 
-        public string DisplayName { get; set; }
-
-        public RevitCategory()
+        [DisplayName("Prefix")]
+        public string TypesText
         {
-        }
-
-        public override string ToString()
-        {
-            return DisplayName;
-        }
-
-        public static List<RevitCategory> LoadAllCategories(Document doc, Predicate<Category> filter)
-        {
-            List<RevitCategory> cats = new List<RevitCategory>();
-            foreach (Category cat in doc.Settings.Categories)
+            get
             {
-                //if (cat.CategoryType == CategoryType.Model || (cat.CategoryType == CategoryType.Annotation && cat.AllowsBoundParameters))
-
-                if (filter(cat))
-                {
-                    string name = cat.Name;
-                    if (string.IsNullOrEmpty(name)) continue;
-
-                    BuiltInCategory bic = (BuiltInCategory)cat.Id.GetValue();
-
-
-
-                    RevitCategory rc = new RevitCategory { DisplayName = name, InternalCategory = bic };
-                    cats.Add(rc);
-                }
+                if (TypeNames == null || TypeNames.Count == 0) return "None";
+                string cats = string.Join(" ", TypeNames);
+                return cats;
             }
+        }
 
-            cats = cats.OrderBy(i => i.DisplayName).ToList();
-            return cats;
+        public WorksetByType()
+        {
+
+        }
+
+        public static BindingList<WorksetByType> GetDefault()
+        {
+            BindingList<WorksetByType> list = new BindingList<WorksetByType>
+            {
+                new WorksetByType { WorksetName = MyStrings.DefaultWorksetArch, TypeNames = new List<string> { "100_", "101_", "102_", "103_" } },
+                new WorksetByType { WorksetName = MyStrings.DefaultWorksetMep, TypeNames = new List<string> { "40", "50", "60", "70", "80", "90" } }
+            };
+            return list;
         }
     }
 }

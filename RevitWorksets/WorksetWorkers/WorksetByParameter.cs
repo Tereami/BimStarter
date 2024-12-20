@@ -10,28 +10,16 @@ as long as you credit the author by linking back and license your new creations 
 This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
-#region Usings
 using System;
-#endregion
 
-namespace RevitElementsElevation
+namespace RevitWorksets.WorksetWorkers
 {
     [Serializable]
-    public class Config
+    public class WorksetByParameter
     {
-        public string paramBaseLevel = MyStrings.ParameterBaseLevelElev;
-        public string paramElevOnLevel = MyStrings.ParameterElevFromLevel;
+        public string ParameterName;
 
-        public bool useWallAndColumns = true;
-
-        public string paramTopElevName = MyStrings.ParameterTopElev;
-        public string paramBottomElevName = MyStrings.ParameterBottomElev;
-
-        public bool elevIsCurrency = false;
-
-        //private static string configPath;
-
-        public Config()
+        public WorksetByParameter()
         {
 
         }

@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>820, 805</value>
+  </data>
+  <data name="buttonOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>901, 805</value>
+  </data>
+  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 805</value>
+  </data>
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 23</value>
+  </data>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Сохранить в файл</value>
+  </data>
+  <data name="buttonLoad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 805</value>
+  </data>
+  <data name="buttonLoad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 23</value>
+  </data>
+  <data name="buttonLoad.Text" xml:space="preserve">
+    <value>Загрузить из файла</value>
+  </data>
+  <data name="labelHelp1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 133</value>
+  </data>
+  <data name="labelHelp1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 37</value>
+  </data>
+  <data name="labelHelp1.Text" xml:space="preserve">
+    <value>← щелкните по пустой строке, чтобы добавить</value>
+  </data>
+  <data name="dataGridViewCategories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 44</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dataGridViewCategories.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="dataGridViewCategories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 300</value>
+  </data>
+  <data name="checkBoxEnabledByCategory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnabledByCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnabledByCategory.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 337</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>1. Рабочий набор по категории</value>
+  </data>
+  <data name="labelHelp2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 108</value>
+  </data>
+  <data name="labelHelp2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 37</value>
+  </data>
+  <data name="labelHelp2.Text" xml:space="preserve">
+    <value>← удалить строку - щелкнуть по первой ячейке и Delete</value>
+  </data>
+  <data name="dataGridViewFamilies.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 44</value>
+  </data>
+  <data name="dataGridViewFamilies.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="dataGridViewFamilies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>502, 392</value>
+  </data>
+  <data name="checkBoxEnableByFamilyName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnableByFamilyName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnableByFamilyName.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 355</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 444</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>2. Рабочий набор по имени семейства</value>
+  </data>
+  <data name="labelHelp6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 744</value>
+  </data>
+  <data name="labelHelp6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>461, 56</value>
+  </data>
+  <data name="labelHelp6.Text" xml:space="preserve">
+    <value>↓ настройки сохраняются автоматически при нажатии ОК. Этими кнопками можно создать разные файлы настроек, либо использовать единый файл, созданный централизованно. Путь к последнему использованному файлу запоминается. Можно пересохранить из xml файла, созданного в старой версии плагина.</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 72</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>465, 36</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Элементы будут помещены в рабочий набор, имя которого указано в этом параметре. Параметр может быть указан в Типе, формулой в загружаемом семействе и т.д.</value>
+  </data>
+  <data name="textBoxWorksetNameParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 44</value>
+  </data>
+  <data name="textBoxWorksetNameParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 44</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Имя параметра:</value>
+  </data>
+  <data name="checkBoxEnabledByParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnabledByParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnabledByParameter.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 355</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 113</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>4. Рабочий набор по параметру</value>
+  </data>
+  <data name="buttonHelp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>982, 805</value>
+  </data>
+  <data name="buttonHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonHelp.Text" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="labelHelp5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 170</value>
+  </data>
+  <data name="labelHelp5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 23</value>
+  </data>
+  <data name="labelHelp5.Text" xml:space="preserve">
+    <value>↓ можно потренироваться здесь</value>
+  </data>
+  <data name="labelHelp4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>222, 0</value>
+  </data>
+  <data name="labelHelp4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 89</value>
+  </data>
+  <data name="labelHelp4.Text" xml:space="preserve">
+    <value>_← если имена связанных файлов названы по определенному правилу (например, "Индекс_Раздел_ИмяПроекта", то можно не генерировать отдельный рабочий набор для каждого файла, а, например, закинуть все связи в рабочий набор по шифру раздела: разрезать по символу "_".</value>
+  </data>
+  <data name="labelLinkTestResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 195</value>
+  </data>
+  <data name="labelLinkTestResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 20</value>
+  </data>
+  <data name="numericLinkIgnoreLastChars.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 119</value>
+  </data>
+  <data name="numericLinkIgnoreLastChars.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 122</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Отбросить в конце:</value>
+  </data>
+  <data name="numericLinkIgnoreFirstChars.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 93</value>
+  </data>
+  <data name="numericLinkIgnoreFirstChars.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 96</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Отбросить в начале:</value>
+  </data>
+  <data name="numericLinkPartNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 67</value>
+  </data>
+  <data name="numericLinkPartNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 70</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Номер части:</value>
+  </data>
+  <data name="textBoxLinkTestFilename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 195</value>
+  </data>
+  <data name="textBoxLinkTestFilename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="textBoxLinkTestFilename.Text" xml:space="preserve">
+    <value>0123_КР.П_Жилой комплекс</value>
+  </data>
+  <data name="textBoxLinkPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 145</value>
+  </data>
+  <data name="textBoxLinkPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 198</value>
+  </data>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 13</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 174</value>
+  </data>
+  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Проверка:</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 148</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Префикс имени набора:</value>
+  </data>
+  <data name="textBoxLinkSeparator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 41</value>
+  </data>
+  <data name="textBoxLinkSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 44</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Разделитель имени:</value>
+  </data>
+  <data name="checkBoxEnabledForLinkedFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnabledForLinkedFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnabledForLinkedFiles.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 474</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 235</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>5. Рабочий набор для связанных файлов</value>
+  </data>
+  <data name="textBoxDwgWorksetName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 44</value>
+  </data>
+  <data name="textBoxDwgWorksetName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 44</value>
+  </data>
+  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 13</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Имя рабочего набора:</value>
+  </data>
+  <data name="checkBoxEnabledForDwgLinks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnabledForDwgLinks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnabledForDwgLinks.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 715</value>
+  </data>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 84</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>6. Рабочий набор для DWG/DXF связей</value>
+  </data>
+  <data name="dataGridViewTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 44</value>
+  </data>
+  <data name="dataGridViewTypes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="dataGridViewTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 300</value>
+  </data>
+  <data name="checkBoxEnableByType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="checkBoxEnableByType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="checkBoxEnableByType.Text" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 12</value>
+  </data>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 337</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>3. Рабочий набор по имени типа</value>
+  </data>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 831</value>
+  </data>
+  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1069, 22</value>
+  </data>
+  <data name="labelHelp3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>716, 6</value>
+  </data>
+  <data name="labelHelp3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 49</value>
+  </data>
+  <data name="labelHelp3.Text" xml:space="preserve">
+    <value>← рабочие наборы применяются последовательно: Категория - Семейство - Тип и так далее. Последующее правило имеет больший приоритет</value>
+  </data>
+  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 805</value>
+  </data>
+  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 23</value>
+  </data>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Сбросить настройки</value>
+  </data>
+  <data name="labelHelp0.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 246</value>
+  </data>
+  <data name="labelHelp0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 85</value>
+  </data>
+  <data name="labelHelp0.Text" xml:space="preserve">
+    <value>Подсказки отображаются только при первом  запуске. Чтобы скрыть, щелкните по любой подсказке!</value>
+  </data>
+  <data name="checkBoxNoEmptyWorksets.Location" type="System.Drawing.Point, System.Drawing">
+    <value>538, 808</value>
+  </data>
+  <data name="checkBoxNoEmptyWorksets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 17</value>
+  </data>
+  <data name="checkBoxNoEmptyWorksets.Text" xml:space="preserve">
+    <value>Не создавать пустые рабочие наборы</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1069, 853</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1085, 1080</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1085, 680</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bim-Starter Рабочие наборы</value>
+  </data>
+</root>

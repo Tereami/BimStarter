@@ -10,30 +10,27 @@ as long as you credit the author by linking back and license your new creations 
 This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
-#region Usings
-using System;
-#endregion
+using Autodesk.Revit.DB;
+using System.Collections.Generic;
 
-namespace RevitElementsElevation
+namespace RevitWorksets.WorksetWorkers
 {
-    [Serializable]
-    public class Config
+    public class WorksetElementsStorage
     {
-        public string paramBaseLevel = MyStrings.ParameterBaseLevelElev;
-        public string paramElevOnLevel = MyStrings.ParameterElevFromLevel;
+        public string Name { get; set; } = string.Empty;
 
-        public bool useWallAndColumns = true;
+        public List<Element> Elements { get; set; } = new List<Element>();
 
-        public string paramTopElevName = MyStrings.ParameterTopElev;
-        public string paramBottomElevName = MyStrings.ParameterBottomElev;
-
-        public bool elevIsCurrency = false;
-
-        //private static string configPath;
-
-        public Config()
+        public WorksetElementsStorage(string name, List<Element> elements)
         {
+            Name = name;
+            Elements = elements;
+        }
 
+        public WorksetElementsStorage(string name, Element elem)
+        {
+            Name = name;
+            Elements = new List<Element> { elem };
         }
     }
 }
