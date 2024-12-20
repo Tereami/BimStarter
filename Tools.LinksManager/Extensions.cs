@@ -1,4 +1,6 @@
 ﻿using Autodesk.Revit.DB;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Tools.LinksManager
 {
@@ -16,5 +18,30 @@ namespace Tools.LinksManager
             return elem.Id.Value;
         }
 #endif
+
+
+        public static List<RevitLinkInstance> DeleteDuplicates(List<RevitLinkInstance> links)
+        {
+            HashSet<string> names = new HashSet<string>();
+            List<RevitLinkInstance> newLinks = new List<RevitLinkInstance>();
+
+            foreach (RevitLinkInstance rli in links)
+            {
+                string docName = GetDocumentTitleFromLinkInstance(rli);
+                if (names.Contains(docName)) continue;
+
+                names.Add(docName);
+                newLinks.Add(rli);
+            }
+
+            return newLinks;
+        }
+
+
+        public static string GetDocumentTitleFromLinkInstance(RevitLinkInstance rli)
+        {
+            string docName = rli.Name.Split(':').First();
+            return docName;
+        }
     }
 }

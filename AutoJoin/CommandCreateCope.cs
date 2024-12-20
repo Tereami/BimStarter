@@ -58,8 +58,8 @@ namespace AutoJoinCut
 
                         try
                         {
-                            bool check = Tools.Geometry.Intersection.CheckElementsIsIntersect(doc, f1, f2);
-                            if (check == false) continue;
+                            var check = Tools.Geometry.Intersection.CheckElementsIntersection(doc, f1, f2);
+                            if (check != Tools.Geometry.Intersection.MyIntersectionResult.Intersection) continue;
 
                             StructuralInstanceUsage su1 = f1.StructuralUsage;
 

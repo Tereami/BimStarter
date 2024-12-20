@@ -95,7 +95,7 @@ namespace Tools.Geometry
         /// <summary>
         /// Проверить, содержит ли данный элемент объемную 3D-геометрию
         /// </summary>
-        public static bool ContainsSolids(GeometryElement geoElem)
+        private static bool ContainsSolids(GeometryElement geoElem)
         {
             if (geoElem == null) return false;
 
@@ -128,5 +128,7 @@ namespace Tools.Geometry
 
             return curves;
         }
+
+
     }
 }

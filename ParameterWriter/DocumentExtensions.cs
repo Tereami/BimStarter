@@ -41,25 +41,7 @@ namespace ParameterWriter
             return views;
         }
 
-        public static List<Element> GetElementOnView(this View v)
-        {
-            Document doc = v.Document;
-            FilteredElementCollector col = new FilteredElementCollector(doc, v.Id)
-                .WhereElementIsNotElementType();
 
-            List<Element> elems = new List<Element>();
-            foreach (Element elem in col)
-            {
-                if (elem.Category == null)
-                    continue;
-                ElementId camerasCategoryId = new ElementId(BuiltInCategory.OST_Cameras);
-                if (elem.Category.Id == camerasCategoryId)
-                    continue;
-
-                elems.Add(elem);
-            }
-            return elems;
-        }
 
         public static Dictionary<long, Dictionary<string, string>> GetElementParametersByViews(this Document doc, List<View> views)
         {
@@ -68,7 +50,7 @@ namespace ParameterWriter
 
             foreach (View curView in views)
             {
-                List<Element> viewCol = curView.GetElementOnView();
+                List<Element> viewCol = Tools.Model.ViewUtils.GetAllElementsAtView(curView);
 
                 string viewName = curView.Name;
                 string splitName = curView.Name.Split('#').Last();

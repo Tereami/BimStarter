@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	<Deterministic>False</Deterministic>
-	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-	<UseWindowsForms>true</UseWindowsForms>
-	<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-		None
-	</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-	<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
-	<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2017|AnyCPU' ">
+	<PropertyGroup>
+		<ProjectGuid>01c035d6-498a-4486-8fd6-0a02739364a0</ProjectGuid>
+		<Deterministic>False</Deterministic>
+		<UseWindowsForms>true</UseWindowsForms>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+			None
+		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
+		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2017|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
 		<TargetFramework>net46</TargetFramework>
@@ -83,15 +84,7 @@
 		<DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2025</AssemblyName>
 	</PropertyGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
-	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="FormSelectLinks.cs">
-	    <SubType>Form</SubType>
-	  </Compile>
-	</ItemGroup>
+
 	<Choose>
 		<When Condition=" '$(Configuration)'=='R2017' ">
 			<ItemGroup>
@@ -202,6 +195,27 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Geometry\Tools.Geometry.csproj" />
+	  <ProjectReference Include="..\Tools.LinksManager\Tools.LinksManager.csproj" />
+	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="RebarParametrisation_data\Command.Russian.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RebarParametrisation_data\Command.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RebarParametrisation_data\Command_large.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RebarParametrisation_data\Command_small.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>

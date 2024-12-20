@@ -92,8 +92,8 @@ namespace AutoJoinCut
                         }
 
                         //проверить, пересекаются ли элементы, если не пересекаются - пропустить
-                        bool isIntersects = Tools.Geometry.Intersection.CheckElementsIsIntersect(doc, elem1, elem2);
-                        if (!isIntersects)
+                        var intersectionResult = Tools.Geometry.Intersection.CheckElementsIntersection(doc, elem1, elem2);
+                        if (intersectionResult != Tools.Geometry.Intersection.MyIntersectionResult.Intersection)
                         {
                             Debug.WriteLine("Elements dont have intersection");
                             continue;

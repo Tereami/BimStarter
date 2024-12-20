@@ -22,47 +22,106 @@ namespace Tools.Geometry
 {
     public static class Intersection
     {
-        ///Проверить, пересекаются ли эти два элемента
-        public static bool CheckElementsIsIntersect(Document doc, Element elem1, Element elem2)
+        public enum MyIntersectionResult { NoIntersection, Touching, Intersection, Incorrect }
+
+        /// <summary>
+        /// Проверить, пересекаются ли эти два элемента. Решение через объем пересекаемых солидов
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="elem1"></param>
+        /// <param name="elem2"></param>
+        /// <param name="transformSecondElementToFirst"></param>
+        /// <returns></returns>
+        public static MyIntersectionResult CheckElementsIntersection(Document doc, Element elem1, Element elem2, Transform transformSecondElementToFirst = null)
         {
             GeometryElement gelem1 = elem1.get_Geometry(new Options());
             GeometryElement gelem2 = elem2.get_Geometry(new Options());
 
-            bool check = false;
-
-            if (gelem1 == null || gelem2 == null)
-                return false;
-
-
             List<Solid> solids1 = GetSolidsOfElement(gelem1);
             List<Solid> solids2 = GetSolidsOfElement(gelem2);
 
-            foreach (Solid solid1 in solids1)
+            for (int i = 0; i < solids1.Count; i++)
             {
-
-                foreach (Solid solid2 in solids2)
+                Solid solid1 = solids1[i];
+                for (int j = 0; j < solids2.Count; j++)
                 {
-                    List<Curve> curves2 = GetAllCurves(solid2);
-
-                    foreach (Face face1 in solid1.Faces)
+                    Solid solid2 = solids2[j];
+                    if (transformSecondElementToFirst != null && transformSecondElementToFirst.IsIdentity == false)
                     {
-                        foreach (Curve curve2 in curves2)
-                        {
-                            //Solid intSolid = null;
-                            //intSolid = BooleanOperationsUtils.ExecuteBooleanOperation(solid1, solid2, BooleanOperationsType.Intersect);
-
-                            SetComparisonResult result = face1.Intersect(curve2);
-                            if (result == SetComparisonResult.Overlap)
-                            {
-                                check = true;
-                                return check;
-                            }
-                        }
+                        solid2 = SolidUtils.CreateTransformed(solid2, transformSecondElementToFirst);
                     }
+
+                    bool check = false;
+                    try
+                    {
+                        check = CheckSolidsIntersection(solid1, solid2);
+                    }
+                    catch
+                    {
+                        string msg = $"Incorrect elements: {elem1.Name} id: {elem1.Id}, {elem2.Name} id: {elem2.Id}";
+                        Debug.WriteLine(msg);
+                        Autodesk.Revit.UI.TaskDialog.Show("Warning", msg);
+                        return MyIntersectionResult.Incorrect;
+                    }
+                    if (check) return MyIntersectionResult.Intersection;
                 }
             }
-            return check;
+            return MyIntersectionResult.NoIntersection;
         }
+
+
+        public static bool CheckSolidsIntersection(Solid solid1, Solid solid2)
+        {
+            Solid interSolid = BooleanOperationsUtils.ExecuteBooleanOperation(solid1, solid2, BooleanOperationsType.Intersect);
+            double volume = Math.Abs(interSolid.Volume);
+            if (volume > 0.000001)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /////Проверить, пересекаются ли эти два элемента. Решение через пересечение линий и граней - не очень надежное
+        //public static bool CheckElementsIsIntersect(Document doc, Element elem1, Element elem2)
+        //{
+        //    GeometryElement gelem1 = elem1.get_Geometry(new Options());
+        //    GeometryElement gelem2 = elem2.get_Geometry(new Options());
+
+        //    bool check = false;
+
+        //    if (gelem1 == null || gelem2 == null)
+        //        return false;
+
+
+        //    List<Solid> solids1 = GetSolidsOfElement(gelem1);
+        //    List<Solid> solids2 = GetSolidsOfElement(gelem2);
+
+        //    foreach (Solid solid1 in solids1)
+        //    {
+
+        //        foreach (Solid solid2 in solids2)
+        //        {
+        //            List<Curve> curves2 = GetAllCurves(solid2);
+
+        //            foreach (Face face1 in solid1.Faces)
+        //            {
+        //                foreach (Curve curve2 in curves2)
+        //                {
+        //                    //Solid intSolid = null;
+        //                    //intSolid = BooleanOperationsUtils.ExecuteBooleanOperation(solid1, solid2, BooleanOperationsType.Intersect);
+
+        //                    SetComparisonResult result = face1.Intersect(curve2);
+        //                    if (result == SetComparisonResult.Overlap)
+        //                    {
+        //                        check = true;
+        //                        return check;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return check;
+        //}
 
         /// <summary>
         /// Проверить пересечение линии и элемента
@@ -218,8 +277,8 @@ namespace Tools.Geometry
             {
                 if (curElem.Id == elem.Id) continue; //один и тот же элемент
 
-                bool check = CheckElementsIsIntersect(doc, curElem, elem);
-                if (check) elems2.Add(curElem);
+                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem);
+                if (check == MyIntersectionResult.Intersection) elems2.Add(curElem);
             }
 
             if (elems2.Count == 0)
@@ -260,41 +319,42 @@ namespace Tools.Geometry
         */
 
 
-        /// <summary>
-        /// Вырезает экземпляр семейства c пустотным элементов из другого элемента в модели. Требуется открытая транзакция
-        /// </summary>
-        public static bool CutElement(Document doc, Element elemForCut, Element elemWithVoid)
+        public static bool CheckBoundingBoxesIntersect(BoundingBoxXYZ box1, BoundingBoxXYZ box2)
         {
-            Debug.WriteLine($"Try cut elem {elemForCut.Id} by elem {elemWithVoid.Id}");
+            XYZ center1 = new XYZ((box1.Min.X + box1.Max.X) / 2, (box1.Min.Y + box1.Max.Y) / 2, (box1.Min.Z + box1.Max.Z) / 2);
+            XYZ halfwidth1 = new XYZ((box1.Max.X - box1.Min.X) / 2, (box1.Max.Y - box1.Min.Y) / 2, (box1.Max.Z - box1.Min.Z) / 2);
 
-            //Проверяю, можно ли вырезать геометрию из данного элемента
-            bool check1 = InstanceVoidCutUtils.CanBeCutWithVoid(elemForCut);
+            XYZ center2 = new XYZ((box2.Min.X + box2.Max.X) / 2, (box2.Min.Y + box2.Max.Y) / 2, (box2.Min.Z + box2.Max.Z) / 2);
+            XYZ halfwidth2 = new XYZ((box2.Max.X - box2.Min.X) / 2, (box2.Max.Y - box2.Min.Y) / 2, (box2.Max.Z - box2.Min.Z) / 2);
 
-            //проверяю, есть ли в семействе полый элемент и разрешено ли вырезание
-            bool check2 = InstanceVoidCutUtils.IsVoidInstanceCuttingElement(elemWithVoid);
 
-            //проверяю, существует ли уже вырезание
-            bool check3 = InstanceVoidCutUtils.InstanceVoidCutExists(elemForCut, elemWithVoid);
+            if (Math.Abs(center1.X - center2.X) > (halfwidth1.X + halfwidth2.X)) return false;
+            if (Math.Abs(center1.Y - center2.Y) > (halfwidth1.Y + halfwidth2.Y)) return false;
+            if (Math.Abs(center1.Z - center2.Z) > (halfwidth1.Z + halfwidth2.Z)) return false;
 
-            //Если одно из условий не выполняется - возвращаю false
-            if (!check1 || !check2 || check3)
-            {
-                Debug.WriteLine("Unable to cut");
-                return false;
-            }
-
-            try
-            {
-                InstanceVoidCutUtils.AddInstanceVoidCut(doc, elemForCut, elemWithVoid);
-                Debug.WriteLine("Cut success");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Cut exception " + ex.Message);
-                return false;
-            }
+            return true;
         }
 
+        public static List<Element> GetAllIntersectionElements(Document doc, View view, Element elem, List<Element> elems, Transform transformToFirstElem)
+        {
+            List<Element> elems2 = new List<Element>();
+
+            foreach (Element curElem in elems)
+            {
+                if (curElem.Id == elem.Id) continue; //один и тот же элемент
+
+                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem, transformToFirstElem);
+
+                if (check == MyIntersectionResult.Intersection)
+                    elems2.Add(curElem);
+            }
+
+            if (elems2.Count == 0)
+            {
+                return null;
+            }
+
+            return elems2;
+        }
     }
 }

@@ -16,6 +16,8 @@ More about solution / Подробнее: http://weandrevit.ru/plagin-massa-plas
 #region Usings
 using Autodesk.Revit.DB;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 #endregion
 
 namespace Tools.Model
@@ -34,6 +36,31 @@ namespace Tools.Model
             PropertySetElement materialStructuralParams = doc.GetElement(material.StructuralAssetId) as PropertySetElement;
             double density = materialStructuralParams.get_Parameter(BuiltInParameter.PHY_MATERIAL_PARAM_STRUCTURAL_DENSITY).AsDouble();
             return density;
+        }
+
+        /// <summary>
+        /// Проверяет, есть ли в элементе материал с классом "Бетон" и заполнен Мтрл.КодМатериала
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        public static bool CheckElementIsConcrete(Element elem)
+        {
+            List<ElementId> materialsIds = elem.GetMaterialIds(false).ToList();
+
+            foreach (ElementId matId in materialsIds)
+            {
+                Material mat = elem.Document.GetElement(matId) as Material;
+                string materialClass = mat.MaterialClass;
+                if (materialClass != "Бетон") continue;
+                Parameter matCode = mat.get_Parameter(new Guid("b5675d33-fade-46b1-921b-0cab8eec101e")); //Мтрл.КодМатериала
+                if (matCode == null) continue;
+                if (matCode.AsInteger() == 0) continue;
+
+                double volume = elem.GetMaterialVolume(matId);
+                if (volume != 0) return true;
+            }
+
+            return false;
         }
     }
 }

@@ -69,7 +69,7 @@ namespace AutoJoinCut
                 t.Start(MyStrings.TransactionCut);
                 foreach (Element curElem in elems)
                 {
-                    Tools.Geometry.Intersection.CutElement(doc, curElem, voidElem);
+                    Tools.Geometry.JoinCut.CutElement(doc, curElem, voidElem);
                 }
                 t.Commit();
             }

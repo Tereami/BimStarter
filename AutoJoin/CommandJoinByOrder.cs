@@ -87,7 +87,8 @@ namespace AutoJoinCut
                         if (elem2.Equals(elem1)) continue;
 
                         bool alreadyJoined = JoinGeometryUtils.AreElementsJoined(doc, elem1, elem2);
-                        bool isIntersects = Tools.Geometry.Intersection.CheckElementsIsIntersect(doc, elem1, elem2);
+                        var intersectResult = Tools.Geometry.Intersection.CheckElementsIntersection(doc, elem1, elem2);
+                        bool isIntersects = intersectResult == Tools.Geometry.Intersection.MyIntersectionResult.Intersection;
                         if (!isIntersects && !alreadyJoined) continue;
 
                         try

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RebarParametrisation</Name>
+    <Assembly>
+      RebarParametrisation.dll
+    </Assembly>
+    <ClientId>01c035d6-498a-4486-8fd6-0a02739364a0</ClientId>
+    <FullClassName>RebarParametrisation.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

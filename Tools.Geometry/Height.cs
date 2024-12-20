@@ -118,5 +118,39 @@ namespace Tools.Geometry
             return p2;
         }
 
+        /// <summary>
+        /// Получает самый нижерасположенный элемент из списка
+        /// </summary>
+        /// <param name="elems"></param>
+        /// <param name="view"></param>
+        /// <returns></returns>
+        public static Element GetBottomElement(List<Element> elems, View view)
+        {
+            Element elem = null;
+            double TopPointOfBottomElement = -999999;
+
+            foreach (Element curElem in elems)
+            {
+                BoundingBoxXYZ box = curElem.get_BoundingBox(view);
+                XYZ topPoint = box.Max;
+                double curTopElev = topPoint.Z;
+
+                if (elem == null)
+                {
+                    elem = curElem;
+                    TopPointOfBottomElement = curTopElev;
+                    continue;
+                }
+
+
+                if (curTopElev < TopPointOfBottomElement)
+                {
+                    TopPointOfBottomElement = curTopElev;
+                    elem = curElem;
+                }
+            }
+
+            return elem;
+        }
     }
 }
