@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>RibbonBimStarter</Name>
+    <Assembly>
+        ..\20xx\BimStarter\RibbonBimStarter_2020.dll    
+    </Assembly>
+    <ClientId>b9393133-0826-4aae-9060-db503f19c11a</ClientId>
+    <FullClassName>RibbonBimStarter.App</FullClassName>
+    <VendorId>IP Zuyev A</VendorId>
+    <VendorDescription>http://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

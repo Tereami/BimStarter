@@ -224,67 +224,67 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="AutoJoin_data\AutoJoin.addin">
+	  <None Update="AutoJoinCut_data\AutoJoin.addin">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut.Russian.txt">
+	  <None Update="AutoJoinCut_data\CommandAutoCut.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut.txt">
+	  <None Update="AutoJoinCut_data\CommandAutoCut.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut_large.png">
+	  <None Update="AutoJoinCut_data\CommandAutoCut_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoCut_small.png">
+	  <None Update="AutoJoinCut_data\CommandAutoCut_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin.Russian.txt">
+	  <None Update="AutoJoinCut_data\CommandAutoJoin.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin.txt">
+	  <None Update="AutoJoinCut_data\CommandAutoJoin.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin_large.png">
+	  <None Update="AutoJoinCut_data\CommandAutoJoin_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandAutoJoin_small.png">
+	  <None Update="AutoJoinCut_data\CommandAutoJoin_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin.Russian.txt">
+	  <None Update="AutoJoinCut_data\CommandBatchUnjoin.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin.txt">
+	  <None Update="AutoJoinCut_data\CommandBatchUnjoin.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin_large.png">
+	  <None Update="AutoJoinCut_data\CommandBatchUnjoin_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandBatchUnjoin_small.png">
+	  <None Update="AutoJoinCut_data\CommandBatchUnjoin_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope.Russian.txt">
+	  <None Update="AutoJoinCut_data\CommandCreateCope.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope.txt">
+	  <None Update="AutoJoinCut_data\CommandCreateCope.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope_large.png">
+	  <None Update="AutoJoinCut_data\CommandCreateCope_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandCreateCope_small.png">
+	  <None Update="AutoJoinCut_data\CommandCreateCope_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder.Russian.txt">
+	  <None Update="AutoJoinCut_data\CommandJoinByOrder.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder.txt">
+	  <None Update="AutoJoinCut_data\CommandJoinByOrder.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder_large.png">
+	  <None Update="AutoJoinCut_data\CommandJoinByOrder_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="AutoJoin_data\CommandJoinByOrder_small.png">
+	  <None Update="AutoJoinCut_data\CommandJoinByOrder_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

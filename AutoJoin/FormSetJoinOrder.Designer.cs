@@ -1,5 +1,5 @@
 ﻿
-namespace AutoJoin
+namespace AutoJoinCut
 {
     partial class FormSetJoinOrder
     {

@@ -11,20 +11,22 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2021, all rigths reserved.*/
 #endregion
 #region Usings
+using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Events;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.ApplicationServices;
-using System.Windows.Media.Imaging;
-using Autodesk.Revit.UI.Events;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
+using System.Windows.Media.Imaging;
 #endregion
 
+[assembly: System.Reflection.AssemblyVersion("1.0.*")]
 namespace RibbonBimStarter
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
+
     public class App : IExternalApplication
     {
         public static string assemblyPath;
@@ -45,8 +47,9 @@ namespace RibbonBimStarter
         {
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new Logger("Ribbon"));
-            Debug.WriteLine("Revit start, v180620241819");
-            
+            string assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Debug.WriteLine($"Revit started. Plugin version: {assemblyVersion}");
+
             assemblyPath = typeof(App).Assembly.Location;
             assemblyFolder = Path.GetDirectoryName(assemblyPath);
             string appdataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -58,7 +61,7 @@ namespace RibbonBimStarter
             Debug.WriteLine("Ribbon path: " + ribbonPath);
 
             settings = SettingsStorage.LoadSettings();
-            if(settings == null)
+            if (settings == null)
             {
                 TaskDialog.Show("Ошибка", "Не удалось запустить Bim-Starter! Не найден файл настроек");
                 return Result.Failed;
@@ -71,34 +74,8 @@ namespace RibbonBimStarter
 
             connect = new WebConnection(App.settings.Email, App.settings.Password, App.settings.Website);
 
-            string messageFiles = "";
-            string[] addinFiles = System.IO.Directory.GetFiles(assemblyFolder, "*.addin");
-            List<string> oldWeandrevitAddins = new List<string> 
-            {
-                "WeandrevitPanel.addin", 
-                "BatchPrintYay.addin", 
-                "RebarSketch.addin", 
-                "RevitPlatesWeight.addin" 
-            };
-            foreach(string addinFile in addinFiles)
-            {
-                string fileTitle = System.IO.Path.GetFileName(addinFile);
-                if(oldWeandrevitAddins.Contains(fileTitle))
-                {
-                    messageFiles += fileTitle + " ";
-                }
-            }
-            if (messageFiles != "")
-            {
-                string msg = "Обнаружены устаревшие плагины Weandrevit. Закройте Revit, перейдите в папку ";
-                msg += assemblyFolder;
-                msg += " и удалите файлы: " + messageFiles;
-                Debug.WriteLine("Depricated files found: " + msg);
-                TaskDialog.Show("Установка BIM-STARTER", msg);
-            }
-
             string tabName = "BIM-STARTER";
-            try { application.CreateRibbonTab(tabName); } 
+            try { application.CreateRibbonTab(tabName); }
             catch { Debug.WriteLine("Unable to create tab name " + tabName); }
 
             try
@@ -146,26 +123,25 @@ namespace RibbonBimStarter
 
         private void CreateRebarRibbon(UIControlledApplication uiApp, string tabName)
         {
-            
-
             Debug.WriteLine("RebarPanel started...");
             string panelTitle = App.curUiLanguage == LanguageType.Russian ? "Армирование" : "Reinforcement";
             RibbonPanel panel = uiApp.CreateRibbonPanel(tabName, panelTitle);
 
-            panel.AddItem(CreateButtonData("RebarVisibility", "Command"));
+            panel.AddItem(CreateButtonData("RebarTools", "CommandRebarVisibility"));
 
             panel.AddSeparator();
 
             panel.AddItem(CreateButtonData("RevitAreaReinforcement", "CommandCreateAreaRebar"));
             panel.AddItem(CreateButtonData("RevitAreaReinforcement", "CommandCreateFloorRebar"));
 
-            PushButtonData dataFixRebar = CreateButtonData("RevitAreaReinforcement", "CommandRestoreRebarArea");
-            PushButtonData dataHideRebars = CreateButtonData("RebarPresentation", "Command");
-            PushButtonData dataExplodeRebars = CreateButtonData("ExplodeRebarSet", "CommandExplode");
-            panel.AddStackedItems(dataFixRebar, dataHideRebars, dataExplodeRebars);
+            panel.AddStackedItems(
+                CreateButtonData("RevitAreaReinforcement", "CommandRestoreRebarArea"),
+                CreateButtonData("RebarTools", "CommandRebarPresentation"),
+                CreateButtonData("RebarTools", "CommandExplode")
+                );
 
             panel.AddSlideOut();
-            panel.AddItem(CreateButtonData("AreaRebarMark", "CommandManualStart"));
+            panel.AddItem(CreateButtonData("RebarTools", "CommandAreaMark"));
             Debug.WriteLine("RebarPanel is created");
         }
 
@@ -178,18 +154,18 @@ namespace RibbonBimStarter
             string panelTitle = App.curUiLanguage == LanguageType.Russian ? "Таблицы" : "Schedules";
             RibbonPanel panel = uiApp.CreateRibbonPanel(tabName, panelTitle);
 
-            panel.AddItem(CreateButtonData("RebarSketch", "CommandCreatePictures3"));
+            panel.AddItem(CreateButtonData("RebarSketch", "CommandCreatePictures"));
 
-            panel.AddItem(CreateButtonData("CollapseRebarSchedule", "Command"));
+            panel.AddItem(CreateButtonData("SchedulesTools", "CommandCollapseRebarSchedule"));
 
             panel.AddStackedItems(
                 CreateButtonData("BatchPrintYay", "CommandRefreshSchedules"),
-                CreateButtonData("SchedulesTable", "CommandCreateTable"),
-                CreateButtonData("Autonumber", "CommandStart"));
+                CreateButtonData("SchedulesTools", "CommandCreateTable"),
+                CreateButtonData("Autonumber", "Command"));
 
             panel.AddSlideOut();
             panel.AddItem(CreateButtonData("RebarSketch", "CommandFormGenerator"));
-            panel.AddItem(CreateButtonData("RevisionClouds", "Command"));
+            panel.AddItem(CreateButtonData("SchedulesTools", "CommandRevisionClouds"));
             Debug.WriteLine("TablePanel is created");
         }
 
@@ -207,15 +183,15 @@ namespace RibbonBimStarter
             panel.AddItem(pbdColorize);
 
             PushButtonData pbdOverrides = CreateButtonData("RevitGraphicsOverride", "Command");
-            PushButtonData pbdOpenSheets = CreateButtonData("OpenSheets", "Command");
-            PushButtonData pbdViewNumbers = CreateButtonData("SuperSetNumber", "Command");
+            PushButtonData pbdOpenSheets = CreateButtonData("ViewsSheetsTools", "CommandOpenSheets");
+            PushButtonData pbdViewNumbers = CreateButtonData("ViewsSheetsTools", "CommandSetNumber");
             panel.AddStackedItems(pbdOverrides, pbdOpenSheets, pbdViewNumbers);
 
             panel.AddSlideOut();
             panel.AddItem(CreateButtonData("RevitViewFilters", "CommandWallHatch"));
             panel.AddItem(CreateButtonData("RevitViewFilters", "CommandCreate"));
             panel.AddItem(CreateButtonData("RevitViewFilters", "CommandBatchDelete"));
-            panel.AddItem(CreateButtonData("ViewTemplateUtils", "CommandCopyTemplate"));
+            panel.AddItem(CreateButtonData("ViewsSheetsTools", "CommandViewTemplate"));
 
             Debug.WriteLine("ViewPanel is created");
         }
@@ -229,23 +205,23 @@ namespace RibbonBimStarter
 
 
             SplitButton splitJoin = panel
-                .AddItem(new SplitButtonData("JoingeometrySplitButton", "Геометрия"))
+                .AddItem(new SplitButtonData("JoingeometrySplitButton", "Geometry"))
                 as SplitButton;
 
-            splitJoin.AddPushButton(CreateButtonData("AutoJoin", "CommandAutoJoin"));
-            splitJoin.AddPushButton(CreateButtonData("AutoJoin", "CommandJoinByOrder"));
-            splitJoin.AddPushButton(CreateButtonData("AutoJoin", "CommandBatchUnjoin"));
-            splitJoin.AddPushButton(CreateButtonData("AutoJoin", "CommandAutoCut"));
-            splitJoin.AddPushButton(CreateButtonData("AutoJoin", "CommandCreateCope"));
+            splitJoin.AddPushButton(CreateButtonData("AutoJoinCut", "CommandAutoJoin"));
+            splitJoin.AddPushButton(CreateButtonData("AutoJoinCut", "CommandJoinByOrder"));
+            splitJoin.AddPushButton(CreateButtonData("AutoJoinCut", "CommandBatchUnjoin"));
+            splitJoin.AddPushButton(CreateButtonData("AutoJoinCut", "CommandAutoCut"));
+            splitJoin.AddPushButton(CreateButtonData("AutoJoinCut", "CommandCreateCope"));
 
-            
-            SplitButtonData sbdPiles = new SplitButtonData("Piles", "Сваи");
+
+            SplitButtonData sbdPiles = new SplitButtonData("Piles", "Piles");
 
 
             IList<RibbonItem> stacked1 = panel.AddStackedItems(
-                CreateButtonData("GroupedAssembly", "CommandSuperAssembly"),
+                CreateButtonData("GroupedAssembly", "Command"),
                 sbdPiles,
-                CreateButtonData("PropertiesCopy", "CommandPropertiesCopy")
+                CreateButtonData("ParameterWriter", "CommandPropertiesCopy")
             );
 
             SplitButton splitPiles = stacked1[1] as SplitButton;
@@ -266,7 +242,7 @@ namespace RibbonBimStarter
             RibbonPanel panel = uiApp.CreateRibbonPanel(tabName, panelTitle);
 
             SplitButton splitHolesElev = panel
-                .AddItem(new SplitButtonData("HolesElevSplitButton", "Отверстия"))
+                .AddItem(new SplitButtonData("HolesElevSplitButton", "Openings"))
                 as SplitButton;
             splitHolesElev.AddPushButton(CreateButtonData("RevitElementsElevation", "Command"));
 
@@ -286,8 +262,6 @@ namespace RibbonBimStarter
             );
 #endif
 
-
-
             Debug.WriteLine("ParametrisationPanel is created");
         }
 
@@ -298,7 +272,7 @@ namespace RibbonBimStarter
             string panelTitle = App.curUiLanguage == LanguageType.Russian ? "Инструменты" : "Instruments";
             RibbonPanel panel = uiApp.CreateRibbonPanel(tabName, panelTitle);
 
-            panel.AddItem(CreateButtonData("PropertiesCopy", "CommandSelectHost"));
+            panel.AddItem(CreateButtonData("SelectHost", "Command"));
             panel.AddItem(CreateButtonData("RevitWorksets", "Command"));
 
             /*string libraryButtonTitle = App.curUiLanguage == LanguageType.Russian ? "Семейства" : "Families";
@@ -309,11 +283,11 @@ namespace RibbonBimStarter
             pbdFamiliesLibrary.Image = new BitmapImage(new Uri(Path.Combine(famLibIconsPath, "FamilyLibrary_small.png")));*/
 
             SplitButton splitFamilies = panel
-                .AddItem(new SplitButtonData("HolesElevSplitButton", "Отверстия"))
+                .AddItem(new SplitButtonData("FamiliesSplitButton", "Families"))
                 as SplitButton;
             splitFamilies.AddPushButton(CreateButtonData("RibbonBimStarter", "CommandShowPane"));
             splitFamilies.AddPushButton(CreateButtonData("RibbonBimStarter", "CommandCheckFamilies"));
-
+            splitFamilies.AddPushButton(CreateButtonData("RibbonBimStarter", "CommandShowFamilyInfo"));
 
 
             Debug.WriteLine("InstrumentsPanel is created");
@@ -326,9 +300,9 @@ namespace RibbonBimStarter
             string panelTitle = App.curUiLanguage == LanguageType.Russian ? "BIM-мастер" : "BIM-master";
             RibbonPanel panel = uiApp.CreateRibbonPanel(tabName, panelTitle);
 
-            SplitButtonData sbdAddParams = new SplitButtonData("FamilyParametersSplitButton", "Добавить параметры");
+            SplitButtonData sbdAddParams = new SplitButtonData("FamilyParametersSplitButton", "Add parameters");
             PushButtonData fixSlowFileData = CreateButtonData("FixSlowFile", "Command");
-            SplitButtonData sbdParametrization = new SplitButtonData("ModelParametrizationSplitButton", "Параметризация");
+            SplitButtonData sbdParametrization = new SplitButtonData("ModelParametrizationSplitButton", "Parametrisation");
             IList<RibbonItem> stacked = panel.AddStackedItems(sbdAddParams, fixSlowFileData, sbdParametrization);
 
             SplitButton splitFamParam = stacked[0] as SplitButton;
@@ -340,8 +314,8 @@ namespace RibbonBimStarter
             splitParametrization.AddPushButton(CreateButtonData("ParameterWriter", "CommandWriteView"));
             splitParametrization.AddPushButton(CreateButtonData("RebarParametrisation", "Command"));
             splitParametrization.AddPushButton(CreateButtonData("WriteParametersFormElemsToParts", "CommandWriteParam"));
-            
-            splitParametrization.AddPushButton(CreateButtonData("IngradParametrisation", "Cmd"));
+
+            splitParametrization.AddPushButton(CreateButtonData("IngradParametrisation", "Command"));
 
 
             panel.AddSlideOut();
@@ -382,10 +356,10 @@ namespace RibbonBimStarter
         public PushButtonData CreateButtonData(string assemblyName, string className)
         {
             string dllPath = Path.Combine(ribbonPath, assemblyName + ".dll");
-            if(!File.Exists(dllPath))
+            if (!File.Exists(dllPath))
             {
                 dllPath = Path.Combine(ribbonPath, assemblyName + "_" + revitVersion + ".dll");
-                if(!File.Exists(dllPath))
+                if (!File.Exists(dllPath))
                 {
                     throw new Exception("File not found " + dllPath.Replace(@"\", @" \ "));
                 }
@@ -397,15 +371,15 @@ namespace RibbonBimStarter
 
             string langTitle = Enum.GetName(typeof(LanguageType), App.curUiLanguage);
             string textPath = Path.Combine(dataPath, className + "." + langTitle + ".txt");
-            if(!File.Exists(textPath))
+            if (!File.Exists(textPath))
                 textPath = Path.Combine(dataPath, className + ".txt");
 
 
             string[] text = File.ReadAllLines(textPath);
             string title = text[0];
             if (title.Contains("/"))
-               title =  title.Replace("/", "\n");
-            
+                title = title.Replace("/", "\n");
+
             string tooltip = text[1];
             string url = text[2];
 

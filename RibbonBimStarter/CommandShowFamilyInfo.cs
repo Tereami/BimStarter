@@ -11,13 +11,9 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2021, all rigths reserved.*/
 #endregion
 #region usings
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Collections.Generic;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Newtonsoft.Json;
+using System.Diagnostics;
 #endregion
 
 namespace RibbonBimStarter
@@ -30,7 +26,7 @@ namespace RibbonBimStarter
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new Logger("ShowFamilyInfo"));
 
-            //показать форму с полной информацией о семействе
+            TaskDialog.Show("Sorry", "The feature is in development!");
 
             return Result.Succeeded;
         }

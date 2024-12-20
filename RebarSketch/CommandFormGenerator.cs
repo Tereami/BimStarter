@@ -21,6 +21,7 @@ using System.Linq;
 
 namespace RebarSketch
 {
+    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.ReadOnly)]
     public class CommandFormGenerator : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)

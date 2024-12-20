@@ -21,7 +21,7 @@ using System.Linq;
 namespace SchedulesTools
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    class Command : IExternalCommand
+    class CommandRevisionClouds : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

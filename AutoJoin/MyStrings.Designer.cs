@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AutoJoin {
+namespace AutoJoinCut {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AutoJoin {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoJoin.MyStrings", typeof(MyStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoJoinCut.MyStrings", typeof(MyStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

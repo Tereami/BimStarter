@@ -1,0 +1,3 @@
+﻿Карточка семейства
+Показать полную информацию о семействе из библиотеки Bim-Starter
+http://bim-starter.com/plugins/familieslibrary/

@@ -58,7 +58,7 @@ namespace RevitWorksets.WorksetWorkers
 
         public static void SetWorkset(Element elem, Workset w)
         {
-            Debug.WriteLine("Set workset: " + w.Name + " for elem id " + elem.Id.GetValue());
+            Debug.WriteLine($"Set workset: {w.Name} for elem id {elem.Id}");
 
             bool elemNonGroup = elem.GroupId == null || elem.GroupId == ElementId.InvalidElementId;
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AutoJoin {
+namespace AutoJoinCut {
     using System;
     
     

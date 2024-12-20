@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AboutBimstarter", "AboutBim
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchParametrisation", "ArchParametrisation\ArchParametrisation.csproj", "{54E7E46D-766E-49ED-8FDA-948135EABC42}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoJoin", "AutoJoin\AutoJoin.csproj", "{82CC337F-41F0-4934-97CC-89568207FD67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoJoinCut", "AutoJoin\AutoJoinCut.csproj", "{82CC337F-41F0-4934-97CC-89568207FD67}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autonumber", "Autonumber\Autonumber.csproj", "{1065D870-4543-4683-8A0E-FC2E1B4A4201}"
 EndProject
@@ -63,9 +63,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitGraphicsOverride", "Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitPlatesWeight", "RevitPlatesWeight\RevitPlatesWeight.csproj", "{4C0755F1-EC64-4E3B-8826-A0C316537487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitViewFilters", "RevitViewFilters\RevitViewFilters.csproj", "{8624673C-7C94-40FC-AC6F-2D52825AD2C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitViewFilters", "RevitViewFilters\RevitViewFilters.csproj", "{8624673C-7C94-40FC-AC6F-2D52825AD2C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitWorksets", "RevitWorksets\RevitWorksets.csproj", "{42A47291-B848-4158-9DC7-8D3D94AE2AA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitWorksets", "RevitWorksets\RevitWorksets.csproj", "{42A47291-B848-4158-9DC7-8D3D94AE2AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

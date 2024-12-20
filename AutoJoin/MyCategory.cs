@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using Autodesk.Revit.DB;
 #endregion
 
-namespace AutoJoin
+namespace AutoJoinCut
 {
     public class MyCategory
     {

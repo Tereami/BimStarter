@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion
 
-namespace AutoJoin
+namespace AutoJoinCut
 {
     public partial class FormSetJoinOrder : Form
     {

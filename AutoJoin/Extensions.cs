@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoJoin
+namespace AutoJoinCut
 {
     public static class Extensions
     {

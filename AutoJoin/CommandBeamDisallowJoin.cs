@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace AutoJoin
+namespace AutoJoinCut
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
 

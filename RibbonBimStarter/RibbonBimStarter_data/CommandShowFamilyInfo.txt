@@ -1,0 +1,3 @@
+﻿Family info
+Show a full information about the family
+http://bim-starter.com/plugins/familieslibrary/
