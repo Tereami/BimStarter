@@ -117,12 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;textBoxWorksetNameParameter.Name" xml:space="preserve">
-    <value>textBoxWorksetNameParameter</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1263, 1240</value>
+  <data name="checkBoxEnabledForLinkedFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelHelp4.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>2. Workset by family name</value>
@@ -130,18 +131,20 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Prefix:</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBoxWorksetNameParameter.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="labelHelp3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>835, 7</value>
+  <data name="&gt;&gt;buttonLoad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 130</value>
+  <data name="&gt;&gt;labelHelp0.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -155,12 +158,11 @@
   <data name="&gt;&gt;buttonHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="dataGridViewTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 361</value>
   </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;textBoxDwgWorksetName.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;labelHelp2.Name" xml:space="preserve">
     <value>labelHelp2</value>
@@ -192,6 +194,7 @@
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dataGridViewTypes.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="&gt;&gt;labelHelp6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="dataGridViewFamilies.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
@@ -222,12 +228,6 @@
   <data name="labelLinkTestResult.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 15</value>
-  </data>
   <data name="labelLinkTestResult.Text" xml:space="preserve">
     <value>...</value>
   </data>
@@ -240,29 +240,20 @@
   <data name="&gt;&gt;textBoxLinkPrefix.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 944</value>
-  </data>
   <data name="labelHelp1.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 42</value>
   </data>
-  <data name="groupBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+  <data name="dataGridViewTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="checkBoxEnableByType.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelHelp3.Text" xml:space="preserve">
-    <value>← worksets are applied sequentially: Category - Family - Type. Following rules has a higher priority.</value>
-  </data>
-  <data name="numericLinkPartNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="numericLinkIgnoreLastChars.Size" type="System.Drawing.Size, System.Drawing">
     <value>413, 23</value>
-  </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 15</value>
   </data>
   <data name="&gt;&gt;textBoxDwgWorksetName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -270,17 +261,20 @@
   <data name="numericLinkPartNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;checkBoxEnabledByCategory.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>630, 14</value>
   </data>
+  <data name="textBoxLinkTestFilename.Text" xml:space="preserve">
+    <value>0123_STR_Main building</value>
+  </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
+  <data name="textBoxLinkPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 23</value>
   </data>
   <data name="labelHelp3.Size" type="System.Drawing.Size, System.Drawing">
     <value>346, 56</value>
@@ -288,14 +282,20 @@
   <data name="labelHelp5.Text" xml:space="preserve">
     <value>↓ learn how it works here</value>
   </data>
-  <data name="&gt;&gt;buttonLoad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonHelp.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="numericLinkIgnoreLastChars.Location" type="System.Drawing.Point, System.Drawing">
     <value>181, 137</value>
   </data>
-  <data name="numericLinkIgnoreFirstChars.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
   </data>
   <data name="buttonLoad.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -306,17 +306,14 @@
   <data name="&gt;&gt;checkBoxEnabledForLinkedFiles.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="numericLinkIgnoreLastChars.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 944</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Bim-Starter Worksets</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>603, 97</value>
   </data>
-  <data name="&gt;&gt;labelHelp0.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="numericLinkPartNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="labelLinkTestResult.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="labelHelp4.Text" xml:space="preserve">
     <value>← if all link files in your company are named with a some rule (as like as "Index_Part_Blockname"), you can, for example, not to create a new workset for every file, but place all the files of this Part in a single workset: set Separator "_" and PartNumber 1.</value>
@@ -336,14 +333,14 @@
   <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
+  <data name="checkBoxEnableByFamilyName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;dataGridViewFamilies.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;labelHelp5.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="textBoxLinkSeparator.MaxLength" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="labelHelp6.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;checkBoxEnabledForDwgLinks.Name" xml:space="preserve">
     <value>checkBoxEnabledForDwgLinks</value>
@@ -354,20 +351,20 @@
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Save to file</value>
   </data>
-  <data name="dataGridViewTypes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="&gt;&gt;dataGridViewFamilies.Name" xml:space="preserve">
     <value>dataGridViewFamilies</value>
   </data>
-  <data name="labelHelp2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
   </data>
   <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
+  </data>
+  <data name="labelLinkTestResult.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
     <value>buttonSave</value>
@@ -384,17 +381,20 @@
   <data name="checkBoxNoEmptyWorksets.Text" xml:space="preserve">
     <value>Do not create empty worksets</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Part number:</value>
-  </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
   <data name="&gt;&gt;textBoxWorksetNameParameter.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 27</value>
+  </data>
+  <data name="labelHelp2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="buttonLoad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 944</value>
   </data>
   <data name="checkBoxNoEmptyWorksets.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -408,23 +408,17 @@
   <data name="labelHelp6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="labelHelp6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelHelp0.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="&gt;&gt;labelHelp0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBoxEnableByType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 19</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 15</value>
   </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
+  <data name="checkBoxNoEmptyWorksets.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="labelLinkTestResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>254, 23</value>
@@ -438,17 +432,11 @@
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;checkBoxEnableByType.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1247, 999</value>
   </data>
   <data name="labelHelp4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
-  </data>
-  <data name="dataGridViewTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 361</value>
   </data>
   <data name="&gt;&gt;numericLinkPartNumber.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -459,14 +447,14 @@
   <data name="checkBoxEnabledByCategory.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="buttonLoad.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
   <data name="checkBoxEnabledForDwgLinks.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 22</value>
   </data>
   <data name="&gt;&gt;checkBoxEnabledForDwgLinks.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelHelp0.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="buttonHelp.Text" xml:space="preserve">
     <value>Help</value>
@@ -483,20 +471,20 @@
   <data name="labelHelp0.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="checkBoxEnabledByParameter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="checkBoxEnabledForDwgLinks.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;labelLinkTestResult.Name" xml:space="preserve">
+    <value>labelLinkTestResult</value>
   </data>
-  <data name="textBoxLinkTestFilename.Text" xml:space="preserve">
-    <value>0123_STR_Main building</value>
+  <data name="checkBoxEnableByType.Text" xml:space="preserve">
+    <value>Enable</value>
   </data>
-  <data name="labelHelp6.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -507,14 +495,14 @@
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 15</value>
   </data>
+  <data name="&gt;&gt;numericLinkIgnoreFirstChars.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="labelHelp5.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 196</value>
   </data>
-  <data name="checkBoxEnableByType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
-  </data>
-  <data name="checkBoxEnabledForDwgLinks.Text" xml:space="preserve">
-    <value>Enable</value>
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 16, 0</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 51</value>
@@ -522,8 +510,8 @@
   <data name="&gt;&gt;buttonLoad.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Parameter name:</value>
@@ -543,17 +531,11 @@
   <data name="labelHelp1.Text" xml:space="preserve">
     <value>← click at an empty row to add a new row</value>
   </data>
-  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
   <data name="labelLinkTestResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>340, 225</value>
   </data>
   <data name="dataGridViewTypes.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 51</value>
-  </data>
-  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="checkBoxEnabledByParameter.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 19</value>
@@ -564,11 +546,14 @@
   <data name="labelHelp5.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 26</value>
   </data>
-  <data name="checkBoxEnableByType.Text" xml:space="preserve">
-    <value>Enable</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -576,35 +561,23 @@
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="dataGridViewTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;dataGridViewFamilies.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>630, 840</value>
   </data>
-  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="&gt;&gt;textBoxLinkPrefix.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;checkBoxEnableByType.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;numericLinkIgnoreLastChars.Name" xml:space="preserve">
-    <value>numericLinkIgnoreLastChars</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -618,8 +591,11 @@
   <data name="numericLinkPartNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>181, 77</value>
   </data>
-  <data name="checkBoxEnableByType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 22</value>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>603, 130</value>
+  </data>
+  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 425</value>
@@ -630,8 +606,8 @@
   <data name="dataGridViewFamilies.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
-  <data name="&gt;&gt;labelHelp3.Name" xml:space="preserve">
-    <value>labelHelp3</value>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>630, 562</value>
   </data>
   <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 27</value>
@@ -651,6 +627,9 @@
   <data name="textBoxWorksetNameParameter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>603, 271</value>
+  </data>
   <data name="&gt;&gt;labelHelp1.Name" xml:space="preserve">
     <value>labelHelp1</value>
   </data>
@@ -663,17 +642,8 @@
   <data name="&gt;&gt;labelHelp3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;dataGridViewCategories.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="checkBoxEnabledForDwgLinks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -687,8 +657,17 @@
   <data name="labelHelp1.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 153</value>
   </data>
+  <data name="labelLinkTestResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="&gt;&gt;buttonHelp.Name" xml:space="preserve">
     <value>buttonHelp</value>
+  </data>
+  <data name="numericLinkPartNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>413, 23</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -702,8 +681,8 @@
   <data name="labelHelp3.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBoxLinkSeparator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="labelHelp3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>835, 7</value>
   </data>
   <data name="&gt;&gt;textBoxLinkTestFilename.Name" xml:space="preserve">
     <value>textBoxLinkTestFilename</value>
@@ -711,11 +690,11 @@
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="checkBoxEnabledByCategory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 111</value>
   </data>
-  <data name="&gt;&gt;checkBoxEnabledByCategory.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1051, 944</value>
   </data>
   <data name="&gt;&gt;labelHelp4.Name" xml:space="preserve">
     <value>labelHelp4</value>
@@ -725,6 +704,9 @@
   </data>
   <data name="textBoxLinkSeparator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;numericLinkIgnoreFirstChars.Parent" xml:space="preserve">
+    <value>groupBox4</value>
   </data>
   <data name="labelHelp2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -741,20 +723,14 @@
   <data name="dataGridViewCategories.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 361</value>
   </data>
-  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;textBoxDwgWorksetName.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="buttonOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="buttonReset.Text" xml:space="preserve">
-    <value>Reset to default</value>
-  </data>
-  <data name="&gt;&gt;labelLinkTestResult.Name" xml:space="preserve">
-    <value>labelLinkTestResult</value>
+  <data name="groupBox4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="checkBoxEnableByFamilyName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -762,14 +738,17 @@
   <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelHelp2.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="labelLinkTestResult.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="&gt;&gt;textBoxLinkPrefix.Name" xml:space="preserve">
+    <value>textBoxLinkPrefix</value>
   </data>
   <data name="dataGridViewCategories.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 51</value>
@@ -795,14 +774,14 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Trim right:</value>
+  </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
   <data name="&gt;&gt;labelHelp6.Name" xml:space="preserve">
     <value>labelHelp6</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -819,8 +798,8 @@
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 141</value>
   </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>6. Workset for DWG/DXF links</value>
   </data>
   <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -834,14 +813,8 @@
   <data name="labelHelp3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="textBoxLinkTestFilename.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>542, 42</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>4. Workset by parameter</value>
   </data>
   <data name="&gt;&gt;labelHelp4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -852,20 +825,17 @@
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
-  <data name="&gt;&gt;labelHelp5.Name" xml:space="preserve">
-    <value>labelHelp5</value>
+  <data name="&gt;&gt;labelHelp0.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 111</value>
+  <data name="groupBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="buttonLoad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 944</value>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;textBoxLinkPrefix.Name" xml:space="preserve">
-    <value>textBoxLinkPrefix</value>
+  <data name="labelHelp1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -876,17 +846,17 @@
   <data name="dataGridViewFamilies.Size" type="System.Drawing.Size, System.Drawing">
     <value>586, 452</value>
   </data>
-  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+  <data name="groupBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 977</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>3. Workset by type name</value>
-  </data>
   <data name="&gt;&gt;checkBoxEnableByFamilyName.Name" xml:space="preserve">
     <value>checkBoxEnableByFamilyName</value>
+  </data>
+  <data name="labelHelp0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 98</value>
   </data>
   <data name="&gt;&gt;buttonLoad.Name" xml:space="preserve">
     <value>buttonLoad</value>
@@ -894,17 +864,14 @@
   <data name="textBoxLinkTestFilename.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="checkBoxEnabledByParameter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 22</value>
-  </data>
   <data name="labelHelp6.Text" xml:space="preserve">
     <value>↓ settings are saving automatically after clicking OK. With these buttons you are able to create different settings for different projects, or create a single server-based settings file for your colleagues. The path for the last-used settings file is saved automatically. XML files from the older plugin can be used too.</value>
   </data>
-  <data name="&gt;&gt;labelHelp2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 15</value>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;buttonOk.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -921,17 +888,17 @@
   <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
+  <data name="&gt;&gt;checkBoxEnabledForLinkedFiles.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
   <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
   </data>
-  <data name="&gt;&gt;dataGridViewCategories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 27</value>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 14</value>
@@ -945,14 +912,20 @@
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
+  <data name="&gt;&gt;labelHelp1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="buttonHelp.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="&gt;&gt;checkBoxEnabledForDwgLinks.Parent" xml:space="preserve">
     <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="textBoxLinkSeparator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>3. Workset by type name</value>
   </data>
   <data name="buttonHelp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -960,17 +933,23 @@
   <data name="checkBoxEnabledForLinkedFiles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;labelHelp4.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="buttonOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 27</value>
+  <data name="numericLinkPartNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTypes.Name" xml:space="preserve">
+    <value>dataGridViewTypes</value>
+  </data>
+  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="checkBoxEnabledForLinkedFiles.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;labelHelp2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -993,12 +972,6 @@
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="checkBoxEnabledForDwgLinks.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;checkBoxEnabledByParameter.Name" xml:space="preserve">
     <value>checkBoxEnabledByParameter</value>
   </data>
@@ -1008,8 +981,8 @@
   <data name="labelHelp4.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 102</value>
   </data>
-  <data name="&gt;&gt;labelHelp1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
   <data name="labelHelp5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1023,20 +996,26 @@
   <data name="&gt;&gt;textBoxLinkTestFilename.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 15</value>
   </data>
-  <data name="checkBoxEnabledByCategory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
+  <data name="checkBoxEnableByType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 22</value>
   </data>
   <data name="textBoxLinkTestFilename.WordWrap" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;textBoxLinkTestFilename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxEnabledByCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 19</value>
+  </data>
   <data name="numericLinkIgnoreFirstChars.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
-    <value>groupBox5</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>603, 404</value>
   </data>
   <data name="dataGridViewFamilies.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1047,8 +1026,8 @@
   <data name="checkBoxEnabledForLinkedFiles.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelLinkTestResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;checkBoxEnableByFamilyName.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1061,6 +1040,9 @@
   </data>
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
+  </data>
+  <data name="labelHelp6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="labelHelp4.Location" type="System.Drawing.Point, System.Drawing">
     <value>259, 0</value>
@@ -1089,11 +1071,8 @@
   <data name="textBoxLinkSeparator.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="textBoxDwgWorksetName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 23</value>
-  </data>
-  <data name="textBoxDwgWorksetName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="&gt;&gt;buttonLoad.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;labelHelp3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1104,20 +1083,20 @@
   <data name="labelHelp2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="labelHelp3.Text" xml:space="preserve">
+    <value>← worksets are applied sequentially: Category - Family - Type. Following rules has a higher priority.</value>
   </data>
-  <data name="&gt;&gt;textBoxLinkSeparator.Name" xml:space="preserve">
-    <value>textBoxLinkSeparator</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="dataGridViewTypes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="dataGridViewCategories.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="checkBoxEnabledForDwgLinks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 19</value>
   </data>
   <data name="labelHelp5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1131,29 +1110,35 @@
   <data name="&gt;&gt;labelLinkTestResult.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="buttonOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 27</value>
   </data>
   <data name="&gt;&gt;buttonOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="textBoxWorksetNameParameter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 23</value>
+  <data name="textBoxLinkTestFilename.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
   </data>
-  <data name="&gt;&gt;labelHelp4.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 27</value>
+  </data>
+  <data name="textBoxLinkTestFilename.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;dataGridViewTypes.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
+  <data name="labelHelp1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="labelHelp2.Text" xml:space="preserve">
     <value>← click here and press Delete to remove a row</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>4. Workset by parameter</value>
   </data>
-  <data name="labelHelp3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 944</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -1164,29 +1149,32 @@
   <data name="&gt;&gt;checkBoxEnabledByParameter.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;checkBoxEnableByType.Name" xml:space="preserve">
-    <value>checkBoxEnableByType</value>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 944</value>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;labelHelp4.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;numericLinkPartNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelHelp2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;buttonOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBoxLinkTestFilename.Parent" xml:space="preserve">
-    <value>groupBox4</value>
+  <data name="labelHelp0.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 284</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 15</value>
   </data>
   <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;checkBoxNoEmptyWorksets.Name" xml:space="preserve">
     <value>checkBoxNoEmptyWorksets</value>
+  </data>
+  <data name="checkBoxEnabledByParameter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;textBoxLinkSeparator.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -1209,14 +1197,11 @@
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 201</value>
   </data>
-  <data name="&gt;&gt;dataGridViewTypes.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="numericLinkPartNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;buttonLoad.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="labelHelp1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="buttonReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;checkBoxNoEmptyWorksets.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1224,8 +1209,11 @@
   <data name="&gt;&gt;checkBoxEnabledByCategory.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;numericLinkIgnoreFirstChars.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dataGridViewTypes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1233,17 +1221,17 @@
   <data name="&gt;&gt;numericLinkIgnoreLastChars.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;dataGridViewTypes.Name" xml:space="preserve">
-    <value>dataGridViewTypes</value>
-  </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>630, 425</value>
   </data>
-  <data name="textBoxLinkTestFilename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 23</value>
+  <data name="&gt;&gt;checkBoxEnableByType.Name" xml:space="preserve">
+    <value>checkBoxEnableByType</value>
   </data>
-  <data name="checkBoxNoEmptyWorksets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 19</value>
+  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="textBoxWorksetNameParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 23</value>
   </data>
   <data name="buttonSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1260,20 +1248,20 @@
   <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;dataGridViewFamilies.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="checkBoxNoEmptyWorksets.Location" type="System.Drawing.Point, System.Drawing">
-    <value>702, 948</value>
-  </data>
-  <data name="numericLinkPartNumber.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="numericLinkIgnoreFirstChars.Size" type="System.Drawing.Size, System.Drawing">
     <value>413, 23</value>
+  </data>
+  <data name="labelHelp3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
   </data>
   <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 271</value>
+  <data name="numericLinkIgnoreFirstChars.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Separator symbol:</value>
@@ -1287,23 +1275,23 @@
   <data name="&gt;&gt;numericLinkPartNumber.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;labelHelp5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBoxEnabledForDwgLinks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
-  <data name="checkBoxEnableByFamilyName.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;textBoxWorksetNameParameter.Name" xml:space="preserve">
+    <value>textBoxWorksetNameParameter</value>
   </data>
-  <data name="labelLinkTestResult.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="checkBoxNoEmptyWorksets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 19</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>957, 944</value>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="groupBox4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;labelHelp5.Name" xml:space="preserve">
+    <value>labelHelp5</value>
   </data>
   <data name="labelHelp0.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1313,6 +1301,9 @@
   </data>
   <data name="labelHelp6.Location" type="System.Drawing.Point, System.Drawing">
     <value>38, 873</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>5. Workset for linked models</value>
@@ -1335,20 +1326,23 @@
   <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
     <value>toolStripStatusLabel1</value>
   </data>
-  <data name="buttonSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="&gt;&gt;labelHelp5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonHelp.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="labelHelp4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxEnableByFamilyName.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;numericLinkIgnoreFirstChars.Parent" xml:space="preserve">
-    <value>groupBox4</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Part number:</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>1. Workset by category</value>
+  <data name="&gt;&gt;checkBoxEnabledByCategory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelHelp1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1359,32 +1353,35 @@
   <data name="checkBoxEnabledForLinkedFiles.Text" xml:space="preserve">
     <value>Enable</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>957, 944</value>
   </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bim-Starter Worksets</value>
   </data>
-  <data name="checkBoxNoEmptyWorksets.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="labelHelp5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;numericLinkPartNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Trim right:</value>
+  <data name="textBoxDwgWorksetName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;dataGridViewCategories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Workset name:</value>
   </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>6. Workset for DWG/DXF links</value>
+  <data name="textBoxDwgWorksetName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 23</value>
   </data>
   <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1395,11 +1392,11 @@
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;textBoxLinkTestFilename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dataGridViewCategories.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1419,8 +1416,8 @@
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="textBoxLinkTestFilename.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;labelHelp3.Name" xml:space="preserve">
+    <value>labelHelp3</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -1428,20 +1425,17 @@
   <data name="textBoxDwgWorksetName.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="labelHelp3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="&gt;&gt;textBoxLinkTestFilename.Parent" xml:space="preserve">
+    <value>groupBox4</value>
   </data>
   <data name="textBoxLinkTestFilename.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 225</value>
   </data>
-  <data name="labelHelp0.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="textBoxLinkTestFilename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 23</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1263, 779</value>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="labelHelp0.Text" xml:space="preserve">
     <value>Tooltips are shown only after first start. Click at any tooltip to hide!</value>
@@ -1458,20 +1452,17 @@
   <data name="dataGridViewCategories.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
-  <data name="&gt;&gt;checkBoxEnabledForLinkedFiles.ZOrder" xml:space="preserve">
-    <value>16</value>
+  <data name="textBoxLinkSeparator.MaxLength" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;labelLinkTestResult.Parent" xml:space="preserve">
     <value>groupBox4</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
   </data>
   <data name="checkBoxEnabledForLinkedFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 19</value>
@@ -1485,11 +1476,11 @@
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="textBoxLinkPrefix.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 23</value>
+  <data name="checkBoxEnabledForDwgLinks.Text" xml:space="preserve">
+    <value>Enable</value>
   </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 97</value>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1503,32 +1494,32 @@
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="numericLinkIgnoreFirstChars.Size" type="System.Drawing.Size, System.Drawing">
-    <value>413, 23</value>
+  <data name="&gt;&gt;dataGridViewCategories.Name" xml:space="preserve">
+    <value>dataGridViewCategories</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;dataGridViewCategories.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;dataGridViewCategories.Name" xml:space="preserve">
-    <value>dataGridViewCategories</value>
-  </data>
-  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 16, 0</value>
+  <data name="numericLinkIgnoreLastChars.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 15</value>
   </data>
-  <data name="labelHelp4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>1. Workset by category</value>
   </data>
-  <data name="buttonLoad.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="checkBoxEnabledByCategory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="checkBoxEnabledForDwgLinks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1263, 779</value>
   </data>
   <data name="&gt;&gt;checkBoxNoEmptyWorksets.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1554,20 +1545,23 @@
   <data name="&gt;&gt;checkBoxEnableByType.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
+  <data name="labelHelp3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelHelp3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="labelHelp0.Location" type="System.Drawing.Point, System.Drawing">
-    <value>438, 284</value>
+  <data name="labelHelp0.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="&gt;&gt;checkBoxEnabledForDwgLinks.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="labelHelp1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;numericLinkIgnoreLastChars.Name" xml:space="preserve">
+    <value>numericLinkIgnoreLastChars</value>
   </data>
   <data name="labelHelp6.Size" type="System.Drawing.Size, System.Drawing">
     <value>538, 64</value>
@@ -1575,32 +1569,32 @@
   <data name="labelHelp2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="labelHelp4.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;textBoxLinkSeparator.Name" xml:space="preserve">
+    <value>textBoxLinkSeparator</value>
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="checkBoxNoEmptyWorksets.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="labelHelp0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 98</value>
+  <data name="checkBoxNoEmptyWorksets.Location" type="System.Drawing.Point, System.Drawing">
+    <value>702, 948</value>
   </data>
-  <data name="checkBoxEnabledForLinkedFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 22</value>
+  <data name="labelHelp0.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="buttonHelp.Location" type="System.Drawing.Point, System.Drawing">
     <value>1146, 944</value>
   </data>
-  <data name="labelHelp5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 27</value>
+  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1608,17 +1602,23 @@
   <data name="&gt;&gt;labelHelp6.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;labelHelp4.Parent" xml:space="preserve">
+    <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;textBoxLinkPrefix.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewFamilies.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
-  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1629,17 +1629,17 @@
   <data name="&gt;&gt;textBoxLinkPrefix.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;textBoxDwgWorksetName.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="groupBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="&gt;&gt;labelHelp0.Name" xml:space="preserve">
     <value>labelHelp0</value>
   </data>
-  <data name="&gt;&gt;checkBoxEnabledByCategory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;buttonHelp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="checkBoxEnabledByParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 22</value>
+  </data>
+  <data name="&gt;&gt;labelHelp0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;numericLinkIgnoreLastChars.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -1647,26 +1647,26 @@
   <data name="textBoxLinkSeparator.Size" type="System.Drawing.Size, System.Drawing">
     <value>412, 23</value>
   </data>
-  <data name="&gt;&gt;buttonHelp.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1263, 1240</value>
   </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1051, 944</value>
+  <data name="buttonSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="dataGridViewFamilies.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 51</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelHelp5.Parent" xml:space="preserve">
+    <value>groupBox4</value>
   </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>630, 562</value>
+  <data name="&gt;&gt;dataGridViewCategories.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;checkBoxEnableByFamilyName.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 404</value>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Reset to default</value>
   </data>
   <data name="buttonLoad.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

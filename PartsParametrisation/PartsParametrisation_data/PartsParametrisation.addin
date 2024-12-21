@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>PartsParametrisation</Name>
+    <Assembly>
+      PartsParametrisation.dll
+    </Assembly>
+    <ClientId>864f863a-0f50-4f88-a0b1-89a9d358e9bc</ClientId>
+    <FullClassName>PartsParametrisation.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

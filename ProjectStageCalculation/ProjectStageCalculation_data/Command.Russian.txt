@@ -1,0 +1,3 @@
+﻿ProjectStageCalculation
+Описание плагина
+http://bim-starter.com/plugins/ProjectStageCalculation/

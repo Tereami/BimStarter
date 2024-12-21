@@ -17,6 +17,7 @@ using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tools.Model.ParameterUtils;
 
 #endregion
 
@@ -77,7 +78,7 @@ namespace ParameterWriter
                 foreach (Parameter p in allParams)
                 {
                     string pname = p.Definition.Name;
-                    string val = MyParameter.GetParameterValAsString(elem, pname);
+                    string val = Getter.GetParameterValAsString(elem, pname);
 
                     if (valuesBase.ContainsKey(pname))
                         valuesBase[pname].Add(val);
@@ -142,7 +143,7 @@ namespace ParameterWriter
                         log.Add($"Write {curName}:");
                     foreach (Element elem in elems)
                     {
-                        bool success = MyParameter.SetValue(elem, ws);
+                        bool success = ValueWriter.SetValue(elem, ws);
                         if (success)
                             curCount++;
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>ProjectStageCalculation</Name>
+    <Assembly>
+      ProjectStageCalculation.dll
+    </Assembly>
+    <ClientId>edde8a4c-a593-4c2b-b16a-f918bb2ed12c</ClientId>
+    <FullClassName>ProjectStageCalculation.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

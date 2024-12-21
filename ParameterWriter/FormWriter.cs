@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ParameterWriter
@@ -65,6 +60,9 @@ namespace ParameterWriter
             comboBox_Level.DataSource = levelParameters;
 
             RefreshControls();
+
+            string appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.Text = $"{this.Text} v. {appVersion}";
         }
 
         private void RefreshControls()

@@ -37,5 +37,52 @@ namespace Tools.Model.ParameterUtils
             param = type.LookupParameter(ParameterName);
             return param;
         }
+
+        public static string GetParameterValAsString(Element e, string paramName)
+        {
+            Parameter param = Tools.Model.ParameterUtils.Getter.GetParameter(e, paramName);
+            if (param == null) return string.Empty;
+
+            string val = GetParameterValAsString(param);
+            return val;
+        }
+
+
+        public static string GetParameterValAsString(Parameter param)
+        {
+            string val = string.Empty;
+
+            switch (param.StorageType)
+            {
+                case StorageType.None:
+                    return string.Empty;
+                case StorageType.Integer:
+                    val = param.AsInteger().ToString();
+                    break;
+                case StorageType.Double:
+                    double doubval = param.AsDouble();
+#if R2017 || R2018 || R2019 || R2020
+                    doubval = UnitUtils.ConvertFromInternalUnits(param.AsDouble(), param.DisplayUnitType);
+#else
+                    doubval = UnitUtils.ConvertFromInternalUnits(param.AsDouble(), param.GetUnitTypeId());
+#endif
+                    val = doubval.ToString("F2");
+                    break;
+                case StorageType.String:
+                    val = param.AsString();
+                    break;
+                case StorageType.ElementId:
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
+                    val = param.AsElementId().IntegerValue.ToString();
+#else
+                    val = param.AsElementId().Value.ToString();
+#endif
+                    break;
+            }
+            if (string.IsNullOrEmpty(val))
+                return string.Empty;
+            else
+                return val;
+        }
     }
 }
