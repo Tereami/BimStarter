@@ -23,11 +23,12 @@ namespace RevitAreaReinforcement
     public static class RebarWorkerFloor
     {
 
-        public static List<string> Generate(Document doc, Floor floor, RebarInfoFloor rif, ElementId areaTypeId)
+        public static List<AreaReinforcement> Generate(Document doc, Floor floor, RebarInfoFloor rif, ElementId areaTypeId, out List<string> messages)
         {
             Trace.WriteLine("RebarWorkerFloor is started");
-            List<string> messages = new List<string>();
+            messages = new List<string>();
 
+            List<AreaReinforcement> createdAreas = new List<AreaReinforcement>();
 
             if (rif.SkipAlreadyReinforcedFloors)
             {
@@ -38,7 +39,7 @@ namespace RevitAreaReinforcement
                 {
                     string msg = $"Floor id {floor.Id} is already reinforced";
                     Trace.WriteLine(msg);
-                    return messages;
+                    return createdAreas;
                 }
             }
 
@@ -116,6 +117,7 @@ namespace RevitAreaReinforcement
             arTopX.get_Parameter(BuiltInParameter.REBAR_SYSTEM_ADDL_TOP_OFFSET).Set(topCoverDir1);
             arTopX.get_Parameter(BuiltInParameter.NUMBER_PARTITION_PARAM).Set(MyStrings.TextTopXrebar);
             Trace.WriteLine("Top X is created");
+            createdAreas.Add(arTopX);
 
             AreaReinforcement arTopY = AreaReinforcement
                 .Create(doc, floor, curves, direction, areaTypeId, mrt.bartype.Id, ElementId.InvalidElementId);
@@ -127,6 +129,7 @@ namespace RevitAreaReinforcement
             arTopY.get_Parameter(BuiltInParameter.REBAR_SYSTEM_ADDL_TOP_OFFSET).Set(topCoverDir2);
             arTopY.get_Parameter(BuiltInParameter.NUMBER_PARTITION_PARAM).Set(MyStrings.TextTopYrebar);
             Trace.WriteLine("Top Y is created");
+            createdAreas.Add(arTopY);
 
             AreaReinforcement arBottomX = AreaReinforcement
                 .Create(doc, floor, curves, direction, areaTypeId, mrt.bartype.Id, ElementId.InvalidElementId);
@@ -138,6 +141,7 @@ namespace RevitAreaReinforcement
             arBottomX.get_Parameter(BuiltInParameter.REBAR_SYSTEM_ADDL_BOTTOM_OFFSET).Set(bottomCoverDir1);
             arBottomX.get_Parameter(BuiltInParameter.NUMBER_PARTITION_PARAM).Set(MyStrings.TextBottomXrebar);
             Trace.WriteLine("Bottom X is created");
+            createdAreas.Add(arBottomX);
 
             AreaReinforcement arBottomY = AreaReinforcement
                 .Create(doc, floor, curves, direction, areaTypeId, mrt.bartype.Id, ElementId.InvalidElementId);
@@ -149,8 +153,9 @@ namespace RevitAreaReinforcement
             arBottomY.get_Parameter(BuiltInParameter.REBAR_SYSTEM_ADDL_BOTTOM_OFFSET).Set(bottomCoverDir2);
             arBottomY.get_Parameter(BuiltInParameter.NUMBER_PARTITION_PARAM).Set(MyStrings.TextBottomYrebar);
             Trace.WriteLine("Bottom Y is created");
+            createdAreas.Add(arBottomY);
 
-            return messages;
+            return createdAreas;
         }
     }
 }

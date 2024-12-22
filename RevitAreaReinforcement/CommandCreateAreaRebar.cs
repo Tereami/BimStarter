@@ -82,7 +82,7 @@ namespace RevitAreaReinforcement
             bool wallsHaveRebarInfo = SupportDocumentGetter.CheckWallsHaveRebarInfo(walls);
 
 
-            RebarInfoWall riw = new RebarInfoWall(); //RebarInfoWall.GetDefault(doc);
+            RebarInfoWall riw = new RebarInfoWall();
             riw.SetDefaultUnificateLengths();
             string wallPath = System.IO.Path.Combine(App.localFolder, "wall.xml");
             Trace.WriteLine("Try to deserialize xml: " + wallPath);
@@ -122,6 +122,7 @@ namespace RevitAreaReinforcement
             }
 
             List<string> errorMessages = new List<string>();
+            List<AreaReinforcement> createdAreas = new List<AreaReinforcement>();
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionWallReinforcement);
@@ -144,8 +145,9 @@ namespace RevitAreaReinforcement
                         riw.horizontalAddInterval = true;
                     }
                     Trace.WriteLine("Start wall reinforcement");
-                    List<string> curErrorMessages = RebarWorkerWall.GenerateRebar(doc, wall, riw, zeroCover, areaTypeId);
+                    List<AreaReinforcement> curCreatedAreas = RebarWorkerWall.GenerateRebar(doc, wall, riw, zeroCover, areaTypeId, out List<string> curErrorMessages);
                     errorMessages.AddRange(curErrorMessages);
+                    createdAreas.AddRange(curCreatedAreas);
                 }
                 t.Commit();
                 Trace.WriteLine("Finish transaction");
@@ -179,6 +181,12 @@ namespace RevitAreaReinforcement
                 }
                 Trace.WriteLine("... xml success!");
             }
+
+            sel.SetElementIds(createdAreas.Select(i => i.Id).ToList());
+
+            string resultMessage = $"{MyStrings.ResultMessage1}: {createdAreas.Count}\n{MyStrings.ResultMessage2}!";
+            Tools.Forms.BalloonTip.Show(MyStrings.Success, resultMessage);
+
             return Result.Succeeded;
         }
     }

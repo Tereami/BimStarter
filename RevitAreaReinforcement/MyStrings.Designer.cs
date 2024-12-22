@@ -187,6 +187,33 @@ namespace RevitAreaReinforcement {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Создано зон.
+        /// </summary>
+        public static string ResultMessage1 {
+            get {
+                return ResourceManager.GetString("ResultMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запустите Ремонт фоновой арматуры.
+        /// </summary>
+        public static string ResultMessage2 {
+            get {
+                return ResourceManager.GetString("ResultMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success!.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to bottom X background.
         /// </summary>
         public static string TextBottomXrebar {

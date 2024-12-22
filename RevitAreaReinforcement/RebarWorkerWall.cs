@@ -28,10 +28,11 @@ namespace RevitAreaReinforcement
         public static Guid slabHeightParamGuid { get { return new Guid("b543b893-732a-40a9-9355-a489d3ce3a66"); } }
 
 
-        public static List<string> GenerateRebar(Document doc, Wall wall, RebarInfoWall wri, RebarCoverType zeroCover, ElementId areaTypeId)
+        public static List<AreaReinforcement> GenerateRebar(Document doc, Wall wall, RebarInfoWall wri, RebarCoverType zeroCover, ElementId areaTypeId, out List<string> messages)
         {
             Trace.WriteLine($"Start reinforcement for wall: {wall.Id}");
-            List<string> messages = new List<string>();
+            messages = new List<string>();
+            List<AreaReinforcement> createdAreas = new List<AreaReinforcement>();
 
             if (wri.SkipAlreadyReinforcedWalls)
             {
@@ -42,7 +43,7 @@ namespace RevitAreaReinforcement
                 {
                     string msg = $"Wall id {wall.Id} is already reinforced";
                     Trace.WriteLine(msg);
-                    return messages;
+                    return createdAreas;
                 }
             }
 
@@ -149,9 +150,13 @@ namespace RevitAreaReinforcement
                     }
                 }
 
-                /*LocationCurve wallLocCurve = wall.Location as LocationCurve;
+                LocationCurve wallLocCurve = wall.Location as LocationCurve;
                 Line wallCurve = wallLocCurve.Curve as Line;
-                if (wallCurve == null) throw new Exception("Curved wall!");*/
+                if (wallCurve == null)
+                {
+                    Trace.WriteLine($"Curved wall! Id {wall.Id}");
+                    return createdAreas;
+                }
 
                 double sideOffset = wri.backOffset - 0.5 * vertDiam;
 
@@ -165,6 +170,7 @@ namespace RevitAreaReinforcement
                 {
                     Trace.WriteLine("Generate vertical rebar area with offset");
                     AreaReinforcement arVertical1 = Generate(doc, wall, curvesVertical, false, true, false, offsetVerticalInterior, offsetVerticalExterior, wri.verticalRebarInterval, areaTypeId, verticalRebarType.bartype, wri.verticalSectionText);
+                    createdAreas.Add(arVertical1);
 
                     double asymmVerticalOffset = 0;
                     if (wri.autoVerticalFreeLength)
@@ -178,11 +184,13 @@ namespace RevitAreaReinforcement
                         curves2 = Contour.MoveLine(curves2, asymmVerticalOffset, LineSide.Top);
 
                     AreaReinforcement arVertical2 = Generate(doc, wall, curves2, false, false, true, offsetVerticalInterior, offsetVerticalExterior, wri.verticalRebarInterval, areaTypeId, verticalRebarType.bartype, wri.verticalSectionText);
+                    createdAreas.Add(arVertical2);
                 }
                 else
                 {
                     Trace.WriteLine("Generate vertical rebar area without offset");
                     AreaReinforcement arVertical = Generate(doc, wall, curvesVertical, false, true, true, offsetVerticalInterior, offsetVerticalExterior, wri.verticalRebarInterval, areaTypeId, verticalRebarType.bartype, wri.verticalSectionText);
+                    createdAreas.Add(arVertical);
                 }
             }
 
@@ -288,9 +296,10 @@ namespace RevitAreaReinforcement
                     double interval = profileInfo.interval;
                     List<Curve> curves = profileInfo.curves;
                     AreaReinforcement ar = Generate(doc, wall, curves, true, true, true, offsetHorizontalInterior, offsetHorizontalExterior, interval, areaTypeId, horizontalRebarType.bartype, wri.horizontalSectionText);
+                    createdAreas.Add(ar);
                 }
             }
-            return messages;
+            return createdAreas;
         }
 
 

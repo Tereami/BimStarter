@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 #endregion
 
@@ -125,6 +126,7 @@ namespace RevitAreaReinforcement
 
             List<string> rebarMessages = new List<string>();
 
+            List<AreaReinforcement> createdAreas = new List<AreaReinforcement>();
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionFloorReinforcement);
@@ -132,18 +134,17 @@ namespace RevitAreaReinforcement
                 foreach (Floor floor in floors)
                 {
                     Trace.WriteLine($"Current reinforcement floor: {floor.Id}");
-                    List<string> curRebarMessages = RebarWorkerFloor.Generate(doc, floor, rif, areaTypeId);
+                    List<AreaReinforcement> curCreatedAreas = RebarWorkerFloor.Generate(doc, floor, rif, areaTypeId, out List<string> curRebarMessages);
                     rebarMessages.AddRange(curRebarMessages);
+                    createdAreas.AddRange(curCreatedAreas);
                 }
                 t.Commit();
             }
 
             if (rebarMessages.Count > 0)
             {
-                foreach (string msg in rebarMessages)
-                {
-                    message += msg + System.Environment.NewLine;
-                }
+                message += string.Join(System.Environment.NewLine, rebarMessages);
+
                 Trace.WriteLine("Errors: " + message);
                 return Result.Failed;
             }
@@ -169,6 +170,12 @@ namespace RevitAreaReinforcement
                     Trace.WriteLine("New settings file is created: " + floorPath);
                 }
             }
+
+            sel.SetElementIds(createdAreas.Select(i => i.Id).ToList());
+
+            string resultMessage = $"{MyStrings.ResultMessage1}: {createdAreas.Count}\n{MyStrings.ResultMessage2}!";
+            Tools.Forms.BalloonTip.Show(MyStrings.Success, resultMessage);
+
             Trace.WriteLine("All done");
             return Result.Succeeded;
         }

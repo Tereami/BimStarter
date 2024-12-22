@@ -159,6 +159,15 @@
   <data name="RebarClass" xml:space="preserve">
     <value>class </value>
   </data>
+  <data name="ResultMessage1" xml:space="preserve">
+    <value>Создано зон</value>
+  </data>
+  <data name="ResultMessage2" xml:space="preserve">
+    <value>Запустите Ремонт фоновой арматуры</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success!</value>
+  </data>
   <data name="TextBottomXrebar" xml:space="preserve">
     <value>bottom X background</value>
   </data>
