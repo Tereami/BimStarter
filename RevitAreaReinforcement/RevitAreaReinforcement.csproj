@@ -205,6 +205,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	  <ProjectReference Include="..\Tools.Geometry\Tools.Geometry.csproj" />
 	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
 	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
@@ -277,6 +278,12 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts.xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\RestoreAreaRebar.exe">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\speed.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

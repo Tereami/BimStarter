@@ -24,7 +24,27 @@ namespace Autonumber
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            TaskDialog.Show("Test", "Autonumber IN DEVELOPMENT");
+            string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folder = System.IO.Path.GetDirectoryName(assemblyPath);
+            string exefile = System.IO.Path.Combine(folder, "Autonumber_data", "autonumber.exe");
+
+            bool checkFile = System.IO.File.Exists(exefile);
+            if (!checkFile)
+            {
+                message = "Executing file is not found: " + exefile;
+                return Result.Failed;
+            }
+
+            try
+            {
+                System.Diagnostics.Process.Start(exefile);
+            }
+            catch
+            {
+                message = "Failed to execute: " + exefile;
+                return Result.Failed;
+            }
+
             return Result.Succeeded;
         }
     }

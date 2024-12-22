@@ -31,6 +31,7 @@ namespace RevitAreaReinforcement
             rebarInfo.autoVerticalFreeLength = radioButtonFreeLengthAuto.Checked;
             rebarInfo.verticalFreeLengthRound = ((double)numericUpDownVertFreeLengthRound.Value) / 304.8;
             rebarInfo.verticalAsymmOffset = checkBox_AsymmVertFreeLength.Checked;
+            rebarInfo.verticalAsymmOffsetTop = checkBox_AsymmVertFreeLength.Checked;
             rebarInfo.verticalRebarStretched = checkBox_VertRebarStretched.Checked;
 
             rebarInfo.bottomOffset = ((double)numericUpDownHorizOffset.Value) / 304.8;

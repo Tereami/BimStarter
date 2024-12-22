@@ -313,7 +313,7 @@ namespace RibbonBimStarter
             splitParametrization.AddPushButton(CreateButtonData("ParameterWriter", "Command"));
             splitParametrization.AddPushButton(CreateButtonData("ParameterWriter", "CommandWriteView"));
             splitParametrization.AddPushButton(CreateButtonData("RebarParametrisation", "Command"));
-            splitParametrization.AddPushButton(CreateButtonData("WriteParametersFormElemsToParts", "CommandWriteParam"));
+            splitParametrization.AddPushButton(CreateButtonData("PartsParametrisation", "Command"));
 
             splitParametrization.AddPushButton(CreateButtonData("IngradParametrisation", "Command"));
 
