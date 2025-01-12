@@ -23,8 +23,6 @@ namespace Tools.Extensions.Shortcuts
             if (!File.Exists(xmlPath))
                 throw new Exception($"File not found: {xmlPath}");
 
-            shortcuts = new List<ShortcutItem>();
-
             string[] lines = File.ReadAllLines(xmlPath);
 
             for (int i = 0; i < lines.Length; i++)
@@ -38,36 +36,35 @@ namespace Tools.Extensions.Shortcuts
             }
         }
 
-        public bool SetShortcuts(List<ShortcutItem> shortcutsToAdd)
+        public void AddShortcut(ShortcutItem shortcutToAdd)
         {
-            string[] lines = File.ReadAllLines(xmlPath);
-
-            for (int i = 0; i < lines.Length; i++)
+            foreach (ShortcutItem shortcutItem in shortcuts)
             {
-                if (shortcutsToAdd.Count == 0) break;
-                string line = lines[i];
-                if (!line.Contains("CommandName")) continue;
-
-                ShortcutItem curShortcut = new ShortcutItem(line);
-
-                ShortcutItem checkRequired = shortcutsToAdd.FirstOrDefault(s => s.CommandId == curShortcut.CommandId);
-                if (checkRequired == null) continue;
-
-                curShortcut.SetShortCuts(checkRequired.Shortcuts);
-                shortcutsToAdd.Remove(checkRequired);
-
-                string newLine = curShortcut.ToXmlString();
-
-                lines[i] = newLine;
+                shortcutItem.RemoveShortCut(shortcutToAdd);
             }
 
-            if (shortcutsToAdd.Count > 0)
-            {
-                string missedCommands = string.Join(", ", shortcutsToAdd.Select(s => s.CommandId));
-                throw new Exception($"No commands found! {missedCommands}");
-            }
+            ShortcutItem sourceShortcut = shortcuts.FirstOrDefault(s => s.CommandId == shortcutToAdd.CommandId);
+            if (sourceShortcut == null) throw new Exception($"Failed to find a command {shortcutToAdd.CommandId}");
 
+            sourceShortcut.AddShortCuts(shortcutToAdd.Shortcuts);
+        }
+
+        public bool Save()
+        {
             MakeBackup();
+
+            List<string> lines = new List<string>();
+
+            List<ShortcutItem> modified = shortcuts.Where(i => i.IsModified).ToList();
+
+            lines.Add("<Shortcuts>");
+            for (int i = 0; i < shortcuts.Count; i++)
+            {
+                ShortcutItem si = shortcuts[i];
+                string line = si.ToXmlString();
+                lines.Add(line);
+            }
+            lines.Add("</Shortcuts>");
 
             File.WriteAllLines(xmlPath, lines);
 
@@ -77,15 +74,15 @@ namespace Tools.Extensions.Shortcuts
         public List<ShortcutItem> GetIncorrectShortcuts(List<ShortcutItem> requiredShortcuts)
         {
             List<ShortcutItem> incorrects = new List<ShortcutItem>();
-            foreach (ShortcutItem reqs in requiredShortcuts)
+            foreach (ShortcutItem req in requiredShortcuts)
             {
-                ShortcutItem cur = this.shortcuts.FirstOrDefault(i => i.CommandId == reqs.CommandId);
+                ShortcutItem cur = this.shortcuts.FirstOrDefault(i => i.CommandId == req.CommandId);
                 if (cur == null)
-                    throw new Exception($"Failed! No command found: {reqs.CommandId}");
+                    throw new Exception($"Failed! No command found: {req.CommandId}");
 
-                bool check = cur.CheckContainsShortcuts(reqs.Shortcuts);
+                bool check = cur.CheckContainsRequiredShortcuts(req);
                 if (!check)
-                    incorrects.Add(reqs);
+                    incorrects.Add(req);
             }
 
             return incorrects;

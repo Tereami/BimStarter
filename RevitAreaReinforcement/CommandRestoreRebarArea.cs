@@ -47,15 +47,20 @@ namespace RevitAreaReinforcement
                 if (form1.ShowDialog() != DialogResult.OK)
                     return Result.Cancelled;
 
-                bool checkAddShortcuts = shortcutManager.SetShortcuts(incorrectKeys);
-                if (!checkAddShortcuts)
+                foreach (ShortcutItem reqShortcut in requiredShortcuts)
                 {
-                    message = "Failed to add required shortcuts";
+                    shortcutManager.AddShortcut(reqShortcut);
+                }
+
+                if (!shortcutManager.Save())
+                {
+                    message = "Failed to save required shortcuts";
                     return Result.Failed;
                 }
 
                 FormShortcuts2 form2 = new FormShortcuts2(shortcutManager.xmlPath, shortcutManager.xmlFileBackup);
                 form2.ShowDialog();
+                return Result.Cancelled;
             }
 
 
@@ -63,7 +68,6 @@ namespace RevitAreaReinforcement
             string folder = System.IO.Path.GetDirectoryName(assemblyPath);
             folder = System.IO.Path.Combine(folder, "RevitAreaReinforcement_data");
 
-            string shortcutsXmlPath = System.IO.Path.Combine(folder, "KeyboardShortcuts.xml");
             string idsFilePath = System.IO.Path.Combine(folder, "ids.txt");
             string speedFilePath = System.IO.Path.Combine(folder, "speed.txt");
 
@@ -73,7 +77,7 @@ namespace RevitAreaReinforcement
                 speedString = System.IO.File.ReadAllText(speedFilePath);
             }
             int speed = int.Parse(speedString);
-            DialogWindowRestoreAreaRebar form = new DialogWindowRestoreAreaRebar(shortcutsXmlPath, speed);
+            DialogWindowRestoreAreaRebar form = new DialogWindowRestoreAreaRebar(speed);
             if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return Result.Cancelled;

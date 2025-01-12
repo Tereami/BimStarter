@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RevitAreaReinforcement
 {
     public partial class DialogWindowRestoreAreaRebar : Form
     {
-        public string _xmlPath = "error path";
         public int speed = 1;
-        public DialogWindowRestoreAreaRebar(string XmlPath, int speed)
+        public DialogWindowRestoreAreaRebar(int speed)
         {
             InitializeComponent();
-            _xmlPath = XmlPath;
             trackBarSpeed.Value = speed;
         }
 
@@ -50,7 +41,7 @@ namespace RevitAreaReinforcement
 
         private void buttonHideHelp_Click(object sender, EventArgs e)
         {
-            Height = 160;
+            Height = 177;
             buttonHideHelp.Visible = false;
             label1.Visible = false;
             label2.Visible = false;

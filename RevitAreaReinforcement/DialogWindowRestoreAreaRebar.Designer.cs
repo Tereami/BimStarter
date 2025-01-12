@@ -35,8 +35,6 @@ namespace RevitAreaReinforcement
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.labelShortcutsFile = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,16 +73,6 @@ namespace RevitAreaReinforcement
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            // 
-            // labelShortcutsFile
-            // 
-            resources.ApplyResources(this.labelShortcutsFile, "labelShortcutsFile");
-            this.labelShortcutsFile.Name = "labelShortcutsFile";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
             // 
             // label6
             // 
@@ -156,11 +144,9 @@ namespace RevitAreaReinforcement
             this.Controls.Add(this.trackBarSpeed);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelShortcutsFile);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -179,8 +165,6 @@ namespace RevitAreaReinforcement
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelShortcutsFile;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Label label7;

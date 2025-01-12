@@ -11,8 +11,13 @@ namespace Tools.Extensions.Shortcuts
 
         public string Paths { get; set; }
 
+        public string SourceXmlLine { get; set; }
+
+        public bool IsModified { get; set; } = false;
+
         public ShortcutItem(string xmlRow)
         {
+            SourceXmlLine = xmlRow;
             xmlRow = xmlRow.Replace("\" ", "®");
             xmlRow = xmlRow.Replace("<ShortcutItem ", "");
             xmlRow = xmlRow.Replace("/>", "");
@@ -56,11 +61,11 @@ namespace Tools.Extensions.Shortcuts
             Paths = paths;
         }
 
-        public bool CheckContainsShortcuts(IEnumerable<string> requiredShortcuts)
+        public bool CheckContainsRequiredShortcuts(ShortcutItem requiredShortcut)
         {
             if (this.Shortcuts == null || this.Shortcuts.Count == 0) return false;
 
-            foreach (string shortcut in requiredShortcuts)
+            foreach (string shortcut in requiredShortcut.Shortcuts)
             {
                 if (!this.Shortcuts.Contains(shortcut))
                     return false;
@@ -68,11 +73,12 @@ namespace Tools.Extensions.Shortcuts
             return true;
         }
 
-        public void SetShortCuts(IEnumerable<string> addShortcuts)
+        public void AddShortCuts(IEnumerable<string> addShortcuts)
         {
             if (Shortcuts == null)
             {
                 Shortcuts = addShortcuts.ToList();
+                IsModified = true;
                 return;
             }
             foreach (string shortcut in addShortcuts)
@@ -80,13 +86,35 @@ namespace Tools.Extensions.Shortcuts
                 if (!this.Shortcuts.Contains(shortcut))
                 {
                     this.Shortcuts.Add(shortcut);
+                    IsModified = true;
+                }
+            }
+        }
+
+        public void RemoveShortCut(ShortcutItem itemToCheck)
+        {
+            if (this.CommandId == itemToCheck.CommandId)
+                return;
+
+            if (this.Shortcuts == null || this.Shortcuts.Count == 0) return;
+
+            IEnumerable<string> removeShortcuts = itemToCheck.Shortcuts;
+
+            foreach (string shortcut in removeShortcuts)
+            {
+                if (this.Shortcuts.Contains(shortcut))
+                {
+                    this.Shortcuts.Remove(shortcut);
+                    IsModified = true;
                 }
             }
         }
 
         public string ToXmlString()
         {
-            string line = $"<ShortcutItem CommandName=\"{CommandName}\" CommandId=\"{CommandId}\"";
+            if (!IsModified) return SourceXmlLine;
+
+            string line = $"  <ShortcutItem CommandName=\"{CommandName}\" CommandId=\"{CommandId}\"";
 
             if (Shortcuts != null && Shortcuts.Count > 0)
             {
