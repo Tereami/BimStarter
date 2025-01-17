@@ -16,6 +16,18 @@ namespace Tools.KeyboardSimulation
             SendInput(1, Inputs, INPUT.Size);
         }
 
+        public void Send(string text, int interval)
+        {
+            char[] chars = text.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                char c = chars[i];
+                Send(c.ToKey());
+                System.Threading.Thread.Sleep(interval);
+            }
+        }
+
         /// <summary>
         /// Declaration of external SendInput method
         /// </summary>

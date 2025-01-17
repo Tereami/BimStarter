@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<UseWPF>true</UseWPF>
+		<OutputPath>bin</OutputPath>
+		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
+		<Deterministic>False</Deterministic>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Tools.KeyboardSimulation\Tools.KeyboardSimulation.csproj" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
+	</Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
+	</Target>
+
+</Project>

@@ -13,7 +13,6 @@ Zuev Aleksandr, 2024, all rigths reserved.*/
 #region Usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-
 #endregion
 
 
@@ -26,7 +25,7 @@ namespace Autonumber
         {
             string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string folder = System.IO.Path.GetDirectoryName(assemblyPath);
-            string exefile = System.IO.Path.Combine(folder, "Autonumber_data", "autonumber.exe");
+            string exefile = System.IO.Path.Combine(folder, "Tools.Autonumber.exe");
 
             bool checkFile = System.IO.File.Exists(exefile);
             if (!checkFile)
@@ -44,6 +43,8 @@ namespace Autonumber
                 message = "Failed to execute: " + exefile;
                 return Result.Failed;
             }
+
+
 
             return Result.Succeeded;
         }
