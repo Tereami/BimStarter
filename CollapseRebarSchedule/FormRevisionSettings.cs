@@ -42,6 +42,9 @@ namespace SchedulesTools
             radioUseStandartDescription.Checked = Settings.UseStandartRevisionDescription;
             radioUseParamForDescription.Checked = Settings.UseParameterForRevisionDescription;
             textBoxSheetRevDescParam.Text = Settings.SheetRevisionDescriptionParameter;
+
+            string appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.Text = $"{this.Text} v.{appVersion}";
         }
 
         private void buttonOk_Click(object sender, EventArgs e)

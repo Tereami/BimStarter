@@ -155,7 +155,7 @@ namespace SchedulesTools
             List<RevisionCloud> clouds = new FilteredElementCollector(doc)
                 .OfClass(typeof(RevisionCloud))
                 .Cast<RevisionCloud>()
-                .Where(i => i.OwnerViewId.IntegerValue == sheet.Id.IntegerValue)
+                .Where(i => i.OwnerViewId == sheet.Id)
                 .ToList();
 
             List<Revision> allRevisionsOnSheet = sheet.GetAllRevisionIds()
@@ -190,7 +190,7 @@ namespace SchedulesTools
             for (int i = 0; i < revsCount; i++)
             {
                 Revision rev = lastRevisionsOnSheet[i];
-                int curRevCloudsCount = clouds.Where(c => c.RevisionId.IntegerValue == rev.Id.IntegerValue).ToList().Count;
+                int curRevCloudsCount = clouds.Where(c => c.RevisionId == rev.Id).ToList().Count;
                 string val = "";
                 if (curRevCloudsCount == 0) val = "-";
                 else val = curRevCloudsCount.ToString();

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace Tools.Autonumber
 {
+    [SupportedOSPlatform("windows")]
     public partial class FormAutonumber : Form
     {
         public int StartNumber;

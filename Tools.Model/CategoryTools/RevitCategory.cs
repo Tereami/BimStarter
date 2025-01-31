@@ -46,7 +46,7 @@ namespace Tools.Model.CategoryTools
 #if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
                     BuiltInCategory bic = (BuiltInCategory)cat.Id.IntegerValue;
 #else
-                    BuiltInCategory bic = (BuiltInCategory)cat.Id.Value();
+                    BuiltInCategory bic = (BuiltInCategory)cat.Id.Value;
 #endif
                     RevitCategory rc = new RevitCategory { DisplayName = name, InternalCategory = bic };
                     cats.Add(rc);

@@ -21,7 +21,12 @@ namespace RevitGraphicsOverride
     {
         public static string HaveOverrides(OverrideGraphicSettings ogs)
         {
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
             ElementId invalidId = new ElementId(OverrideGraphicSettings.InvalidPenNumber);
+#else
+            ElementId invalidId = new ElementId((long)OverrideGraphicSettings.InvalidPenNumber);
+#endif
+
             List<string> messagesList = new List<string>();
 
             if (ogs.Halftone == true)

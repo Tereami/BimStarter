@@ -11,12 +11,11 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region usings
-using SchedulesTools;
 using System;
 using System.Windows.Forms;
 #endregion
 
-namespace SchedulesTable
+namespace SchedulesTools
 {
     public partial class FormTableSettings : Form
     {
@@ -37,6 +36,9 @@ namespace SchedulesTable
             numericMaxChars.Value = s.maxCharsInOneLine;
             textBoxNewLineSymbol.Text = s.newLineSymbol;
             numericRowCoeff.Value = (decimal)s.rowHeightCoeff;
+
+            string appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.Text = $"{this.Text} v. {appVersion}";
         }
 
         private void radioButtonUseComplects_CheckedChanged(object sender, EventArgs e)

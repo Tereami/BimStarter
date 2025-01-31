@@ -200,6 +200,7 @@
 	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
 	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

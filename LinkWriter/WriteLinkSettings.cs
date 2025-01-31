@@ -71,7 +71,7 @@ namespace LinkWriter
             Element selElem = uidoc.Document.GetElement(selIds[0]);
             if (!(selElem is FamilyInstance)) return null;
 
-            bool isCategoryTitleblock = selElem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_TitleBlocks;
+            bool isCategoryTitleblock = selElem.Category.BuiltInCategory == BuiltInCategory.OST_TitleBlocks;
             if (!isCategoryTitleblock) return null;
 
             FamilyInstance fi = selElem as FamilyInstance;

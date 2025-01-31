@@ -1,5 +1,5 @@
 ﻿
-namespace SchedulesTable
+namespace SchedulesTools
 {
     partial class FormTableSettings
     {
@@ -259,7 +259,7 @@ namespace SchedulesTable
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FormSettings
+            // FormTableSettings
             // 
             this.AcceptButton = this.buttonOk;
             resources.ApplyResources(this, "$this");
@@ -272,7 +272,7 @@ namespace SchedulesTable
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormSettings";
+            this.Name = "FormTableSettings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

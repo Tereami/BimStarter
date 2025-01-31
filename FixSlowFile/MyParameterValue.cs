@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.DB;
+using System;
 
 
 namespace FixSlowFile
@@ -22,7 +18,7 @@ namespace FixSlowFile
 
         public MyParameterValue(Parameter revitParam)
         {
-            if(!revitParam.HasValue)
+            if (!revitParam.HasValue)
             {
                 IsNull = true;
                 return;
@@ -45,7 +41,12 @@ namespace FixSlowFile
                     IsValid = true;
                     break;
                 case StorageType.ElementId:
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
                     ElementIdValue = revitParam.AsElementId().IntegerValue;
+#else
+                    ElementIdValue = (int)revitParam.AsElementId().Value;
+#endif
+
                     IsValid = true;
                     break;
                 default:
@@ -93,7 +94,12 @@ namespace FixSlowFile
                     return;
 
                 case StorageType.ElementId:
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
                     ElementId id = new ElementId(ElementIdValue);
+#else
+                    ElementId id = new ElementId((long)ElementIdValue);
+#endif
+
                     revitParam.Set(id);
                     return;
 

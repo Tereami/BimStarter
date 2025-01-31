@@ -14,7 +14,6 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -116,20 +115,22 @@ namespace SchedulesTools
                 return Result.Failed;
             }
 
-            bool includeLinks = templateVs.Definition.IncludeLinkedFiles;
 
-            TableSettings sets = null;
-            try
+            Tools.SettingsSaver.Saver<TableSettings> saver = new Tools.SettingsSaver.Saver<TableSettings>();
+            TableSettings sets = saver.Activate("SchedulesTable");
+            if (sets == null)
             {
-                sets = TableSettings.Activate(includeLinks);
+                Trace.WriteLine("Failed to read config xml file");
+                return Result.Cancelled;
             }
-            catch (OperationCanceledException)
+            sets.getLinkFiles = templateVs.Definition.IncludeLinkedFiles;
+            FormTableSettings form = new FormTableSettings(sets);
+            if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 Trace.WriteLine("Cancelled by user");
                 return Result.Cancelled;
             }
-
-
+            sets = form.sets;
             string sheetComplect = "";
             if (sets.useComplects)
             {
@@ -231,7 +232,7 @@ namespace SchedulesTools
                 }
                 t.Commit();
             }
-            sets.Save();
+            saver.Save(sets);
             Trace.WriteLine("Succeded");
             return Result.Succeeded;
         }
