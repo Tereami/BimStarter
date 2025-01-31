@@ -54,6 +54,7 @@ namespace SchedulesTools
 
                 List<ScheduleSheetInstance> curSsis = scheduleInstances
                     .Where(i => i.OwnerViewId == sheet.Id)
+                    .GroupBy(i => i.ScheduleId).Select(j => j.First())
                     .ToList();
                 Trace.WriteLine("Schedule instances on sheet: " + curSsis.Count);
                 foreach (ScheduleSheetInstance ssi in curSsis)
