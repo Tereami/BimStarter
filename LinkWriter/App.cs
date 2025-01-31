@@ -13,16 +13,14 @@ namespace LinkWriter
 
             assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
-            RibbonPanel panel1 = application.CreateRibbonPanel(tabName, "LINK WRITE TEXT");
-
+            RibbonPanel panel1 = application.CreateRibbonPanel(tabName, "LINK WRITER");
 
             PushButton btnWriteLink = panel1.AddItem(new PushButtonData(
                 "WriteLink",
                 "Write\nLink",
                 assemblyPath,
-                "BatchPrintYay.CommandWriteLinkTitleblock")
+                "LinkWriter.CommandWriteLink")
                 ) as PushButton;
-
 
             return Result.Succeeded;
         }

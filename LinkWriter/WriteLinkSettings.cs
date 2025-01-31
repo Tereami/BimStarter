@@ -20,9 +20,9 @@ namespace LinkWriter
 
         public WriteLinkSettings(
             List<MyParameterValue> sheetParameters,
-            List<MyParameterValue> projectParameters,
             List<MyParameterValue> titleblockParams,
-            List<MyParameterValue> typeParameters)
+            List<MyParameterValue> typeParameters,
+            List<MyParameterValue> projectParameters)
         {
             SheetParams = sheetParameters;
             ProjectParams = projectParameters;
@@ -83,11 +83,12 @@ namespace LinkWriter
             List<MyParameterValue> values = new List<MyParameterValue>();
             foreach (Parameter p in elem.Parameters)
             {
+                string paramName = p.Definition.Name;
                 MyParameterValue mpv = new MyParameterValue(p);
                 if (mpv.IsNull || !mpv.IsValid) continue;
                 values.Add(mpv);
             }
-            return values;
+            return values.OrderBy(i => i.sourceParameter.Definition.Name).ToList();
         }
 
     }

@@ -312,6 +312,7 @@ namespace RibbonBimStarter
             SplitButton splitParametrization = stacked[2] as SplitButton;
             splitParametrization.AddPushButton(CreateButtonData("ParameterWriter", "Command"));
             splitParametrization.AddPushButton(CreateButtonData("ParameterWriter", "CommandWriteView"));
+            splitParametrization.AddPushButton(CreateButtonData("LinkWriter", "CommandWriteLink"));
             splitParametrization.AddPushButton(CreateButtonData("RebarParametrisation", "Command"));
             splitParametrization.AddPushButton(CreateButtonData("PartsParametrisation", "Command"));
 

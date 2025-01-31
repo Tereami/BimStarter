@@ -1,6 +1,5 @@
 ﻿using Autodesk.Revit.DB;
 using System;
-using System.Collections.Generic;
 
 namespace LinkWriter
 {
@@ -27,31 +26,17 @@ namespace LinkWriter
         public Guid SharedParameterGuid;
         public BuiltInParameter BuiltInDefinition;
 
-        public List<BuiltInParameter> skipParameters = new List<BuiltInParameter>
-        {
-            BuiltInParameter.SHEET_NUMBER,
-            BuiltInParameter.SHEET_NAME,
-            BuiltInParameter.VIEWER_SHEET_NUMBER,
-        };
 
         public MyParameterValue(Parameter revitParam)
         {
-            sourceParameter = revitParam;
-            if (!revitParam.HasValue)
+            if (revitParam.IsReadOnly)
             {
-                if (revitParam.StorageType == StorageType.String)
-                {
-                    StringValue = "";
-                }
-                else
-                {
-                    DoubleValue = 0;
-                    IntegerValue = 0;
-                    ElementIdValue = ElementId.InvalidElementId;
-                    IsNull = true;
-                }
+                IsValid = false;
                 return;
             }
+
+            sourceParameter = revitParam;
+
             ParameterName = revitParam.Definition.Name;
             storageType = revitParam.StorageType;
 
@@ -63,50 +48,52 @@ namespace LinkWriter
             else
             {
                 BuiltInDefinition = intDef.BuiltInParameter;
-                if (skipParameters.Contains(BuiltInDefinition))
-                {
-                    IsValid = false;
-                    IsNull = true;
-                    return;
-                }
             }
 
             Document doc = revitParam.Element.Document;
 
-            switch (storageType)
+
+
+            if (!revitParam.HasValue)
             {
-                case StorageType.None:
-                    break;
-                case StorageType.Integer:
-                    IntegerValue = revitParam.AsInteger();
-                    IsValid = true;
-                    break;
-                case StorageType.Double:
-                    DoubleValue = revitParam.AsDouble();
-                    IsValid = true;
-                    break;
-                case StorageType.String:
-                    StringValue = revitParam.AsString();
-                    IsValid = true;
-                    break;
-                case StorageType.ElementId:
-                    FamilySymbol fs = doc.GetElement(revitParam.AsElementId()) as FamilySymbol;
-                    if (fs != null)
-                    {
-                        ElemValueFamily = fs.Family;
-                        ElemValueTypeName = fs.Name;
-                        ElemValueFamilyName = fs.FamilyName;
-                    }
-                    ElementIdValue = revitParam.AsElementId();
-                    IsValid = true;
-                    break;
-                default:
-                    IsValid = false;
-                    break;
+                IsNull = true;
+            }
+            else
+            {
+                switch (storageType)
+                {
+                    case StorageType.None:
+                        break;
+                    case StorageType.Integer:
+                        IntegerValue = revitParam.AsInteger();
+                        IsValid = true;
+                        break;
+                    case StorageType.Double:
+                        DoubleValue = revitParam.AsDouble();
+                        IsValid = true;
+                        break;
+                    case StorageType.String:
+                        StringValue = revitParam.AsString();
+                        IsValid = true;
+                        break;
+                    case StorageType.ElementId:
+                        IsValid = false;
+                        break;
+                        FamilySymbol fs = doc.GetElement(revitParam.AsElementId()) as FamilySymbol;
+                        if (fs != null)
+                        {
+                            ElemValueFamily = fs.Family;
+                            ElemValueTypeName = fs.Name;
+                            ElemValueFamilyName = fs.FamilyName;
+                        }
+                        ElementIdValue = revitParam.AsElementId();
+                        IsValid = true;
+                        break;
+                }
             }
         }
 
-        public override string ToString()
+        public string GetValueAsString()
         {
             switch (storageType)
             {
@@ -123,6 +110,11 @@ namespace LinkWriter
                 default:
                     throw new Exception("Invalid value for StorageType");
             }
+        }
+
+        public override string ToString()
+        {
+            return sourceParameter.Definition.Name;
         }
 
         public void SetValue(Parameter revitParam)

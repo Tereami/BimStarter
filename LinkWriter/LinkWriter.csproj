@@ -259,33 +259,28 @@
 		</When>
 	</Choose>
 	<ItemGroup>
-	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock.Russian.txt" />
-	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock.txt" />
-	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock_large.png" />
-	  <None Remove="LinkWriter_data\CommandWriteLinkTitleblock_small.png" />
+	  <None Remove="LinkWriter_data\CommandWriteLink.Russian.txt" />
+	  <None Remove="LinkWriter_data\CommandWriteLink.txt" />
+	  <None Remove="LinkWriter_data\CommandWriteLink_large.png" />
+	  <None Remove="LinkWriter_data\CommandWriteLink_small.png" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock.Russian.txt">
+	  <Content Include="LinkWriter_data\CommandWriteLink.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock.txt">
+	  <Content Include="LinkWriter_data\CommandWriteLink.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock_large.png">
+	  <Content Include="LinkWriter_data\CommandWriteLink_large.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="LinkWriter_data\CommandWriteLinkTitleblock_small.png">
+	  <Content Include="LinkWriter_data\CommandWriteLink_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Tools.LinksManager\Tools.LinksManager.csproj" />
 	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="FormSelectParametersToCopy.cs">
-	    <SubType>Form</SubType>
-	  </Compile>
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />

@@ -23,7 +23,7 @@ using Tools.LinksManager;
 namespace LinkWriter
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class CommandWriteLinkTitleblock : IExternalCommand
+    public class CommandWriteLink : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -42,15 +42,6 @@ namespace LinkWriter
                 return Result.Failed;
             }
 
-            FormSelectParametersToCopy formSelectParameterToCopy =
-                new FormSelectParametersToCopy(valuesSettings);
-            if (formSelectParameterToCopy.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            {
-                Trace.WriteLine("Cancelled");
-                return Result.Cancelled;
-            }
-            valuesSettings = formSelectParameterToCopy.ValuesSettings;
-
             MyRevitMainDocument myMainDoc = new MyRevitMainDocument(mainDoc, true);
 
             List<MyRevitLinkDocument> linkDocs = myMainDoc.GetLinkDocuments();
@@ -61,6 +52,17 @@ namespace LinkWriter
                 Trace.WriteLine("Cancelled");
                 return Result.Cancelled;
             }
+            linkDocs = formSelectLinks.selectedLinks;
+            List<string> linkNames = linkDocs.Select(x => x.Name).ToList();
+
+            FormSelectParameterValues formValues = new FormSelectParameterValues(linkNames, valuesSettings);
+            if (formValues.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                Trace.WriteLine("Cancelled");
+                return Result.Cancelled;
+            }
+
+            return Result.Succeeded;
 
             foreach (MyRevitLinkDocument myLinkDoc in formSelectLinks.selectedLinks)
             {
