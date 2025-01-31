@@ -13,22 +13,26 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #region Usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI.Selection;
+using System.Collections.Generic;
 #endregion
 
 namespace SchedulesTools
 {
     class ScheduleSelectionFilter : ISelectionFilter
     {
-        private string RequiredNameFragment;
-        public ScheduleSelectionFilter(string requiredNameFragment)
+        private IEnumerable<string> RequiredNameFragments;
+        public ScheduleSelectionFilter(IEnumerable<string> requiredNameFragments)
         {
-            RequiredNameFragment = requiredNameFragment;
+            RequiredNameFragments = requiredNameFragments;
         }
         public bool AllowElement(Element elem)
         {
             if (elem is ScheduleSheetInstance)
             {
-                if (elem.Name.Contains(RequiredNameFragment)) return true;
+                foreach (string curName in RequiredNameFragments)
+                {
+                    if (elem.Name.Contains(curName)) return true;
+                }
             }
             return false;
         }

@@ -27,6 +27,12 @@ namespace SchedulesTools
 
     class CommandCreateTable : IExternalCommand
     {
+        List<string> requiredNames = new List<string>()
+        {
+            "пецификаций",
+            "chedule"
+        };
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Trace.Listeners.Clear();
@@ -44,7 +50,7 @@ namespace SchedulesTools
             {
                 Trace.WriteLine("Current view is viewschedule");
                 templateVs = curView as ViewSchedule;
-                if (!templateVs.Name.Contains("спецификаций") && !templateVs.Name.Contains("schedule"))
+                if (!IsScheduleNameCorrect(templateVs.Name))
                 {
                     message = MyStrings.ErrorIncorrectSchedule;
                     Trace.WriteLine(message);
@@ -77,7 +83,7 @@ namespace SchedulesTools
                     {
                         Trace.WriteLine("No selected elems, PickPoint");
                         Reference refer = sel.PickObject(ObjectType.Element,
-                            new ScheduleSelectionFilter("пецификац"),
+                            new ScheduleSelectionFilter(requiredNames),
                             MyStrings.MsgSelectSchedule);
                         ssiId = refer.ElementId;
                     }
@@ -94,13 +100,7 @@ namespace SchedulesTools
                 Trace.WriteLine($"Schedule instance id: {ssiId}");
 
                 ScheduleSheetInstance selSse = doc.GetElement(ssiId) as ScheduleSheetInstance;
-                if (selSse == null)
-                {
-                    message = MyStrings.ErrorIncorrectSchedule;
-                    Trace.WriteLine(message);
-                    return Result.Failed;
-                }
-                if (!selSse.Name.Contains("спецификаций") && !selSse.Name.Contains("schedule"))
+                if (selSse == null || !IsScheduleNameCorrect(selSse.Name))
                 {
                     message = MyStrings.ErrorIncorrectSchedule;
                     Trace.WriteLine(message);
@@ -234,6 +234,15 @@ namespace SchedulesTools
             sets.Save();
             Trace.WriteLine("Succeded");
             return Result.Succeeded;
+        }
+
+        private bool IsScheduleNameCorrect(string name)
+        {
+            foreach (string curname in requiredNames)
+            {
+                if (name.Contains(curname)) return true;
+            }
+            return false;
         }
     }
 }
