@@ -171,6 +171,15 @@
   <data name="ResultNoFields" xml:space="preserve">
     <value>Нет скрытых или отображенных ячеек. Обновление таблицы не требуется.</value>
   </data>
+  <data name="ScheduleSuffixContinue" xml:space="preserve">
+    <value>(продолжение)</value>
+  </data>
+  <data name="ScheduleSuffixEnd" xml:space="preserve">
+    <value>(окончание)</value>
+  </data>
+  <data name="ScheduleSuffixStart" xml:space="preserve">
+    <value>(начало)</value>
+  </data>
   <data name="TransactionName" xml:space="preserve">
     <value>Отобразить все ячейки</value>
   </data>

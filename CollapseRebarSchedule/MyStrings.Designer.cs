@@ -223,6 +223,33 @@ namespace SchedulesTools {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (continue).
+        /// </summary>
+        public static string ScheduleSuffixContinue {
+            get {
+                return ResourceManager.GetString("ScheduleSuffixContinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (end).
+        /// </summary>
+        public static string ScheduleSuffixEnd {
+            get {
+                return ResourceManager.GetString("ScheduleSuffixEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (begin).
+        /// </summary>
+        public static string ScheduleSuffixStart {
+            get {
+                return ResourceManager.GetString("ScheduleSuffixStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Collapse rebar schedule.
         /// </summary>
         public static string TransactionName {

@@ -171,6 +171,15 @@
   <data name="ResultNoFields" xml:space="preserve">
     <value>No hidden or opened fields. No schedule update required.</value>
   </data>
+  <data name="ScheduleSuffixContinue" xml:space="preserve">
+    <value>(continue)</value>
+  </data>
+  <data name="ScheduleSuffixEnd" xml:space="preserve">
+    <value>(end)</value>
+  </data>
+  <data name="ScheduleSuffixStart" xml:space="preserve">
+    <value>(begin)</value>
+  </data>
   <data name="TransactionName" xml:space="preserve">
     <value>Collapse rebar schedule</value>
   </data>

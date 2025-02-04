@@ -12,9 +12,11 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
 using Autodesk.Revit.DB;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Tools.Forms;
 #endregion
 
 namespace SchedulesTools
@@ -31,6 +33,8 @@ namespace SchedulesTools
                 .Where(i => doc.GetElement(i.ScheduleId).Name.EndsWith("*"))
                 .ToList();
             Trace.WriteLine("Schedule instances found: " + scheduleInstances.Count);
+
+            Dictionary<ElementId, string> splitSuffixes = GetSplitSuffixes(doc, scheduleInstances);
 
             List<ViewSheet> sheets = GetAllSheetsFromDocument(doc);
             foreach (ViewSheet sheet in sheets)
@@ -61,6 +65,8 @@ namespace SchedulesTools
                 {
                     Trace.WriteLine($"Schedule instance id: {ssi.Id}");
                     SheetScheduleInfo info = new SheetScheduleInfo(ssi, sheet, sets);
+                    if (splitSuffixes.ContainsKey(ssi.Id))
+                        info.ScheduleName += " " + splitSuffixes[ssi.Id];
                     infos.Add(info);
                 }
             }
@@ -92,6 +98,73 @@ namespace SchedulesTools
             return sheets;
         }
 
+        private static Dictionary<ElementId, string> GetSplitSuffixes(Document doc, List<ScheduleSheetInstance> scheduleInstances)
+        {
+            Dictionary<ElementId, string> splitSuffixes = new Dictionary<ElementId, string>();
+            Dictionary<ElementId, List<ScheduleSheetInstance>> groupedByScheduleId =
+                scheduleInstances.GroupBy(i => i.ScheduleId)
+                .ToDictionary(i => i.Key, i => i.ToList());
+            foreach (var group in groupedByScheduleId)
+            {
+                int splitCount = group.Value.Count;
+                if (splitCount == 1) continue;
+
+
+                List<List<ScheduleSheetInstance>> groupedBySheets = group.Value
+                    .GroupBy(i => GetSheetNumberAsInt(i, doc))
+                    .Select(i => (number: i.Key, schedules: i.ToList()))
+                    .OrderBy(i => i.number)
+                    .Select(i => i.schedules)
+                    .ToList();
+
+                if (groupedBySheets.Count == 1) continue;
+
+                foreach (var ssi in groupedBySheets.First())
+                {
+                    splitSuffixes.Add(ssi.Id, MyStrings.ScheduleSuffixStart);
+                }
+
+                foreach (ScheduleSheetInstance ssi in groupedBySheets.Last())
+                {
+                    splitSuffixes.Add(ssi.Id, MyStrings.ScheduleSuffixEnd);
+                }
+
+                if (groupedBySheets.Count == 2) continue;
+
+                for (int i = 1; i < groupedBySheets.Count - 1; i++)
+                {
+                    foreach (ScheduleSheetInstance ssi in groupedBySheets[i])
+                    {
+                        splitSuffixes.Add(ssi.Id, MyStrings.ScheduleSuffixContinue);
+                    }
+                }
+            }
+            return splitSuffixes;
+        }
+
+        private static int GetSheetNumberAsInt(ScheduleSheetInstance ssi, Document doc)
+        {
+            ViewSheet sheet = doc.GetElement(ssi.OwnerViewId) as ViewSheet;
+
+            string sheetNumberString = sheet.SheetNumber;
+
+            if (sheetNumberString.Contains("-"))
+            {
+                sheetNumberString = sheetNumberString.Split('-').Last();
+            }
+            if (sheetNumberString.Contains("_"))
+            {
+                sheetNumberString = sheetNumberString.Split('_').Last();
+            }
+            int sheetNumber = 0;
+            try
+            {
+                sheetNumber = Convert.ToInt32(System.Text.RegularExpressions.Regex.Replace(sheetNumberString, @"[^\d]+", ""));
+            }
+            catch { }
+            return sheet.Id.GetValue();
+        }
+
         public static List<ViewSheet> GetAllSheetsFromDocument(Document doc)
         {
             List<ViewSheet> sheets = new FilteredElementCollector(doc)
@@ -99,6 +172,7 @@ namespace SchedulesTools
                 .WhereElementIsNotElementType()
                 .Cast<ViewSheet>()
                 .Where(i => !i.IsPlaceholder)
+                .OrderBy(i => i.SheetNumber)
                 .ToList();
             Trace.WriteLine("Sheets found: " + sheets.Count + " in " + doc.Title);
             return sheets;
