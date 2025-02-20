@@ -233,6 +233,15 @@
   <data name="labelHelp6.Text" xml:space="preserve">
     <value>↓ настройки сохраняются автоматически при нажатии ОК. Этими кнопками можно создать разные файлы настроек, либо использовать единый файл, созданный централизованно. Путь к последнему использованному файлу запоминается. Можно пересохранить из xml файла, созданного в старой версии плагина.</value>
   </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 355</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 113</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>4. Рабочий набор по параметру</value>
+  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 72</value>
   </data>
@@ -272,15 +281,6 @@
   <data name="checkBoxEnabledByParameter.Text" xml:space="preserve">
     <value>Активировать</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 355</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>517, 113</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>4. Рабочий набор по параметру</value>
-  </data>
   <data name="buttonHelp.Location" type="System.Drawing.Point, System.Drawing">
     <value>982, 805</value>
   </data>
@@ -289,6 +289,15 @@
   </data>
   <data name="buttonHelp.Text" xml:space="preserve">
     <value>Справка</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 474</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 235</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>5. Рабочий набор для связанных файлов</value>
   </data>
   <data name="labelHelp5.Location" type="System.Drawing.Point, System.Drawing">
     <value>176, 170</value>
@@ -443,14 +452,14 @@
   <data name="checkBoxEnabledForLinkedFiles.Text" xml:space="preserve">
     <value>Активировать</value>
   </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 474</value>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 715</value>
   </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>517, 235</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 84</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>5. Рабочий набор для связанных файлов</value>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>6. Рабочий набор для DWG/DXF связей</value>
   </data>
   <data name="textBoxDwgWorksetName.Location" type="System.Drawing.Point, System.Drawing">
     <value>155, 44</value>
@@ -478,15 +487,6 @@
   </data>
   <data name="checkBoxEnabledForDwgLinks.Text" xml:space="preserve">
     <value>Активировать</value>
-  </data>
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 715</value>
-  </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>517, 84</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>6. Рабочий набор для DWG/DXF связей</value>
   </data>
   <data name="dataGridViewTypes.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 44</value>

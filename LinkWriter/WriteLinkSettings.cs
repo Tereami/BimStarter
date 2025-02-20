@@ -13,6 +13,7 @@ namespace LinkWriter
         public List<MyParameterValue> TitleblockParams;
         public List<MyParameterValue> TypeParams;
 
+
         public WriteLinkSettings()
         {
 
@@ -30,7 +31,7 @@ namespace LinkWriter
             TypeParams = typeParameters;
         }
 
-        public static WriteLinkSettings LoadAllValues(ExternalCommandData commandData, out string message)
+        public static WriteLinkSettings LoadAllValues(ExternalCommandData commandData, out string message, List<string> enabledParameters)
         {
             Document mainDoc = commandData.Application.ActiveUIDocument.Document;
             FamilyInstance titleBlock = getTitleblockIsSelected(commandData.Application.ActiveUIDocument);
@@ -46,15 +47,15 @@ namespace LinkWriter
                 message = "Please open a sheet to copy parameters";
                 return null;
             }
-            List<MyParameterValue> sheetParameters = GetParameterValues(openedSheet);
+            List<MyParameterValue> sheetParameters = GetParameterValues(openedSheet, enabledParameters);
 
-            List<MyParameterValue> titleblockParams = GetParameterValues(titleBlock);
+            List<MyParameterValue> titleblockParams = GetParameterValues(titleBlock, enabledParameters);
 
             ElementType titleblockType = mainDoc.GetElement(titleBlock.GetTypeId()) as ElementType;
-            List<MyParameterValue> typeParameters = GetParameterValues(titleblockType);
+            List<MyParameterValue> typeParameters = GetParameterValues(titleblockType, enabledParameters);
 
             ProjectInfo pi = mainDoc.ProjectInformation;
-            List<MyParameterValue> projectParameters = GetParameterValues(pi);
+            List<MyParameterValue> projectParameters = GetParameterValues(pi, enabledParameters);
 
             WriteLinkSettings wls = new WriteLinkSettings(sheetParameters, projectParameters, titleblockParams, typeParameters);
 
@@ -71,14 +72,18 @@ namespace LinkWriter
             Element selElem = uidoc.Document.GetElement(selIds[0]);
             if (!(selElem is FamilyInstance)) return null;
 
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
+            bool isCategoryTitleblock = selElem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_TitleBlocks;
+#else
             bool isCategoryTitleblock = selElem.Category.BuiltInCategory == BuiltInCategory.OST_TitleBlocks;
+#endif
             if (!isCategoryTitleblock) return null;
 
             FamilyInstance fi = selElem as FamilyInstance;
             return fi;
         }
 
-        private static List<MyParameterValue> GetParameterValues(Element elem)
+        private static List<MyParameterValue> GetParameterValues(Element elem, List<string> enabledParams)
         {
             List<MyParameterValue> values = new List<MyParameterValue>();
             foreach (Parameter p in elem.Parameters)
@@ -86,6 +91,12 @@ namespace LinkWriter
                 string paramName = p.Definition.Name;
                 MyParameterValue mpv = new MyParameterValue(p);
                 if (mpv.IsNull || !mpv.IsValid) continue;
+
+                if (enabledParams != null && enabledParams.Contains(paramName))
+                {
+                    mpv.IsEnabled = true;
+                }
+
                 values.Add(mpv);
             }
             return values.OrderBy(i => i.sourceParameter.Definition.Name).ToList();

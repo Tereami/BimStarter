@@ -41,6 +41,9 @@
             this.dataGridViewOther = new System.Windows.Forms.DataGridView();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.ProjectInfoEnableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectInfoParameterNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectInfoParamValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageSheet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSheet)).BeginInit();
@@ -158,6 +161,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProjectInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProjectInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProjectInfoEnableColumn,
+            this.ProjectInfoParameterNameColumn,
+            this.ProjectInfoParamValueColumn});
             this.dataGridViewProjectInfo.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewProjectInfo.Name = "dataGridViewProjectInfo";
             this.dataGridViewProjectInfo.Size = new System.Drawing.Size(681, 556);
@@ -207,6 +214,25 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // ProjectInfoEnableColumn
+            // 
+            this.ProjectInfoEnableColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoEnableColumn.FillWeight = 20F;
+            this.ProjectInfoEnableColumn.HeaderText = "On";
+            this.ProjectInfoEnableColumn.Name = "ProjectInfoEnableColumn";
+            // 
+            // ProjectInfoParameterNameColumn
+            // 
+            this.ProjectInfoParameterNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoParameterNameColumn.HeaderText = "Parameter name";
+            this.ProjectInfoParameterNameColumn.Name = "ProjectInfoParameterNameColumn";
+            // 
+            // ProjectInfoParamValueColumn
+            // 
+            this.ProjectInfoParamValueColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoParamValueColumn.HeaderText = "Value";
+            this.ProjectInfoParamValueColumn.Name = "ProjectInfoParamValueColumn";
+            // 
             // FormSelectParameterValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,5 +278,8 @@
         private System.Windows.Forms.DataGridView dataGridViewTitleblockType;
         private System.Windows.Forms.DataGridView dataGridViewProjectInfo;
         private System.Windows.Forms.DataGridView dataGridViewOther;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoEnableColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParameterNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParamValueColumn;
     }
 }

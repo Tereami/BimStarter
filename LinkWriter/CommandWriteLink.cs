@@ -36,7 +36,10 @@ namespace LinkWriter
 
             Document mainDoc = commandData.Application.ActiveUIDocument.Document;
 
-            WriteLinkSettings valuesSettings = WriteLinkSettings.LoadAllValues(commandData, out message);
+            Tools.SettingsSaver.Saver<Save> saver = new Tools.SettingsSaver.Saver<Save>();
+            Save save = saver.Activate("WriteLink");
+
+            WriteLinkSettings valuesSettings = WriteLinkSettings.LoadAllValues(commandData, out message, save.EnabledParameters);
             if (valuesSettings == null)
             {
                 return Result.Failed;
@@ -62,6 +65,7 @@ namespace LinkWriter
                 return Result.Cancelled;
             }
 
+            saver.Save(save);
             return Result.Succeeded;
 
             foreach (MyRevitLinkDocument myLinkDoc in formSelectLinks.selectedLinks)

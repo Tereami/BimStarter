@@ -19,6 +19,8 @@ namespace LinkWriter
 
             LinkNames = linkNames;
 
+            //sheet
+
             dataGridViewSheet.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "Enable", HeaderText = "Вкл", FillWeight = 15 });
             dataGridViewSheet.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ParameterName", HeaderText = "Параметр", FillWeight = 40 });
 
@@ -39,6 +41,12 @@ namespace LinkWriter
                     row[i + 2] = param.GetValueAsString();
                 }
                 dataGridViewSheet.Rows.Add(row);
+            }
+
+            //project info
+            foreach (MyParameterValue param in sets.ProjectParams)
+            {
+                dataGridViewProjectInfo.Rows.Add(false, param.ParameterName, param.GetValueAsString());
             }
         }
 

@@ -99,6 +99,7 @@
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
@@ -106,18 +107,21 @@
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonLoad
             // 
             resources.ApplyResources(this.buttonLoad, "buttonLoad");
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // groupBox1
             // 
@@ -135,6 +139,7 @@
             this.labelHelp1.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp1.Name = "labelHelp1";
+            this.labelHelp1.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // dataGridViewCategories
             // 
@@ -142,6 +147,8 @@
             this.dataGridViewCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCategories.Name = "dataGridViewCategories";
+            this.dataGridViewCategories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCategories_CellContentClick);
+            this.dataGridViewCategories.EnabledChanged += new System.EventHandler(this.dataGridView_EnabledChanged);
             // 
             // checkBoxEnabledByCategory
             // 
@@ -150,6 +157,7 @@
             this.checkBoxEnabledByCategory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnabledByCategory.Name = "checkBoxEnabledByCategory";
             this.checkBoxEnabledByCategory.UseVisualStyleBackColor = true;
+            this.checkBoxEnabledByCategory.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -167,6 +175,7 @@
             this.labelHelp2.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp2.Name = "labelHelp2";
+            this.labelHelp2.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // dataGridViewFamilies
             // 
@@ -174,6 +183,8 @@
             this.dataGridViewFamilies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFamilies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFamilies.Name = "dataGridViewFamilies";
+            this.dataGridViewFamilies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFamilies_CellContentClick);
+            this.dataGridViewFamilies.EnabledChanged += new System.EventHandler(this.dataGridView_EnabledChanged);
             // 
             // checkBoxEnableByFamilyName
             // 
@@ -182,6 +193,7 @@
             this.checkBoxEnableByFamilyName.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnableByFamilyName.Name = "checkBoxEnableByFamilyName";
             this.checkBoxEnableByFamilyName.UseVisualStyleBackColor = true;
+            this.checkBoxEnableByFamilyName.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // labelHelp6
             // 
@@ -190,6 +202,7 @@
             this.labelHelp6.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp6.Name = "labelHelp6";
+            this.labelHelp6.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // groupBox3
             // 
@@ -223,12 +236,14 @@
             this.checkBoxEnabledByParameter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnabledByParameter.Name = "checkBoxEnabledByParameter";
             this.checkBoxEnabledByParameter.UseVisualStyleBackColor = true;
+            this.checkBoxEnabledByParameter.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // buttonHelp
             // 
             resources.ApplyResources(this.buttonHelp, "buttonHelp");
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.FormMain_HelpButtonClicked);
             // 
             // groupBox4
             // 
@@ -260,6 +275,7 @@
             this.labelHelp5.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp5.Name = "labelHelp5";
+            this.labelHelp5.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // labelHelp4
             // 
@@ -268,6 +284,7 @@
             this.labelHelp4.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp4.Name = "labelHelp4";
+            this.labelHelp4.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // labelLinkTestResult
             // 
@@ -309,6 +326,7 @@
             // 
             resources.ApplyResources(this.textBoxLinkTestFilename, "textBoxLinkTestFilename");
             this.textBoxLinkTestFilename.Name = "textBoxLinkTestFilename";
+            this.textBoxLinkTestFilename.TextChanged += new System.EventHandler(this.textBoxLink_TextChanged);
             // 
             // textBoxLinkPrefix
             // 
@@ -347,6 +365,7 @@
             this.checkBoxEnabledForLinkedFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnabledForLinkedFiles.Name = "checkBoxEnabledForLinkedFiles";
             this.checkBoxEnabledForLinkedFiles.UseVisualStyleBackColor = true;
+            this.checkBoxEnabledForLinkedFiles.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -374,6 +393,7 @@
             this.checkBoxEnabledForDwgLinks.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnabledForDwgLinks.Name = "checkBoxEnabledForDwgLinks";
             this.checkBoxEnabledForDwgLinks.UseVisualStyleBackColor = true;
+            this.checkBoxEnabledForDwgLinks.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -389,6 +409,8 @@
             this.dataGridViewTypes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTypes.Name = "dataGridViewTypes";
+            this.dataGridViewTypes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewByType_CellContentClick);
+            this.dataGridViewTypes.EnabledChanged += new System.EventHandler(this.dataGridView_EnabledChanged);
             // 
             // checkBoxEnableByType
             // 
@@ -397,6 +419,7 @@
             this.checkBoxEnableByType.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnableByType.Name = "checkBoxEnableByType";
             this.checkBoxEnableByType.UseVisualStyleBackColor = true;
+            this.checkBoxEnableByType.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // statusStrip1
             // 
@@ -417,12 +440,14 @@
             this.labelHelp3.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp3.Name = "labelHelp3";
+            this.labelHelp3.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // buttonReset
             // 
             resources.ApplyResources(this.buttonReset, "buttonReset");
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // labelHelp0
             // 
@@ -431,6 +456,7 @@
             this.labelHelp0.BackColor = System.Drawing.Color.Yellow;
             this.labelHelp0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelHelp0.Name = "labelHelp0";
+            this.labelHelp0.Click += new System.EventHandler(this.labelHelp_Click);
             // 
             // checkBoxNoEmptyWorksets
             // 

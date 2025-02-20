@@ -8,6 +8,7 @@ namespace LinkWriter
         public StorageType storageType;
         public bool IsValid = false;
         public bool IsNull = false;
+        public bool IsEnabled = false;
 
         public string StringValue;
         public double DoubleValue;
