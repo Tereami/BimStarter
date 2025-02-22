@@ -41,7 +41,7 @@
             this.dataGridViewOther = new System.Windows.Forms.DataGridView();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.ProjectInfoEnableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectInfoEnableColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProjectInfoParameterNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectInfoParamValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
@@ -116,6 +116,7 @@
             this.dataGridViewTitleblock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTitleblock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTitleblock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTitleblock.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewTitleblock.Name = "dataGridViewTitleblock";
@@ -138,6 +139,7 @@
             this.dataGridViewTitleblockType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTitleblockType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTitleblockType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTitleblockType.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewTitleblockType.Name = "dataGridViewTitleblockType";
@@ -160,9 +162,10 @@
             this.dataGridViewProjectInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProjectInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProjectInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProjectInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProjectInfoEnableColumn,
+            this.ProjectInfoEnableColumn2,
             this.ProjectInfoParameterNameColumn,
             this.ProjectInfoParamValueColumn});
             this.dataGridViewProjectInfo.Location = new System.Drawing.Point(6, 6);
@@ -214,12 +217,12 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // ProjectInfoEnableColumn
+            // ProjectInfoEnableColumn2
             // 
-            this.ProjectInfoEnableColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProjectInfoEnableColumn.FillWeight = 20F;
-            this.ProjectInfoEnableColumn.HeaderText = "On";
-            this.ProjectInfoEnableColumn.Name = "ProjectInfoEnableColumn";
+            this.ProjectInfoEnableColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoEnableColumn2.FillWeight = 20F;
+            this.ProjectInfoEnableColumn2.HeaderText = "On";
+            this.ProjectInfoEnableColumn2.Name = "ProjectInfoEnableColumn2";
             // 
             // ProjectInfoParameterNameColumn
             // 
@@ -278,7 +281,7 @@
         private System.Windows.Forms.DataGridView dataGridViewTitleblockType;
         private System.Windows.Forms.DataGridView dataGridViewProjectInfo;
         private System.Windows.Forms.DataGridView dataGridViewOther;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoEnableColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ProjectInfoEnableColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParameterNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParamValueColumn;
     }

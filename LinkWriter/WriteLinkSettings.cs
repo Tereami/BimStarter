@@ -31,7 +31,7 @@ namespace LinkWriter
             TypeParams = typeParameters;
         }
 
-        public static WriteLinkSettings LoadAllValues(ExternalCommandData commandData, out string message, List<string> enabledParameters)
+        public static WriteLinkSettings LoadAllValues(ExternalCommandData commandData, out string message, Save save)
         {
             Document mainDoc = commandData.Application.ActiveUIDocument.Document;
             FamilyInstance titleBlock = getTitleblockIsSelected(commandData.Application.ActiveUIDocument);
@@ -47,17 +47,17 @@ namespace LinkWriter
                 message = "Please open a sheet to copy parameters";
                 return null;
             }
-            List<MyParameterValue> sheetParameters = GetParameterValues(openedSheet, enabledParameters);
+            List<MyParameterValue> sheetParameters = GetParameterValues(openedSheet, save.SheetParameters);
 
-            List<MyParameterValue> titleblockParams = GetParameterValues(titleBlock, enabledParameters);
+            List<MyParameterValue> titleblockParams = GetParameterValues(titleBlock, save.TitleblockParameters);
 
             ElementType titleblockType = mainDoc.GetElement(titleBlock.GetTypeId()) as ElementType;
-            List<MyParameterValue> typeParameters = GetParameterValues(titleblockType, enabledParameters);
+            List<MyParameterValue> typeParameters = GetParameterValues(titleblockType, save.TypeParameters);
 
             ProjectInfo pi = mainDoc.ProjectInformation;
-            List<MyParameterValue> projectParameters = GetParameterValues(pi, enabledParameters);
+            List<MyParameterValue> projectParameters = GetParameterValues(pi, save.ProjectParameters);
 
-            WriteLinkSettings wls = new WriteLinkSettings(sheetParameters, projectParameters, titleblockParams, typeParameters);
+            WriteLinkSettings wls = new WriteLinkSettings(sheetParameters, titleblockParams, typeParameters, projectParameters);
 
             message = string.Empty;
             return wls;
@@ -83,7 +83,7 @@ namespace LinkWriter
             return fi;
         }
 
-        private static List<MyParameterValue> GetParameterValues(Element elem, List<string> enabledParams)
+        private static List<MyParameterValue> GetParameterValues(Element elem, IEnumerable<string> enabledParams)
         {
             List<MyParameterValue> values = new List<MyParameterValue>();
             foreach (Parameter p in elem.Parameters)
@@ -101,6 +101,5 @@ namespace LinkWriter
             }
             return values.OrderBy(i => i.sourceParameter.Definition.Name).ToList();
         }
-
     }
 }
