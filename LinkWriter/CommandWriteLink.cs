@@ -13,6 +13,7 @@ Zuev Aleksandr, 2024, all rigths reserved.*/
 #region usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -28,16 +29,16 @@ namespace LinkWriter
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Trace.Listeners.Clear();
-            Trace.Listeners.Add(new Tools.Logger.Logger("BatchPrint"));
-            Trace.WriteLine("Start CommandWriteLinkTitleblock");
+            Trace.Listeners.Add(new Tools.Logger.Logger("LinkWriter"));
+            Debug.WriteLine("Start CommandWriteLinkTitleblock");
             string version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            Trace.WriteLine($"Assembly version: {version}");
+            Debug.WriteLine($"Assembly version: {version}");
             App.assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
             Document mainDoc = commandData.Application.ActiveUIDocument.Document;
 
             Tools.SettingsSaver.Saver<Save> saver = new Tools.SettingsSaver.Saver<Save>();
-            Save save = saver.Activate("WriteLink");
+            Save save = saver.Activate("LinkWriter");
 
             WriteLinkSettings valuesSettings = WriteLinkSettings.LoadAllValues(commandData, out message, save);
             if (valuesSettings == null)
@@ -52,7 +53,7 @@ namespace LinkWriter
             FormSelectLinks formSelectLinks = new FormSelectLinks(linkDocs, true);
             if (formSelectLinks.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                Trace.WriteLine("Cancelled");
+                Debug.WriteLine("Cancelled");
                 return Result.Cancelled;
             }
             linkDocs = formSelectLinks.selectedLinks;
@@ -61,21 +62,21 @@ namespace LinkWriter
             FormSelectParameterValues formValues = new FormSelectParameterValues(linkNames, valuesSettings);
             if (formValues.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                Trace.WriteLine("Cancelled");
+                Debug.WriteLine("Cancelled");
                 return Result.Cancelled;
             }
 
             save.AddValues(formValues);
             saver.Save(save);
-
-            return Result.Succeeded;
+            Debug.WriteLine("Saved enabled parameters");
 
             foreach (MyRevitLinkDocument myLinkDoc in formSelectLinks.selectedLinks)
             {
+                string linkName = myLinkDoc.Name;
+                Debug.WriteLine($"Try to open a link: {linkName}");
                 myLinkDoc.OpenLinkDocument(commandData, false);
 
                 Document linkDoc = myLinkDoc.Doc;
-
                 try
                 {
                     using (Transaction t = new Transaction(linkDoc))
@@ -93,13 +94,16 @@ namespace LinkWriter
                             FamilyInstance linkTitleblockInstance = mySheet.titleBlocks[0];
                             ElementType linkTitleBlockType = linkDoc.GetElement(linkTitleblockInstance.GetTypeId()) as ElementType;
 
-                            WriteParameterValues(mySheet.sheet, valuesSettings.SheetParams);
+                            if (formValues.ValuesSheets.ContainsKey(linkName))
+                                WriteParameters(mySheet.sheet, formValues.ValuesSheets[linkName]);
 
-                            WriteParameterValues(linkDoc.ProjectInformation, valuesSettings.ProjectParams);
+                            if (formValues.ValuesTitleblocks.ContainsKey(linkName))
+                                WriteParameters(linkTitleblockInstance, formValues.ValuesTitleblocks[linkName]);
 
-                            WriteParameterValues(linkTitleblockInstance, valuesSettings.TitleblockParams);
+                            if (formValues.ValuesTitleblockType.ContainsKey(linkName))
+                                WriteParameters(linkTitleBlockType, formValues.ValuesTitleblockType[linkName]);
 
-                            WriteParameterValues(linkTitleBlockType, valuesSettings.TypeParams);
+                            WriteParameters(linkDoc.ProjectInformation, formValues.ValuesProjectInfo);
                         }
                         t.Commit();
                     }
@@ -117,16 +121,63 @@ namespace LinkWriter
         }
 
 
-        private void WriteParameterValues(Element elem, List<MyParameterValue> values)
+
+        private void WriteParameters(Element elem, List<(string, string)> values)
         {
+            Debug.WriteLine($"Write {values.Count} parameters to element {elem.Name} {elem.Id}");
             foreach (Parameter p in elem.ParametersMap)
             {
                 if (p.IsReadOnly) continue;
                 string paramName = p.Definition.Name;
-                MyParameterValue sourceValue = values.FirstOrDefault(i => i.ParameterName == paramName);
-                if (sourceValue == null) continue;
-                sourceValue.SetValue(p);
+                string valueString = values.FirstOrDefault(i => i.Item1 == paramName).Item2;
+                if (valueString == null) continue;
+
+                ParseAndSetValue(elem.Document, p, valueString);
             }
+        }
+
+        private void ParseAndSetValue(Document doc, Parameter p, string value)
+        {
+            switch (p.StorageType)
+            {
+                case StorageType.None:
+                    return;
+                case StorageType.Integer:
+                    if (!int.TryParse(value, out int valueInt))
+                        throw new Exception($"INTEGER PARSE ERROR UNABLE TO WRITE {value} INTO {p.Definition.Name}");
+                    p.Set(valueInt);
+                    return;
+                case StorageType.Double:
+                    if (!double.TryParse(value, out double valueDouble))
+                        throw new Exception($"DOUBLE PARSE ERROR UNABLE TO WRITE DOUBLE {value} INTO {p.Definition.Name}");
+                    p.Set(valueDouble);
+                    return;
+                case StorageType.String:
+                    p.Set(value);
+                    return;
+
+                case StorageType.ElementId:
+                    ElementId id = GetElementIdByName(doc, value);
+                    p.Set(id);
+                    return;
+
+                default:
+                    throw new Exception("Invalid value for StorageType");
+            }
+        }
+
+        private ElementId GetElementIdByName(Document doc, string name)
+        {
+            Element elem = new FilteredElementCollector(doc)
+                .WhereElementIsElementType()
+                .FirstOrDefault(i => i.Name == name);
+
+            if (elem == null)
+            {
+                throw new Exception($"UNABLE TO FOUND ELEMENT {name} IN DOCUMENT {doc.Title}");
+            }
+
+            return elem.Id;
         }
     }
 }

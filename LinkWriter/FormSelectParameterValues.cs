@@ -127,5 +127,42 @@ namespace LinkWriter
 
             return values;
         }
+
+        private void buttonReset_Click(object sender, System.EventArgs e)
+        {
+            List<DataGridView> dgvs = new List<DataGridView>
+            {
+                dataGridViewSheet,
+                dataGridViewTitleblock,
+                dataGridViewTitleblockType,
+                dataGridViewProjectInfo,
+                dataGridViewOther
+            };
+
+            foreach (DataGridView dgv in dgvs)
+            {
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell is DataGridViewCheckBoxCell)
+                            cell.Value = false;
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewSheet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+            if (row.IsNewRow) return;
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                if (cell is DataGridViewCheckBoxCell)
+                    cell.Value = true;
+            }
+        }
     }
 }

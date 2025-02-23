@@ -37,13 +37,14 @@
             this.dataGridViewTitleblockType = new System.Windows.Forms.DataGridView();
             this.tabPageProjectInfo = new System.Windows.Forms.TabPage();
             this.dataGridViewProjectInfo = new System.Windows.Forms.DataGridView();
+            this.ProjectInfoEnableColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProjectInfoParameterNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectInfoParamValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageOther = new System.Windows.Forms.TabPage();
             this.dataGridViewOther = new System.Windows.Forms.DataGridView();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.ProjectInfoEnableColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ProjectInfoParameterNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectInfoParamValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageSheet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSheet)).BeginInit();
@@ -70,7 +71,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(701, 594);
+            this.tabControl1.Size = new System.Drawing.Size(701, 593);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageSheet
@@ -79,7 +80,7 @@
             this.tabPageSheet.Location = new System.Drawing.Point(4, 22);
             this.tabPageSheet.Name = "tabPageSheet";
             this.tabPageSheet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSheet.Size = new System.Drawing.Size(693, 568);
+            this.tabPageSheet.Size = new System.Drawing.Size(693, 567);
             this.tabPageSheet.TabIndex = 0;
             this.tabPageSheet.Text = "Sheet";
             this.tabPageSheet.UseVisualStyleBackColor = true;
@@ -96,8 +97,9 @@
             this.dataGridViewSheet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSheet.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewSheet.Name = "dataGridViewSheet";
-            this.dataGridViewSheet.Size = new System.Drawing.Size(681, 556);
+            this.dataGridViewSheet.Size = new System.Drawing.Size(681, 555);
             this.dataGridViewSheet.TabIndex = 0;
+            this.dataGridViewSheet.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSheet_CellEndEdit);
             // 
             // tabPageTitleblock
             // 
@@ -173,6 +175,25 @@
             this.dataGridViewProjectInfo.Size = new System.Drawing.Size(681, 556);
             this.dataGridViewProjectInfo.TabIndex = 1;
             // 
+            // ProjectInfoEnableColumn2
+            // 
+            this.ProjectInfoEnableColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoEnableColumn2.FillWeight = 20F;
+            this.ProjectInfoEnableColumn2.HeaderText = "On";
+            this.ProjectInfoEnableColumn2.Name = "ProjectInfoEnableColumn2";
+            // 
+            // ProjectInfoParameterNameColumn
+            // 
+            this.ProjectInfoParameterNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoParameterNameColumn.HeaderText = "Parameter name";
+            this.ProjectInfoParameterNameColumn.Name = "ProjectInfoParameterNameColumn";
+            // 
+            // ProjectInfoParamValueColumn
+            // 
+            this.ProjectInfoParamValueColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProjectInfoParamValueColumn.HeaderText = "Value";
+            this.ProjectInfoParamValueColumn.Name = "ProjectInfoParamValueColumn";
+            // 
             // tabPageOther
             // 
             this.tabPageOther.Controls.Add(this.dataGridViewOther);
@@ -198,7 +219,7 @@
             // buttonNext
             // 
             this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNext.Location = new System.Drawing.Point(634, 612);
+            this.buttonNext.Location = new System.Drawing.Point(634, 611);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 1;
@@ -209,7 +230,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCancel.Location = new System.Drawing.Point(12, 612);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 611);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
@@ -217,30 +238,23 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // ProjectInfoEnableColumn2
+            // buttonReset
             // 
-            this.ProjectInfoEnableColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProjectInfoEnableColumn2.FillWeight = 20F;
-            this.ProjectInfoEnableColumn2.HeaderText = "On";
-            this.ProjectInfoEnableColumn2.Name = "ProjectInfoEnableColumn2";
-            // 
-            // ProjectInfoParameterNameColumn
-            // 
-            this.ProjectInfoParameterNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProjectInfoParameterNameColumn.HeaderText = "Parameter name";
-            this.ProjectInfoParameterNameColumn.Name = "ProjectInfoParameterNameColumn";
-            // 
-            // ProjectInfoParamValueColumn
-            // 
-            this.ProjectInfoParamValueColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProjectInfoParamValueColumn.HeaderText = "Value";
-            this.ProjectInfoParamValueColumn.Name = "ProjectInfoParamValueColumn";
+            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonReset.Location = new System.Drawing.Point(93, 611);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 2;
+            this.buttonReset.Text = "Reset all";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // FormSelectParameterValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 647);
+            this.ClientSize = new System.Drawing.Size(725, 646);
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.tabControl1);
@@ -284,5 +298,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ProjectInfoEnableColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParameterNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParamValueColumn;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
