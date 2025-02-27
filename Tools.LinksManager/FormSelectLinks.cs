@@ -25,6 +25,11 @@ namespace Tools.LinksManager
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            if (checkedListBox1.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Please choose links / Выберите файлы");
+                return;
+            }
             selectedLinks = checkedListBox1.CheckedItems.Cast<MyRevitLinkDocument>().ToList();
             this.DialogResult = DialogResult.OK;
             this.Close();

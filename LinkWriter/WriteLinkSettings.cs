@@ -9,10 +9,17 @@ namespace LinkWriter
     public class WriteLinkSettings
     {
         public List<MyParameterValue> SheetParams;
-        public List<MyParameterValue> ProjectParams;
         public List<MyParameterValue> TitleblockParams;
         public List<MyParameterValue> TypeParams;
+        public List<MyParameterValue> ProjectParams;
 
+        public int ParametersCount
+        {
+            get
+            {
+                return SheetParams.Count + TitleblockParams.Count + TypeParams.Count + ProjectParams.Count;
+            }
+        }
 
         public WriteLinkSettings()
         {

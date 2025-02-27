@@ -28,8 +28,7 @@ namespace LinkWriter
         public void BuildDatagridByLinks(DataGridView dgv, List<MyParameterValue> values)
         {
             string prefix = dgv.Name;
-            dgv.Columns.Add(new DataGridViewCheckBoxColumn() { Name = $"{prefix}_Enable", HeaderText = "On", FillWeight = 15 });
-            dgv.Columns.Add(new DataGridViewTextBoxColumn() { Name = $"{prefix}_ParamName", HeaderText = "Parameter", FillWeight = 40 });
+            dgv.Columns.Add(new DataGridViewTextBoxColumn() { Name = $"{prefix}_ParamName", HeaderText = "Parameter", FillWeight = 40, ReadOnly = true });
 
             for (int i = 0; i < LinkNames.Count; i++)
             {
@@ -40,12 +39,11 @@ namespace LinkWriter
 
             foreach (MyParameterValue param in values)
             {
-                object[] row = new object[LinkNames.Count + 2];
-                row[0] = param.IsEnabled;
-                row[1] = param.ParameterName;
+                object[] row = new object[LinkNames.Count + 1];
+                row[0] = param.ParameterName;
                 for (int i = 0; i < LinkNames.Count; i++)
                 {
-                    row[i + 2] = param.GetValueAsString();
+                    row[i + 1] = param.GetValueAsString();
                 }
                 dgv.Rows.Add(row);
             }
@@ -55,7 +53,7 @@ namespace LinkWriter
         {
             foreach (MyParameterValue param in values)
             {
-                dgv.Rows.Add(param.IsEnabled, param.ParameterName, param.GetValueAsString());
+                dgv.Rows.Add(param.ParameterName, param.GetValueAsString());
             }
         }
 
@@ -67,9 +65,9 @@ namespace LinkWriter
 
         private void buttonNext_Click(object sender, System.EventArgs e)
         {
-            ValuesSheets = GetDataGridValusByLinks(dataGridViewSheet);
-            ValuesTitleblocks = GetDataGridValusByLinks(dataGridViewTitleblock);
-            ValuesTitleblockType = GetDataGridValusByLinks(dataGridViewTitleblockType);
+            ValuesSheets = GetDataGridValuesByLinks(dataGridViewSheet);
+            ValuesTitleblocks = GetDataGridValuesByLinks(dataGridViewTitleblock);
+            ValuesTitleblockType = GetDataGridValuesByLinks(dataGridViewTitleblockType);
             ValuesProjectInfo = GetDataGridValues(dataGridViewProjectInfo);
 
             this.DialogResult = DialogResult.OK;
@@ -77,22 +75,20 @@ namespace LinkWriter
         }
 
 
-        private Dictionary<string, List<(string, string)>> GetDataGridValusByLinks(DataGridView dgv)
+        private Dictionary<string, List<(string, string)>> GetDataGridValuesByLinks(DataGridView dgv)
         {
             Dictionary<string, List<(string, string)>> Values = new Dictionary<string, List<(string, string)>>();
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 if (row.IsNewRow) continue;
-                bool enabled = (bool)row.Cells[0].Value;
-                if (!enabled) continue;
 
-                string paramName = (string)row.Cells[1].Value;
+                string paramName = (string)row.Cells[0].Value;
 
-                for (int i = 2; i < row.Cells.Count; i++)
+                for (int i = 1; i < row.Cells.Count; i++)
                 {
                     string value = (string)row.Cells[i].Value;
-                    string linkName = LinkNames[i - 2];
+                    string linkName = LinkNames[i - 1];
 
                     if (Values.ContainsKey(linkName))
                     {
@@ -115,12 +111,10 @@ namespace LinkWriter
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 if (row.IsNewRow) continue;
-                bool enabled = (bool)row.Cells[0].Value;
-                if (!enabled) continue;
 
-                string paramName = (string)row.Cells[1].Value;
+                string paramName = (string)row.Cells[0].Value;
 
-                string paramValue = (string)row.Cells[2].Value;
+                string paramValue = (string)row.Cells[1].Value;
 
                 values.Add((paramName, paramValue));
             }
@@ -150,18 +144,6 @@ namespace LinkWriter
                             cell.Value = false;
                     }
                 }
-            }
-        }
-
-        private void dataGridViewSheet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridView dgv = sender as DataGridView;
-            DataGridViewRow row = dgv.Rows[e.RowIndex];
-            if (row.IsNewRow) return;
-            foreach (DataGridViewCell cell in row.Cells)
-            {
-                if (cell is DataGridViewCheckBoxCell)
-                    cell.Value = true;
             }
         }
     }

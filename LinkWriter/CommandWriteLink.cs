@@ -46,6 +46,13 @@ namespace LinkWriter
                 return Result.Failed;
             }
 
+            FormSelectParameters formSelectParams = new FormSelectParameters(valuesSettings);
+            if (formSelectParams.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return Result.Cancelled;
+            }
+            valuesSettings = formSelectParams.Settings;
+
             MyRevitMainDocument myMainDoc = new MyRevitMainDocument(mainDoc, true);
 
             List<MyRevitLinkDocument> linkDocs = myMainDoc.GetLinkDocuments();
@@ -66,9 +73,11 @@ namespace LinkWriter
                 return Result.Cancelled;
             }
 
-            save.AddValues(formValues);
+            save.SetSelectedParams(valuesSettings);
             saver.Save(save);
             Debug.WriteLine("Saved enabled parameters");
+            int docsCount = 0;
+            int paramsCount = 0;
 
             foreach (MyRevitLinkDocument myLinkDoc in formSelectLinks.selectedLinks)
             {
@@ -95,17 +104,18 @@ namespace LinkWriter
                             ElementType linkTitleBlockType = linkDoc.GetElement(linkTitleblockInstance.GetTypeId()) as ElementType;
 
                             if (formValues.ValuesSheets.ContainsKey(linkName))
-                                WriteParameters(mySheet.sheet, formValues.ValuesSheets[linkName]);
+                                paramsCount += WriteParameters(mySheet.sheet, formValues.ValuesSheets[linkName]);
 
                             if (formValues.ValuesTitleblocks.ContainsKey(linkName))
-                                WriteParameters(linkTitleblockInstance, formValues.ValuesTitleblocks[linkName]);
+                                paramsCount += WriteParameters(linkTitleblockInstance, formValues.ValuesTitleblocks[linkName]);
 
                             if (formValues.ValuesTitleblockType.ContainsKey(linkName))
-                                WriteParameters(linkTitleBlockType, formValues.ValuesTitleblockType[linkName]);
+                                paramsCount += WriteParameters(linkTitleBlockType, formValues.ValuesTitleblockType[linkName]);
 
-                            WriteParameters(linkDoc.ProjectInformation, formValues.ValuesProjectInfo);
+                            paramsCount += WriteParameters(linkDoc.ProjectInformation, formValues.ValuesProjectInfo);
                         }
                         t.Commit();
+                        docsCount++;
                     }
                     myLinkDoc.CloseDocument(true);
                 }
@@ -114,16 +124,18 @@ namespace LinkWriter
                     myLinkDoc.CloseDocument(false);
                     throw ex;
                 }
-                myLinkDoc.LinkType.Reload();
+                //myLinkDoc.LinkType.Reload(); //перезагрузка ссылки уже происходит при myLinkDoc.CloseDocument
             }
 
+            Tools.Forms.BalloonTip.Show("Link write completed", $"Write {paramsCount} parameters in {docsCount} documents");
             return Result.Succeeded;
         }
 
 
 
-        private void WriteParameters(Element elem, List<(string, string)> values)
+        private int WriteParameters(Element elem, List<(string, string)> values)
         {
+            int count = 0;
             Debug.WriteLine($"Write {values.Count} parameters to element {elem.Name} {elem.Id}");
             foreach (Parameter p in elem.ParametersMap)
             {
@@ -133,7 +145,9 @@ namespace LinkWriter
                 if (valueString == null) continue;
 
                 ParseAndSetValue(elem.Document, p, valueString);
+                count++;
             }
+            return count;
         }
 
         private void ParseAndSetValue(Document doc, Parameter p, string value)
