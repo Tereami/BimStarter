@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace LinkWriter
@@ -10,6 +11,7 @@ namespace LinkWriter
         public List<string> TypeParameters = new List<string>();
         public List<string> ProjectParameters = new List<string>();
 
+        public BindingList<CustomParameter> CustomParameters = new BindingList<CustomParameter>();
 
         public void SetSelectedParams(WriteLinkSettings sets)
         {
@@ -17,6 +19,24 @@ namespace LinkWriter
             TitleblockParameters = sets.TitleblockParams.Select(i => i.ParameterName).ToList();
             TypeParameters = sets.TypeParams.Select(i => i.ParameterName).ToList();
             ProjectParameters = sets.ProjectParams.Select(i => i.ParameterName).ToList();
+        }
+
+        public void SetCustomParams(FormSelectParameterValues form)
+        {
+            CustomParameters = new BindingList<CustomParameter>();
+            var firstLinkValues = form.ValuesCustomParameters.Values.FirstOrDefault();
+            if (firstLinkValues == null || firstLinkValues.Count == 0) return;
+
+            foreach (var kvp in firstLinkValues)
+            {
+                CustomParameter cp = new CustomParameter
+                {
+                    Name = kvp.Item1,
+                    Value = kvp.Item2,
+                    revitCategories = kvp.Item3,
+                };
+                CustomParameters.Add(cp);
+            }
         }
     }
 }

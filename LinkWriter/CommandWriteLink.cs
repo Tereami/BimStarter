@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Tools.LinksManager;
+using Tools.Model.CategoryTools;
 #endregion
 
 
@@ -66,7 +67,8 @@ namespace LinkWriter
             linkDocs = formSelectLinks.selectedLinks;
             List<string> linkNames = linkDocs.Select(x => x.Name).ToList();
 
-            FormSelectParameterValues formValues = new FormSelectParameterValues(linkNames, valuesSettings);
+            List<RevitCategory> allCategories = RevitCategory.LoadAllCategories(mainDoc);
+            FormSelectParameterValues formValues = new FormSelectParameterValues(linkNames, valuesSettings, allCategories);
             if (formValues.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 Debug.WriteLine("Cancelled");
@@ -74,6 +76,7 @@ namespace LinkWriter
             }
 
             save.SetSelectedParams(valuesSettings);
+            save.SetCustomParams(formValues);
             saver.Save(save);
             Debug.WriteLine("Saved enabled parameters");
             int docsCount = 0;
@@ -114,6 +117,12 @@ namespace LinkWriter
 
                             paramsCount += WriteParameters(linkDoc.ProjectInformation, formValues.ValuesProjectInfo);
                         }
+
+                        if (formValues.ValuesCustomParameters.ContainsKey(linkName))
+                        {
+                            paramsCount += WriteParameters(linkDoc, formValues.ValuesCustomParameters[linkName]);
+                        }
+
                         t.Commit();
                         docsCount++;
                     }
@@ -150,8 +159,48 @@ namespace LinkWriter
             return count;
         }
 
+        private int WriteParameters(Document doc, List<(string, string, List<BuiltInCategory>)> values)
+        {
+            int count = 0;
+            Debug.WriteLine($"Write {values.Count} parameters to a document {doc.Title}");
+
+            foreach (var param in values)
+            {
+                string paramName = param.Item1;
+                string value = param.Item2;
+                List<BuiltInCategory> cats = param.Item3;
+                Debug.WriteLine($"Write {paramName}={value} for categories: {string.Join(",", cats)}");
+
+                List<Element> elements = new List<Element>();
+
+                foreach (BuiltInCategory bic in cats)
+                {
+                    List<Element> elems = new FilteredElementCollector(doc)
+                        .OfCategory(bic)
+                        .WhereElementIsNotElementType()
+                        .ToElements()
+                        .ToList();
+
+                    elements.AddRange(elems);
+                }
+                Debug.WriteLine($"Elements found: {elements.Count}");
+
+                foreach (Element e in elements)
+                {
+                    Parameter p = e.LookupParameter(paramName);
+                    ParseAndSetValue(doc, p, value);
+                }
+                Debug.WriteLine($"Done {paramName}");
+            }
+
+            return count;
+        }
+
         private void ParseAndSetValue(Document doc, Parameter p, string value)
         {
+            if (p == null) return;
+            if (p.IsReadOnly) return;
+
             switch (p.StorageType)
             {
                 case StorageType.None:

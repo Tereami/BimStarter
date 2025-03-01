@@ -46,6 +46,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.ProjectInfoParameterNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectInfoParamValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAddCustomParam = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTitleblock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTitleblockType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjectInfo)).BeginInit();
@@ -122,6 +123,7 @@
             // 
             // dataGridViewOther
             // 
+            this.dataGridViewOther.AllowUserToAddRows = false;
             this.dataGridViewOther.AllowUserToResizeRows = false;
             this.dataGridViewOther.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -132,6 +134,7 @@
             this.dataGridViewOther.Name = "dataGridViewOther";
             this.dataGridViewOther.Size = new System.Drawing.Size(689, 107);
             this.dataGridViewOther.TabIndex = 2;
+            this.dataGridViewOther.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOther_CellContentClick);
             // 
             // buttonNext
             // 
@@ -259,6 +262,7 @@
             // 
             // splitContainer4.Panel2
             // 
+            this.splitContainer4.Panel2.Controls.Add(this.buttonAddCustomParam);
             this.splitContainer4.Panel2.Controls.Add(this.label5);
             this.splitContainer4.Panel2.Controls.Add(this.dataGridViewOther);
             this.splitContainer4.Size = new System.Drawing.Size(704, 299);
@@ -316,10 +320,23 @@
             this.ProjectInfoParamValueColumn.HeaderText = "Value";
             this.ProjectInfoParamValueColumn.Name = "ProjectInfoParamValueColumn";
             // 
+            // buttonAddCustomParam
+            // 
+            this.buttonAddCustomParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddCustomParam.Location = new System.Drawing.Point(100, 3);
+            this.buttonAddCustomParam.Name = "buttonAddCustomParam";
+            this.buttonAddCustomParam.Size = new System.Drawing.Size(36, 14);
+            this.buttonAddCustomParam.TabIndex = 4;
+            this.buttonAddCustomParam.Text = "+";
+            this.buttonAddCustomParam.UseVisualStyleBackColor = true;
+            this.buttonAddCustomParam.Click += new System.EventHandler(this.buttonAddCustomParam_Click);
+            // 
             // FormSelectParameterValues
             // 
+            this.AcceptButton = this.buttonNext;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(704, 807);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.buttonCancel);
@@ -380,5 +397,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParameterNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectInfoParamValueColumn;
+        private System.Windows.Forms.Button buttonAddCustomParam;
     }
 }

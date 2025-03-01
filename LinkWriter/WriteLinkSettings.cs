@@ -12,6 +12,7 @@ namespace LinkWriter
         public List<MyParameterValue> TitleblockParams;
         public List<MyParameterValue> TypeParams;
         public List<MyParameterValue> ProjectParams;
+        public Save SavedData;
 
         public int ParametersCount
         {
@@ -30,12 +31,14 @@ namespace LinkWriter
             List<MyParameterValue> sheetParameters,
             List<MyParameterValue> titleblockParams,
             List<MyParameterValue> typeParameters,
-            List<MyParameterValue> projectParameters)
+            List<MyParameterValue> projectParameters,
+            Save savedData)
         {
             SheetParams = sheetParameters;
             ProjectParams = projectParameters;
             TitleblockParams = titleblockParams;
             TypeParams = typeParameters;
+            SavedData = savedData;
         }
 
         public static WriteLinkSettings LoadAllValues(ExternalCommandData commandData, out string message, Save save)
@@ -64,7 +67,7 @@ namespace LinkWriter
             ProjectInfo pi = mainDoc.ProjectInformation;
             List<MyParameterValue> projectParameters = GetParameterValues(pi, save.ProjectParameters);
 
-            WriteLinkSettings wls = new WriteLinkSettings(sheetParameters, titleblockParams, typeParameters, projectParameters);
+            WriteLinkSettings wls = new WriteLinkSettings(sheetParameters, titleblockParams, typeParameters, projectParameters, save);
 
             message = string.Empty;
             return wls;
