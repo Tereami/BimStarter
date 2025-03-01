@@ -99,6 +99,7 @@ namespace ArchParametrisation
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonOk
             // 
@@ -151,6 +152,7 @@ namespace ArchParametrisation
             this.chkbxActivateMirrored.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkbxActivateMirrored.Name = "chkbxActivateMirrored";
             this.chkbxActivateMirrored.UseVisualStyleBackColor = true;
+            this.chkbxActivateMirrored.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -195,6 +197,7 @@ namespace ArchParametrisation
             this.chkbxActivateOpeningsArea.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkbxActivateOpeningsArea.Name = "chkbxActivateOpeningsArea";
             this.chkbxActivateOpeningsArea.UseVisualStyleBackColor = true;
+            this.chkbxActivateOpeningsArea.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // label4
             // 
@@ -249,6 +252,7 @@ namespace ArchParametrisation
             this.chkboxRoomFinishingSequenceNumbers.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkboxRoomFinishingSequenceNumbers.Name = "chkboxRoomFinishingSequenceNumbers";
             this.chkboxRoomFinishingSequenceNumbers.UseVisualStyleBackColor = true;
+            this.chkboxRoomFinishingSequenceNumbers.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // label8
             // 
@@ -329,6 +333,7 @@ namespace ArchParametrisation
             this.RoomCoeff,
             this.RoomIsLiving});
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.EnabledChanged += new System.EventHandler(this.dataGridView1_EnabledChanged);
             // 
             // RommName
             // 
@@ -358,6 +363,7 @@ namespace ArchParametrisation
             this.chkbxActivateFlatography.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkbxActivateFlatography.Name = "chkbxActivateFlatography";
             this.chkbxActivateFlatography.UseVisualStyleBackColor = true;
+            this.chkbxActivateFlatography.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // label18
             // 
@@ -441,6 +447,7 @@ namespace ArchParametrisation
             this.chxbxRoomNumberToFinishing.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chxbxRoomNumberToFinishing.Name = "chxbxRoomNumberToFinishing";
             this.chxbxRoomNumberToFinishing.UseVisualStyleBackColor = true;
+            this.chxbxRoomNumberToFinishing.CheckedChanged += new System.EventHandler(this.chkbxInGroup_CheckedChanged);
             // 
             // label20
             // 

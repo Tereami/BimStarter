@@ -64,15 +64,16 @@ namespace ClearUnusedGUIDs
 #endif
             }
 
+            int count = 0;
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionDeleteGuids);
-                doc.Delete(ids);
+                count = doc.Delete(ids).Count;
                 t.Commit();
             }
 
             Debug.WriteLine("Delete parameters is done");
-
+            Tools.Forms.BalloonTip.Show("Clear GUIDs", $"#Deleted: {count}");
             return Result.Succeeded;
         }
 
