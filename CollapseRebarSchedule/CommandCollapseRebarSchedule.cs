@@ -15,6 +15,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 #endregion
 
@@ -26,54 +27,80 @@ namespace SchedulesTools
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            Trace.Listeners.Clear();
+            Trace.Listeners.Add(new Tools.Logger.Logger("CollapseRebarSchedule"));
+            Debug.WriteLine($"{nameof(CommandCollapseRebarSchedule)} start");
+
+            Tools.SettingsSaver.Saver<CollapseScheduleSettings> saver = new Tools.SettingsSaver.Saver<CollapseScheduleSettings>();
+            CollapseScheduleSettings sets = saver.Activate("CollapseRebarSchedule");
+            if (sets == null)
+            {
+                Trace.WriteLine("Failed to read config xml file");
+                return Result.Cancelled;
+            }
+            FormCollapseSettings form = new FormCollapseSettings(sets);
+            if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return Result.Cancelled;
+            sets = form.NewSets;
+            Debug.WriteLine($"Settings: {sets.ToString()}");
+
             Document doc = commandData.Application.ActiveUIDocument.Document;
-            ViewSchedule vs = commandData.Application.ActiveUIDocument.ActiveView as ViewSchedule;
             ScheduleDefinition sdef = null;
+            ViewSchedule vs = commandData.Application.ActiveUIDocument.ActiveView as ViewSchedule;
             if (vs == null)
             {
+                Debug.WriteLine($"Active view is not ViewSchedule");
                 Selection sel = commandData.Application.ActiveUIDocument.Selection;
                 if (sel.GetElementIds().Count == 0)
                 {
                     message = MyStrings.ErrorNoSelectedSchedule;
+                    Debug.WriteLine(message);
                     return Result.Failed;
                 }
                 ScheduleSheetInstance ssi = doc.GetElement(sel.GetElementIds().First()) as ScheduleSheetInstance;
-                if (ssi == null || !IsTableNameCorrect(ssi.Name))
+                if (ssi == null)
                 {
                     message = MyStrings.ErrorNoSelectedSchedule;
+                    Debug.WriteLine(message);
                     return Result.Failed;
                 }
                 vs = doc.GetElement(ssi.ScheduleId) as ViewSchedule;
+                Debug.WriteLine($"Selected schedule {vs.Name}, id: {vs.Id}");
             }
+            Debug.WriteLine($"Schedule ID: {vs.Id}");
             sdef = vs.Definition;
-
 
             int firstWeightCell = 0;
             int startHiddenFields = 0;
             int borderCell = 9999;
 
             //определяю первую и последнюю ячейку с массой
+            Debug.WriteLine($"Try to define first and last processed columns");
             bool flagEndCellFound = false;
             for (int i = 0; i < sdef.GetFieldCount(); i++)
             {
                 ScheduleField sfield = sdef.GetField(i);
                 string cellName = sfield.GetName();
+                Debug.WriteLine($"i = {i}, field name: {cellName}");
                 if (firstWeightCell == 0)
                 {
                     if (char.IsNumber(cellName[0]))
                     {
                         firstWeightCell = i;
+                        Debug.WriteLine($"First char is a number. Start field is found, i={i}");
                     }
                     else
                     {
                         if (sfield.IsHidden)
                         {
                             startHiddenFields++;
+                            Debug.WriteLine($"Field if hidden");
                         }
                     }
                 }
-                if (cellName.StartsWith("="))
+                if (cellName.StartsWith(sets.LastColumnSign))
                 {
+                    Debug.WriteLine($"Field name starts with {sets.LastColumnSign}. i={i}");
                     borderCell = i;
                     flagEndCellFound = true;
                     break;
@@ -83,16 +110,18 @@ namespace SchedulesTools
             if (!flagEndCellFound)
             {
                 message = MyStrings.ErrorNoEndColumn;
+                Debug.WriteLine($"Incorrect schedule! Failed");
                 return Result.Failed;
             }
 
+            Debug.WriteLine($"Transaction start");
             int allFields = 0, hiddenFields = 0, openedFields = 0;
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionName);
 
                 Dictionary<int, bool> fieldsState = new Dictionary<int, bool>();
-
+                Debug.WriteLine($"Show all fields...");
                 for (int i = firstWeightCell; i < borderCell; i++)
                 {
                     if (!sdef.IsValidFieldIndex(i))
@@ -105,23 +134,29 @@ namespace SchedulesTools
                     sfield.IsHidden = false;
                     allFields++;
                 }
-
+                Debug.WriteLine($"Show all fields completed");
                 doc.Regenerate();
 
+                Debug.WriteLine($"Start Table data...");
                 TableData tdata = vs.GetTableData();
+
                 TableSectionData tsd = tdata.GetSectionData(SectionType.Body);
-                int firstRownumber = tsd.FirstRowNumber;
+                int firstRownumber = tsd.FirstRowNumber + sets.HeaderRowsCount;
                 int lastRowNumber = tsd.LastRowNumber;
-                int rowsCount = lastRowNumber - firstRownumber;
+                int rowsCount = lastRowNumber - firstRownumber + 1;
+                Debug.WriteLine($"First row: {firstRownumber}, last row {lastRowNumber}, count {rowsCount}");
 
                 for (int i = firstWeightCell; i < borderCell; i++)
                 {
                     ScheduleField sfield = sdef.GetField(i);
+                    Debug.WriteLine($"...");
+                    Debug.WriteLine($"Field index i = {i}, field name:\t{sfield.GetName()}");
 
                     List<string> values = new List<string>();
                     for (int j = firstRownumber; j <= lastRowNumber; j++)
                     {
                         string cellText = tsd.GetCellText(j, i - startHiddenFields);
+                        Debug.WriteLine($"Row number j = {j}, cell text: {cellText}");
                         values.Add(cellText);
                     }
 
@@ -132,11 +167,13 @@ namespace SchedulesTools
                             hiddenFields++;
 
                         sfield.IsHidden = true;
+                        Debug.WriteLine($"Field made hidden");
                     }
                     else
                     {
                         if (fieldsState[i] == true)
                             openedFields++;
+                        Debug.WriteLine($"Field remains shown");
                     }
                 }
                 t.Commit();
@@ -146,6 +183,7 @@ namespace SchedulesTools
             if (hiddenFields == 0 && openedFields == 0)
             {
                 msg = MyStrings.ResultNoFields;
+                Debug.WriteLine(MyStrings.ResultNoFields);
             }
             else
             {
@@ -158,6 +196,8 @@ namespace SchedulesTools
                 msg = string.Join(System.Environment.NewLine, messages);
             }
             Tools.Forms.BalloonTip.Show(MyStrings.Result, msg);
+            Debug.WriteLine(msg);
+            saver.Save(sets);
             return Result.Succeeded;
         }
 
@@ -171,34 +211,33 @@ namespace SchedulesTools
                 val = -1;
                 if (string.IsNullOrEmpty(s))
                 {
+                    Debug.WriteLine($"Is null or empty");
                     continue;
                 }
                 bool isNumber = double.TryParse(s, out val);
                 if (!isNumber)
                 {
+                    Debug.WriteLine($"{s} - text, not a number");
                     continue;
                 }
                 if (val > 0)
                 {
+                    Debug.WriteLine($"{s} - number greater than zero");
                     haveNumber = true;
                     continue;
                 }
                 else
                 {
+                    Debug.WriteLine($"{s} - zero");
                     haveZeros = true;
                 }
             }
             if (haveZeros && !haveNumber)
             {
+                Debug.WriteLine($"Have zeros = true, haveNumber = false. checkOnlyTextAndZeros = true");
                 return true;
             }
-            return false;
-        }
-
-        private bool IsTableNameCorrect(string name)
-        {
-            if (name.Contains("ВРС") || name.Contains("calculation")) return true;
-
+            Debug.WriteLine($"checkOnlyTextAndZeros = false");
             return false;
         }
     }
