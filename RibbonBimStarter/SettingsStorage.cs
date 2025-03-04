@@ -12,14 +12,10 @@ Zuev Aleksandr, 2021, all rigths reserved.*/
 #endregion
 #region usings
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 //using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
 #endregion
 
@@ -39,6 +35,8 @@ namespace RibbonBimStarter
         public string ProxyUsername;
         public string ProxyPassword;
         public int refreshInterval = 10;
+
+        public bool ShowStartupWindow = true;
 
         [NonSerialized]
         public static string settingsPath;
@@ -67,5 +65,17 @@ namespace RibbonBimStarter
             }
             return ss;
         }
+
+        public void Save(SettingsStorage newSettings)
+        {
+            Debug.WriteLine("Start save settings to file " + settingsPath);
+            XmlSerializer serializer = new XmlSerializer(typeof(SettingsStorage));
+            using (FileStream writer = new FileStream(settingsPath, FileMode.OpenOrCreate))
+            {
+                serializer.Serialize(writer, newSettings);
+            }
+            Debug.WriteLine("Save settings success");
+        }
+
     }
 }

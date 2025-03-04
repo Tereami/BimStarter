@@ -12,12 +12,14 @@ Zuev Aleksandr, 2021, all rigths reserved.*/
 #endregion
 #region Usings
 using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Media.Imaging;
 #endregion
@@ -60,20 +62,6 @@ namespace RibbonBimStarter
 
             Debug.WriteLine("Ribbon path: " + ribbonPath);
 
-            settings = SettingsStorage.LoadSettings();
-            if (settings == null)
-            {
-                TaskDialog.Show("Ошибка", "Не удалось запустить Bim-Starter! Не найден файл настроек");
-                return Result.Failed;
-            }
-
-            //setting SSL certificate
-            SslConfig.Load();
-            Debug.WriteLine($"Current certificate: {ServicePointManager.SecurityProtocol}");
-
-
-            connect = new WebConnection(App.settings.Email, App.settings.Password, App.settings.Website);
-
             string tabName = "BIM-STARTER";
             try { application.CreateRibbonTab(tabName); }
             catch { Debug.WriteLine("Unable to create tab name " + tabName); }
@@ -98,7 +86,106 @@ namespace RibbonBimStarter
             RegisterDockablepage(application);
 
             Debug.WriteLine("Ribbon is created succesfully");
+
+
+            settings = SettingsStorage.LoadSettings();
+            if (settings == null)
+            {
+                TaskDialog.Show("Ошибка", "Не удалось запустить Bim-Starter! Не найден файл настроек");
+                return Result.Failed;
+            }
+
+            //setting SSL certificate
+            SslConfig.Load();
+            Debug.WriteLine($"Current certificate: {ServicePointManager.SecurityProtocol}");
+
+            connect = new WebConnection(App.settings.Email, App.settings.Password, App.settings.Website);
+
+
+            //INSTALL TEMPLATE
+            int revitVersionInt = Convert.ToInt32(revitVersion);
+            if (revitVersionInt < 2020)
+            {
+                Debug.WriteLine($"No template for version {revitVersionInt}");
+                return Result.Succeeded;
+            }
+
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Contains("/viewer"))
+            {
+                Debug.WriteLine("Revit is in Viewer mode");
+                return Result.Succeeded;
+            }
+
+            if (settings.ShowStartupWindow == false)
+                return Result.Succeeded;
+
+            TemplateInstaller ti = new TemplateInstaller(revitVersionInt, ribbonPath);
+            bool configOk = ti.IsConfigFileOk();
+            TemplateCheckingResult templateOk = ti.IsTemplateOk();
+            if (configOk && templateOk == TemplateCheckingResult.Exists)
+                return Result.Succeeded;
+
+            FormInstallTemplate formTemplate = new FormInstallTemplate();
+            System.Windows.Forms.DialogResult result = formTemplate.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                settings.ShowStartupWindow = false;
+                settings.Save(settings);
+                Debug.WriteLine($"Template cancelled, startup window is disabled");
+            }
+            else if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                if (templateOk == TemplateCheckingResult.No)
+                {
+                    throw new Exception($"WEANDREVIT TEMPLATE NOT FOUND IN FOLDER {ti.TemplateFolder}");
+                }
+
+                if (!configOk)
+                {
+                    ti.AddTemplatePathToConfig();
+                }
+                ti.AddSharedParamsFilePath(application.ControlledApplication);
+
+                if (templateOk == TemplateCheckingResult.OlderVersionExists)
+                {
+                    application.ControlledApplication.ApplicationInitialized += ControlledApplication_ApplicationInitialized;
+                }
+                else
+                {
+                    TaskDialog.Show("Weandrevit", "Конфигурация завершена. Перезапустите Revit");
+                }
+            }
+
             return Result.Succeeded;
+        }
+
+        private void ControlledApplication_ApplicationInitialized(object sender, Autodesk.Revit.DB.Events.ApplicationInitializedEventArgs e)
+        {
+            try
+            {
+                string templateToOpen = TemplateInstaller.TemplateOlderVersionPath;
+                Debug.WriteLine($"Try to open document: {templateToOpen}");
+                var app = sender as Autodesk.Revit.ApplicationServices.Application;
+                UIApplication uiapp = new UIApplication(app);
+                UIDocument uidoc = uiapp.OpenAndActivateDocument(templateToOpen);
+                Document doc = uidoc.Document;
+
+                //Autodesk.Revit.DB.Document doc = app.OpenDocumentFile(templateToOpen);
+
+                string templateToSave = TemplateInstaller.TemplateFileToSave;
+                Debug.WriteLine($"Try to save document to file: {templateToSave}");
+                doc.SaveAs(templateToSave);
+                Debug.WriteLine("Document saved");
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+                return;
+            }
+            TaskDialog.Show("Weandrevit", "Шаблон установлен. Revit будет перезапущен");
+            Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+            Environment.Exit(-1);
         }
 
         public Result OnShutdown(UIControlledApplication application)
@@ -117,8 +204,6 @@ namespace RibbonBimStarter
             //panel.AddItem(CreateButtonData("AskBimQuestion", "CommandAskBimQuestion"));
             Debug.WriteLine("AboutPanel is created");
         }
-
-
 
 
         private void CreateRebarRibbon(UIControlledApplication uiApp, string tabName)
