@@ -36,8 +36,6 @@ namespace RibbonBimStarter
         public string ProxyPassword;
         public int refreshInterval = 10;
 
-        public bool ShowStartupWindow = true;
-
         [NonSerialized]
         public static string settingsPath;
 

@@ -271,6 +271,31 @@
 	<ItemGroup>
 	  <Folder Include="AddinFiles\" />
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="MyStrings.RU-ru.Designer.cs">
+	    <DependentUpon>MyStrings.RU-ru.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="MyStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MyStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="MyStrings.RU-ru.resx">
+	    <LastGenOutput>MyStrings.RU-ru.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="MyStrings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>

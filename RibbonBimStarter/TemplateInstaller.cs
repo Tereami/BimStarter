@@ -5,6 +5,10 @@ using System.IO;
 
 namespace RibbonBimStarter
 {
+    public class TemplateInstallerSettings
+    {
+        public bool ShowStartupWindow { get; set; } = true;
+    }
     public enum TemplateCheckingResult { Exists, OlderVersionExists, No }
     public class TemplateInstaller
     {

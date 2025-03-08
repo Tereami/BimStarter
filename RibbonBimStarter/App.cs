@@ -14,7 +14,6 @@ Zuev Aleksandr, 2021, all rigths reserved.*/
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Events;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,7 +40,7 @@ namespace RibbonBimStarter
         public static Guid paneGuid = new Guid("8d8207a6-c925-4e93-bb14-487912fb24b5");
         private FamilyLibraryDockablePane pane = null;
 
-        public static string revitVersion = "2020";
+        public static string revitVersion = "_";
 
         public static LanguageType curUiLanguage = LanguageType.English_USA;
 
@@ -91,7 +90,7 @@ namespace RibbonBimStarter
             settings = SettingsStorage.LoadSettings();
             if (settings == null)
             {
-                TaskDialog.Show("Ошибка", "Не удалось запустить Bim-Starter! Не найден файл настроек");
+                TaskDialog.Show(MyStrings.Error, MyStrings.ErrorBimStarterFailed);
                 return Result.Failed;
             }
 
@@ -117,7 +116,10 @@ namespace RibbonBimStarter
                 return Result.Succeeded;
             }
 
-            if (settings.ShowStartupWindow == false)
+            Tools.SettingsSaver.Saver<TemplateInstallerSettings> saver = new Tools.SettingsSaver.Saver<TemplateInstallerSettings>();
+            TemplateInstallerSettings templateSets = saver.Activate("TemplateInstaller");
+
+            if (templateSets.ShowStartupWindow == false)
                 return Result.Succeeded;
 
             TemplateInstaller ti = new TemplateInstaller(revitVersionInt, ribbonPath);
@@ -130,8 +132,8 @@ namespace RibbonBimStarter
             System.Windows.Forms.DialogResult result = formTemplate.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.No)
             {
-                settings.ShowStartupWindow = false;
-                settings.Save(settings);
+                templateSets.ShowStartupWindow = false;
+                saver.Save(templateSets);
                 Debug.WriteLine($"Template cancelled, startup window is disabled");
             }
             else if (result == System.Windows.Forms.DialogResult.OK)
@@ -153,7 +155,9 @@ namespace RibbonBimStarter
                 }
                 else
                 {
-                    TaskDialog.Show("Weandrevit", "Конфигурация завершена. Перезапустите Revit");
+                    TaskDialog.Show("Weandrevit", MyStrings.ConfigFinished);
+                    Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+                    Environment.Exit(-1);
                 }
             }
 
@@ -171,8 +175,6 @@ namespace RibbonBimStarter
                 UIDocument uidoc = uiapp.OpenAndActivateDocument(templateToOpen);
                 Document doc = uidoc.Document;
 
-                //Autodesk.Revit.DB.Document doc = app.OpenDocumentFile(templateToOpen);
-
                 string templateToSave = TemplateInstaller.TemplateFileToSave;
                 Debug.WriteLine($"Try to save document to file: {templateToSave}");
                 doc.SaveAs(templateToSave);
@@ -183,7 +185,7 @@ namespace RibbonBimStarter
                 TaskDialog.Show("Error", ex.Message);
                 return;
             }
-            TaskDialog.Show("Weandrevit", "Шаблон установлен. Revit будет перезапущен");
+            TaskDialog.Show("Weandrevit", MyStrings.TemplateInstalled);
             Process.Start(Process.GetCurrentProcess().MainModule.FileName);
             Environment.Exit(-1);
         }
@@ -504,11 +506,6 @@ namespace RibbonBimStarter
             uiapp.RegisterDockablePane(paneId, paneTitle, famPane);
             //uiapp.ViewActivated += new EventHandler<ViewActivatedEventArgs>(App_ViewActivated);
             Debug.WriteLine("Dockable pane is registered");
-        }
-
-        private void App_ViewActivated(object sender, ViewActivatedEventArgs args)
-        {
-            //some actions 
         }
     }
 }
