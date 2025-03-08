@@ -7,7 +7,8 @@ namespace RibbonBimStarter
 {
     public class TemplateInstallerSettings
     {
-        public bool ShowStartupWindow { get; set; } = true;
+        public bool InstallAccepted { get; set; } = true;
+        public bool FirstStart { get; set; } = true;
     }
     public enum TemplateCheckingResult { Exists, OlderVersionExists, No }
     public class TemplateInstaller

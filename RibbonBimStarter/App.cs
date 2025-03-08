@@ -119,46 +119,67 @@ namespace RibbonBimStarter
             Tools.SettingsSaver.Saver<TemplateInstallerSettings> saver = new Tools.SettingsSaver.Saver<TemplateInstallerSettings>();
             TemplateInstallerSettings templateSets = saver.Activate("TemplateInstaller");
 
-            if (templateSets.ShowStartupWindow == false)
+            if (templateSets.InstallAccepted == false)
                 return Result.Succeeded;
 
             TemplateInstaller ti = new TemplateInstaller(revitVersionInt, ribbonPath);
             bool configOk = ti.IsConfigFileOk();
-            TemplateCheckingResult templateOk = ti.IsTemplateOk();
-            if (configOk && templateOk == TemplateCheckingResult.Exists)
+            TemplateCheckingResult templateCheck = ti.IsTemplateOk();
+            if (configOk && templateCheck == TemplateCheckingResult.Exists)
                 return Result.Succeeded;
 
-            FormInstallTemplate formTemplate = new FormInstallTemplate();
-            System.Windows.Forms.DialogResult result = formTemplate.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.No)
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.DialogResult.None;
+
+            if (templateSets.FirstStart)
             {
-                templateSets.ShowStartupWindow = false;
-                saver.Save(templateSets);
-                Debug.WriteLine($"Template cancelled, startup window is disabled");
+                FormInstallTemplate formTemplate = new FormInstallTemplate();
+                result = formTemplate.ShowDialog();
+
+                if (result == System.Windows.Forms.DialogResult.No)
+                {
+                    templateSets.InstallAccepted = false;
+                    templateSets.FirstStart = false;
+                    saver.Save(templateSets);
+                    Debug.WriteLine($"Template cancelled, startup window is disabled");
+                }
+                else if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    templateSets.InstallAccepted = true;
+                    templateSets.FirstStart = false;
+                    saver.Save(templateSets);
+                    Debug.WriteLine($"Template install accepted");
+                }
             }
-            else if (result == System.Windows.Forms.DialogResult.OK)
+            else
             {
-                if (templateOk == TemplateCheckingResult.No)
-                {
-                    throw new Exception($"WEANDREVIT TEMPLATE NOT FOUND IN FOLDER {ti.TemplateFolder}");
-                }
+                FormUpdateTemplate formUpdateTemplate = new FormUpdateTemplate();
+                result = formUpdateTemplate.ShowDialog();
+            }
 
-                if (!configOk)
-                {
-                    ti.AddTemplatePathToConfig();
-                }
-                ti.AddSharedParamsFilePath(application.ControlledApplication);
+            if (result != System.Windows.Forms.DialogResult.OK)
+                return Result.Succeeded;
 
-                if (templateOk == TemplateCheckingResult.OlderVersionExists)
-                {
-                    application.ControlledApplication.ApplicationInitialized += ControlledApplication_ApplicationInitialized;
-                }
-                else
-                {
-                    TaskDialog.Show("Weandrevit", MyStrings.ConfigFinished);
-                    Process.Start(Process.GetCurrentProcess().MainModule.FileName);
-                    Environment.Exit(-1);
-                }
+            if (templateCheck == TemplateCheckingResult.No)
+            {
+                string noTemplateMsg = $"WEANDREVIT TEMPLATE NOT FOUND IN FOLDER {ti.TemplateFolder}";
+                Debug.WriteLine(noTemplateMsg);
+                throw new Exception(noTemplateMsg);
+            }
+
+            if (!configOk)
+                ti.AddTemplatePathToConfig();
+
+            ti.AddSharedParamsFilePath(application.ControlledApplication);
+
+            if (templateCheck == TemplateCheckingResult.OlderVersionExists)
+            {
+                application.ControlledApplication.ApplicationInitialized += ControlledApplication_ApplicationInitialized;
+            }
+            else
+            {
+                TaskDialog.Show("Weandrevit", MyStrings.ConfigFinished);
+                Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+                Environment.Exit(-1);
             }
 
             return Result.Succeeded;
