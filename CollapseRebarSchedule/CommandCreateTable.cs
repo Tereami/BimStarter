@@ -157,7 +157,8 @@ namespace SchedulesTools
                 Trace.WriteLine("Schedules found in file " + curDoc.Title + ": " + curInfos.Count);
                 infos.AddRange(curInfos);
             }
-            infos = infos.OrderBy(i => i.SheetNumberInt).ToList();
+            //infos = infos.OrderBy(i => i.SheetNumberInt).ToList();
+            infos = infos.OrderBy(i => i.SheetNumberString, new Tools.StringsNaturalSort.NumericComparer()).ToList();
 
             Trace.WriteLine("Schedules found: " + infos.Count);
             if (infos.Count == 0)

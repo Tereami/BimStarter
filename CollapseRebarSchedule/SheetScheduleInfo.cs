@@ -8,7 +8,7 @@ namespace SchedulesTools
     public class SheetScheduleInfo
     {
         public string SheetNumberString;
-        public int SheetNumberInt;
+        //public int SheetNumberInt;
         public string ScheduleName;
         public int RowsCount = 1;
 
@@ -38,8 +38,8 @@ namespace SchedulesTools
             {
                 throw new Exception($"Failed to get sheet number for sheet: {sheet.Name}");
             }
-            SheetNumberString = Regex.Replace(sheetNumberStringRaw, @"[^\d]+", "");
-            SheetNumberInt = Convert.ToInt32(SheetNumberString);
+            SheetNumberString = sheetNumberStringRaw; //Regex.Replace(sheetNumberStringRaw, @"[^\d]+", "");
+            //SheetNumberInt = Convert.ToInt32(SheetNumberString);
 
             Regex regex = new Regex(@"\*(?<name>.+)\*");
             Match match = regex.Match(ssi.Name);
