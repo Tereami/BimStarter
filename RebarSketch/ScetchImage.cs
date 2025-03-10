@@ -1,12 +1,9 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Autodesk.Revit.DB;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing.Imaging;
-using Autodesk.Revit.DB;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace RebarSketch
 {
@@ -31,7 +28,8 @@ namespace RebarSketch
             {
                 string paramName = param.Name;
                 string textvalue = param.value;
-                ImageKey += "#" + paramName + "~" + textvalue; 
+                textvalue = textvalue.Replace("=", "~");
+                ImageKey += "#" + paramName + "~" + textvalue;
                 //заменил = на ~, потому что иначе не подгружаются картинки при экспорте в dwg
             }
         }
@@ -56,7 +54,7 @@ namespace RebarSketch
             WriteBitmap(sets, templateImage, Template.parameters);
 
             ScetchImagePath = System.IO.Path.Combine(sets.tempPath, imagePrefix + "_" + ImageKey + ".bmp");
-            
+
             templateImage.Save(ScetchImagePath);
             Trace.WriteLine("New bitmap path: " + ScetchImagePath);
         }
@@ -81,7 +79,7 @@ namespace RebarSketch
         public static void WriteBitmap(GlobalSettings sets, Bitmap templateImage, List<ScetchParameter> parameters)
         {
             Trace.WriteLine("Write text to bitmap, parameters count: " + parameters.Count.ToString());
-            
+
             Graphics gr = Graphics.FromImage(templateImage);
             gr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
             gr.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
@@ -94,7 +92,7 @@ namespace RebarSketch
             StringFormat format = StringFormat.GenericTypographic;
             format.Alignment = StringAlignment.Center;
             format.LineAlignment = StringAlignment.Center;
-            
+
 
             foreach (ScetchParameter param in parameters)
             {
