@@ -31,9 +31,9 @@ namespace LinkWriter
             {
                 CustomParameter cp = new CustomParameter
                 {
-                    Name = kvp.Item1,
-                    Value = kvp.Item2,
-                    revitCategories = kvp.Item3,
+                    Name = kvp.Name,
+                    Value = kvp.Value,
+                    revitCategories = kvp.Categories,
                 };
                 CustomParameters.Add(cp);
             }

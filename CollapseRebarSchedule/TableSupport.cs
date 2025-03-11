@@ -112,9 +112,9 @@ namespace SchedulesTools
 
                 List<List<ScheduleSheetInstance>> groupedBySheets = group.Value
                     .GroupBy(i => GetSheetNumberAsInt(i, doc))
-                    .Select(i => (number: i.Key, schedules: i.ToList()))
-                    .OrderBy(i => i.number)
-                    .Select(i => i.schedules)
+                    .Select(i => Tuple.Create<int, List<ScheduleSheetInstance>>(i.Key, i.ToList()))
+                    .OrderBy(i => i.Item1)
+                    .Select(i => i.Item2)
                     .ToList();
 
                 if (groupedBySheets.Count == 1) continue;

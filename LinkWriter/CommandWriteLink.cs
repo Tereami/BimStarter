@@ -13,6 +13,7 @@ Zuev Aleksandr, 2024, all rigths reserved.*/
 #region usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using LinkWriter.Values;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -142,7 +143,7 @@ namespace LinkWriter
 
 
 
-        private int WriteParameters(Element elem, List<(string, string)> values)
+        private int WriteParameters(Element elem, List<NameAndValue> values)
         {
             int count = 0;
             Debug.WriteLine($"Write {values.Count} parameters to element {elem.Name} {elem.Id}");
@@ -150,7 +151,7 @@ namespace LinkWriter
             {
                 if (p.IsReadOnly) continue;
                 string paramName = p.Definition.Name;
-                string valueString = values.FirstOrDefault(i => i.Item1 == paramName).Item2;
+                string valueString = values.FirstOrDefault(i => i.Name == paramName).Value;
                 if (valueString == null) continue;
 
                 ParseAndSetValue(elem.Document, p, valueString);
@@ -159,16 +160,16 @@ namespace LinkWriter
             return count;
         }
 
-        private int WriteParameters(Document doc, List<(string, string, List<BuiltInCategory>)> values)
+        private int WriteParameters(Document doc, List<NameValueCategories> values)
         {
             int count = 0;
             Debug.WriteLine($"Write {values.Count} parameters to a document {doc.Title}");
 
             foreach (var param in values)
             {
-                string paramName = param.Item1;
-                string value = param.Item2;
-                List<BuiltInCategory> cats = param.Item3;
+                string paramName = param.Name;
+                string value = param.Value;
+                List<BuiltInCategory> cats = param.Categories;
                 Debug.WriteLine($"Write {paramName}={value} for categories: {string.Join(",", cats)}");
 
                 List<Element> elements = new List<Element>();

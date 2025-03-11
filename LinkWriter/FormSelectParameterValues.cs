@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using LinkWriter.Values;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +10,13 @@ namespace LinkWriter
 {
     public partial class FormSelectParameterValues : System.Windows.Forms.Form
     {
-        public Dictionary<string, List<(string, string)>> ValuesSheets { get; set; }
-        public Dictionary<string, List<(string, string)>> ValuesTitleblocks { get; set; }
-        public Dictionary<string, List<(string, string)>> ValuesTitleblockType { get; set; }
+        public Dictionary<string, List<NameAndValue>> ValuesSheets { get; set; }
+        public Dictionary<string, List<NameAndValue>> ValuesTitleblocks { get; set; }
+        public Dictionary<string, List<NameAndValue>> ValuesTitleblockType { get; set; }
 
-        public List<(string, string)> ValuesProjectInfo { get; set; }
+        public List<NameAndValue> ValuesProjectInfo { get; set; }
 
-        public Dictionary<string, List<(string, string, List<BuiltInCategory>)>> ValuesCustomParameters { get; set; }
+        public Dictionary<string, List<NameValueCategories>> ValuesCustomParameters { get; set; }
 
         List<string> LinkNames { get; set; }
 
@@ -118,9 +119,9 @@ namespace LinkWriter
         }
 
 
-        private Dictionary<string, List<(string, string)>> GetDataGridValuesByLinks(DataGridView dgv)
+        private Dictionary<string, List<NameAndValue>> GetDataGridValuesByLinks(DataGridView dgv)
         {
-            Dictionary<string, List<(string, string)>> Values = new Dictionary<string, List<(string, string)>>();
+            Dictionary<string, List<NameAndValue>> Values = new Dictionary<string, List<NameAndValue>>();
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
@@ -132,14 +133,16 @@ namespace LinkWriter
                 {
                     string value = (string)row.Cells[i].Value;
                     string linkName = LinkNames[i - 1];
+                    NameAndValue nav = new NameAndValue(paramName, value);
 
                     if (Values.ContainsKey(linkName))
                     {
-                        Values[linkName].Add((paramName, value));
+
+                        Values[linkName].Add(nav);
                     }
                     else
                     {
-                        Values.Add(linkName, new List<(string, string)> { (paramName, value) });
+                        Values.Add(linkName, new List<NameAndValue> { nav });
                     }
                 }
             }
@@ -147,28 +150,27 @@ namespace LinkWriter
             return Values;
         }
 
-        private List<(string, string)> GetDataGridValues(DataGridView dgv)
+        private List<NameAndValue> GetDataGridValues(DataGridView dgv)
         {
-            List<(string, string)> values = new List<(string, string)>();
+            List<NameAndValue> values = new List<NameAndValue>();
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 if (row.IsNewRow) continue;
 
                 string paramName = (string)row.Cells[0].Value;
-
-                string paramValue = (string)row.Cells[1].Value;
-
-                values.Add((paramName, paramValue));
+                string value = (string)row.Cells[1].Value;
+                NameAndValue nav = new NameAndValue(paramName, value);
+                values.Add(nav);
             }
 
             return values;
         }
 
-        public Dictionary<string, List<(string, string, List<BuiltInCategory>)>> GetDataGridValuesCustom(DataGridView dgv)
+        public Dictionary<string, List<NameValueCategories>> GetDataGridValuesCustom(DataGridView dgv)
         {
-            Dictionary<string, List<(string, string, List<BuiltInCategory>)>> values =
-                new Dictionary<string, List<(string, string, List<BuiltInCategory>)>>();
+            Dictionary<string, List<NameValueCategories>> values =
+                new Dictionary<string, List<NameValueCategories>>();
 
             for (int r = 0; r < dgv.RowCount; r++)
             {
@@ -183,14 +185,15 @@ namespace LinkWriter
                 {
                     string value = (string)row.Cells[i].Value;
                     string linkName = LinkNames[i - 2];
+                    NameValueCategories nvc = new NameValueCategories(paramName, value, cats);
 
                     if (values.ContainsKey(linkName))
                     {
-                        values[linkName].Add((paramName, value, cats));
+                        values[linkName].Add(nvc);
                     }
                     else
                     {
-                        values.Add(linkName, new List<(string, string, List<BuiltInCategory>)> { (paramName, value, cats) });
+                        values.Add(linkName, new List<NameValueCategories> { nvc });
                     }
                 }
             }
