@@ -10,9 +10,24 @@
 			None
 		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
-		<Configurations>R2019;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
+		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
 	</PropertyGroup>
-	
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2017|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net47</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2019</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2017</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2018|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<TargetFramework>net47</TargetFramework>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>TRACE;DEBUG;R2019</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2018</AssemblyName>
+	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2019|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
@@ -71,6 +86,70 @@
 	</PropertyGroup>
 
 	<Choose>
+		<When Condition=" '$(Configuration)'=='R2017' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASCADLinkMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASCADLinkMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASGeometryMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASGeometryMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASObjectsMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASObjectsMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPISteel">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPISteel.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RvtDwgAddon">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\RvtDwgAddon.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2018' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASCADLinkMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASCADLinkMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASGeometryMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASGeometryMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="ASObjectsMgd">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\ASObjectsMgd.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPISteel">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPISteel.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RvtDwgAddon">
+					<HintPath>C:\Program Files\Autodesk\Revit 2019\AddIns\SteelConnections\RvtDwgAddon.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
 		<When Condition=" '$(Configuration)'=='R2019' ">
 			<ItemGroup>
 				<Reference Include="RevitAPI">

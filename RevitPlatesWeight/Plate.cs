@@ -102,9 +102,9 @@ namespace RevitPlatesWeight
         {
             BuiltInParameter param = BuiltInParameter.STEEL_ELEM_PLATE_THICKNESS;
 
+#if !R2019
             switch (kind)
             {
-#if !R2019
                 case DimensionKind.Length:
                     param = BuiltInParameter.STEEL_ELEM_PLATE_LENGTH;
                     break;
@@ -114,8 +114,8 @@ namespace RevitPlatesWeight
                 case DimensionKind.Thickness:
                     param = BuiltInParameter.STEEL_ELEM_PLATE_THICKNESS;
                     break;
-#endif
             }
+#endif
             return param;
         }
     }
