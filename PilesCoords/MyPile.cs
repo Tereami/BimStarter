@@ -11,9 +11,8 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
-using System;
-using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
+using System;
 using System.Diagnostics;
 #endregion
 
@@ -24,7 +23,7 @@ namespace PilesCoords
         public static XYZ GetPileBottomPoint(Element pileElement)
         {
             FamilyInstance _pile = pileElement as FamilyInstance;
-            if (_pile == null) throw new Exception("Элемент - не семейство");
+            if (_pile == null) throw new Exception("THE ELEMENT IS NOT A FAMILY");
 
             LocationPoint lp = _pile.Location as LocationPoint;
             XYZ pileBottomPoint = lp.Point;

@@ -29,7 +29,7 @@ namespace PilesCoords
             sets = saver.Activate(nameof(PilesCoords));
             if (sets == null)
             {
-                TaskDialog.Show("Ошибка", "Не удалось получить настройки");
+                TaskDialog.Show(MyStrings.Error, MyStrings.ErrorSettings);
                 return Result.Failed;
             }
 

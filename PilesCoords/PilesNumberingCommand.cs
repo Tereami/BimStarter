@@ -44,7 +44,7 @@ namespace PilesCoords
             Trace.WriteLine("Selected piles count: " + piles.Count.ToString());
             if (piles.Count == 0)
             {
-                message = "Выберите сваи.";
+                message = MyStrings.MessageSelectPiles;
                 return Result.Failed;
             }
 
@@ -59,7 +59,7 @@ namespace PilesCoords
             //Указываю позиции по координатам
             using (Transaction t = new Transaction(doc))
             {
-                t.Start("Указываю позиции по координатам");
+                t.Start(MyStrings.TransactionNumbering);
                 for (int i = 0; i < pilesSorted.Count; i++)
                 {
                     Element pile = pilesSorted[i];

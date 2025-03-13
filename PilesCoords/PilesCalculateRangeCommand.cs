@@ -46,7 +46,7 @@ namespace PilesCoords
 
             if (piles.Count == 0)
             {
-                message = "Выберите сваи.";
+                message = MyStrings.MessageSelectPiles;
                 return Result.Failed;
             }
 
@@ -144,7 +144,7 @@ namespace PilesCoords
 
             using (Transaction t = new Transaction(doc))
             {
-                t.Start("Указываю диапазон");
+                t.Start(MyStrings.TransactionRange);
 
                 //Заполняю Диапазон и номера типов
                 // KR_Диапазон - сортировка без отметки ростверка, KR_Диапазон2 -  с отметкой ростверка

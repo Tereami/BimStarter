@@ -42,13 +42,13 @@ namespace PilesCoords
 
             if (piles.Count == 0)
             {
-                message = "Выберите сваи.";
-                Trace.WriteLine("Piles arent selected");
+                message = MyStrings.MessageSelectPiles;
+                Trace.WriteLine("Piles are not selected");
                 return Result.Failed;
             }
             if (slabs.Count == 0)
             {
-                message = "Выберите ростверк";
+                message = MyStrings.MessageSelectGrilliage;
                 Trace.WriteLine("Foundations are not selected");
                 return Result.Failed;
             }
@@ -56,7 +56,7 @@ namespace PilesCoords
 
             using (var t = new Transaction(doc))
             {
-                t.Start("Срубка свай под ростверк");
+                t.Start(MyStrings.TransationPilesCut);
                 foreach (Element pileElement in piles)
                 {
                     FamilyInstance pile = pileElement as FamilyInstance;

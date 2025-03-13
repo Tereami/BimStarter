@@ -202,6 +202,24 @@
 	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
 	  <ProjectReference Include="..\Tools.SettingsSaver\Tools.SettingsSaver.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="MyStrings.Designer.cs">
+	    <DependentUpon>MyStrings.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="MyStrings.resx">
+	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 	<ItemGroup>
 	  <None Update="PilesCoords_data\Command.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

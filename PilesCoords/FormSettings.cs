@@ -12,7 +12,6 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 #endregion
 
@@ -102,15 +101,6 @@ namespace PilesCoords
             this.Close();
         }
 
-        private void buttonOpenSample_Click(object sender, EventArgs e)
-        {
-            string appdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string pileFolder = System.IO.Path.Combine(appdataPath, @"Autodesk\Revit\Addins\20xx\BimStarter\PilesCoords");
-            if (System.IO.Directory.Exists(pileFolder))
-            {
-                Process.Start("explorer.exe", pileFolder);
-            }
-        }
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {

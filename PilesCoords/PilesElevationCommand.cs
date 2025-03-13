@@ -44,12 +44,12 @@ namespace PilesCoords
             Trace.WriteLine($"Piles count: {piles.Count} slabs count: {slabs.Count}");
             if (piles.Count == 0)
             {
-                message = "Выберите сваи.";
+                message = MyStrings.MessageSelectPiles;
                 return Result.Failed;
             }
             if (slabs.Count == 0)
             {
-                message = "Выберите ростверк.";
+                message = MyStrings.MessageSelectGrilliage;
                 return Result.Failed;
             }
 
@@ -83,7 +83,7 @@ namespace PilesCoords
                     Parameter elevParam = pile.LookupParameter(sets.paramSlabBottomElev);
                     if (elevParam == null)
                     {
-                        TaskDialog.Show("Ошибка", $"Нет параметра {sets.paramSlabBottomElev}");
+                        TaskDialog.Show(MyStrings.Error, $"{MyStrings.ErrorNoParameter} {sets.paramSlabBottomElev}");
                         message = $"No parameter {sets.paramSlabBottomElev}";
                         return Result.Failed;
                     }
