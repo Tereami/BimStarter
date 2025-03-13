@@ -101,6 +101,18 @@ namespace RibbonBimStarter
             connect = new WebConnection(App.settings.Email, App.settings.Password, App.settings.Website);
 
 
+            //SHOW VERSION INFO
+
+            string versionFilePath = Path.Combine(ribbonPath, "version.txt");
+            if (File.Exists(versionFilePath))
+            {
+                string[] versionLines = File.ReadAllLines(versionFilePath);
+                FormVersionInfo formVersion = new FormVersionInfo(versionLines);
+                formVersion.ShowDialog();
+                string newFileName = versionFilePath.Replace(".txt", $"{DateTime.Now.ToString("yyyy MM dd H mm ss")}.txt");
+                File.Move(versionFilePath, newFileName);
+            }
+
             //INSTALL TEMPLATE
             int revitVersionInt = Convert.ToInt32(revitVersion);
             if (revitVersionInt < 2020)
