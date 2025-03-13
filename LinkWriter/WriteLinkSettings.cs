@@ -47,14 +47,14 @@ namespace LinkWriter
             FamilyInstance titleBlock = getTitleblockIsSelected(commandData.Application.ActiveUIDocument);
             if (titleBlock == null)
             {
-                message = "Please select a titleblock to copy properties";
+                message = "Please select a titleblock to copy properties / Выберите штамп для копирования параметров";
                 return null;
             }
 
             ViewSheet openedSheet = mainDoc.ActiveView as ViewSheet;
             if (openedSheet == null)
             {
-                message = "Please open a sheet to copy parameters";
+                message = "Please open a sheet to copy parameters / Откройте лист для копирования параметров";
                 return null;
             }
             List<MyParameterValue> sheetParameters = GetParameterValues(openedSheet, save.SheetParameters);
