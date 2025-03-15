@@ -151,7 +151,9 @@ namespace LinkWriter
             {
                 if (p.IsReadOnly) continue;
                 string paramName = p.Definition.Name;
-                string valueString = values.FirstOrDefault(i => i.Name == paramName).Value;
+                NameAndValue nav = values.FirstOrDefault(i => i.Name == paramName);
+                if (nav == null) continue;
+                string valueString = nav.Value;
                 if (valueString == null) continue;
 
                 ParseAndSetValue(elem.Document, p, valueString);
