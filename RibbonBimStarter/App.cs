@@ -286,6 +286,7 @@ namespace RibbonBimStarter
             panel.AddSlideOut();
             panel.AddItem(CreateButtonData("RebarSketch", "CommandFormGenerator"));
             panel.AddItem(CreateButtonData("SchedulesTools", "CommandRevisionClouds"));
+            panel.AddItem(CreateButtonData("SchedulesTools", "CommandCollapseSettings"));
             Debug.WriteLine("TablePanel is created");
         }
 

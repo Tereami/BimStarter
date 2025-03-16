@@ -18,7 +18,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
 #endregion
 
 
@@ -29,21 +28,19 @@ namespace SchedulesTools
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            string commandName = "CollapseRebarSchedule";
             Trace.Listeners.Clear();
-            Trace.Listeners.Add(new Tools.Logger.Logger("CollapseRebarSchedule"));
-            Debug.WriteLine($"{nameof(CommandCollapseRebarSchedule)} start");
+            Trace.Listeners.Add(new Tools.Logger.Logger(commandName));
+            Debug.WriteLine($"{commandName} start");
 
             Tools.SettingsSaver.Saver<CollapseScheduleSettings> saver = new Tools.SettingsSaver.Saver<CollapseScheduleSettings>();
-            CollapseScheduleSettings sets = saver.Activate("CollapseRebarSchedule");
+            CollapseScheduleSettings sets = saver.Activate(commandName);
             if (sets == null)
             {
                 Trace.WriteLine("Failed to read config xml file");
                 return Result.Cancelled;
             }
-            FormCollapseSettings form = new FormCollapseSettings(sets);
-            if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                return Result.Cancelled;
-            sets = form.NewSets;
+
             Debug.WriteLine($"Settings: {sets.ToString()}");
 
             Document doc = commandData.Application.ActiveUIDocument.Document;

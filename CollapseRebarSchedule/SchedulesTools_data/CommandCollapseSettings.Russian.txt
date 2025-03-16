@@ -1,0 +1,3 @@
+﻿Настройка ВРС
+Настройка сворачивания ведомости расхода стали для сторонних шаблонов
+http://bim-starter.com/plugins/collapserebarschedule/

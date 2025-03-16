@@ -21,7 +21,7 @@ namespace Tools.SettingsSaver
 
         T Value;
 
-        public T Activate(string ProjectName)
+        public T Activate(string ProjectName, bool generateDefaultSettings = true)
         {
             Debug.WriteLine("Start activate settings");
             string appdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -54,7 +54,7 @@ namespace Tools.SettingsSaver
                     catch { }
                 }
             }
-            if (Value == null)
+            if (Value == null && generateDefaultSettings)
             {
                 Value = new T();
                 Debug.WriteLine("Settings is null, create new one");

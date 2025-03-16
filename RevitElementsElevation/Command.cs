@@ -34,11 +34,15 @@ namespace RevitElementsElevation
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
             Tools.SettingsSaver.Saver<Config> saver = new Tools.SettingsSaver.Saver<Config>();
-            Config cfg = saver.Activate(nameof(RevitElementsElevation));
-            if (cfg == null)
+            Config cfg = saver.Activate(nameof(RevitElementsElevation), false);
+            if (cfg == null) // first start
             {
-                Trace.WriteLine("Failed to read config xml file");
-                return Result.Cancelled;
+                cfg = new Config();
+                FormConfig form = new FormConfig(ref cfg);
+                if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                {
+                    return Result.Cancelled;
+                }
             }
 
             List<FamilyInstance> fams = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).Cast<FamilyInstance>().ToList();

@@ -1,0 +1,3 @@
+﻿Settings rebar bill
+Settings for collapsing rebar schedule, for third-party templates
+http://bim-starter.com/plugins/collapserebarschedule/
