@@ -30,7 +30,7 @@ namespace Tools.Model.ParameterUtils
             if (param != null) return param;
 
             ElementId typeId = elem.GetTypeId();
-            if (typeId == null) return null;
+            if (typeId == null || typeId == ElementId.InvalidElementId) return null;
 
             Element type = elem.Document.GetElement(typeId);
 
