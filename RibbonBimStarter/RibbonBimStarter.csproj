@@ -267,7 +267,7 @@
 	  <None Update="RibbonBimStarter_data\CommandShowFamilyInfo_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="v446">
+	  <None Update="v447">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="version.txt">

@@ -16,7 +16,9 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 #endregion
 
 
@@ -214,21 +216,22 @@ namespace SchedulesTools
                     Debug.WriteLine($"Is null or empty");
                     continue;
                 }
-                bool isNumber = double.TryParse(s, out val);
+                string noComma = s.Replace(',', '.');
+                bool isNumber = double.TryParse(noComma, NumberStyles.Any, CultureInfo.InvariantCulture, out val);
                 if (!isNumber)
                 {
-                    Debug.WriteLine($"{s} - text, not a number");
+                    Debug.WriteLine($"{noComma} - text, not a number");
                     continue;
                 }
                 if (val > 0)
                 {
-                    Debug.WriteLine($"{s} - number greater than zero");
+                    Debug.WriteLine($"{noComma} - number greater than zero");
                     haveNumber = true;
                     continue;
                 }
                 else
                 {
-                    Debug.WriteLine($"{s} - zero");
+                    Debug.WriteLine($"{noComma} - zero");
                     haveZeros = true;
                 }
             }
