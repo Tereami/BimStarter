@@ -153,6 +153,9 @@
   <data name="MaybeUpdateFamily" xml:space="preserve">
     <value>Maybe you should update the family</value>
   </data>
+  <data name="MessageDemonstrationMode" xml:space="preserve">
+    <value>The plugin is in a demonstration mode. The changes in the library will be deleted after reinstall. Recommend to create your own  sketches library. See Help for details.</value>
+  </data>
   <data name="MessageEmptyLibrary" xml:space="preserve">
     <value>The library is empty</value>
   </data>

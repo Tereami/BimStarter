@@ -153,6 +153,9 @@
   <data name="MaybeUpdateFamily" xml:space="preserve">
     <value>Возможно, нужно обновить семейство</value>
   </data>
+  <data name="MessageDemonstrationMode" xml:space="preserve">
+    <value>Плагин работает в демонстрационном режиме. Изменения в библиотеке будут удалены после обновления. Рекомендуется настроить собственную библиотеку. Подробнее см. в справке.</value>
+  </data>
   <data name="MessageEmptyLibrary" xml:space="preserve">
     <value>Библиотека пуста</value>
   </data>

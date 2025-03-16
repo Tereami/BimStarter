@@ -28,6 +28,11 @@ namespace RebarSketch
         {
             App.ActivatePaths();
 
+            if (App.libraryPath.Contains(@"Autodesk\Revit\Addins\20xx\BimStarter\RebarSketch"))
+            {
+                TaskDialog.Show("Warning", MyStrings.MessageDemonstrationMode);
+            }
+
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
             ScetchLibrary lib = new ScetchLibrary();

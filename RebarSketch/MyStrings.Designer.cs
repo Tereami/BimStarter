@@ -169,6 +169,15 @@ namespace RebarSketch {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The plugin is in a demonstration mode. The changes in the library will be deleted after reinstall. Recommend to create your own  sketches library. See Help for details..
+        /// </summary>
+        public static string MessageDemonstrationMode {
+            get {
+                return ResourceManager.GetString("MessageDemonstrationMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The library is empty.
         /// </summary>
         public static string MessageEmptyLibrary {
