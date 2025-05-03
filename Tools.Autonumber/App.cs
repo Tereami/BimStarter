@@ -5,7 +5,6 @@ using Tools.KeyboardSimulation;
 [assembly: System.Reflection.AssemblyVersion("1.0.*")]
 namespace Tools.Autonumber
 {
-    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
     public class App : ApplicationContext
     {
         public App()

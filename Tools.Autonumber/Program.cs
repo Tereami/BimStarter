@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 
 namespace Tools.Autonumber
 {
-    [SupportedOSPlatform("windows")]
     internal static class Program
     {
         /// <summary>
@@ -14,7 +12,8 @@ namespace Tools.Autonumber
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new App());
         }
     }

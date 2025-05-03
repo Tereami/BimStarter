@@ -35,6 +35,8 @@ namespace RevitAreaReinforcement
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new Tools.Logger.Logger("WallAreaRebar"));
             Trace.WriteLine("Wall reinforcement start");
+            string appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Trace.WriteLine(appVersion);
 
             App.ActivateConfigFolder();
 
@@ -182,7 +184,10 @@ namespace RevitAreaReinforcement
                 Trace.WriteLine("... xml success!");
             }
 
-            sel.SetElementIds(createdAreas.Select(i => i.Id).ToList());
+            if (!createdAreas.Any(i => !i.IsValidObject))
+            {
+                sel.SetElementIds(createdAreas.Select(i => i.Id).ToList());
+            }
 
             string resultMessage = $"{MyStrings.ResultMessage1}: {createdAreas.Count}\n{MyStrings.ResultMessage2}!";
             Tools.Forms.BalloonTip.Show(MyStrings.Success, resultMessage);

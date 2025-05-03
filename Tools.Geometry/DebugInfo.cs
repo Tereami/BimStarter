@@ -50,7 +50,7 @@ namespace Tools.Geometry
 
         public static string GetPointDebugInfo(XYZ point)
         {
-            string msg = $"X: {InchesToStringMillimeters(point.X)}\tY: {InchesToStringMillimeters(point.Y)}\tZ: {InchesToStringMillimeters(point.Y)}";
+            string msg = $"X: {InchesToStringMillimeters(point.X)}\tY: {InchesToStringMillimeters(point.Y)}\tZ: {InchesToStringMillimeters(point.Z)}";
             return msg;
         }
 
