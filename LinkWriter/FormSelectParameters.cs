@@ -34,13 +34,6 @@ namespace LinkWriter
             Settings.TypeParams = ReadList(checkedListBoxTitleblockType);
             Settings.ProjectParams = ReadList(checkedListBoxProjectInfo);
 
-
-            if (Settings.ParametersCount == 0)
-            {
-                MessageBox.Show("Please choose parameters");
-                return;
-            }
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -53,14 +53,7 @@ namespace RebarTools
 
 
             RebarBendData rbd = bar.GetBendData();
-#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023 || R2024 || R2025
-            RebarHookOrientation hookOrient0 = rbd.HookOrient0;
-            RebarHookOrientation hookOrient1 = rbd.HookOrient1;
-#else
-            rbd.
-            RebarTerminationOrientation hookOrient0 = rbd.TerminationOrientation0;
-            RebarTerminationOrientation hookOrient1 = rbd.TerminationOrientation1;
-#endif
+
             Element host = doc.GetElement(bar.GetHostId());
 
             List<Curve> curves = bar.GetCenterlineCurves(false, true, true, MultiplanarOption.IncludeOnlyPlanarCurves, 0).ToList();
@@ -80,14 +73,17 @@ namespace RebarTools
                     XYZ offset = barOffset.Origin;
 #if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023 || R2024 || R2025
                     Rebar newRebar = Rebar.CreateFromCurves(doc, rebarStyle, barType, hookTypeStart, hookTypeEnd, host, normal, curves,
-                                                            hookOrient0, hookOrient1, true, false);
+                                                            rbd.HookOrient0, rbd.HookOrient1, true, false);
 #else
                     BarTerminationsData barTermData = new BarTerminationsData(doc)
                     {
-                        TerminationOrientationAtStart = hookOrient0,
-                        TerminationOrientationAtEnd = hookOrient1,
+                        TerminationOrientationAtStart = rbd.TerminationOrientation0,
+                        TerminationOrientationAtEnd = rbd.TerminationOrientation1,
+                        TerminationRotationAngleAtStart = rbd.TerminationRotationAngle0,
+                        TerminationRotationAngleAtEnd = rbd.TerminationRotationAngle1,
                         HookTypeIdAtStart = hookStartTypeId,
                         HookTypeIdAtEnd = hookEndTypeId,
+
                     };
                     Rebar newRebar = Rebar.CreateFromCurves(doc, rebarStyle, barType, host, normal, curves, barTermData, true, false);
 #endif
