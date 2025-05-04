@@ -44,7 +44,7 @@ namespace FixSlowFile
             Trace.WriteLine("Rebar types found: " + rebarTypes.Count.ToString());
             if (rebarTypes.Count == 0)
             {
-                TaskDialog.Show("Error", "В файле нет типов арматурных стержней");
+                TaskDialog.Show("Error", "В файле нет типов арматурных стержней / No rebar types in the model");
                 return Result.Failed;
             }
 
@@ -78,14 +78,14 @@ namespace FixSlowFile
             }
             catch
             {
-                TaskDialog.Show("Ошибка", "Не найден файл общих параметров");
+                TaskDialog.Show("Error", "Не найден файл общих параметров / No shared parameters file");
                 Trace.WriteLine("Shared parameters file isnt found");
                 return Result.Cancelled;
             }
 
             if (deffile == null)
             {
-                TaskDialog.Show("Ошибка", "Некорректный файл общих параметров");
+                TaskDialog.Show("Ошибка", "Некорректный файл общих параметров / Incorrect shared parameter file");
                 Trace.WriteLine("Shared parameters file is incorrect");
                 return Result.Cancelled;
             }
@@ -96,7 +96,7 @@ namespace FixSlowFile
             using (Transaction t = new Transaction(doc))
             {
                 Trace.WriteLine("Start clear parameters");
-                t.Start("Удаляю параметры несущей арматуры");
+                t.Start("Delete parameters");
                 {
                     foreach (var kvp in projectParamsStorage)
                     {
@@ -133,7 +133,7 @@ namespace FixSlowFile
             //возвращаю параметры обратно
             using (Transaction t2 = new Transaction(doc))
             {
-                t2.Start("Добавляю параметры обратно");
+                t2.Start("Add parameters back");
 
                 foreach (var kvp in projectParamsStorage)
                 {
@@ -159,7 +159,7 @@ namespace FixSlowFile
             //восстанавливаю значения у типов арматуры
             using (Transaction t3 = new Transaction(doc))
             {
-                t3.Start("Восстанавливаю значения параметров");
+                t3.Start("Restore parameters values");
 
                 foreach (MyRebarType mrt in myrebarTypes)
                 {
@@ -179,7 +179,7 @@ namespace FixSlowFile
                 t3.Commit();
             }
             string endTime = DateTime.Now.ToLongTimeString();
-            string msg = "Выполнено! Время старта: " + startTime + ", окончания: " + endTime;
+            string msg = "Start: " + startTime + ", end: " + endTime;
 
             TaskDialog.Show("Fix", msg);
             Trace.WriteLine(msg);
