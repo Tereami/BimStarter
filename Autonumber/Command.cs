@@ -25,7 +25,7 @@ namespace Autonumber
         {
             string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string folder = System.IO.Path.GetDirectoryName(assemblyPath);
-            string exefile = System.IO.Path.Combine(folder, "Tools.Autonumber.exe");
+            string exefile = System.IO.Path.Combine(folder, "Autonumber_data", "Autonumber.exe");
 
             bool checkFile = System.IO.File.Exists(exefile);
             if (!checkFile)

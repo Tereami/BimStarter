@@ -197,6 +197,9 @@
 	  <ProjectReference Include="..\Tools.KeyboardSimulation\Tools.KeyboardSimulation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Update="Autonumber_data\autonumber.exe">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Autonumber_data\Command.Russian.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
