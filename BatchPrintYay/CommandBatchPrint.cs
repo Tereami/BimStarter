@@ -163,6 +163,9 @@ namespace BatchPrintYay
                     }
                 }
 
+                SubcategoriesGetter nonPrintedSubcats = new SubcategoriesGetter(printSettings.nonPrintedLinesPrefix, myDoc.Doc);
+                nonPrintedSubcats.Hide();
+
                 //печатаю каждый лист
                 foreach (MySheet msheet in mSheets)
                 {
@@ -270,6 +273,8 @@ namespace BatchPrintYay
                         openedDoc.Export(outputFolder, sheetname, sheetsIds, dwgOptions);
                     }
                 }
+
+                nonPrintedSubcats.Show();
 
                 if (myDoc is MyRevitLinkDocument)
                 {
