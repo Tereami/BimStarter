@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Tools.Logger
 {
+
     public class Logger : TraceListener
     {
         public static string filePath = "";
         string title = "";
+        private readonly SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
 
         public Logger(string parentTitle)
         {
@@ -30,7 +33,7 @@ namespace Tools.Logger
             }
             catch (Exception ex)
             {
-                throw new Exception("Unable to write log: " + filePath + ". Message: " + ex.Message);
+                Console.WriteLine("Unable to write log: " + filePath + ". Message: " + ex.Message);
             }
         }
 
@@ -43,20 +46,25 @@ namespace Tools.Logger
             }
             catch (Exception ex)
             {
-                throw new Exception("Unable to write log: " + filePath + ". Message: " + ex.Message);
+                Console.WriteLine("Unable to write log: " + filePath + ". Message: " + ex.Message);
             }
         }
 
-        private async Task FileWriteAsync(string filePath, string messaage)
+        private async Task FileWriteAsync(string filePath, string message)
         {
             bool append = File.Exists(filePath);
 
-            using (FileStream stream = new FileStream(filePath, append ? FileMode.Append : FileMode.Create, FileAccess.Write, FileShare.None, 4096, true))
+            await semaphore.WaitAsync();
+            try
             {
-                using (StreamWriter sw = new StreamWriter(stream))
+                using (var writer = new StreamWriter(filePath, append))
                 {
-                    await sw.WriteLineAsync(messaage);
+                    await writer.WriteLineAsync(message);
                 }
+            }
+            finally
+            {
+                semaphore.Release();
             }
         }
     }
