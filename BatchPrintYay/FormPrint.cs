@@ -55,6 +55,9 @@ namespace BatchPrintYay
             textBoxNameConstructor.Text = printSettings.nameConstructor;
             txtBoxOutputFolder.Text = printSettings.outputFolder;
             checkBoxMergePdfs.Checked = printSettings.mergePdfs;
+            checkBoxHideWorkplanes.Checked = printSettings.hideWorkplanes;
+            checkBoxHideBoundaries.Checked = printSettings.hideCropBoundaries;
+            textBoxNonPrintedLinesPrefix.Text = printSettings.nonPrintedLinesPrefix;
 
 
             List<string> printers = new List<string>();
@@ -203,10 +206,11 @@ namespace BatchPrintYay
 
             _printSettings.colorsType = (ColorType)comboBoxColors.SelectedItem;
             _printSettings.alwaysColorParamName = textBoxAlwaysColorParamName.Text;
-
             _printSettings.useOrientation = checkBoxOrientation.Checked;
-
             _printSettings.refreshSchedules = checkBoxRefresh.Checked;
+            _printSettings.hideWorkplanes = checkBoxHideWorkplanes.Checked;
+            _printSettings.hideCropBoundaries = checkBoxHideBoundaries.Checked;
+            _printSettings.nonPrintedLinesPrefix = textBoxNonPrintedLinesPrefix.Text;
 
             _printSettings.exportToDwg = checkBoxExportDwg.Checked;
             _printSettings.dwgNameConstructor = textBoxDwgNameConstructor.Text;

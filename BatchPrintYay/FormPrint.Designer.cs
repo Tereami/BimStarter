@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrint));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxNonPrintedLinesPrefix = new System.Windows.Forms.TextBox();
+            this.checkBoxHideBoundaries = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxHideWorkplanes = new System.Windows.Forms.CheckBox();
             this.checkBoxRefresh = new System.Windows.Forms.CheckBox();
             this.checkBoxOrientation = new System.Windows.Forms.CheckBox();
             this.checkBoxMergePdfs = new System.Windows.Forms.CheckBox();
@@ -72,6 +76,10 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.textBoxNonPrintedLinesPrefix);
+            this.groupBox1.Controls.Add(this.checkBoxHideBoundaries);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.checkBoxHideWorkplanes);
             this.groupBox1.Controls.Add(this.checkBoxRefresh);
             this.groupBox1.Controls.Add(this.checkBoxOrientation);
             this.groupBox1.Controls.Add(this.checkBoxMergePdfs);
@@ -87,6 +95,32 @@
             this.groupBox1.Controls.Add(this.comboBoxPrinters);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // textBoxNonPrintedLinesPrefix
+            // 
+            resources.ApplyResources(this.textBoxNonPrintedLinesPrefix, "textBoxNonPrintedLinesPrefix");
+            this.textBoxNonPrintedLinesPrefix.Name = "textBoxNonPrintedLinesPrefix";
+            // 
+            // checkBoxHideBoundaries
+            // 
+            resources.ApplyResources(this.checkBoxHideBoundaries, "checkBoxHideBoundaries");
+            this.checkBoxHideBoundaries.Checked = true;
+            this.checkBoxHideBoundaries.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxHideBoundaries.Name = "checkBoxHideBoundaries";
+            this.checkBoxHideBoundaries.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // checkBoxHideWorkplanes
+            // 
+            resources.ApplyResources(this.checkBoxHideWorkplanes, "checkBoxHideWorkplanes");
+            this.checkBoxHideWorkplanes.Checked = true;
+            this.checkBoxHideWorkplanes.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxHideWorkplanes.Name = "checkBoxHideWorkplanes";
+            this.checkBoxHideWorkplanes.UseVisualStyleBackColor = true;
             // 
             // checkBoxRefresh
             // 
@@ -382,5 +416,9 @@
         private System.Windows.Forms.TextBox textBoxDwgNameConstructor;
         private System.Windows.Forms.TextBox textBoxAlwaysColorParamName;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBoxHideBoundaries;
+        private System.Windows.Forms.CheckBox checkBoxHideWorkplanes;
+        private System.Windows.Forms.TextBox textBoxNonPrintedLinesPrefix;
+        private System.Windows.Forms.Label label2;
     }
 }

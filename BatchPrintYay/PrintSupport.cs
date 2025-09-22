@@ -230,10 +230,10 @@ namespace BatchPrintYay
             IPrintSetting ps = pSetup.InSession as IPrintSetting;
             PrintParameters pps = ps.PrintParameters;
 
-            pps.HideCropBoundaries = true;
-            pps.HideReforWorkPlanes = true;
+            pps.HideCropBoundaries = printSettings.hideCropBoundaries;
+            pps.HideReforWorkPlanes = printSettings.hideWorkplanes;
             pps.HideScopeBoxes = true;
-            pps.HideUnreferencedViewTags = false;
+            pps.HideUnreferencedViewTags = true;
             pps.ZoomType = ZoomType.Zoom;
             pps.Zoom = 100;
 

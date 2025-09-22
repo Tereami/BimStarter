@@ -35,6 +35,9 @@ namespace BatchPrintYay
         public bool printToPaper = false;
         public bool useOrientation = false;
         public bool refreshSchedules = true;
+        public bool hideWorkplanes = true;
+        public bool hideCropBoundaries = true;
+        public string nonPrintedLinesPrefix = "NPLT";
 
         public bool exportToDwg = false;
         public string dwgNameConstructor = MyStrings.DefaultDwgName;

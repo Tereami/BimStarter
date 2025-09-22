@@ -118,6 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="textBoxNonPrintedLinesPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 20</value>
+  </data>
+  <data name="textBoxNonPrintedLinesPrefix.Text" xml:space="preserve">
+    <value>NPLT</value>
+  </data>
+  <data name="checkBoxHideBoundaries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 17</value>
+  </data>
+  <data name="checkBoxHideBoundaries.Text" xml:space="preserve">
+    <value>Скрыть границы видов</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Префикс непечатаемых линий:</value>
+  </data>
+  <data name="checkBoxHideWorkplanes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 17</value>
+  </data>
+  <data name="checkBoxHideWorkplanes.Text" xml:space="preserve">
+    <value>Скрыть опорные/рабочие плоскости</value>
+  </data>
   <data name="checkBoxRefresh.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 17</value>
   </data>
@@ -243,10 +267,6 @@
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Другие опции</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Пакетная печать</value>

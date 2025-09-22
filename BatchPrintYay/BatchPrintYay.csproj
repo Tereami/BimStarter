@@ -78,9 +78,6 @@
 	  <None Remove="BatchPrintYay_data\CommandRefreshSchedules_small.png" />
 	</ItemGroup>
 	<ItemGroup>
-		<Reference Include="RbsLogger">
-			<HintPath>..\..\RbsLogger\RbsLogger\bin\Debug\RbsLogger.dll</HintPath>
-		</Reference>
 		<Reference Include="System.Configuration" />
 		<Reference Include="System.IO.Compression" />
 		<Reference Include="System.ServiceModel" />
