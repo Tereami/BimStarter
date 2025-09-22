@@ -11,6 +11,7 @@
 			None
 		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
 		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025;R2026</Configurations>
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
