@@ -31,11 +31,6 @@ namespace BatchPrintYay
             return line2;
         }
 
-        //private static List<MySheet> GetSheetsFromDocument(Document doc)
-        //{
-
-        //    return sheets;
-        //}
 
         public static string CheckTitleblocSizeCorrects(ViewSheet sheet, FamilyInstance titleBlock)
         {
@@ -44,10 +39,10 @@ namespace BatchPrintYay
             Trace.WriteLine($"   Check Titleblock ID {titleBlock.Id}");
 
             double widthFeets = titleBlock.get_Parameter(BuiltInParameter.SHEET_WIDTH).AsDouble();
-            double widthMm = MyDimension.GetLengthInMillimeters(widthFeets);
+            double widthMm = Tools.Model.Units.ConvertFromInternalToMillimeters(widthFeets);
             widthMm = Math.Round(widthMm);
             double heightFeets = titleBlock.get_Parameter(BuiltInParameter.SHEET_HEIGHT).AsDouble();
-            double heightMm = MyDimension.GetLengthInMillimeters(heightFeets);
+            double heightMm = Tools.Model.Units.ConvertFromInternalToMillimeters(heightFeets);
             heightMm = Math.Round(heightMm);
 
 
@@ -60,7 +55,7 @@ namespace BatchPrintYay
             if (checkWidthParam != null)
             {
                 double feetsWidthCheck = checkWidthParam.AsDouble();
-                widthMmCheck = MyDimension.GetLengthInMillimeters(feetsWidthCheck);
+                widthMmCheck = Tools.Model.Units.ConvertFromInternalToMillimeters(feetsWidthCheck);
                 widthMmCheck = Math.Round(widthMmCheck);
                 Trace.WriteLine(MyStrings.MessageParameterExists + " Ширина = " + widthMmCheck.ToString("F3"));
             }
@@ -72,7 +67,7 @@ namespace BatchPrintYay
             if (checkHeightParam != null)
             {
                 double feetsHeightCheck = checkHeightParam.AsDouble();
-                heigthMmCheck = MyDimension.GetLengthInMillimeters(feetsHeightCheck);
+                heigthMmCheck = Tools.Model.Units.ConvertFromInternalToMillimeters(feetsHeightCheck);
                 heigthMmCheck = Math.Round(heigthMmCheck);
                 Trace.WriteLine(MyStrings.MessageParameterExists + " Высота = " + heigthMmCheck.ToString("F3"));
             }

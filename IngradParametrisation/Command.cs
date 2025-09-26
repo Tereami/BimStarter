@@ -211,9 +211,7 @@ namespace IngradParametrisation
                     }
                     ingdLength.Set(length);
 
-                    List<Solid> solids = Tools.Geometry.Solids.GetSolidsFromElement(w);
-                    XYZ[] maxminZ = Tools.Geometry.Height.GetMaxMinHeightPoints(solids);
-                    double heigth = maxminZ[0].Z - maxminZ[1].Z;
+                    double heigth = Tools.Geometry.Height.GetMaxMinHeightPoints(w).Height;
                     Parameter ingdHeigth = w.LookupParameter(heigthParamName);
                     if (ingdHeigth == null)
                     {

@@ -75,11 +75,11 @@ namespace BatchPrintYay
                     Trace.WriteLine($" Check titleblock {curTitleblock.GetElementId()}");
 
                     double widthFeets = curTitleblock.get_Parameter(BuiltInParameter.SHEET_WIDTH).AsDouble();
-                    widthMm = MyDimension.GetLengthInMillimeters(widthFeets);
+                    widthMm = Tools.Model.Units.ConvertFromInternalToMillimeters(widthFeets);
                     Trace.WriteLine(" BuiltInParameter.SHEET_WIDTH = " + widthMm.ToString("F3"));
 
                     double heightFeets = curTitleblock.get_Parameter(BuiltInParameter.SHEET_HEIGHT).AsDouble();
-                    heigthMm = MyDimension.GetLengthInMillimeters(heightFeets);
+                    heigthMm = Tools.Model.Units.ConvertFromInternalToMillimeters(heightFeets);
                     Trace.WriteLine(" BuiltInParameter.SHEET_HEIGHT = " + heigthMm.ToString("F3"));
 
                     Trace.WriteLine(" Check titleblock is correct ");

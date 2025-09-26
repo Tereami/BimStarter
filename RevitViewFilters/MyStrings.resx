@@ -132,6 +132,12 @@
   <data name="ErrorNoBottomElevParam" xml:space="preserve">
     <value>No parameter Dim.BottomElevation</value>
   </data>
+  <data name="ErrorNoHatch" xml:space="preserve">
+    <value>Can't find a fill pattern to assign:</value>
+  </data>
+  <data name="ErrorNoImage" xml:space="preserve">
+    <value>Can't fing an image to assign:</value>
+  </data>
   <data name="ErrorNoTopElevParam" xml:space="preserve">
     <value>No parameter Dim.TopElevation</value>
   </data>
@@ -154,7 +160,7 @@
     <value>Too many wall types! Should be lsee than 10</value>
   </data>
   <data name="ErrorWallsNotSelected" xml:space="preserve">
-    <value>Walls are not selected.</value>
+    <value>No walls on the current viewplan</value>
   </data>
   <data name="FilterRuleBeginsWith" xml:space="preserve">
     <value> beg.with </value>
@@ -188,5 +194,11 @@
   </data>
   <data name="TransactionWallsElevation" xml:space="preserve">
     <value>Walls elevations</value>
+  </data>
+  <data name="WallHatchFinalMsg1" xml:space="preserve">
+    <value>Walls processed: </value>
+  </data>
+  <data name="WallHatchFinalMsg2" xml:space="preserve">
+    <value>, wall types: </value>
   </data>
 </root>

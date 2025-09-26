@@ -106,6 +106,24 @@ namespace RevitViewFilters {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t find a fill pattern to assign:.
+        /// </summary>
+        public static string ErrorNoHatch {
+            get {
+                return ResourceManager.GetString("ErrorNoHatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t fing an image to assign:.
+        /// </summary>
+        public static string ErrorNoImage {
+            get {
+                return ResourceManager.GetString("ErrorNoImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No parameter Dim.TopElevation.
         /// </summary>
         public static string ErrorNoTopElevParam {
@@ -169,7 +187,7 @@ namespace RevitViewFilters {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Walls are not selected..
+        ///   Looks up a localized string similar to No walls on the current viewplan.
         /// </summary>
         public static string ErrorWallsNotSelected {
             get {
@@ -273,6 +291,24 @@ namespace RevitViewFilters {
         public static string TransactionWallsElevation {
             get {
                 return ResourceManager.GetString("TransactionWallsElevation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Walls processed: .
+        /// </summary>
+        public static string WallHatchFinalMsg1 {
+            get {
+                return ResourceManager.GetString("WallHatchFinalMsg1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , wall types: .
+        /// </summary>
+        public static string WallHatchFinalMsg2 {
+            get {
+                return ResourceManager.GetString("WallHatchFinalMsg2", resourceCulture);
             }
         }
     }

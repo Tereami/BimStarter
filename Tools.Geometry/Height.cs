@@ -50,10 +50,17 @@ namespace Tools.Geometry
             return heigth;
         }
 
-        public static XYZ[] GetMaxMinHeightPoints(List<Solid> solids)
+        public static HeightResult GetMaxMinHeightPoints(Element elem)
+        {
+            List<Solid> solids = Tools.Geometry.Solids.GetSolidsFromElement(elem);
+            HeightResult result = Tools.Geometry.Height.GetMaxMinHeightPoints(solids);
+            return result;
+        }
+
+        public static HeightResult GetMaxMinHeightPoints(List<Solid> solids)
         {
             XYZ maxZpoint = new XYZ(0, 0, -9999999);
-            XYZ minZpount = new XYZ(0, 0, 9999999);
+            XYZ minZpoint = new XYZ(0, 0, 9999999);
 
             List<Edge> edges = new List<Edge>();
             foreach (Solid s in solids)
@@ -69,13 +76,13 @@ namespace Tools.Geometry
                 Curve c = e.AsCurve();
                 XYZ p1 = c.GetEndPoint(0);
                 if (p1.Z > maxZpoint.Z) maxZpoint = p1;
-                if (p1.Z < minZpount.Z) minZpount = p1;
+                if (p1.Z < minZpoint.Z) minZpoint = p1;
 
                 XYZ p2 = c.GetEndPoint(1);
                 if (p2.Z > maxZpoint.Z) maxZpoint = p2;
-                if (p2.Z < minZpount.Z) minZpount = p2;
+                if (p2.Z < minZpoint.Z) minZpoint = p2;
             }
-            XYZ[] result = new XYZ[] { maxZpoint, minZpount };
+            HeightResult result = new HeightResult(maxZpoint, minZpoint);
             return result;
         }
 

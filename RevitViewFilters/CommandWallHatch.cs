@@ -13,11 +13,13 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #region Usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
+using Tools.Geometry;
 #endregion
 
 namespace RevitViewFilters
@@ -26,11 +28,9 @@ namespace RevitViewFilters
 
     class CommandWallHatch : IExternalCommand
     {
+        private string FiltersPrefix = "_cwh_";
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            Guid topElevParamGuid = new Guid("ec353104-09f1-44f4-85cf-1d638dce02d3");
-            Guid bottomElevParamGuid = new Guid("8a58ad74-0e15-499b-bcaf-35b45cd7fc1f");
-
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new Tools.Logger.Logger("WallHatch"));
             App.assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -40,116 +40,118 @@ namespace RevitViewFilters
             if (!(curView is ViewPlan))
             {
                 message = MyStrings.ErrorOnlyViewplan;
-                Trace.WriteLine(message);
+                Debug.WriteLine(message);
                 return Result.Failed;
             }
 
             if (curView.ViewTemplateId != null && curView.ViewTemplateId != ElementId.InvalidElementId)
             {
                 message = MyStrings.ErrorViewTemplate;
-                Trace.WriteLine(message);
+                Debug.WriteLine(message);
                 return Result.Failed;
             }
 
-            Selection sel = commandData.Application.ActiveUIDocument.Selection;
-            Trace.WriteLine("Selected elements: " + sel.GetElementIds().Count);
-            if (sel.GetElementIds().Count == 0)
-            {
-                message = MyStrings.ErrorWallsNotSelected;
-                return Result.Failed;
-            }
-            List<Wall> walls = new List<Wall>();
-            foreach (ElementId id in sel.GetElementIds())
-            {
-                Wall w = doc.GetElement(id) as Wall;
-                if (w == null) continue;
-                walls.Add(w);
-            }
-            Trace.WriteLine("Walls count: " + walls.Count);
+            List<Wall> walls = new FilteredElementCollector(doc, doc.ActiveView.Id)
+                .WhereElementIsNotElementType()
+                .OfClass(typeof(Wall))
+                .Cast<Wall>()
+                .ToList();
+            Debug.WriteLine("Walls count: " + walls.Count);
             if (walls.Count == 0)
             {
                 message = MyStrings.ErrorWallsNotSelected;
                 return Result.Failed;
             }
 
-            SortedDictionary<double, List<Wall>> wallHeigthDict = new SortedDictionary<double, List<Wall>>();
-            if (wallHeigthDict.Count > 10)
+            Dictionary<string, List<Wall>> wallsDict = new Dictionary<string, List<Wall>>();
+
+            Tools.SettingsSaver.Saver<WallHatchSettings> saver = new Tools.SettingsSaver.Saver<WallHatchSettings>();
+            WallHatchSettings sets = saver.Activate("WallHatch");
+            FormWallHatchSettings form = new FormWallHatchSettings(sets);
+            if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                message = MyStrings.ErrorWallsMoreThan10;
-                Trace.WriteLine(message);
-                return Result.Failed;
+                return Result.Cancelled;
             }
+            sets = form.Sets;
 
             foreach (Wall w in walls)
             {
-                Trace.WriteLine($"Current wall id: {w.Id}");
-                double topElev = GetWallTopElev(doc, w, true);
-                Trace.WriteLine("Top elevation: " + topElev.ToString("F1"));
+                Debug.WriteLine($"Current wall id: {w.Id}");
+                string key = "wall_";
+                HeightResult heightResult = Tools.Geometry.Height.GetMaxMinHeightPoints(w);
 
-                if (wallHeigthDict.ContainsKey(topElev))
+                if (sets.UseType)
                 {
-                    wallHeigthDict[topElev].Add(w);
+                    key += w.WallType.Name;
+                }
+                if (sets.UseHeight)
+                {
+                    key += "_h" + heightResult.HeightMm.ToString("0.#");
+                }
+                if (sets.UseBaseLevel)
+                {
+                    key += "_b" + heightResult.BottomElevationMm.ToString("0.#");
+                }
+                if (sets.UseThickness)
+                {
+                    double t = w.Width * 304.8;
+                    key += "_t" + t.ToString("0.#");
+                }
+                Debug.Write("Key: " + key);
+
+                if (wallsDict.ContainsKey(key))
+                {
+                    wallsDict[key].Add(w);
                 }
                 else
                 {
-                    wallHeigthDict.Add(topElev, new List<Wall> { w });
+                    wallsDict.Add(key, new List<Wall> { w });
                 }
             }
 
+            int keysCount = wallsDict.Count;
+
+            OrderedDictionary wallsOrdered = new OrderedDictionary();
+            foreach (var kv in wallsDict.OrderByDescending(kv => kv.Value.Count))
+                wallsOrdered.Add(kv.Key, kv.Value);
+
+            Debug.Write("Wall types found: " + keysCount);
+            Dictionary<int, FillPatternElement> hatches = CollectHatches(doc, sets.HatchPrefix, keysCount);
+            Dictionary<int, ImageType> images = CollectImages(doc, sets.ImagePrefix, keysCount);
+
             List<ElementId> catsIds = new List<ElementId> { new ElementId(BuiltInCategory.OST_Walls) };
 
-            int i = 1;
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionWallsElevation);
+                Debug.WriteLine("Transaction start: " + MyStrings.TransactionWallsElevation);
 
                 foreach (ElementId filterId in curView.GetFilters())
                 {
                     ParameterFilterElement filter = doc.GetElement(filterId) as ParameterFilterElement;
-                    if (filter.Name.StartsWith("_cwh_"))
+                    if (filter.Name.StartsWith(FiltersPrefix))
                     {
-                        curView.RemoveFilter(filterId);
+                        doc.Delete(filter.Id);
+                        Debug.WriteLine("Old filter deleted: " + filter.Name);
                     }
                 }
-                Trace.WriteLine("Old filters deleted");
 
-                foreach (var kvp in wallHeigthDict)
+                int i = 1;
+                foreach (DictionaryEntry kvp in wallsOrdered)
                 {
-                    Trace.WriteLine("Current key: " + kvp.Key.ToString("F1"));
-                    ElementId hatchId = GetHatchIdByNumber(doc, i);
-                    ImageType image = GetImageTypeByNumber(doc, i);
-
-                    double curHeigthMm = kvp.Key;
-                    double curHeigthFt = curHeigthMm / 304.8;
-
-                    List<Wall> curWalls = kvp.Value;
+                    string key = (string)kvp.Key;
+                    List<Wall> curWalls = (List<Wall>)kvp.Value;
+                    Debug.WriteLine("Current key: " + kvp.Key + ", walls count: " + curWalls.Count);
+                    FillPatternElement hatch = hatches[i];
+                    ElementId hatchId = hatch.Id;
+                    ImageType image = images[i];
 
                     foreach (Wall w in curWalls)
                     {
+                        Debug.WriteLine("Assign image to wall id " + w.Id);
                         w.get_Parameter(BuiltInParameter.ALL_MODEL_IMAGE).Set(image.Id);
-                        Parameter topElevParam = w.get_Parameter(topElevParamGuid);
-                        if (topElevParam == null)
-                            throw new Exception(MyStrings.ErrorNoTopElevParam);
-
-                        topElevParam.Set(curHeigthFt);
-
-                        double bottomElev = GetWallTopElev(doc, w, false);
-                        double bottomElevFt = bottomElev / 304.8;
-                        Parameter bottomElevParam = w.get_Parameter(bottomElevParamGuid);
-                        if (bottomElevParam == null)
-                            throw new Exception(MyStrings.ErrorNoBottomElevParam);
-
-                        bottomElevParam.Set(bottomElevFt);
                     }
 
-                    string filterName = "_cwh_" + MyStrings.FilterTitleWallTopElev + curHeigthMm.ToString("F0");
-
-                    Parameter topElevParamForRule = curWalls.First().get_Parameter(topElevParamGuid);
-                    MyParameter mp = new MyParameter(topElevParamForRule);
-                    ParameterFilterElement filter =
-                        FilterCreator.createSimpleFilter(doc, catsIds, filterName, mp, CriteriaType.Equals);
-
-                    curView.AddFilter(filter.Id);
                     OverrideGraphicSettings ogs = new OverrideGraphicSettings();
 
 #if R2017 || R2018
@@ -159,108 +161,99 @@ namespace RevitViewFilters
                     ogs.SetSurfaceForegroundPatternId(hatchId);
                     ogs.SetCutForegroundPatternId(hatchId);
 #endif
-                    curView.SetFilterOverrides(filter.Id, ogs);
+                    foreach (Wall w in curWalls)
+                    {
+                        Debug.WriteLine("Assign graphics override to wall id " + w.Id);
+                        doc.ActiveView.SetElementOverrides(w.Id, ogs);
+                    }
+
                     i++;
                 }
                 t.Commit();
+                Debug.WriteLine("Transaction committed: " + MyStrings.TransactionWallsElevation);
             }
+            saver.Save(sets);
+            Debug.WriteLine("Settings saved");
+
+            string msg = MyStrings.WallHatchFinalMsg1 + walls.Count + MyStrings.WallHatchFinalMsg2 + wallsOrdered.Count;
+
+            Tools.Forms.BalloonTip.Show("Walls hatch", msg);
+
             return Result.Succeeded;
         }
 
-        private double GetWallTopElev(Document doc, Wall w, bool TopOrBottomElev)
+
+        private Dictionary<int, FillPatternElement> CollectHatches(Document doc, string prefix, int count)
         {
-            Trace.WriteLine($"Try to get wall top elevation, wall id: {w.Id}");
-            ElementId levelId = w.LevelId;
-            if (levelId == null || levelId == ElementId.InvalidElementId)
-                throw new Exception($"{MyStrings.ErrorNoWallBaseLevel} {w.Id}");
-
-            Level lev = doc.GetElement(levelId) as Level;
-            double levElev = lev.ProjectElevation;
-            double baseOffset = w.get_Parameter(BuiltInParameter.WALL_BASE_OFFSET).AsDouble();
-
-            double elev = levElev + baseOffset; // + wallHeigth;
-
-            if (TopOrBottomElev)
-            {
-                double wallHeigth = w.get_Parameter(BuiltInParameter.WALL_USER_HEIGHT_PARAM).AsDouble();
-                elev += wallHeigth;
-            }
-
-            double elevmm = elev * 304.8;
-
-            double elevRoundMm = Math.Round(elevmm);
-            return elevRoundMm;
-        }
-
-        private ElementId GetHatchIdByNumber(Document doc, int number)
-        {
-            string hatchName = GetHatchNameByNumber(doc, number);
-            Trace.WriteLine("Hatch name: " + hatchName);
-            ElementId hatchId = GetHatchIdByName(doc, hatchName);
-            return hatchId;
-        }
-
-        private string GetHatchNameByNumber(Document doc, int number)
-        {
-            if (number == 1) return "Грунт естественный";
-            if (number == 2) return "08.Грунт.Гравий";
-            if (number == 3) return "05.Кирпич.В разрезе (45град) 3.5мм";
-            if (number == 4) return "02.Крест (45град) 2мм";
-            if (number == 5) return "06.Древесина 2";
-            if (number == 6) return "02.Крест (45град) 1мм";
-            if (number == 7) return "01.Диагональ (135град) 1.5мм";
-            if (number == 8) return "Грунт: песок плотный";
-            if (number == 9) return "01.Диагональ (45град) 1.5мм";
-            if (number == 10) return "05.Кирпич.В разрезе (135град) 3.5мм";
-
-            return "Сплошная заливка";
-        }
-
-        private ElementId GetHatchIdByName(Document doc, string hatchName)
-        {
+            Dictionary<int, FillPatternElement> patternsDict = new Dictionary<int, FillPatternElement>();
+            Debug.WriteLine("Try to find fill patterns: " + prefix);
             List<FillPatternElement> fpes = new FilteredElementCollector(doc)
                 .OfClass(typeof(FillPatternElement))
-                .Where(i => i.Name.Contains(hatchName))
+                .Where(i => i.Name.StartsWith(prefix))
                 .Cast<FillPatternElement>()
                 .ToList();
             if (fpes.Count == 0)
             {
-                Trace.WriteLine("Unable to find hatch: " + hatchName);
-                throw new Exception("Не удалось найти штриховку " + hatchName);
+                string errMsg = MyStrings.ErrorNoHatch + prefix;
+                Debug.WriteLine(errMsg);
+                TaskDialog.Show("Error", errMsg);
+                throw new Exception(errMsg);
             }
-            Trace.WriteLine($"Hatch found:  {fpes.First().Id}");
-            return fpes.First().Id;
+
+            for (int i = 1; i <= count; i++)
+            {
+                string hatchName = prefix + i;
+                FillPatternElement fpe = fpes
+                    .FirstOrDefault(p => p.Name == hatchName);
+                if (fpe == null)
+                {
+                    string errMsg = MyStrings.ErrorNoHatch + hatchName;
+                    TaskDialog.Show("Error", errMsg);
+                    Debug.WriteLine(errMsg);
+                    throw new Exception(errMsg);
+                }
+                Debug.WriteLine("Number " + i + ", fill pattern found: " + fpe.Name + " id " + fpe.Id);
+                patternsDict.Add(i, fpe);
+            }
+            Debug.WriteLine("Fill patterns found: " + patternsDict.Count);
+            return patternsDict;
         }
 
-        private ImageType GetImageTypeByNumber(Document doc, int number)
+        private Dictionary<int, ImageType> CollectImages(Document doc, string prefix, int count)
         {
-            string name = "ШтриховкаСтены_" + number.ToString() + ".png";
-            Trace.WriteLine("Try to find image: " + name);
+            Dictionary<int, ImageType> imagesDict = new Dictionary<int, ImageType>();
+            Debug.WriteLine("Try to find images: " + prefix);
 
             List<ImageType> images = new FilteredElementCollector(doc)
                 .OfClass(typeof(ImageType))
                 .Cast<ImageType>()
-                .Where(i => i.Name.Equals(name))
+                .Where(i => i.Name.StartsWith(prefix))
                 .ToList();
-
             if (images.Count == 0)
             {
-                List<ImageType> errImgs = new FilteredElementCollector(doc)
-                    .OfClass(typeof(ImageType))
-                    .Cast<ImageType>()
-                    .Where(i => i.Name.Equals("Ошибка.png"))
-                    .ToList();
-                if (errImgs.Count == 0)
-                {
-                    Trace.WriteLine("No wall images in the project");
-                    throw new Exception("Загрузите в проект картинки!");
-                }
-
-                ImageType errImg = errImgs.First();
-                return errImg;
+                string errmsg = "NO IMAGES " + prefix;
+                Debug.WriteLine(errmsg);
+                TaskDialog.Show("Error", errmsg);
+                throw new Exception(errmsg);
             }
-            Trace.WriteLine($"Hatch found:  {images.First().Id}");
-            return images.First();
+
+            for (int i = 1; i <= count; i++)
+            {
+                string imageName = prefix + i.ToString() + ".png";
+                ImageType curImage = images
+                    .FirstOrDefault(img => img.Name == imageName);
+                if (curImage == null)
+                {
+                    string errMsg = MyStrings.ErrorNoImage + imageName;
+                    TaskDialog.Show("Error", errMsg);
+                    Debug.WriteLine(errMsg);
+                    throw new Exception(errMsg);
+                }
+                Debug.WriteLine("Number " + i + ", image found: " + curImage.Name + " id " + curImage.Id);
+                imagesDict.Add(i, curImage);
+            }
+            Debug.WriteLine("Images found: " + imagesDict.Count);
+            return imagesDict;
         }
     }
 }

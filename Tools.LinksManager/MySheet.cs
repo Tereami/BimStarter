@@ -180,22 +180,14 @@ namespace Tools.LinksManager
                     break;
                 case StorageType.Double:
                     double d = param.AsDouble();
-#if R2017 || R2018 || R2019 || R2020
-                    double d2 = UnitUtils.ConvertFromInternalUnits(d, DisplayUnitType.DUT_MILLIMETERS);
-#else
-                    double d2 = UnitUtils.ConvertFromInternalUnits(d, UnitTypeId.Millimeters);
-#endif
+                    double d2 = Tools.Model.Units.ConvertFromInternalToMillimeters(d);
                     val = Math.Round(d2).ToString("F3");
                     break;
                 case StorageType.String:
                     val = param.AsString();
                     break;
                 case StorageType.ElementId:
-#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
-                    val = param.AsElementId().IntegerValue.ToString();
-#else
-                    val = param.AsElementId().Value.ToString();
-#endif
+                    val = Tools.Model.Units.GetElementIdAsString(param.AsElementId());
                     break;
                 default:
                     break;

@@ -12,6 +12,7 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 
 #region Usings
+using Autodesk.Revit.DB;
 using System;
 #endregion
 
@@ -50,6 +51,26 @@ namespace Tools.Model
         {
             double inches = millimeters / 304.8;
             return inches;
+        }
+
+        public static double ConvertFromInternalToMillimeters(double d)
+        {
+#if R2017 || R2018 || R2019 || R2020
+            double d2 = UnitUtils.ConvertFromInternalUnits(d, DisplayUnitType.DUT_MILLIMETERS);
+#else
+            double d2 = UnitUtils.ConvertFromInternalUnits(d, UnitTypeId.Millimeters);
+#endif
+            return d2;
+        }
+
+        public static string GetElementIdAsString(ElementId elementId)
+        {
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023
+            string val = elementId.IntegerValue.ToString();
+#else
+            string val = elementId.Value.ToString();
+#endif
+            return val;
         }
     }
 }
