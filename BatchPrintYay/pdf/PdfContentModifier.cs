@@ -11,12 +11,9 @@ This code is provided 'as is'. Author disclaims any implied warranty.
 Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using iTextSharp.text.pdf;
 
 
 namespace BatchPrintYay.pdf
@@ -59,20 +56,29 @@ namespace BatchPrintYay.pdf
 
             List<PdfObject> operands = new List<PdfObject>();
 
-            while (ps.Parse(operands).Count > 0)
+            try
             {
-                PdfLiteral oper = (PdfLiteral)operands[operands.Count - 1];
-
-                //System.Diagnostics.Trace.WriteLine("[Debug] Opr: " + oper.ToString());
-
-                PdfContentOperatorHandler operHandler = null;
-
-                if (_operators.TryGetValue(oper.ToString(), out operHandler))
+                while (ps.Parse(operands).Count > 0)
                 {
-                    operands = operHandler(oper, operands);
-                }
+                    PdfLiteral oper = (PdfLiteral)operands[operands.Count - 1];
 
-                _contentStreamBuilderStack.Peek().Push(operands);
+                    //System.Diagnostics.Trace.WriteLine("[Debug] Opr: " + oper.ToString());
+
+                    PdfContentOperatorHandler operHandler = null;
+
+                    if (_operators.TryGetValue(oper.ToString(), out operHandler))
+                    {
+                        operands = operHandler(oper, operands);
+                    }
+
+                    _contentStreamBuilderStack.Peek().Push(operands);
+                }
+            }
+            catch
+            {
+                string errMsg = "PDF OPERANDS ERROR. REMOVE TRANSPARENT PNG IMAGES FROM YOUR TITLEBLOCK FAMILY";
+                Autodesk.Revit.UI.TaskDialog.Show("Error", errMsg);
+                throw new Exception(errMsg);
             }
 
             _resourceDictionaryStack.Pop();
