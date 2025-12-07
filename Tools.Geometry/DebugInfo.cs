@@ -12,7 +12,6 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
 using Autodesk.Revit.DB;
-using System;
 using System.Collections.Generic;
 #endregion
 
@@ -25,28 +24,19 @@ namespace Tools.Geometry
     {
         public static string ProfileDebugInfo(List<Curve> profile)
         {
-            string msg = "Curves count: " + profile.Count.ToString();
+            string msg = $"Curves count: {profile.Count}";
 
             for (int i = 0; i < profile.Count; i++)
             {
                 Curve c = profile[i];
-                msg += CurveDebugInfo(c);
+                msg += $"\n Line {i}. Length {InchesToStringMillimeters(c.Length)}. "
+                    + $"\n    Point 0: {GetPointDebugInfo(c.GetEndPoint(0))}"
+                    + $"\n    Point 1: {GetPointDebugInfo(c.GetEndPoint(1))}";
             }
 
             return msg;
         }
 
-        public static string CurveDebugInfo(Curve c)
-        {
-            List<string> info = new List<string>()
-            {
-                $"Curve length: {InchesToStringMillimeters(c.Length)}",
-                 GetPointDebugInfo(c.GetEndPoint(0)),
-                 GetPointDebugInfo(c.GetEndPoint(1)),
-            };
-            string msg = string.Join(Environment.NewLine, info);
-            return msg;
-        }
 
         public static string GetPointDebugInfo(XYZ point)
         {

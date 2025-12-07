@@ -62,7 +62,8 @@ namespace RevitAreaReinforcement
             List<Face> vertFaces = FaceUtils.GetVerticalFaces(sol);
             Face mainFace = FaceUtils.GetLargeFace(vertFaces);
             PlanarFace pface = mainFace as PlanarFace;
-            Trace.WriteLine("Vertical planar face was found");
+            double pFaceArea = pface.Area / 10.764;
+            Trace.WriteLine("Vertical planar face was found, area: " + pFaceArea);
 
             List<Curve> wallOutlineDraft = FaceUtils.GetFaceOuterBoundary(pface);
             Trace.WriteLine("Outline draft curves found: " + wallOutlineDraft.Count.ToString());

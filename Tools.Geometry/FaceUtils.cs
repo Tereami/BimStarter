@@ -35,7 +35,8 @@ namespace Tools.Geometry
                 if (pface == null) continue;
 
                 XYZ normal = pface.FaceNormal;
-                if (normal.Z == 0)
+                double z = System.Math.Abs(normal.Z);
+                if (z < 0.000001)
                 {
                     verticalFaces.Add(face);
                 }
