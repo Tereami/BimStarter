@@ -13,11 +13,9 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #region usings
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.IO;
 using System.Diagnostics;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 #endregion
 
@@ -67,7 +65,7 @@ namespace RebarSketch
             xsi.formName = folder.Split('\\').Last();
             xsi.templateImagePath = Path.Combine(folder, "scetch.png");
 
-            if(!System.IO.File.Exists(xsi.templateImagePath))
+            if (!System.IO.File.Exists(xsi.templateImagePath))
                 throw new Exception("Image not found " + xsi.templateImagePath.Replace("\\", "\\ "));
 
             return xsi;
@@ -81,12 +79,16 @@ namespace RebarSketch
 
             using (StreamReader reader = new StreamReader(xmlPath))
             {
-                xsi = (XmlSketchItem)serializer.Deserialize(reader);
-                if (xsi == null)
+                try
                 {
-                    System.Windows.Forms.MessageBox.Show(MyStrings.ErrorFailedToLoadSettings);
-                    Trace.WriteLine("Unable to get setiings, set default");
-                    xsi = new XmlSketchItem();
+                    xsi = (XmlSketchItem)serializer.Deserialize(reader);
+                }
+                catch
+                {
+                    string msg = MyStrings.ErrorFailedToLoadSettings + xmlPath;
+                    System.Windows.Forms.MessageBox.Show(msg);
+                    Trace.WriteLine(msg);
+                    throw new Exception(msg);
                 }
             }
             xsi.IsXmlSource = true;

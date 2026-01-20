@@ -70,7 +70,7 @@ namespace RebarSketch {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to load the settings, set default.
+        ///   Looks up a localized string similar to Failed to load settings, the xml file is invalid: .
         /// </summary>
         public static string ErrorFailedToLoadSettings {
             get {

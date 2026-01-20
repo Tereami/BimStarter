@@ -121,7 +121,7 @@
     <value>Ошибка</value>
   </data>
   <data name="ErrorFailedToLoadSettings" xml:space="preserve">
-    <value>Не удалось загрузить настройки, установлены по-умолчанию</value>
+    <value>Не удалось загрузить настройки, поврежден xml файл: </value>
   </data>
   <data name="ErrorFileNotFound" xml:space="preserve">
     <value>Не найден файл</value>
