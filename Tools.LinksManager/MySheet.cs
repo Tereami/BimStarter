@@ -86,7 +86,7 @@ namespace Tools.LinksManager
         {
             msg = string.Empty;
             titleBlocks = allTitleblocks
-                    .Where(i => i.get_Parameter(BuiltInParameter.SHEET_NUMBER).AsString() == this.sheet.SheetNumber)
+                    .Where(i => i.OwnerViewId == this.sheet.Id)
                     .ToList();
 
             Trace.WriteLine($" Titleblocks found: {titleBlocks.Count}");

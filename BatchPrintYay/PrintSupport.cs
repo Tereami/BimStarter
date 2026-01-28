@@ -198,7 +198,14 @@ namespace BatchPrintYay
 
             pManager.PrintToFileName = fileName;
             pManager.Apply();
-            pManager.SubmitPrint(view);
+            try
+            {
+                pManager.SubmitPrint(view);
+            }
+            catch (Exception ex)
+            {
+                Autodesk.Revit.UI.TaskDialog.Show("Error", ex.Message);
+            }
             pManager.Apply();
         }
 
