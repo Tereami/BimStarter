@@ -37,6 +37,9 @@ namespace PilesCoords
                     Trace.WriteLine("No parameter: " + paramname);
                 }
             }
+            if (param == null)
+                return null;
+
             if (checkForWritable && param.IsReadOnly)
             {
                 Trace.WriteLine("Parameter is readonly: " + paramname);
@@ -61,8 +64,17 @@ namespace PilesCoords
 
         public static string GetPileUsesPrefix(Element pile)
         {
-            int isAnker = pile.LookupParameter("Анкерная").AsInteger();
-            int isTested = pile.LookupParameter("Испытуемая").AsInteger();
+            Parameter isAnkerParam = pile.LookupParameter("Анкерная");
+            Parameter isTestedParam = pile.LookupParameter("Испытуемая");
+
+            if (isAnkerParam == null || !isAnkerParam.HasValue || isTestedParam == null || !isTestedParam.HasValue)
+            {
+                Trace.WriteLine($"Pile id {pile.Id} no uses parametes, empty prefix");
+                return string.Empty;
+            }
+
+            int isAnker = isAnkerParam.AsInteger();
+            int isTested = isTestedParam.AsInteger();
             string prefix = "Р";
             if (isAnker != 0 && isTested == 0) prefix = "А";
             if (isAnker == 0 && isTested != 0) prefix = "И";

@@ -71,7 +71,11 @@ namespace PilesCoords
 
                 pileBottomElev = Math.Round(pileBottomElev * 304.8);
 
-                double slabBottomElev = SupportGetter.GetParameter(pile, sets.paramSlabBottomElev).AsDouble();
+                double slabBottomElev = 0;
+                Parameter slabBottomElevParam = SupportGetter.GetParameter(pile, sets.paramSlabBottomElev);
+                if (slabBottomElevParam != null && slabBottomElevParam.HasValue)
+                    slabBottomElev = slabBottomElevParam.AsDouble();
+
                 slabBottomElev = Math.Round(slabBottomElev * 304.8);
                 double pileTopElevBeforeCut = Math.Round(MyPile.GetPileTopPointBeforeCut(pile, sets).Z * 304.8);
 
@@ -165,8 +169,13 @@ namespace PilesCoords
                     foreach (Element pile in pType.piles)
                     {
                         string range = pType.range;
-                        SupportGetter.GetParameter(pile, sets.paramRange, true).Set(range);
-                        SupportGetter.GetParameter(pile, sets.paramPileTypeNumber, true).Set(typeNumber);
+                        Parameter rangeParam = SupportGetter.GetParameter(pile, sets.paramRange, true);
+                        if (rangeParam != null && !rangeParam.IsReadOnly)
+                            rangeParam.Set(range);
+
+                        Parameter typeNumberParam = SupportGetter.GetParameter(pile, sets.paramPileTypeNumber, true);
+                        if (typeNumberParam != null && !typeNumberParam.IsReadOnly)
+                            typeNumberParam.Set(typeNumber);
                         pile.get_Parameter(BuiltInParameter.ALL_MODEL_IMAGE).Set(imageId);
                     }
 
@@ -182,7 +191,9 @@ namespace PilesCoords
                     foreach (Element pile in pType.piles)
                     {
                         string range = pType.range;
-                        SupportGetter.GetParameter(pile, sets.paramRangeWithElevation, true).Set(range);
+                        Parameter rangeWithElevParam = SupportGetter.GetParameter(pile, sets.paramRangeWithElevation, true);
+                        if (rangeWithElevParam != null && !rangeWithElevParam.IsReadOnly)
+                            rangeWithElevParam.Set(range);
                     }
                 }
                 t.Commit();
