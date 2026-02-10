@@ -70,7 +70,7 @@ namespace PartsParametrisation
 
                     foreach (PartParameter pp in sets.Parameters)
                     {
-                        Parameter sourceParam = Tools.Model.ParameterUtils.Getter.GetParameter(hostElem, pp.HostParameterName);
+                        Parameter sourceParam = Tools.Model.ParameterUtils.Getter.GetParameter(hostElem, pp.HostParameterName, true, false);
                         if (sourceParam == null) continue;
                         if (!sourceParam.HasValue) continue;
 

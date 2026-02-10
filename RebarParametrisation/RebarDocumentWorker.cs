@@ -145,7 +145,7 @@ namespace RebarParametrisation
                 //заполняю массу, длину и диаметр
                 foreach (Element elem in rebarsAll)
                 {
-                    Parameter p = Tools.Model.ParameterUtils.Getter.GetParameter(elem, "Орг.ИзделиеТипПодсчета");
+                    Parameter p = Tools.Model.ParameterUtils.Getter.GetParameter(elem, "Орг.ИзделиеТипПодсчета", true, false);
                     if (p == null) continue; //отсеиваем левую арматуру без параметров
                     int c = p.AsInteger();
                     if (c < 1 || c > 5) continue; //отсеиваем каркасы и закладные детали

@@ -47,7 +47,30 @@ namespace ParameterWriter
         {
             RevitParameter = revitParameter;
             RevitStorageType = revitParameter.StorageType;
-            HasValue = false;
+            HasValue = revitParameter.HasValue;
+            Name = revitParameter.Definition.Name;
+
+            if (!revitParameter.HasValue) return;
+
+            switch (revitParameter.StorageType)
+            {
+                case StorageType.None:
+                    break;
+                case StorageType.Integer:
+                    intValue = revitParameter.AsInteger();
+                    break;
+                case StorageType.Double:
+                    doubleValue = revitParameter.AsDouble();
+                    break;
+                case StorageType.String:
+                    stringValue = revitParameter.AsString();
+                    break;
+                case StorageType.ElementId:
+                    elemIdValue = revitParameter.AsElementId();
+                    break;
+                default:
+                    break;
+            }
         }
 
         //Методы
@@ -123,13 +146,13 @@ namespace ParameterWriter
                 case StorageType.None:
                     return "";
                 case StorageType.Integer:
-                    return "";
+                    return intValue.ToString();
                 case StorageType.Double:
-                    return "";
+                    return doubleValue.ToString();
                 case StorageType.String:
                     return stringValue;
                 case StorageType.ElementId:
-                    return "";
+                    return elemIdValue.ToString();
                 default:
                     return "";
             }

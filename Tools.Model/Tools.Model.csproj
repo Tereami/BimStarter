@@ -201,6 +201,7 @@
 		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
 	</Target>
 	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
 	  <ProjectReference Include="..\Tools.Geometry\Tools.Geometry.csproj" />
 	</ItemGroup>
 </Project>

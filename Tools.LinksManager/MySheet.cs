@@ -100,68 +100,68 @@ namespace Tools.LinksManager
         }
 
 
-        /// <summary>
-        /// Формирует имя листа на базе строки-"конструктора", содержащего имена параметров,
-        /// которые будут заменены на значения параметров из данного листа
-        /// </summary>
-        /// <param name="constructor">Строка конструктора. Имена параметров должны быть включены в треугольные скобки.</param>
-        /// <returns>Сформированное имя листа</returns>
-        public string NameByConstructor(string constructor)
-        {
-            string name = "";
+        ///// <summary>
+        ///// Формирует имя листа на базе строки-"конструктора", содержащего имена параметров,
+        ///// которые будут заменены на значения параметров из данного листа
+        ///// </summary>
+        ///// <param name="constructor">Строка конструктора. Имена параметров должны быть включены в треугольные скобки.</param>
+        ///// <returns>Сформированное имя листа</returns>
+        //public string NameByConstructor(string constructor)
+        //{
+        //    string name = "";
 
-            string prefix = constructor.Split('<').First();
-            name = name + prefix;
+        //    string prefix = constructor.Split('<').First();
+        //    name = name + prefix;
 
-            string[] sa = constructor.Split('<');
-            for (int i = 0; i < sa.Length; i++)
-            {
-                string s = sa[i];
-                if (!s.Contains(">")) continue;
+        //    string[] sa = constructor.Split('<');
+        //    for (int i = 0; i < sa.Length; i++)
+        //    {
+        //        string s = sa[i];
+        //        if (!s.Contains(">")) continue;
 
-                string paramName = s.Split('>').First();
-                string separator = s.Split('>').Last();
+        //        string paramName = s.Split('>').First();
+        //        string separator = s.Split('>').Last();
 
-                string val1 = this.GetParameterValueBySheetOrProject(sheet, paramName);
-                string val = Tools.Extensions.Paths.ClearIllegalCharacters(val1);
+        //        string val1 = this.GetParameterValueBySheetOrProject(sheet, paramName);
+        //        string val = Tools.Extensions.Paths.ClearIllegalCharacters(val1);
 
-                name = name + val;
-                name = name + separator;
-            }
+        //        name = name + val;
+        //        name = name + separator;
+        //    }
 
 
-            char[] arr = name.Where(c => (char.IsLetterOrDigit(c) ||
-                             char.IsWhiteSpace(c) ||
-                             c == '-' ||
-                             c == '_' ||
-                             c == '.')).ToArray();
+        //    char[] arr = name.Where(c => (char.IsLetterOrDigit(c) ||
+        //                     char.IsWhiteSpace(c) ||
+        //                     c == '-' ||
+        //                     c == '_' ||
+        //                     c == '.')).ToArray();
 
-            name = new string(arr);
+        //    name = new string(arr);
 
-            return name;
-        }
+        //    return name;
+        //}
 
-        /// <summary>
-        /// Получает значение параметра из листа и из "информации о проекте", по аналогии с "меткой" в семействе основной надписи.
-        /// </summary>
-        /// <param name="sheet">Элемент модели</param>
-        /// <param name="paramName">Имя параметра</param>
-        /// <returns></returns>
-        private string GetParameterValueBySheetOrProject(Element sheet, string paramName)
-        {
-            string value = "";
+        ///// <summary>
+        ///// Получает значение параметра из листа и из "информации о проекте", по аналогии с "меткой" в семействе основной надписи.
+        ///// </summary>
+        ///// <param name="sheet">Элемент модели</param>
+        ///// <param name="paramName">Имя параметра</param>
+        ///// <returns></returns>
+        //private string GetParameterValueBySheetOrProject(Element sheet, string paramName)
+        //{
+        //    string value = "";
 
-            Parameter param = sheet.LookupParameter(paramName);
-            if (param == null)
-            {
-                param = sheet.Document.ProjectInformation.LookupParameter(paramName);
-            }
-            if (param != null)
-            {
-                value = this.GetParameterValueAsString(param);
-            }
-            return value;
-        }
+        //    Parameter param = sheet.LookupParameter(paramName);
+        //    if (param == null)
+        //    {
+        //        param = sheet.Document.ProjectInformation.LookupParameter(paramName);
+        //    }
+        //    if (param != null)
+        //    {
+        //        value = this.GetParameterValueAsString(param);
+        //    }
+        //    return value;
+        //}
 
         /// <summary>
         /// Получает значение параметра с любым типом данных, преобразованное в тип string

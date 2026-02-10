@@ -190,7 +190,7 @@ namespace BatchPrintYay
                         }
                         else
                         {
-                            fileName0 = msheet.NameByConstructor(printSettings.nameConstructor);
+                            fileName0 = Tools.Model.ParameterUtils.Getter.GetByConstructor(msheet.sheet, printSettings.nameConstructor, true);
                         }
                         string fileName = SheetSupport.ClearIllegalCharacters(fileName0);
                         if (fileName.Length > 128)
@@ -269,7 +269,7 @@ namespace BatchPrintYay
                     if (printSettings.exportToDwg)
                     {
                         List<ElementId> sheetsIds = new List<ElementId> { msheet.sheet.Id };
-                        string sheetname = msheet.NameByConstructor(printSettings.dwgNameConstructor);
+                        string sheetname = Tools.Model.ParameterUtils.Getter.GetByConstructor(msheet.sheet, printSettings.dwgNameConstructor, true);
                         openedDoc.Export(outputFolder, sheetname, sheetsIds, dwgOptions);
                     }
                 }

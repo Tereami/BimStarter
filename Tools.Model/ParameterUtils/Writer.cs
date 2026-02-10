@@ -98,7 +98,7 @@ namespace Tools.Model.ParameterUtils
             bool result = false;
             Level lev = Tools.Model.LevelUtils.GetLevelOfElement(elem);
             if (lev == null) return false;
-            Parameter levelParam = Tools.Model.ParameterUtils.Getter.GetParameter(lev, sourceParamName);
+            Parameter levelParam = Tools.Model.ParameterUtils.Getter.GetParameter(lev, sourceParamName, true, false);
             if (levelParam == null || !levelParam.HasValue) return false; ;
 
             result = WriteValueFromParamToParam(levelParam, targetParam);

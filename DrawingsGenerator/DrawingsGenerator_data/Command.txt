@@ -1,0 +1,3 @@
+﻿Plugin-/name
+DrawingsGenerator plugin description
+http://bim-starter.com/plugins/DrawingsGenerator/

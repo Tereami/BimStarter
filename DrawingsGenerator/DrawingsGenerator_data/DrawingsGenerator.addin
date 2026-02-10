@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">    
+    <Name>DrawingsGenerator</Name>
+    <Assembly>
+      DrawingsGenerator.dll
+    </Assembly>
+    <ClientId>6a0d06dd-638a-496c-b61b-338b56ffca6e</ClientId>
+    <FullClassName>DrawingsGenerator.App</FullClassName>
+    <VendorId>BIMSTARTER</VendorId>
+    <VendorDescription>https://bim-starter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

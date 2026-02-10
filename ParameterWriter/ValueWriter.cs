@@ -8,7 +8,7 @@ namespace ParameterWriter
         public static bool SetValue(Element elem, WriterSettings sets)
         {
             bool result = false;
-            Parameter targetParam = Tools.Model.ParameterUtils.Getter.GetParameter(elem, sets.targetParamName);
+            Parameter targetParam = Tools.Model.ParameterUtils.Getter.GetParameter(elem, sets.targetParamName, false, false);
             if (targetParam == null) return false;
             if (targetParam.IsReadOnly)
             {
@@ -23,7 +23,7 @@ namespace ParameterWriter
                     result = Tools.Model.ParameterUtils.Writer.SetValueConvertedFromString(targetParam, sets.ConstValue);
                     break;
                 case SourceMode.OtherParameter:
-                    Parameter sourceParam = Tools.Model.ParameterUtils.Getter.GetParameter(elem, sets.sourceParameterName);
+                    Parameter sourceParam = Tools.Model.ParameterUtils.Getter.GetParameter(elem, sets.sourceParameterName, true, false);
                     result = Writer.WriteValueFromParamToParam(sourceParam, targetParam);
                     break;
                 case SourceMode.Constructor:

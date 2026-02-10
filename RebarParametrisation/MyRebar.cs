@@ -43,12 +43,12 @@ namespace RebarParametrisation
             //IsCancel = false;
             elem = Elem;
 
-            Parameter rebarIsFamilyParam = Getter.GetParameter(elem, "Арм.ВыполненаСемейством");
+            Parameter rebarIsFamilyParam = Getter.GetParameter(elem, "Арм.ВыполненаСемейством", true, false);
             if (rebarIsFamilyParam == null) return;
 
             bool rebarIsFamily = rebarIsFamilyParam.AsInteger() == 1;
 
-            Parameter rebarClassParam = Getter.GetParameter(elem, "Арм.КлассЧисло");
+            Parameter rebarClassParam = Getter.GetParameter(elem, "Арм.КлассЧисло", true, false);
             if (rebarClassParam == null) return;
             rebarClass = rebarClassParam.AsDouble();
 
@@ -60,13 +60,13 @@ namespace RebarParametrisation
 
             if (rebarIsFamily)
             {
-                Parameter countParam = Getter.GetParameter(elem, "О_Количество");
+                Parameter countParam = Getter.GetParameter(elem, "О_Количество", true, false);
                 if (countParam == null) return;
                 count = countParam.AsDouble();
 
                 if (rebarClass > 0)
                 {
-                    Parameter diamParam = Getter.GetParameter(elem, "Рзм.Диаметр");
+                    Parameter diamParam = Getter.GetParameter(elem, "Рзм.Диаметр", true, false);
                     if (diamParam == null) return;
                     double diameterFoots = diamParam.AsDouble();
                     diameterMm = (int)(diameterFoots * 304.8);
@@ -74,7 +74,7 @@ namespace RebarParametrisation
                 }
                 else
                 {
-                    Parameter WeightPerMeterParam = Getter.GetParameter(elem, "О_МассаПогМетра");
+                    Parameter WeightPerMeterParam = Getter.GetParameter(elem, "О_МассаПогМетра", true, false);
                     if (WeightPerMeterParam == null) return;
                     WeightPerMeter = WeightPerMeterParam.AsDouble();
                 }
@@ -83,7 +83,7 @@ namespace RebarParametrisation
             {
                 count = elem.get_Parameter(BuiltInParameter.REBAR_ELEM_QUANTITY_OF_BARS).AsInteger();
 
-                Parameter diamParam = Getter.GetParameter(elem, "Диаметр стержня");
+                Parameter diamParam = Getter.GetParameter(elem, "Диаметр стержня", true, false);
                 if (diamParam == null) return;
                 double diameterFoots = diamParam.AsDouble();
                 double d2 = diameterFoots * 304.8;
@@ -96,7 +96,7 @@ namespace RebarParametrisation
             double WeightOnePcs = 0;
             double countPM = 0;
 
-            Parameter asSummLengthParam = Getter.GetParameter(elem, "Рзм.ПогМетрыВкл");
+            Parameter asSummLengthParam = Getter.GetParameter(elem, "Рзм.ПогМетрыВкл", true, false);
             if (asSummLengthParam == null) return;
             bool calcAsSummLength = (asSummLengthParam.AsInteger() == 1) && (!rebarIsFamily);
             if (calcAsSummLength)
@@ -106,7 +106,7 @@ namespace RebarParametrisation
                 if (!rebarIsFamily && rebarClass > 0)
                 {
                     double concreteClass = 0;
-                    Parameter concreteClassParam = Getter.GetParameter(elem, "Арм.КлассБетона");
+                    Parameter concreteClassParam = Getter.GetParameter(elem, "Арм.КлассБетона", true, false);
                     if (concreteClassParam == null) concreteClass = sets.DefaultConcreteClass;
                     else concreteClass = concreteClassParam.AsDouble();
 
@@ -150,7 +150,7 @@ namespace RebarParametrisation
             double l = 0;
             if (rebarIsFamily)
             {
-                Parameter lengthParam = Getter.GetParameter(elem, "Рзм.Длина");
+                Parameter lengthParam = Getter.GetParameter(elem, "Рзм.Длина", true, false);
                 if (lengthParam == null) return;
                 l = lengthParam.AsDouble() * 304.8;
             }

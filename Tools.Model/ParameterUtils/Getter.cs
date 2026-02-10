@@ -12,6 +12,9 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #endregion
 #region Usings
 using Autodesk.Revit.DB;
+using ParameterWriter;
+using System.Collections.Generic;
+using System.Linq;
 #endregion
 
 namespace Tools.Model.ParameterUtils
@@ -19,28 +22,39 @@ namespace Tools.Model.ParameterUtils
     public static class Getter
     {
         /// <summary>
-        /// Получает параметр из экземпляра или типа элемента
+        /// Получает параметр из экземпляра или типа элемента, либо из информации о проекте
         /// </summary>
         /// <param name="elem"></param>
         /// <param name="ParameterName"></param>
         /// <returns></returns>
-        public static Parameter GetParameter(Element elem, string ParameterName)
+        public static Parameter GetParameter(Element elem, string ParameterName, bool GetFromType, bool GetFromProjectInfo)
         {
             Parameter param = elem.LookupParameter(ParameterName);
             if (param != null) return param;
 
-            ElementId typeId = elem.GetTypeId();
-            if (typeId == null || typeId == ElementId.InvalidElementId) return null;
+            if (GetFromType)
+            {
+                ElementId typeId = elem.GetTypeId();
+                if (typeId == null || typeId == ElementId.InvalidElementId) return null;
 
-            Element type = elem.Document.GetElement(typeId);
+                Element type = elem.Document.GetElement(typeId);
 
-            param = type.LookupParameter(ParameterName);
+                param = type.LookupParameter(ParameterName);
+                if (param != null) return param;
+            }
+
+            if (GetFromProjectInfo)
+            {
+                ProjectInfo pi = elem.Document.ProjectInformation;
+                param = pi.LookupParameter(ParameterName);
+                if (param != null) return param;
+            }
             return param;
         }
 
         public static string GetParameterValAsString(Element e, string paramName)
         {
-            Parameter param = Tools.Model.ParameterUtils.Getter.GetParameter(e, paramName);
+            Parameter param = Tools.Model.ParameterUtils.Getter.GetParameter(e, paramName, true, true);
             if (param == null) return string.Empty;
 
             string val = GetParameterValAsString(param);
@@ -83,6 +97,70 @@ namespace Tools.Model.ParameterUtils
                 return string.Empty;
             else
                 return val;
+        }
+
+        public static List<ParameterContainer> GetAllElementParameters(Element elem, bool getEmptyParams)
+        {
+            List<ParameterContainer> parameters = new List<ParameterContainer>();
+            foreach (Parameter p in elem.Parameters)
+            {
+                if (!getEmptyParams && !p.HasValue) continue;
+                ParameterContainer pc = new ParameterContainer(p);
+                parameters.Add(pc);
+            }
+
+            ElementId typeId = elem.GetTypeId();
+            if (typeId == null || typeId == ElementId.InvalidElementId) return parameters;
+
+            ElementType elemType = elem.Document.GetElement(typeId) as ElementType;
+            if (elemType == null) return parameters;
+
+            parameters.AddRange(GetAllElementParameters(elemType, getEmptyParams));
+            return parameters;
+        }
+
+
+        /// <summary>
+        /// Формирует текст на базе строки-"конструктора", содержащего имена параметров,которые будут заменены на значения параметров из данного элемента 
+        /// </summary>
+        /// <param name="constructor">Строка конструктора. Имена параметров должны быть включены в треугольные скобки.</param>
+        /// <returns>Сформированный текст</returns>
+        public static string GetByConstructor(Element elem, string constructor, bool clearIllegalChars)
+        {
+            string name = "";
+
+            string prefix = constructor.Split('<').First();
+            name = name + prefix;
+
+            string[] sa = constructor.Split('<');
+            for (int i = 0; i < sa.Length; i++)
+            {
+                string s = sa[i];
+                if (!s.Contains(">")) continue;
+
+                string paramName = s.Split('>').First();
+                string separator = s.Split('>').Last();
+
+                Parameter valparam = GetParameter(elem, paramName, true, true);
+                if (valparam == null || !valparam.HasValue) continue;
+                string val = GetParameterValAsString(valparam);
+                if (clearIllegalChars)
+                    val = Tools.Extensions.Paths.ClearIllegalCharacters(val);
+
+                name = name + val;
+                name = name + separator;
+            }
+
+            char[] arr = name.Where(c => (char.IsLetterOrDigit(c) ||
+                             char.IsWhiteSpace(c) ||
+                             c == '-' ||
+                             c == '_' ||
+                             c == ',' ||
+                             c == '.')).ToArray();
+
+            name = new string(arr);
+
+            return name;
         }
     }
 }
