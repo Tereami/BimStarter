@@ -55,19 +55,29 @@ namespace RevitAreaReinforcement
 
             RebarCoverType coverTop = doc.GetElement(floor.get_Parameter(BuiltInParameter.CLEAR_COVER_TOP).AsElementId()) as RebarCoverType;
             RebarCoverType coverBottom = doc.GetElement(floor.get_Parameter(BuiltInParameter.CLEAR_COVER_BOTTOM).AsElementId()) as RebarCoverType;
+            double coverTopValue = 0;
+            double coverBottomValue = 0;
 
             if (coverTop == null)
             {
-                Trace.WriteLine("Top cover is null");
-                coverTop = coverBottom;
+                Trace.WriteLine("Top cover is invalid");
             }
-            if (coverBottom == null)
+            else
             {
-                Trace.WriteLine("Bottom cover is null");
-                coverBottom = coverTop;
+                Trace.WriteLine($"Top cover is valid: {coverTop.Id}");
+                coverTopValue = coverTop.CoverDistance;
             }
 
-            Trace.WriteLine($"Rebar cover types id, top: {coverTop.Id}, bottom: {coverBottom.Id}");
+            if (coverBottom == null)
+            {
+                Trace.WriteLine("Bottom cover is invalid");
+            }
+            else
+            {
+                Trace.WriteLine("Bottom cover is valid: {coverBottom.Id}");
+                coverBottomValue = coverBottom.CoverDistance;
+            }
+
 
 #if R2017 || R2018 || R2019 || R2020 || R2021
             double diam = mrt.bartype.BarDiameter;
@@ -83,7 +93,7 @@ namespace RevitAreaReinforcement
                 topCoverDir2 -= diam;
             }
 
-            double bottomCoverDir1 = bottomCoverUser - coverBottom.CoverDistance;
+            double bottomCoverDir1 = bottomCoverUser - coverBottomValue;
             double bottomCoverDir2 = bottomCoverDir1 + diam;
             if (rif.turnBottomBars)
             {
