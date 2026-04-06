@@ -66,7 +66,7 @@ namespace RebarSketch
             return Result.Succeeded;
         }
 
-        public static void ActivatePaths()
+        public static bool ActivatePaths()
         {
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new Tools.Logger.Logger("RebarSketch"));
@@ -115,7 +115,7 @@ namespace RebarSketch
                 string configDefaultFolder = Path.Combine(appdataFolder, @"Autodesk\Revit\Addins\20xx\BimStarter");
                 FormSelectPath form = new FormSelectPath(configFilePath, configDefaultFolder);
                 if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                    return;
+                    return false; ;
 
                 if (form.UseServerPath)
                 {
@@ -138,6 +138,7 @@ namespace RebarSketch
                 Trace.WriteLine("Library isnt found");
                 TaskDialog.Show("Rebar Sketch", "Library directory isnt found: " + libraryPath);
             }
+            return true;
         }
     }
 }

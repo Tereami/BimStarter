@@ -27,7 +27,9 @@ namespace RebarSketch
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            App.ActivatePaths();
+            bool dialogResult = App.ActivatePaths();
+            if (!dialogResult) return Result.Cancelled;
+
             Trace.WriteLine("Start rebar sketch, revit version" + commandData.Application.Application.VersionName);
             string dllVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Trace.WriteLine($"Assembly version: {dllVersion}");

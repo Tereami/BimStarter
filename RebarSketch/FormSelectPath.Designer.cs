@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectPath));
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonUserLibrary = new System.Windows.Forms.RadioButton();
+            this.radioButtonStandardLibrary = new System.Windows.Forms.RadioButton();
             this.textBoxPath = new System.Windows.Forms.TextBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -43,6 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonCreateNewLibrary = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -50,21 +52,21 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // radioButton1
+            // radioButtonUserLibrary
             // 
-            resources.ApplyResources(this.radioButton1, "radioButton1");
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            resources.ApplyResources(this.radioButtonUserLibrary, "radioButtonUserLibrary");
+            this.radioButtonUserLibrary.Name = "radioButtonUserLibrary";
+            this.radioButtonUserLibrary.UseVisualStyleBackColor = true;
+            this.radioButtonUserLibrary.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // radioButtonStandardLibrary
             // 
-            resources.ApplyResources(this.radioButton2, "radioButton2");
-            this.radioButton2.Checked = true;
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonStandardLibrary.Checked = true;
+            resources.ApplyResources(this.radioButtonStandardLibrary, "radioButtonStandardLibrary");
+            this.radioButtonStandardLibrary.Name = "radioButtonStandardLibrary";
+            this.radioButtonStandardLibrary.TabStop = true;
+            this.radioButtonStandardLibrary.UseVisualStyleBackColor = true;
+            this.radioButtonStandardLibrary.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // textBoxPath
             // 
@@ -130,13 +132,27 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // buttonCreateNewLibrary
+            // 
+            resources.ApplyResources(this.buttonCreateNewLibrary, "buttonCreateNewLibrary");
+            this.buttonCreateNewLibrary.Name = "buttonCreateNewLibrary";
+            this.buttonCreateNewLibrary.UseVisualStyleBackColor = true;
+            this.buttonCreateNewLibrary.Click += new System.EventHandler(this.buttonCreateNewLibrary_Click);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
             // FormSelectPath
             // 
             this.AcceptButton = this.buttonOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
+            this.Controls.Add(this.buttonCreateNewLibrary);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonHelp);
@@ -147,8 +163,8 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButtonStandardLibrary);
+            this.Controls.Add(this.radioButtonUserLibrary);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormSelectPath";
@@ -160,8 +176,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonUserLibrary;
+        private System.Windows.Forms.RadioButton radioButtonStandardLibrary;
         private System.Windows.Forms.TextBox textBoxPath;
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.Button buttonCancel;
@@ -173,5 +189,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonCreateNewLibrary;
+        private System.Windows.Forms.Label label6;
     }
 }

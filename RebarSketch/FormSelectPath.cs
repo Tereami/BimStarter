@@ -14,10 +14,12 @@ namespace RebarSketch
     {
         public bool UseServerPath;
         public string ServerPath;
+        private string _defaultLibraryFolder;
         public FormSelectPath(string configFilePath, string defaultConfigFolder)
         {
             InitializeComponent();
             labelConfigIniPath.Text = configFilePath;
+            _defaultLibraryFolder = defaultConfigFolder;
             labelAppDataConfigPath.Text = defaultConfigFolder;
         }
 
@@ -42,7 +44,7 @@ namespace RebarSketch
         private void buttonOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            this.UseServerPath = radioButton1.Checked;
+            this.UseServerPath = radioButtonUserLibrary.Checked;
             this.ServerPath = textBoxPath.Text;
             this.Close();
         }
@@ -58,6 +60,16 @@ namespace RebarSketch
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://bim-starter.com/plugins/rebarsketch/");
+        }
+
+        private void buttonCreateNewLibrary_Click(object sender, EventArgs e)
+        {
+            FormNewLibrary form = new FormNewLibrary(_defaultLibraryFolder);
+            if (form.ShowDialog() != DialogResult.OK) return;
+
+            radioButtonUserLibrary.Checked = true;
+            textBoxPath.Text = form.SelectedPath;
+            MessageBox.Show(MyStrings.MessageLibraryCreatedSuccess);
         }
     }
 }

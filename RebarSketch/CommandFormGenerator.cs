@@ -26,7 +26,8 @@ namespace RebarSketch
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            App.ActivatePaths();
+            bool dialogResult = App.ActivatePaths();
+            if (!dialogResult) return Result.Cancelled;
 
             if (App.libraryPath.Contains(@"Autodesk\Revit\Addins\20xx\BimStarter\RebarSketch"))
             {

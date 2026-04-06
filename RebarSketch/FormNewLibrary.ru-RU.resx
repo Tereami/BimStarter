@@ -119,29 +119,28 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 13</value>
+    <value>273, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Путь к хранилищу настроек:</value>
+    <value>Выберите место хранения конфигурации Bim-Starter.</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioButtonUserLibrary.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 13</value>
   </data>
-  <data name="radioButtonUserLibrary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 17</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Если вы работаете в компании, выберите папку на вашем сетевом диске.</value>
   </data>
-  <data name="radioButtonUserLibrary.Text" xml:space="preserve">
-    <value>Пользовательская библиотека:</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>424, 13</value>
   </data>
-  <data name="radioButtonStandardLibrary.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Если вы индивидуальный пользователь - любую удобную папку, например D:/BIM</value>
   </data>
-  <data name="radioButtonStandardLibrary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>295, 17</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
   </data>
-  <data name="radioButtonStandardLibrary.Text" xml:space="preserve">
-    <value>Встроенная библиотека (только чтобы попробовать!)</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Путь к папке:</value>
   </data>
   <data name="buttonBrowse.Text" xml:space="preserve">
     <value>Обзор</value>
@@ -149,59 +148,7 @@
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 13</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Настройки будут сохранены в файле:</value>
-  </data>
-  <data name="labelAppDataConfigPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
-  </data>
-  <data name="labelAppDataConfigPath.Text" xml:space="preserve">
-    <value>path</value>
-  </data>
-  <data name="buttonHelp.Text" xml:space="preserve">
-    <value>Справка</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Плагины Bim-Starter могут использовать корпоративные настройки (единые в рамках предприятия). Для подключения укажите путь в поле "Пользовательская библиотека" (уточните у сотрудников bim-отдела).</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 75</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>При работе в однопользовательском режиме создайте пользовательскую библиотеку. Либо, если уже её настраивали - укажите путь к этой папке.</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>436, 17</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Добро пожаловать в Bim-Starter! Задайте начальные настройки.</value>
-  </data>
-  <data name="buttonCreateNewLibrary.Text" xml:space="preserve">
-    <value>Создать пользовательскую библиотеку</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 120</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 20</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>"Встроенную библиотеку" использовать только для пробных и учебных целей</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Bim-Starter - первый запуск</value>
+    <value>Новая библиотека</value>
   </data>
 </root>

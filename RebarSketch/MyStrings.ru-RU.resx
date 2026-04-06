@@ -159,6 +159,9 @@
   <data name="MessageEmptyLibrary" xml:space="preserve">
     <value>Библиотека пуста</value>
   </data>
+  <data name="MessageLibraryCreatedSuccess" xml:space="preserve">
+    <value>Пользовательская библиотека создана успешно! Нажмите Ок.</value>
+  </data>
   <data name="MessageLibraryWillBeUpdated" xml:space="preserve">
     <value>Библиотека эскизов будет обновлена до нового формата</value>
   </data>
