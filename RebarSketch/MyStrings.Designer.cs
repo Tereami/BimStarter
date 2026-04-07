@@ -99,18 +99,9 @@ namespace RebarSketch {
         /// <summary>
         ///   Looks up a localized string similar to The library is not updated to the new XML format. Please launch the Sketch editor ot ask your BIM specialist for help..
         /// </summary>
-        public static string ErrorLibraryOldVersion {
+        public static string ErrorLibraryOldVersion2 {
             get {
-                return ResourceManager.GetString("ErrorLibraryOldVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to handle elements. Maybe there are families that are not prescribed in the library. Families name:.
-        /// </summary>
-        public static string ErrorNoFamiliesInLibrary {
-            get {
-                return ResourceManager.GetString("ErrorNoFamiliesInLibrary", resourceCulture);
+                return ResourceManager.GetString("ErrorLibraryOldVersion2", resourceCulture);
             }
         }
         

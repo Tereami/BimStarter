@@ -129,11 +129,8 @@
   <data name="ErrorFolderNotFound" xml:space="preserve">
     <value>Не найдена папка</value>
   </data>
-  <data name="ErrorLibraryOldVersion" xml:space="preserve">
+  <data name="ErrorLibraryOldVersion2" xml:space="preserve">
     <value>Библиотека не обновлена до нового формата. Запустите Конструктор форм или обратитесь в bim-отдел</value>
-  </data>
-  <data name="ErrorNoFamiliesInLibrary" xml:space="preserve">
-    <value>Не удалось обработать семейства. Скорее всего, применены семейства не из библиотеки. Имена семейств:</value>
   </data>
   <data name="ErrorNoPermission" xml:space="preserve">
     <value>Не удалось сохранить файл, проверьте права доступа</value>

@@ -129,11 +129,8 @@
   <data name="ErrorFolderNotFound" xml:space="preserve">
     <value>Folder not found</value>
   </data>
-  <data name="ErrorLibraryOldVersion" xml:space="preserve">
+  <data name="ErrorLibraryOldVersion2" xml:space="preserve">
     <value>The library is not updated to the new XML format. Please launch the Sketch editor ot ask your BIM specialist for help.</value>
-  </data>
-  <data name="ErrorNoFamiliesInLibrary" xml:space="preserve">
-    <value>Failed to handle elements. Maybe there are families that are not prescribed in the library. Families name:</value>
   </data>
   <data name="ErrorNoPermission" xml:space="preserve">
     <value>Failed to save the file, check user permissions</value>

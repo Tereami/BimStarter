@@ -114,12 +114,12 @@ namespace RebarSketch
                 message = MyStrings.MessageEmptyLibrary;
                 return Result.Failed;
             }
-            List<XmlSketchItem> oldFormatTemplates = lib.templates.Where(i => i.IsXmlSource == false).ToList();
-            if (oldFormatTemplates.Count > 0)
-            {
-                message = MyStrings.ErrorLibraryOldVersion;
-                return Result.Failed;
-            }
+            //List<XmlSketchItem> oldFormatTemplates = lib.templates.Where(i => i.IsXmlSource == false).ToList();
+            //if (oldFormatTemplates.Count > 0)
+            //{
+            //    message = MyStrings.ErrorLibraryOldVersion;
+            //    return Result.Failed;
+            //}
 
 
             System.IO.Directory.CreateDirectory(App.tempSketchFolder);
@@ -259,7 +259,7 @@ namespace RebarSketch
 
             if (errorRebarNames.Count > 0)
             {
-                string errorFamilyMessage = MyStrings.ErrorNoFamiliesInLibrary;
+                Trace.WriteLine("Error families: " + string.Join("; ", errorRebarNames));
                 FormNoFamiliesInLibrary formErrorFamilies = new FormNoFamiliesInLibrary(errorRebarNames);
                 formErrorFamilies.ShowDialog();
             }
