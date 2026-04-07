@@ -153,9 +153,6 @@
   <data name="MaybeUpdateFamily" xml:space="preserve">
     <value>Возможно, нужно обновить семейство</value>
   </data>
-  <data name="MessageDemonstrationMode" xml:space="preserve">
-    <value>Плагин работает в демонстрационном режиме. Изменения в библиотеке будут удалены после обновления. Рекомендуется настроить собственную библиотеку. Подробнее см. в справке.</value>
-  </data>
   <data name="MessageEmptyLibrary" xml:space="preserve">
     <value>Библиотека пуста</value>
   </data>
@@ -167,6 +164,9 @@
   </data>
   <data name="MessageNoSelectedRows" xml:space="preserve">
     <value>Перед запуском перейдите в Ведомость деталей, выберите все строчки и после этого запускайте плагин.</value>
+  </data>
+  <data name="MessageSettingsReset" xml:space="preserve">
+    <value>Настройки были сброшены. Запустите плагин повторно.</value>
   </data>
   <data name="MoreOneSubtype" xml:space="preserve">
     <value>Более 1 шаблона подтипа</value>

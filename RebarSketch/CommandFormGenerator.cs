@@ -13,8 +13,10 @@ Zuev Aleksandr, 2024, all rigths reserved.*/
 #region Usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 #endregion
 
@@ -31,7 +33,12 @@ namespace RebarSketch
 
             if (App.libraryPath.Contains(@"Autodesk\Revit\Addins\20xx\BimStarter\RebarSketch"))
             {
-                TaskDialog.Show("Warning", MyStrings.MessageDemonstrationMode);
+                FormLibraryIsTrial formlibTrial = new FormLibraryIsTrial();
+                if(formlibTrial.ShowDialog() == System.Windows.Forms.DialogResult.Retry)
+                {
+                    App.ResetSettings();
+                    return Result.Succeeded;
+                }
             }
 
             Document doc = commandData.Application.ActiveUIDocument.Document;
@@ -49,7 +56,8 @@ namespace RebarSketch
             }
 
             string librarypath = App.libraryPath;
-            Form1 form = new Form1(librarypath);
+            string configPath = App.configFilePath;
+            Form1 form = new Form1(librarypath, configPath);
 
             form.ShowDialog();
 

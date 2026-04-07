@@ -15,14 +15,16 @@ namespace RebarSketch
         public string executionFolder;
         //public string templateImagePath;
         public string curTempImagePath = "";
+        public string _configFilePath = "";
 
         private GlobalSettings sets;
         private XmlSketchItem activeTemplate;
         private List<XmlSketchItem> allTemplates;
 
-        public Form1(string libraryPath)
+        public Form1(string libraryPath, string configFilePath)
         {
             InitializeComponent();
+
             imageList1.ImageSize = new Size(IconWidth, IconHeight);
 
             ScetchLibrary lib = new ScetchLibrary();
@@ -38,6 +40,10 @@ namespace RebarSketch
 
             sets = GlobalSettings.Read();
             executionFolder = libraryPath;
+            toolStripStatusLabelLibrary.Text = "Library path: " + libraryPath;
+            _configFilePath = configFilePath;
+            toolStripStatusLabelConfig.Text = "Config file path:" + configFilePath;
+
             string dllVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             this.Text = $"{MyStrings.TitleSketchConstructor} {dllVersion}";
         }
@@ -318,6 +324,16 @@ namespace RebarSketch
             ListViewItem newRow = listView1.Items.Add(imagepath, title, imagepath);
             newRow.ToolTipText = imagepath;
             newRow.Tag = xsi;
+        }
+
+        private void buttonResetSettings_Click(object sender, EventArgs e)
+        {
+            bool resetResult = App.ResetSettings();
+            if (resetResult)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
     }
 }

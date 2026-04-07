@@ -15,6 +15,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 #endregion
 
 [assembly: System.Reflection.AssemblyVersion("1.0.*")]
@@ -64,6 +65,21 @@ namespace RebarSketch
         public Result OnShutdown(UIControlledApplication application)
         {
             return Result.Succeeded;
+        }
+
+        public static bool ResetSettings()
+        {
+            try
+            {
+                System.IO.File.Delete(configFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            MessageBox.Show(MyStrings.MessageSettingsReset);
+            return true;
         }
 
         public static bool ActivatePaths()
@@ -136,7 +152,11 @@ namespace RebarSketch
             if (!Directory.Exists(libraryPath))
             {
                 Trace.WriteLine("Library isnt found");
-                TaskDialog.Show("Rebar Sketch", "Library directory isnt found: " + libraryPath);
+                FormLibraryIncorrectPath formLibIncorrect =  new FormLibraryIncorrectPath(libraryPath);
+                if(formLibIncorrect.ShowDialog() == System.Windows.Forms.DialogResult.Retry)
+                    ResetSettings();
+
+                return false;
             }
             return true;
         }

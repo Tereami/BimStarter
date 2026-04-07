@@ -117,100 +117,109 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
+  <data name="&gt;&gt;buttonOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ErrorFailedToLoadSettings" xml:space="preserve">
-    <value>Failed to load settings, the xml file is invalid: </value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="ErrorFileNotFound" xml:space="preserve">
-    <value>File not found</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>413, 38</value>
   </data>
-  <data name="ErrorFolderNotFound" xml:space="preserve">
-    <value>Folder not found</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>437, 106</value>
   </data>
-  <data name="ErrorLibraryOldVersion" xml:space="preserve">
-    <value>The library is not updated to the new XML format. Please launch the Sketch editor ot ask your BIM specialist for help.</value>
+  <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>214, 71</value>
   </data>
-  <data name="ErrorNoFamiliesInLibrary" xml:space="preserve">
-    <value>Failed to handle elements. Maybe there are families that are not prescribed in the library. Families name:</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
   </data>
-  <data name="ErrorNoPermission" xml:space="preserve">
-    <value>Failed to save the file, check user permissions</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="ErrorRebarVariableLengthNoMark" xml:space="preserve">
-    <value>Variable length rebars without Mark parameter are found. Please set the same Mark to the rebars that should be grouped.</value>
+  <data name="&gt;&gt;buttonOk.Name" xml:space="preserve">
+    <value>buttonOk</value>
   </data>
-  <data name="ForRebar" xml:space="preserve">
-    <value>for rebar</value>
+  <data name="buttonOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
   </data>
-  <data name="IncorrectParameterType" xml:space="preserve">
-    <value>Incorrect parameter type</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Rebar sketch</value>
   </data>
-  <data name="Info" xml:space="preserve">
-    <value>Info</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonOk.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="MaybeUpdateFamily" xml:space="preserve">
-    <value>Maybe you should update the family</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormLibraryIsTrial</value>
   </data>
-  <data name="MessageEmptyLibrary" xml:space="preserve">
-    <value>The library is empty</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="MessageLibraryCreatedSuccess" xml:space="preserve">
-    <value>A user library is created successfully! Click Ok.</value>
+  <data name="&gt;&gt;buttonReset.Name" xml:space="preserve">
+    <value>buttonReset</value>
   </data>
-  <data name="MessageLibraryWillBeUpdated" xml:space="preserve">
-    <value>The sketch library will be updated to a new format</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MessageNoSelectedRows" xml:space="preserve">
-    <value>Please open a Sketch schedule, select all the rows and then launch this plugin!</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>You set the plugin to work in a demonstration mode. The changes in the library will be deleted after updates. Recommend to create your own  sketches library. </value>
   </data>
-  <data name="MessageSettingsReset" xml:space="preserve">
-    <value>The settings were reset. Launch the plugin again.</value>
+  <data name="buttonOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="MoreOneSubtype" xml:space="preserve">
-    <value>More than 1 sketch subtype</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MoreOneTemplate" xml:space="preserve">
-    <value>is in several sketch templates</value>
+  <data name="&gt;&gt;buttonReset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NameIsAlreadyInUse" xml:space="preserve">
-    <value>Name is already in use!</value>
+  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="NewFormName" xml:space="preserve">
-    <value>New sketch name:</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="NoSubtype" xml:space="preserve">
-    <value>No subtype sketch</value>
+  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="NotFound" xml:space="preserve">
-    <value>is not found in</value>
+  <data name="&gt;&gt;buttonOk.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="Parameter" xml:space="preserve">
-    <value>Parameter</value>
+  <data name="buttonOk.Text" xml:space="preserve">
+    <value>Skip &gt;&gt;</value>
   </data>
-  <data name="ParameterSubtypeNumber" xml:space="preserve">
-    <value>Rbr.FormSubtypeNumber</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
-  <data name="Rebar" xml:space="preserve">
-    <value>Rebar</value>
+  <data name="&gt;&gt;buttonReset.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="RebarAparam" xml:space="preserve">
-    <value>Rbr_A</value>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Reset and create an user library</value>
   </data>
-  <data name="Report" xml:space="preserve">
-    <value>Report</value>
+  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 71</value>
   </data>
-  <data name="SelectImage" xml:space="preserve">
-    <value>Select the image for a new sketch</value>
+  <data name="&gt;&gt;buttonOk.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="SpacingPrefix" xml:space="preserve">
-    <value>@</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="TitleSketchConstructor" xml:space="preserve">
-    <value>Sketch library editor. Version</value>
+  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 23</value>
   </data>
-  <data name="TransactionRebarSketch" xml:space="preserve">
-    <value>Sketch schedule</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ru-RU</value>
+  </metadata>
 </root>

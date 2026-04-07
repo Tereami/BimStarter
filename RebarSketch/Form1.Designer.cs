@@ -61,8 +61,13 @@
             this.ShowVarLengInterval = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Prefix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Suffix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonResetSettings = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelLibrary = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelConfig = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -161,8 +166,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToResizeRows = false;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ParameterName,
@@ -274,11 +279,39 @@
             resources.ApplyResources(this.Suffix, "Suffix");
             this.Suffix.Name = "Suffix";
             // 
+            // buttonResetSettings
+            // 
+            resources.ApplyResources(this.buttonResetSettings, "buttonResetSettings");
+            this.buttonResetSettings.Name = "buttonResetSettings";
+            this.buttonResetSettings.UseVisualStyleBackColor = true;
+            this.buttonResetSettings.Click += new System.EventHandler(this.buttonResetSettings_Click);
+            // 
+            // statusStrip1
+            // 
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelLibrary,
+            this.toolStripStatusLabelConfig});
+            this.statusStrip1.Name = "statusStrip1";
+            // 
+            // toolStripStatusLabelLibrary
+            // 
+            resources.ApplyResources(this.toolStripStatusLabelLibrary, "toolStripStatusLabelLibrary");
+            this.toolStripStatusLabelLibrary.Name = "toolStripStatusLabelLibrary";
+            // 
+            // toolStripStatusLabelConfig
+            // 
+            resources.ApplyResources(this.toolStripStatusLabelConfig, "toolStripStatusLabelConfig");
+            this.toolStripStatusLabelConfig.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelConfig.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.toolStripStatusLabelConfig.Name = "toolStripStatusLabelConfig";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonNewForm);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonCancel);
@@ -291,6 +324,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.buttonResetSettings);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.buttonHelp);
             this.Name = "Form1";
@@ -298,6 +332,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +366,10 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ShowVarLengInterval;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prefix;
         private System.Windows.Forms.DataGridViewTextBoxColumn Suffix;
+        private System.Windows.Forms.Button buttonResetSettings;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLibrary;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelConfig;
     }
 
 }
