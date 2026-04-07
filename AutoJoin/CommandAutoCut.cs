@@ -36,7 +36,7 @@ namespace AutoJoinCut
             Document doc = commandData.Application.ActiveUIDocument.Document;
             Autodesk.Revit.ApplicationServices.Application app = commandData.Application.Application;
 
-            //Выбрать пустотный элемент для вырезания
+            //Выбрать пустотные элементы для вырезания
             Selection sel = commandData.Application.ActiveUIDocument.Selection;
             ICollection<ElementId> ids = sel.GetElementIds();
             Debug.WriteLine("Selected elements: " + ids.Count.ToString());
@@ -46,30 +46,28 @@ namespace AutoJoinCut
                 message = MyStrings.ErrorNoSelectedElements;
                 return Result.Failed;
             }
-            if (ids.Count > 1)
-            {
-                message = MyStrings.ErrorSelectSingleElement;
-                return Result.Failed;
-            }
 
-            Element voidElem = doc.GetElement(ids.First());
-
-            //получаю список элементов, которые пересекает данный элемент
-            List<Element> elems = Tools.Geometry.Intersection.GetAllIntersectionElements(doc, voidElem);
-            Debug.WriteLine("Intersected elements: " + elems.Count.ToString());
-
-            if (elems == null)
-            {
-                message = MyStrings.MessageNoIntersectionsNoCut;
-            }
-
-            //вырезаю элемент из данных элементов
             using (Transaction t = new Transaction(doc))
             {
                 t.Start(MyStrings.TransactionCut);
-                foreach (Element curElem in elems)
+                foreach (ElementId id in ids)
                 {
-                    Tools.Geometry.JoinCut.CutElement(doc, curElem, voidElem);
+                    Debug.WriteLine("Void element id: " + id);
+                    Element voidElem = doc.GetElement(id);
+
+                    //получаю список элементов, которые пересекает данный элемент
+                    List<Element> elems = Tools.Geometry.Intersection.GetAllIntersectionElements(doc, voidElem);
+                    Debug.WriteLine("Intersected elements: " + elems.Count.ToString());
+
+                    if (elems == null || elems.Count == 0)
+                        continue;
+
+                    //вырезаю элемент из найденных элементов
+                    foreach (Element curElem in elems)
+                    {
+                        Debug.WriteLine("  Cut element id: " + curElem.Id);
+                        Tools.Geometry.JoinCut.CutElement(doc, curElem, voidElem);
+                    }
                 }
                 t.Commit();
             }
