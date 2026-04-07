@@ -48,7 +48,7 @@ namespace RebarSketch
             List<XmlSketchItem> oldFormatTemplates = lib.templates.Where(i => i.IsXmlSource == false).ToList();
             if (oldFormatTemplates.Count > 0)
             {
-                TaskDialog.Show(MyStrings.Info, MyStrings.MessageLibraryWillBeUpdated);
+                Autodesk.Revit.UI.TaskDialog.Show(MyStrings.Info, MyStrings.MessageLibraryWillBeUpdated);
                 foreach (XmlSketchItem xsi in lib.templates)
                 {
                     xsi.Save();

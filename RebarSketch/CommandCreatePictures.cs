@@ -260,12 +260,8 @@ namespace RebarSketch
             if (errorRebarNames.Count > 0)
             {
                 string errorFamilyMessage = MyStrings.ErrorNoFamiliesInLibrary;
-                foreach (string fam in errorRebarNames)
-                {
-                    errorFamilyMessage = errorFamilyMessage + fam + "; ";
-                }
-                Trace.WriteLine(errorFamilyMessage);
-                TaskDialog.Show(MyStrings.Report, errorFamilyMessage);
+                FormNoFamiliesInLibrary formErrorFamilies = new FormNoFamiliesInLibrary(errorRebarNames);
+                formErrorFamilies.ShowDialog();
             }
 
             Trace.WriteLine("Scetches finish success");

@@ -63,7 +63,7 @@ namespace RebarSketch
                 Trace.WriteLine("Create ImageType Revit 2020");
                 imType2 = ImageType.Create(doc, new ImageTypeOptions(si.ScetchImagePath));
 #else
-                Trace.WriteLine("Create ImageType Revit 2021-2023");
+                Trace.WriteLine("Create ImageType Revit 2021 and newer");
                 ImageTypeOptions ito = new ImageTypeOptions(si.ScetchImagePath, false, ImageTypeSource.Import);
                 imType2 = ImageType.Create(doc, ito);
 #endif

@@ -52,12 +52,11 @@ namespace RebarSketch
             XmlSketchItem xsi = null;
 
             string xmlConfigFilePath = System.IO.Path.Combine(folder, "config.xml");
-            string parametersTxtPath = Path.Combine(folder, "parameters.txt");
+            //string parametersTxtPath = Path.Combine(folder, "parameters.txt");
             if (System.IO.File.Exists(xmlConfigFilePath))
-
                 xsi = XmlSketchItem.LoadFromXml(xmlConfigFilePath);
-            else if (System.IO.File.Exists(parametersTxtPath))
-                xsi = XmlSketchItem.LoadFromTxt(folder);
+            //else if (System.IO.File.Exists(parametersTxtPath))
+            //    xsi = XmlSketchItem.LoadFromTxt(folder);
             else
                 throw new Exception("Incorrect template " + folder.Replace("\\", "\\ "));
 
@@ -95,52 +94,52 @@ namespace RebarSketch
             return xsi;
         }
 
-        private static XmlSketchItem LoadFromTxt(string folder)
-        {
-            XmlSketchItem xsi = new XmlSketchItem();
-            xsi.IsXmlSource = false;
+        //private static XmlSketchItem LoadFromTxt(string folder)
+        //{
+        //    XmlSketchItem xsi = new XmlSketchItem();
+        //    xsi.IsXmlSource = false;
 
-            string parametersTxtPath = Path.Combine(folder, "parameters.txt");
+        //    string parametersTxtPath = Path.Combine(folder, "parameters.txt");
 
-            string[] paramsArray = FileSupport.ReadFileWithAnyDecoding(parametersTxtPath);
+        //    string[] paramsArray = FileSupport.ReadFileWithAnyDecoding(parametersTxtPath);
 
-            xsi.parameters = new List<ScetchParameter>();
-            for (int i = 0; i < paramsArray.Length; i++)
-            {
-                string p = paramsArray[i];
-                if (p.StartsWith("#")) continue;
-                if (p.Length < 1) continue;
-                string[] paramInfo = p.Split(',');
-                if (paramInfo.Length < 4)
-                {
-                    throw new Exception("Incorrect syntax in file " + parametersTxtPath + ", line " + i);
-                }
-                ScetchParameter sparam = new ScetchParameter();
-                sparam.Name = paramInfo[0];
-                sparam.PositionX = float.Parse(paramInfo[1]);
-                sparam.PositionY = float.Parse(paramInfo[2]);
-                sparam.Rotation = float.Parse(paramInfo[3]);
+        //    xsi.parameters = new List<ScetchParameter>();
+        //    for (int i = 0; i < paramsArray.Length; i++)
+        //    {
+        //        string p = paramsArray[i];
+        //        if (p.StartsWith("#")) continue;
+        //        if (p.Length < 1) continue;
+        //        string[] paramInfo = p.Split(',');
+        //        if (paramInfo.Length < 4)
+        //        {
+        //            throw new Exception("Incorrect syntax in file " + parametersTxtPath + ", line " + i);
+        //        }
+        //        ScetchParameter sparam = new ScetchParameter();
+        //        sparam.Name = paramInfo[0];
+        //        sparam.PositionX = float.Parse(paramInfo[1]);
+        //        sparam.PositionY = float.Parse(paramInfo[2]);
+        //        sparam.Rotation = float.Parse(paramInfo[3]);
 
-                if (paramInfo.Length > 4)
-                {
-                    if (paramInfo[4] == "1")
-                    {
-                        sparam.IsNarrow = true;
-                    }
-                }
-                xsi.parameters.Add(sparam);
-            }
+        //        if (paramInfo.Length > 4)
+        //        {
+        //            if (paramInfo[4] == "1")
+        //            {
+        //                sparam.IsNarrow = true;
+        //            }
+        //        }
+        //        xsi.parameters.Add(sparam);
+        //    }
 
-            xsi.families = new List<string>();
-            string familiesTxtPath = System.IO.Path.Combine(folder, "families.txt");
-            if (!System.IO.File.Exists(familiesTxtPath))
-                throw new Exception("File not found " + familiesTxtPath);
+        //    xsi.families = new List<string>();
+        //    string familiesTxtPath = System.IO.Path.Combine(folder, "families.txt");
+        //    if (!System.IO.File.Exists(familiesTxtPath))
+        //        throw new Exception("File not found " + familiesTxtPath);
 
-            string[] familiesArray = FileSupport.ReadFileWithAnyDecoding(familiesTxtPath);
-            xsi.families = familiesArray.ToList();
+        //    string[] familiesArray = FileSupport.ReadFileWithAnyDecoding(familiesTxtPath);
+        //    xsi.families = familiesArray.ToList();
 
-            return xsi;
-        }
+        //    return xsi;
+        //}
 
         public void Save()
         {
@@ -175,19 +174,19 @@ namespace RebarSketch
                 throw new Exception("Error save file " + xmlPath);
             }
 
-            string txtParametersFile = Path.Combine(folder, "parameters.txt");
-            if (File.Exists(txtParametersFile))
-            {
-                File.Move(txtParametersFile, txtParametersFile + "old");
-                Trace.WriteLine("File deleted: " + txtParametersFile);
-            }
+            //string txtParametersFile = Path.Combine(folder, "parameters.txt");
+            //if (File.Exists(txtParametersFile))
+            //{
+            //    File.Move(txtParametersFile, txtParametersFile + "old");
+            //    Trace.WriteLine("File deleted: " + txtParametersFile);
+            //}
 
-            string txtFamiliesFile = Path.Combine(folder, "families.txt");
-            if (File.Exists(txtFamiliesFile))
-            {
-                File.Move(txtFamiliesFile, txtFamiliesFile + "old");
-                Trace.WriteLine("File deleted: " + txtFamiliesFile);
-            }
+            //string txtFamiliesFile = Path.Combine(folder, "families.txt");
+            //if (File.Exists(txtFamiliesFile))
+            //{
+            //    File.Move(txtFamiliesFile, txtFamiliesFile + "old");
+            //    Trace.WriteLine("File deleted: " + txtFamiliesFile);
+            //}
         }
     }
 }
