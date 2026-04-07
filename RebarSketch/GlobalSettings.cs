@@ -25,7 +25,7 @@ namespace RebarSketch
 {
     public class GlobalSettings
     {
-        public string tempPath = @"C:\RebarScetch";
+        //public string tempPath = @"C:\RebarScetch";
         public string fontName = "Isocpeur";
         public float defaultFontSize = 25;
         public double defautLengthAccuracy = 5;
@@ -84,27 +84,27 @@ namespace RebarSketch
             Trace.WriteLine("Read settings from folder " + rebarSketchPath);
             GlobalSettings ssets = null;
             string settingsFileXml = Path.Combine(rebarSketchPath, "settings.xml");
-            string settingsFileTxt = Path.Combine(rebarSketchPath, "settings.txt");
+            //string settingsFileTxt = Path.Combine(rebarSketchPath, "settings.txt");
             if (File.Exists(settingsFileXml))
             {
-                if (File.Exists(settingsFileTxt))
-                {
-                    try
-                    {
-                        File.Delete(settingsFileTxt);
-                    }
-                    catch
-                    {
-                        Trace.WriteLine("Не удается удалить файл " + settingsFileTxt);
-                    }
-                }
+                //if (File.Exists(settingsFileTxt))
+                //{
+                //    try
+                //    {
+                //        File.Delete(settingsFileTxt);
+                //    }
+                //    catch
+                //    {
+                //        Trace.WriteLine("Не удается удалить файл " + settingsFileTxt);
+                //    }
+                //}
 
                 ssets = GlobalSettings.ReadFromXml(settingsFileXml);
             }
-            else if(File.Exists(settingsFileTxt))
-            {
-                ssets = GlobalSettings.ReadFromTxt(settingsFileTxt);
-            }
+            //else if(File.Exists(settingsFileTxt))
+            //{
+            //    ssets = GlobalSettings.ReadFromTxt(settingsFileTxt);
+            //}
             else
             {
                 ssets = new GlobalSettings();
@@ -113,7 +113,7 @@ namespace RebarSketch
             Trace.WriteLine("Settings activate success");
 
             //на всякий случай очистить временную папку с эскизами
-            FileSupport.CheckAndDeleteFolder(ssets.tempPath);
+            FileSupport.CheckAndDeleteFolder(App.tempSketchFolder);
 
             return ssets;
         }
@@ -138,32 +138,31 @@ namespace RebarSketch
             return ssets;
         }
 
-        public static GlobalSettings ReadFromTxt(string txtPath)
-        {
-            Trace.WriteLine("Read txt settings file: " + txtPath);
+        //public static GlobalSettings ReadFromTxt(string txtPath)
+        //{
+        //    Trace.WriteLine("Read txt settings file: " + txtPath);
 
-            GlobalSettings ssets = new GlobalSettings();
+        //    GlobalSettings ssets = new GlobalSettings();
 
-            string[] settings = FileSupport.ReadFileWithAnyDecoding(txtPath);
-            ssets.fontName = settings[0].Split('#').Last();
-            ssets.defaultFontSize = float.Parse(settings[1].Split('#').Last());
-            string textStyleName = settings[2].Split('#').Last();
-            ssets.fontStyle = FileSupport.GetFontStyle(textStyleName);
-            ssets.defautLengthAccuracy = double.Parse(settings[3].Split('#').Last());
-            ssets.tempPath= settings[4].Split('#').Last();
-            ssets.imageParamName = settings[5].Split('#').Last();
+        //    string[] settings = FileSupport.ReadFileWithAnyDecoding(txtPath);
+        //    ssets.fontName = settings[0].Split('#').Last();
+        //    ssets.defaultFontSize = float.Parse(settings[1].Split('#').Last());
+        //    string textStyleName = settings[2].Split('#').Last();
+        //    ssets.fontStyle = FileSupport.GetFontStyle(textStyleName);
+        //    ssets.defautLengthAccuracy = double.Parse(settings[3].Split('#').Last());
+        //    ssets.imageParamName = settings[5].Split('#').Last();
 
-            Trace.WriteLine("Read txt settings success");
+        //    Trace.WriteLine("Read txt settings success");
 
-            try
-            {
-                System.IO.File.Delete(txtPath);
-                GlobalSettings.Save(ssets);
-                Trace.WriteLine("File deleted " + txtPath);
-            }
-            catch { }
+        //    try
+        //    {
+        //        System.IO.File.Delete(txtPath);
+        //        GlobalSettings.Save(ssets);
+        //        Trace.WriteLine("File deleted " + txtPath);
+        //    }
+        //    catch { }
             
-            return ssets;
-        }
+        //    return ssets;
+        //}
     }
 }

@@ -18,8 +18,6 @@ namespace RebarSketch
         {
             InitializeComponent();
 
-            textBoxTempPath.Text = sets.tempPath;
-
             using (System.Drawing.Text.InstalledFontCollection col 
                 = new System.Drawing.Text.InstalledFontCollection())
             {
@@ -44,7 +42,6 @@ namespace RebarSketch
         {
             newSettings = new GlobalSettings();
 
-            newSettings.tempPath = textBoxTempPath.Text;
             newSettings.fontName = comboBoxFontName.Text;
             newSettings.fontStyle =  (FontStyle)comboBoxFontStyle.SelectedItem;
             newSettings.defaultFontSize = (int)numericFontSize.Value;

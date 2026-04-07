@@ -53,7 +53,7 @@ namespace RebarSketch
 
             WriteBitmap(sets, templateImage, Template.parameters);
 
-            ScetchImagePath = System.IO.Path.Combine(sets.tempPath, imagePrefix + "_" + ImageKey + ".bmp");
+            ScetchImagePath = System.IO.Path.Combine(App.tempSketchFolder, imagePrefix + "_" + ImageKey + ".bmp");
 
             templateImage.Save(ScetchImagePath);
             Trace.WriteLine("New bitmap path: " + ScetchImagePath);

@@ -13,9 +13,12 @@ Zuev Aleksandr, 2024, all rigths reserved.*/
 #region Usings
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 #endregion
 
@@ -27,6 +30,10 @@ namespace RebarSketch
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            string path1 = Path.GetTempPath();
+            string path2 = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            string path3 = Path.Combine(path1, path2);
+
             bool dialogResult = App.ActivatePaths();
             if (!dialogResult) return Result.Cancelled;
 
@@ -115,8 +122,8 @@ namespace RebarSketch
             }
 
 
-            System.IO.Directory.CreateDirectory(sets.tempPath);
-            Trace.WriteLine("Create temp folder: " + sets.tempPath);
+            System.IO.Directory.CreateDirectory(App.tempSketchFolder);
+            Trace.WriteLine("Create temp folder: " + App.tempSketchFolder);
 
 
             //разделяю арматуру на обычную и переменной длины
@@ -248,7 +255,7 @@ namespace RebarSketch
                 t2.Commit();
             }
 
-            FileSupport.CheckAndDeleteFolder(sets.tempPath);
+            FileSupport.CheckAndDeleteFolder(App.tempSketchFolder);
 
             if (errorRebarNames.Count > 0)
             {

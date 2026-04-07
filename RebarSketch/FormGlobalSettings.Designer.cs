@@ -30,8 +30,6 @@ namespace RebarSketch
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGlobalSettings));
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxTempPath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxFontName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,16 +48,6 @@ namespace RebarSketch
             ((System.ComponentModel.ISupportInitialize)(this.numericRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLinesSpacing)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // textBoxTempPath
-            // 
-            resources.ApplyResources(this.textBoxTempPath, "textBoxTempPath");
-            this.textBoxTempPath.Name = "textBoxTempPath";
             // 
             // label3
             // 
@@ -184,13 +172,11 @@ namespace RebarSketch
             this.Controls.Add(this.comboBoxFontName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxImageParamName);
-            this.Controls.Add(this.textBoxTempPath);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormGlobalSettings";
             ((System.ComponentModel.ISupportInitialize)(this.numericFontSize)).EndInit();
@@ -202,8 +188,6 @@ namespace RebarSketch
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxTempPath;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxFontName;
         private System.Windows.Forms.Label label4;

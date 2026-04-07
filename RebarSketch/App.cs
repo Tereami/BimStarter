@@ -28,16 +28,18 @@ namespace RebarSketch
 
     public class App : IExternalApplication
     {
-        public static string assemblyPath = "";
+        public static string assemblyPath = typeof(App).Assembly.Location;
         public static string rebarSketchPath = "";
         public static string libraryPath = "";
         public static string configFilePath = "";
+        public static string tempSketchFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "AppData", "Local", "Temp",
+                System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
 
         public Result OnStartup(UIControlledApplication application)
         {
-            string assemblyPath = typeof(App).Assembly.Location;
-
-            string tabName = "TEST";
+            string tabName = "BIM-STARTER TEST";
             try { application.CreateRibbonTab(tabName); }
             catch { }
 
@@ -152,8 +154,8 @@ namespace RebarSketch
             if (!Directory.Exists(libraryPath))
             {
                 Trace.WriteLine("Library isnt found");
-                FormLibraryIncorrectPath formLibIncorrect =  new FormLibraryIncorrectPath(libraryPath);
-                if(formLibIncorrect.ShowDialog() == System.Windows.Forms.DialogResult.Retry)
+                FormLibraryIncorrectPath formLibIncorrect = new FormLibraryIncorrectPath(libraryPath);
+                if (formLibIncorrect.ShowDialog() == System.Windows.Forms.DialogResult.Retry)
                     ResetSettings();
 
                 return false;
