@@ -147,9 +147,6 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="MaybeUpdateFamily" xml:space="preserve">
-    <value>Maybe you should update the family</value>
-  </data>
   <data name="MessageEmptyLibrary" xml:space="preserve">
     <value>The library is empty</value>
   </data>
@@ -179,12 +176,6 @@
   </data>
   <data name="NoSubtype" xml:space="preserve">
     <value>No subtype sketch</value>
-  </data>
-  <data name="NotFound" xml:space="preserve">
-    <value>is not found in</value>
-  </data>
-  <data name="Parameter" xml:space="preserve">
-    <value>Parameter</value>
   </data>
   <data name="ParameterSubtypeNumber" xml:space="preserve">
     <value>Rbr.FormSubtypeNumber</value>

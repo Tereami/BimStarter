@@ -74,7 +74,7 @@ namespace RebarSketch
                 Parameter imageparam = rebar.LookupParameter(imageParamName);
                 if (imageparam == null)
                 {
-                    string msg = $"{MyStrings.Parameter} {imageParamName} {MyStrings.NotFound} id {rebar.GetElementId()}";
+                    string msg = $"Parameter {imageParamName} is not found!";
                     Trace.WriteLine(msg);
                     System.Windows.Forms.MessageBox.Show(msg);
                     throw new Exception(msg);
@@ -167,7 +167,7 @@ namespace RebarSketch
                 //Parameter subtypeNumberParam = rebar.LookupParameter("Арм.НомерПодтипаФормы");
                 if (subtypeNumberParam == null)
                 {
-                    string msg = $"{MyStrings.Parameter} {MyStrings.ParameterSubtypeNumber} {MyStrings.NotFound} {familyName}";
+                    string msg = $"Parameter {MyStrings.ParameterSubtypeNumber} is not found in: {familyName}";
                     Autodesk.Revit.UI.TaskDialog.Show(MyStrings.Error, msg);
                     throw new Exception(msg);
                 }

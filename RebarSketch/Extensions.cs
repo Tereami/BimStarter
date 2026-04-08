@@ -136,8 +136,10 @@ namespace RebarSketch
 
             if (param == null || !param.HasValue)
             {
-                string msg = $"{MyStrings.Parameter} {paramName} {MyStrings.NotFound} {rebar.GetElementName()} {MyStrings.MaybeUpdateFamily}.";
-                Autodesk.Revit.UI.TaskDialog.Show(MyStrings.Error, msg);
+                string rebarName = rebar.GetElementName();
+                string msg = $"Parameter {paramName} is not found in family {rebarName}";
+                FormErrorNoParameter formErrorNoParam = new FormErrorNoParameter(paramName, rebarName);
+                formErrorNoParam.ShowDialog();
                 System.Diagnostics.Trace.WriteLine(msg);
                 throw new Exception(msg);
             }

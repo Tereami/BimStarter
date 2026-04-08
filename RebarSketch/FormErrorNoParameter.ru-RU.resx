@@ -117,88 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error" xml:space="preserve">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Параметры:</value>
+  </data>
+  <data name="labelParameters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 35</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 69</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>не найдены в семействах:</value>
+  </data>
+  <data name="labelFamilies.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 88</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Вероятно, нужно обновить семейства или удалить эти параметры из эскизов (используйте Редактор эскизов)</value>
+  </data>
+  <data name="linkLabelHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="linkLabelHelp.Text" xml:space="preserve">
+    <value>Больше информации</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
     <value>Ошибка</value>
-  </data>
-  <data name="ErrorFailedToLoadSettings" xml:space="preserve">
-    <value>Не удалось загрузить настройки, поврежден xml файл: </value>
-  </data>
-  <data name="ErrorFileNotFound" xml:space="preserve">
-    <value>Не найден файл</value>
-  </data>
-  <data name="ErrorFolderNotFound" xml:space="preserve">
-    <value>Не найдена папка</value>
-  </data>
-  <data name="ErrorLibraryOldVersion2" xml:space="preserve">
-    <value>Библиотека не обновлена до нового формата. Запустите Конструктор форм или обратитесь в bim-отдел</value>
-  </data>
-  <data name="ErrorNoPermission" xml:space="preserve">
-    <value>Не удалось сохранить файл, проверьте права доступа</value>
-  </data>
-  <data name="ErrorRebarVariableLengthNoMark" xml:space="preserve">
-    <value>Обнаружены арматурные стержни переменной длины, для которых не назначена Марки. Группировка для таких стержней выполняется по Марке, которую нужно назначить заранее.</value>
-  </data>
-  <data name="ForRebar" xml:space="preserve">
-    <value>для арматуры</value>
-  </data>
-  <data name="IncorrectParameterType" xml:space="preserve">
-    <value>Неверный тип параметра</value>
-  </data>
-  <data name="Info" xml:space="preserve">
-    <value>Инфо</value>
-  </data>
-  <data name="MessageEmptyLibrary" xml:space="preserve">
-    <value>Библиотека пуста</value>
-  </data>
-  <data name="MessageLibraryCreatedSuccess" xml:space="preserve">
-    <value>Пользовательская библиотека создана успешно! Нажмите Ок.</value>
-  </data>
-  <data name="MessageLibraryWillBeUpdated" xml:space="preserve">
-    <value>Библиотека эскизов будет обновлена до нового формата</value>
-  </data>
-  <data name="MessageNoSelectedRows" xml:space="preserve">
-    <value>Перед запуском перейдите в Ведомость деталей, выберите все строчки и после этого запускайте плагин.</value>
-  </data>
-  <data name="MessageSettingsReset" xml:space="preserve">
-    <value>Настройки были сброшены. Запустите плагин повторно.</value>
-  </data>
-  <data name="MoreOneSubtype" xml:space="preserve">
-    <value>Более 1 шаблона подтипа</value>
-  </data>
-  <data name="MoreOneTemplate" xml:space="preserve">
-    <value>прописана в нескольких шаблонах</value>
-  </data>
-  <data name="NameIsAlreadyInUse" xml:space="preserve">
-    <value>Это имя уже используется!</value>
-  </data>
-  <data name="NewFormName" xml:space="preserve">
-    <value>Имя новой формы:</value>
-  </data>
-  <data name="NoSubtype" xml:space="preserve">
-    <value>Нет шаблона подтипа</value>
-  </data>
-  <data name="ParameterSubtypeNumber" xml:space="preserve">
-    <value>Арм.НомерПодтипаФормы</value>
-  </data>
-  <data name="Rebar" xml:space="preserve">
-    <value>Арматура</value>
-  </data>
-  <data name="RebarAparam" xml:space="preserve">
-    <value>Арм_А</value>
-  </data>
-  <data name="Report" xml:space="preserve">
-    <value>Отчет</value>
-  </data>
-  <data name="SelectImage" xml:space="preserve">
-    <value>Выберите картинку для эскиза</value>
-  </data>
-  <data name="SpacingPrefix" xml:space="preserve">
-    <value>ш.</value>
-  </data>
-  <data name="TitleSketchConstructor" xml:space="preserve">
-    <value>Редактор библиотеки эскизов. Версия</value>
-  </data>
-  <data name="TransactionRebarSketch" xml:space="preserve">
-    <value>Ведомость деталей</value>
   </data>
 </root>

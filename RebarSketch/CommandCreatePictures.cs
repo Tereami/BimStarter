@@ -189,7 +189,16 @@ namespace RebarSketch
                     {
                         string paramName = sparam.Name;
                         bool isDegress = false;
-                        double val = rebar.GetDoubleValue(paramName, out isDegress);
+                        double val = 0;
+                        try
+                        {
+                            val = rebar.GetDoubleValue(paramName, out isDegress);
+                        }
+                        catch
+                        {
+                            return Result.Failed;
+                        }
+
                         sparam.IsDegrees = isDegress;
                         sparam.SetValue(new List<double> { val });
 
@@ -222,7 +231,15 @@ namespace RebarSketch
                         {
                             string paramName = sparam.Name;
                             bool isDegrees = false;
-                            double val = rebar.GetDoubleValue(paramName, out isDegrees);
+                            double val = 0;
+                            try
+                            {
+                                val = rebar.GetDoubleValue(paramName, out isDegrees);
+                            }
+                            catch
+                            {
+                                return Result.Failed;
+                            }
                             sparam.IsDegrees = isDegrees;
                             if (variableValues.ContainsKey(paramName))
                             {

@@ -151,15 +151,6 @@ namespace RebarSketch {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maybe you should update the family.
-        /// </summary>
-        public static string MaybeUpdateFamily {
-            get {
-                return ResourceManager.GetString("MaybeUpdateFamily", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The library is empty.
         /// </summary>
         public static string MessageEmptyLibrary {
@@ -246,24 +237,6 @@ namespace RebarSketch {
         public static string NoSubtype {
             get {
                 return ResourceManager.GetString("NoSubtype", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to is not found in.
-        /// </summary>
-        public static string NotFound {
-            get {
-                return ResourceManager.GetString("NotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parameter.
-        /// </summary>
-        public static string Parameter {
-            get {
-                return ResourceManager.GetString("Parameter", resourceCulture);
             }
         }
         
