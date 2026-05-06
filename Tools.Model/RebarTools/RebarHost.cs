@@ -18,7 +18,7 @@ namespace Tools.Model.RebarTools
         public static Element GetHostElementForIfcRebar(Document doc, View view, Element rebar, List<Element> concreteElements, Transform transform2)
         {
             Element hostElem = null;
-            List<Element> intersectElems = Intersection.GetAllIntersectionElements(doc, view, rebar, concreteElements, transform2);
+            List<Element> intersectElems = Intersection.GetAllIntersectionElements(doc, view, rebar, concreteElements, false, transform2);
             if (intersectElems == null || intersectElems.Count == 0)
             {
                 //эта ifc-арматура висит в воздухе, пропускаем

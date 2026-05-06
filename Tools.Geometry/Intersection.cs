@@ -32,13 +32,24 @@ namespace Tools.Geometry
         /// <param name="elem2"></param>
         /// <param name="transformSecondElementToFirst"></param>
         /// <returns></returns>
-        public static MyIntersectionResult CheckElementsIntersection(Document doc, Element elem1, Element elem2, Transform transformSecondElementToFirst = null)
+        public static MyIntersectionResult CheckElementsIntersection(Document doc, Element elem1, Element elem2, bool forceSearchHiddenGeometry = false, Transform transformSecondElementToFirst = null)
         {
             GeometryElement gelem1 = elem1.get_Geometry(new Options());
             GeometryElement gelem2 = elem2.get_Geometry(new Options());
 
             List<Solid> solids1 = GetSolidsOfElement(gelem1);
             List<Solid> solids2 = GetSolidsOfElement(gelem2);
+
+            if (forceSearchHiddenGeometry)
+            {
+                if (solids2 == null || solids2.Count == 0)
+                {
+                    Options optsFindNonvisible = new Options();
+                    optsFindNonvisible.IncludeNonVisibleObjects = true;
+                    GeometryElement gelem2withNonvisible = elem2.get_Geometry(optsFindNonvisible);
+                    solids2 = GetSolidsOfElement(gelem2withNonvisible);
+                }
+            }
 
             for (int i = 0; i < solids1.Count; i++)
             {
@@ -259,13 +270,14 @@ namespace Tools.Geometry
         /// <summary>
         /// Получает список всех элементов, которые пересекает данный элемент
         /// </summary>
-        public static List<Element> GetAllIntersectionElements(Document doc, Element elem)
+        public static List<Element> GetAllIntersectionElements(Document doc, Element elem, bool isVoidElement = false)
         {
             List<Element> elems = new List<Element>();
 
             elems = new FilteredElementCollector(doc)
                 .WhereElementIsNotElementType()
                 .Where(x => ContainsSolids(x))
+                .Where(x => x.Category.IsCuttable)
                 .ToList();
 
 
@@ -277,7 +289,7 @@ namespace Tools.Geometry
             {
                 if (curElem.Id == elem.Id) continue; //один и тот же элемент
 
-                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem);
+                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem, isVoidElement);
                 if (check == MyIntersectionResult.Intersection) elems2.Add(curElem);
             }
 
@@ -335,7 +347,7 @@ namespace Tools.Geometry
             return true;
         }
 
-        public static List<Element> GetAllIntersectionElements(Document doc, View view, Element elem, List<Element> elems, Transform transformToFirstElem)
+        public static List<Element> GetAllIntersectionElements(Document doc, View view, Element elem, List<Element> elems, bool forceSearchNonvisibleGeometry, Transform transformToFirstElem)
         {
             List<Element> elems2 = new List<Element>();
 
@@ -343,7 +355,7 @@ namespace Tools.Geometry
             {
                 if (curElem.Id == elem.Id) continue; //один и тот же элемент
 
-                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem, transformToFirstElem);
+                MyIntersectionResult check = CheckElementsIntersection(doc, curElem, elem, forceSearchNonvisibleGeometry, transformToFirstElem);
 
                 if (check == MyIntersectionResult.Intersection)
                     elems2.Add(curElem);

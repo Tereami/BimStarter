@@ -56,7 +56,7 @@ namespace AutoJoinCut
                     Element voidElem = doc.GetElement(id);
 
                     //получаю список элементов, которые пересекает данный элемент
-                    List<Element> elems = Tools.Geometry.Intersection.GetAllIntersectionElements(doc, voidElem);
+                    List<Element> elems = Tools.Geometry.Intersection.GetAllIntersectionElements(doc, voidElem, true);
                     Debug.WriteLine("Intersected elements: " + elems.Count.ToString());
 
                     if (elems == null || elems.Count == 0)
