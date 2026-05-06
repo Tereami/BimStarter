@@ -29,7 +29,11 @@ namespace RevitAreaReinforcement
         List<ShortcutItem> requiredShortcuts = new List<ShortcutItem>
         {
             new ShortcutItem("Выбрать по коду", "ID_SELECT_BY_ID", new[] {"VK", "мл" }, "Управление&gt;Сведения"),
+#if R2026
             new ShortcutItem("Редактировать эскиз", "ID_EDIT_SKETCH", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Инструменты"),
+#else
+             new ShortcutItem("Редактировать эскиз; Редактировать границу; Редактировать проекцию; Редактировать траекторию", "Dialog_Essentials_SketchEdit:Control_Essentials_EditSketch", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Режим"),
+#endif
             new ShortcutItem("Вставить:С выравниванием по тому же месту", "ID_EDIT_PASTE_ALIGNED_SAME_PLACE", new[] { "DV", "вм" }, "Изменить&gt;Буфер обмена"),
             new ShortcutItem("Выход из режима редактирования", "ID_FINISH_SKETCH", new[] { "DH", "вр" }, "Контекстные вкладки&gt;Режим"),
             new ShortcutItem("Скрыть элемент" ,"ID_TEMPHIDE_HIDE", new [] {"CC", "сс" }, "Панель управления видами"),

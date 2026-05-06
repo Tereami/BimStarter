@@ -46,7 +46,7 @@ namespace Tools.LinksManager
                     }
                     else
                     {
-                        var ir = Tools.Geometry.Intersection.CheckElementsIntersection(mainDoc, curHost, rebar, linkTransform);
+                        var ir = Tools.Geometry.Intersection.CheckElementsIntersection(mainDoc, curHost, rebar, false, linkTransform);
                         if (ir == Geometry.Intersection.MyIntersectionResult.Intersection)
                             checkIntersection = true;
 
