@@ -18,6 +18,7 @@ namespace Tools.Forms
 {
     public partial class FormSelectTextValues : Form
     {
+        [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public List<string> ResultValues { get; set; }
 
 

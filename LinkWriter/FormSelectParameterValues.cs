@@ -10,14 +10,17 @@ namespace LinkWriter
 {
     public partial class FormSelectParameterValues : System.Windows.Forms.Form
     {
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, List<NameAndValue>> ValuesSheets { get; set; }
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, List<NameAndValue>> ValuesTitleblocks { get; set; }
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, List<NameAndValue>> ValuesTitleblockType { get; set; }
-
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public List<NameAndValue> ValuesProjectInfo { get; set; }
-
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public Dictionary<string, List<NameValueCategories>> ValuesCustomParameters { get; set; }
-
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         List<string> LinkNames { get; set; }
 
         Save savedData { get; set; }

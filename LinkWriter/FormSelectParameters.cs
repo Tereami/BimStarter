@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace LinkWriter
 {
     public partial class FormSelectParameters : Form
     {
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public WriteLinkSettings Settings { get; set; }
         public FormSelectParameters(WriteLinkSettings sets)
         {

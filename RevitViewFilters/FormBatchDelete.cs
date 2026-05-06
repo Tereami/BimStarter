@@ -13,6 +13,7 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 #region Usings
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 #endregion
 
@@ -20,7 +21,11 @@ namespace RevitViewFilters
 {
     public partial class FormBatchDelete : Form
     {
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+
         private List<string> m_items = new List<string>();
+
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public List<string> Items
         {
             get { return m_items; }
@@ -28,6 +33,7 @@ namespace RevitViewFilters
         }
 
         private List<string> m_checkedItems = new List<string>();
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public List<string> CheckedItems
         {
             get { return m_checkedItems; }

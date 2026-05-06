@@ -13,6 +13,7 @@ Zuev Aleksandr, 2020, all rigths reserved.*/
 using RevitWorksets.WorksetWorkers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -23,11 +24,14 @@ namespace RevitWorksets
 {
     public partial class FormMain : Form
     {
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public InfosStorage Model { get; set; }
 
         List<RevitCategory> AllCategories { get; set; }
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public string XmlPath { get; set; }
 
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         private bool flagLinkWorksetEnabled = false;
 
         public FormMain(InfosStorage newSettings, string xmlPath, List<RevitCategory> allCategories)

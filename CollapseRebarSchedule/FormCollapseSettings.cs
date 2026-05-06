@@ -1,10 +1,13 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace SchedulesTools
 {
     public partial class FormCollapseSettings : Form
     {
+        [DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CollapseScheduleSettings NewSets { get; set; }
+
         public FormCollapseSettings(CollapseScheduleSettings sets)
         {
             InitializeComponent();

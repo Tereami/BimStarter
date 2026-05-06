@@ -11,7 +11,7 @@
 		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 		<AppendTargetFrameworkToOutputpath>false</AppendTargetFrameworkToOutputpath>
 		<GenerateDependencyFile>false</GenerateDependencyFile>
-		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025;R2026</Configurations>
+		<Configurations>R2017;R2018;R2019;R2020;R2021;R2022;R2023;R2024;R2025;R2026;R2027</Configurations>
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>false</Optimize>
 		<OutputPath>bin\</OutputPath>
@@ -67,6 +67,11 @@
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<DefineConstants>TRACE;DEBUG;R2026</DefineConstants>
 		<AssemblyName>$(AssemblyName)_2026</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2027|AnyCPU' ">
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<DefineConstants>TRACE;DEBUG;R2027</DefineConstants>
+		<AssemblyName>$(AssemblyName)_2027</AssemblyName>
 	</PropertyGroup>
 
 	<Choose>
@@ -187,6 +192,19 @@
 				</Reference>
 				<Reference Include="RevitAPIUI">
 					<HintPath>C:\Program Files\Autodesk\Revit 2026\RevitAPIUI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+			</ItemGroup>
+		</When>
+		<When Condition=" '$(Configuration)'=='R2027' ">
+			<ItemGroup>
+				<Reference Include="RevitAPI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2027\RevitAPI.dll</HintPath>
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="RevitAPIUI">
+					<HintPath>C:\Program Files\Autodesk\Revit 2027\RevitAPIUI.dll</HintPath>
 					<Private>False</Private>
 				</Reference>
 				<FrameworkReference Include="Microsoft.WindowsDesktop.App" />
