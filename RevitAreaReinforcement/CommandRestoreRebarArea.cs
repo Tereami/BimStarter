@@ -15,6 +15,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,46 +25,69 @@ using Tools.Extensions.Shortcuts;
 namespace RevitAreaReinforcement
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    class CommandRestoreRebarArea : IExternalCommand
+    public class CommandRestoreRebarArea : IExternalCommand
     {
         List<ShortcutItem> requiredShortcuts = new List<ShortcutItem>
         {
             new ShortcutItem("Выбрать по коду", "ID_SELECT_BY_ID", new[] {"VK", "мл" }, "Управление&gt;Сведения"),
-#if R2026
-            new ShortcutItem("Редактировать эскиз", "ID_EDIT_SKETCH", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Инструменты"),
+#if R2017 || R2018 || R2019 || R2020 || R2021 || R2022 || R2023 || R2024 || R2025
+            new ShortcutItem("Редактировать эскиз; Редактировать границу; Редактировать проекцию; Редактировать траекторию", "Dialog_Essentials_SketchEdit:Control_Essentials_EditSketch", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Режим"),
 #else
-             new ShortcutItem("Редактировать эскиз; Редактировать границу; Редактировать проекцию; Редактировать траекторию", "Dialog_Essentials_SketchEdit:Control_Essentials_EditSketch", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Режим"),
+            new ShortcutItem("Редактировать эскиз", "ID_EDIT_SKETCH", new[] { "HH", "рр" }, "Контекстные вкладки&gt;Инструменты"),
 #endif
             new ShortcutItem("Вставить:С выравниванием по тому же месту", "ID_EDIT_PASTE_ALIGNED_SAME_PLACE", new[] { "DV", "вм" }, "Изменить&gt;Буфер обмена"),
             new ShortcutItem("Выход из режима редактирования", "ID_FINISH_SKETCH", new[] { "DH", "вр" }, "Контекстные вкладки&gt;Режим"),
             new ShortcutItem("Скрыть элемент" ,"ID_TEMPHIDE_HIDE", new [] {"CC", "сс" }, "Панель управления видами"),
         };
 
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             int revitVersionNumber = int.Parse(commandData.Application.Application.VersionNumber);
+
+            string shortcutsHelpUrl = "https://weandrevit.ru/gorjachie-klavishi-dlja-russkogo-jazyka";
+            string bimStarterFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Autodesk\Revit\Addins\20xx\BimStarter");
+            string weandrevitXmlPath = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts.xml");
+            string shortcutsReadmeFile = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts ПАМЯТКА.docx");
+            string restoreRebarXmlPath = System.IO.Path.Combine(bimStarterFolder, "RevitAreaReinforcement_data", "KeyboardShortcuts", revitVersionNumber.ToString());
+
             ShortcutManager shortcutManager = new ShortcutManager(revitVersionNumber);
             List<ShortcutItem> incorrectKeys = shortcutManager.GetIncorrectShortcuts(requiredShortcuts);
 
             if (incorrectKeys.Count > 0)
             {
-                FormShortcuts form1 = new FormShortcuts();
-                if (form1.ShowDialog() != DialogResult.OK)
+                FormAddShortcutsSelect form1 = new FormAddShortcutsSelect();
+                form1.ShowDialog();
+                if (form1.DialogResult != DialogResult.Yes && form1.DialogResult != DialogResult.No)
                     return Result.Cancelled;
 
-                foreach (ShortcutItem reqShortcut in requiredShortcuts)
+                if (form1.DialogResult == DialogResult.Yes)
                 {
-                    shortcutManager.AddShortcut(reqShortcut);
+                    //подключение горячих клавиш Weadnrevit
+                    FormAddShortcutsDefault formHotkeysDefault = new FormAddShortcutsDefault(weandrevitXmlPath, shortcutsReadmeFile, shortcutsHelpUrl);
+                    formHotkeysDefault.ShowDialog();
                 }
-
-                if (!shortcutManager.Save())
+                else if (form1.DialogResult == DialogResult.No)
                 {
-                    message = "Failed to save required shortcuts";
-                    return Result.Failed;
+                    //подключение горячих клавиш только для ремонта арматуры
+                    FormAddShortcutsCustom formHotkeysCustom = new FormAddShortcutsCustom(restoreRebarXmlPath, shortcutsHelpUrl);
+                    if(formHotkeysCustom.ShowDialog() == DialogResult.Yes)
+                    {
+                        string userXmlFilePath = formHotkeysCustom.userXmlPath;
+                        ShortcutManager userShortcutsManager = new ShortcutManager(userXmlFilePath);
+                        foreach (ShortcutItem reqShortcut in requiredShortcuts)
+                        {
+                            userShortcutsManager.AddShortcut(reqShortcut);
+                        }
+                        if (!userShortcutsManager.Save())
+                        {
+                            message = "Failed to save required shortcuts";
+                            return Result.Failed;
+                        }
+                        FormAddShortcutsCustom2 formHotkeysCustom2 = new FormAddShortcutsCustom2(userXmlFilePath);
+                        formHotkeysCustom2.ShowDialog();
+                    }
                 }
-
-                FormShortcuts2 form2 = new FormShortcuts2(shortcutManager.xmlPath, shortcutManager.xmlFileBackup);
-                form2.ShowDialog();
                 return Result.Cancelled;
             }
 

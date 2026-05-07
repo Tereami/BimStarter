@@ -20,9 +20,20 @@ namespace Tools.Extensions.Shortcuts
 
             xmlPath = System.IO.Path.Combine(appdataPath, "Autodesk", "Revit", revitFolder, "KeyboardShortcuts.xml");
 
-            if (!File.Exists(xmlPath))
-                throw new Exception($"File not found: {xmlPath}");
+            if (File.Exists(xmlPath))
+            {
+                LoadData(xmlPath);
+            }
+        }
 
+        public ShortcutManager(string xmlFilePath)
+        {
+            xmlPath = xmlFilePath;
+            LoadData(xmlFilePath);
+        }
+
+        private void LoadData(string xmlPath)
+        {
             string[] lines = File.ReadAllLines(xmlPath);
 
             for (int i = 0; i < lines.Length; i++)
@@ -36,6 +47,7 @@ namespace Tools.Extensions.Shortcuts
             }
         }
 
+
         public void AddShortcut(ShortcutItem shortcutToAdd)
         {
             foreach (ShortcutItem shortcutItem in shortcuts)
@@ -44,9 +56,15 @@ namespace Tools.Extensions.Shortcuts
             }
 
             ShortcutItem sourceShortcut = shortcuts.FirstOrDefault(s => s.CommandId == shortcutToAdd.CommandId);
-            if (sourceShortcut == null) throw new Exception($"Failed to find a command {shortcutToAdd.CommandId}");
-
-            sourceShortcut.AddShortCuts(shortcutToAdd.Shortcuts);
+            if (sourceShortcut == null)
+            {
+                shortcutToAdd.IsModified = true;
+                shortcuts.Add(shortcutToAdd);
+            }
+            else
+            {
+                sourceShortcut.AddShortCuts(shortcutToAdd.Shortcuts);
+            }
         }
 
         public bool Save()
@@ -78,7 +96,10 @@ namespace Tools.Extensions.Shortcuts
             {
                 ShortcutItem cur = this.shortcuts.FirstOrDefault(i => i.CommandId == req.CommandId);
                 if (cur == null)
-                    throw new Exception($"Failed! No command found: {req.CommandId}");
+                {
+                    incorrects.Add(req);
+                    continue;
+                }
 
                 bool check = cur.CheckContainsRequiredShortcuts(req);
                 if (!check)

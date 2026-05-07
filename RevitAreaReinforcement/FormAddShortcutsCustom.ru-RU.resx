@@ -117,82 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorFailedToGetRebarType" xml:space="preserve">
-    <value>Не удалось получить тип стержня</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>428, 13</value>
   </data>
-  <data name="ErrorNoAreaType" xml:space="preserve">
-    <value>Нет типов армирования по площади. Используйте шаблон Weandrevit либо создайте вручную хотя бы один элемент Армирования по площади перед запуском плагина.</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Плагин добавит нужные настройки в ваш собственный XML файл горячих клавиш.</value>
   </data>
-  <data name="ErrorNoMaterialCodeParameter" xml:space="preserve">
-    <value>Нет параметра Мтрл.КодМатериала в материале </value>
+  <data name="buttonSelectXml.Text" xml:space="preserve">
+    <value>Нажмите кнопку и выберите ваш файл горячих клавиш</value>
   </data>
-  <data name="ErrorNoRebarCodeParam" xml:space="preserve">
-    <value>Нет параметра Арм.КлассЧисло в элементе </value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>509, 13</value>
   </data>
-  <data name="ErrorNoRebarCover" xml:space="preserve">
-    <value>Нет защитного слоя </value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Перейдите Вид - Пользовательский интерфейс - Сочетания клавиш - Импорт, выберите ваш файл.</value>
   </data>
-  <data name="ErrorNoSlabHeightParam" xml:space="preserve">
-    <value>Не задан параметр Рзм.ТолщинаПерекрытия в элементе</value>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 13</value>
   </data>
-  <data name="ErrorRebarCoverParamUnavailable" xml:space="preserve">
-    <value>Недоступен параметр Защитный слой! Проверьте элемент с id:</value>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Выберите "Заменить существующие настройки".</value>
   </data>
-  <data name="MessageNoCorrectFloors" xml:space="preserve">
-    <value>Нет подходящих перекрытий для армирования</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 13</value>
   </data>
-  <data name="MessageNoStructuralFloors" xml:space="preserve">
-    <value>Найдены не несущие плиты, армирование не будет выполнено</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Далее закройте это окно.</value>
   </data>
-  <data name="MessageNoStructuralWalls" xml:space="preserve">
-    <value>Найдены не несущие стены, армирование не может быть выполнено</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>395, 13</value>
   </data>
-  <data name="MessageSelectAreaRebar" xml:space="preserve">
-    <value>Выберите арматуру по площади</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Также вы можете добавить нужные сочетания клавиш в ваш файл вручную.</value>
   </data>
-  <data name="MessageSelectFloors" xml:space="preserve">
-    <value>Выберите плиты для армирования</value>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 13</value>
   </data>
-  <data name="MessageSelectWalls" xml:space="preserve">
-    <value>Предварительно выберите стены для армирования</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Запустите плагин повторно.</value>
   </data>
-  <data name="RebarClass" xml:space="preserve">
-    <value>класс </value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
   </data>
-  <data name="ResultMessage1" xml:space="preserve">
-    <value>Создано зон</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Откройте папку:</value>
   </data>
-  <data name="ResultMessage2" xml:space="preserve">
-    <value>Запустите Ремонт фоновой арматуры</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Открыть</value>
   </data>
-  <data name="ShortcutFileConfigured" xml:space="preserve">
-    <value>Файл горячих клавиш настроен успешно. Подключите его в Revit и запустите плагин повторно.</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 13</value>
   </data>
-  <data name="Success" xml:space="preserve">
-    <value>Успешно!</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Найдите файл file RestoreRebarShortscuts.xml</value>
   </data>
-  <data name="TextBottomXrebar" xml:space="preserve">
-    <value>низ X фон</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 13</value>
   </data>
-  <data name="TextBottomYrebar" xml:space="preserve">
-    <value>низ Y фон</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Перенести настройки клавиш в ваш XML файл.</value>
   </data>
-  <data name="TextHorizontalRebarPartition" xml:space="preserve">
-    <value>Осн. гор.</value>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 13</value>
   </data>
-  <data name="TextTopXrebar" xml:space="preserve">
-    <value>верх X фон</value>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Не используйте функцию"Объединить с существующими настройками".</value>
   </data>
-  <data name="TextTopYrebar" xml:space="preserve">
-    <value>верх Y фон</value>
+  <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 285</value>
   </data>
-  <data name="TextVerticalRebarPartition" xml:space="preserve">
-    <value>Осн. верт.</value>
+  <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
   </data>
-  <data name="TransactionFloorReinforcement" xml:space="preserve">
-    <value>Армирование плит</value>
+  <data name="linkLabel1.Text" xml:space="preserve">
+    <value>Веб справка</value>
   </data>
-  <data name="TransactionWallReinforcement" xml:space="preserve">
-    <value>Армирование стен</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>615, 314</value>
   </data>
 </root>

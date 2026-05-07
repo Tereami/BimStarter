@@ -165,6 +165,9 @@
   <data name="ResultMessage2" xml:space="preserve">
     <value>Запустите Ремонт фоновой арматуры</value>
   </data>
+  <data name="ShortcutFileConfigured" xml:space="preserve">
+    <value>Shortcuts file is configured successfully. Connect it to Revit and run the plugin again.</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>Success!</value>
   </data>

@@ -294,8 +294,38 @@
 	  <None Update="RevitAreaReinforcement_data\Command_small.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts.xml">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2017\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2018\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2019\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2020\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2021\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2022\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2023\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2024\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2025\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2026\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2027\RestoreRebarShortcuts.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="RevitAreaReinforcement_data\RestoreAreaRebar.exe">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -118,52 +118,74 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Внимание!</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 13</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Плагин работает, имитируя нажатие клавиш на клавиатуре.</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>321, 13</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Поэтому для работы нужны настроенные "горячие клавиши".</value>
-  </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 13</value>
+    <value>177, 13</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>Нажмите Далее, чтобы настроить файл KeyboardShortcuts.xml.</value>
-  </data>
-  <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 126</value>
-  </data>
-  <data name="buttonOk.Text" xml:space="preserve">
-    <value>Далее &gt;&gt;</value>
-  </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 126</value>
-  </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Отмена</value>
+    <value>Выполните следующие действия:</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 13</value>
+    <value>149, 13</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Это достаточно сделать только один раз.</value>
+    <value>1) Скопируйте путь к файлу:</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>346, 161</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>405, 13</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Ремонт фоновой арматуры</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>3) Перейдите Вид - Пользовательский интерфейс - Горячие клавиши - Импорт</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>5) Выберите "Заменить существующие настройки".
+</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Затем запустите плагин повторно.</value>
+  </data>
+  <data name="buttonCopy.Text" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Будут подключены все рекомендованные клавиши.</value>
+  </data>
+  <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>297, 181</value>
+  </data>
+  <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 13</value>
+  </data>
+  <data name="linkLabel1.Text" xml:space="preserve">
+    <value>Памятка по клавишам</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>2) Закройте это окно.</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>299, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>4) Вставьте скопированный путь (Ctrl+V) и нажмите Enter.</value>
+  </data>
+  <data name="linkLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>425, 181</value>
+  </data>
+  <data name="linkLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="linkLabel2.Text" xml:space="preserve">
+    <value>Веб справка</value>
   </data>
 </root>

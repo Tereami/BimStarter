@@ -119,42 +119,45 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 13</value>
+    <value>352, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Успешно! Файл настроен:</value>
+    <value>Файл горячих клавиш настроен успешно. Подключите файл в Revit.</value>
   </data>
-  <data name="labelFilename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>492, 37</value>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Затем запустите плагин повторно.</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>5) Выберите "Заменить существующие настройки".</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 13</value>
+    <value>299, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Предыдущая версия сохранена здесь:</value>
+    <value>4) Вставьте скопированный путь (Ctrl+V) и нажмите Enter.</value>
   </data>
-  <data name="labelBackup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>492, 37</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>405, 13</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 144</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>3) Перейдите Вид - Пользовательский интерфейс - Горячие клавиши - Импорт</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>492, 50</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 13</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Перезапустите Revit, чтобы применить настройки!</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>2) Закройте это окно.</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>179, 201</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Перейти к перезапуску</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>516, 236</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Ремонт фоновой арматуры</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>1) Скопируйте путь:</value>
   </data>
 </root>
