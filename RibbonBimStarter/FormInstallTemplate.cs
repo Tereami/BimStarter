@@ -5,6 +5,7 @@ namespace RibbonBimStarter
 {
     public partial class FormInstallTemplate : Form
     {
+        public bool includeShortcuts = false;
         public FormInstallTemplate()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace RibbonBimStarter
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            includeShortcuts = checkBoxShortcuts.Checked;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

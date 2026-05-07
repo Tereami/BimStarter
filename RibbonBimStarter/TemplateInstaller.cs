@@ -22,6 +22,7 @@ namespace RibbonBimStarter
 
         public string TemplateFilePath { get; set; }
 
+        public string configFolder;
 
         public static string TemplateOlderVersionPath;
         public static string TemplateFileToSave;
@@ -31,7 +32,7 @@ namespace RibbonBimStarter
         {
             RevitVersion = revitVersion;
             string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string configFolder = Path.Combine(appdata, "Autodesk", "Revit", $"Autodesk Revit {RevitVersion}");
+            configFolder = Path.Combine(appdata, "Autodesk", "Revit", $"Autodesk Revit {RevitVersion}");
             ConfigFilePath = Path.Combine(configFolder, "Revit.ini");
             Debug.WriteLine($"Revit.ini file: {ConfigFilePath}");
 
@@ -126,6 +127,28 @@ namespace RibbonBimStarter
                 throw new Exception($"No file: {sharedParamsFilePath}");
             cApp.SharedParametersFilename = sharedParamsFilePath;
             Debug.WriteLine($"Shared params file is set: {sharedParamsFilePath}");
+        }
+
+        public void AddShortcuts()
+        {
+            string sourceXmlFilePath = Path.Combine(TemplateFolder, "KeyboardShortcuts.xml");
+
+            if(!File.Exists(sourceXmlFilePath))
+            {
+                throw new Exception("FILE NOT FOUND: " + sourceXmlFilePath);
+            }
+
+            string targetXmlFilePath = Path.Combine(configFolder, "KeyboardShortcuts.xml");
+
+            if(File.Exists(targetXmlFilePath))
+            {
+                string curDateTime = DateTime.Now.ToString("yyyy-MM-dd_HHmmss");
+                string xmlFileBackup = targetXmlFilePath.Replace(".xml", " - " + curDateTime + ".xml");
+                System.IO.File.Copy(targetXmlFilePath, xmlFileBackup);
+                System.IO.File.Delete(targetXmlFilePath);
+            }
+
+            System.IO.File.Copy(sourceXmlFilePath, targetXmlFilePath);
         }
     }
 }

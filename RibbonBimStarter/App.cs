@@ -142,10 +142,13 @@ namespace RibbonBimStarter
 
             System.Windows.Forms.DialogResult result = System.Windows.Forms.DialogResult.None;
 
+            bool addShortcuts = false;
+
             if (templateSets.FirstStart)
             {
                 FormInstallTemplate formTemplate = new FormInstallTemplate();
                 result = formTemplate.ShowDialog();
+                addShortcuts = formTemplate.includeShortcuts;
 
                 if (result == System.Windows.Forms.DialogResult.No)
                 {
@@ -182,6 +185,9 @@ namespace RibbonBimStarter
                 ti.AddTemplatePathToConfig();
 
             ti.AddSharedParamsFilePath(application.ControlledApplication);
+
+            if(addShortcuts)
+                ti.AddShortcuts();
 
             if (templateCheck == TemplateCheckingResult.OlderVersionExists)
             {

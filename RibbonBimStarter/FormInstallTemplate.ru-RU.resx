@@ -118,17 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 10</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>374, 27</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Добро пожаловать в Bim-Starter!</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 40</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>374, 27</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Плагины успешно установлены.</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 81</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>373, 45</value>
@@ -137,7 +146,7 @@
     <value>Рекомендую установить шаблон проекта, разработанный для Bim-Starter. Нажмите "Установить" и подождите окончания установки. Шаблон будет доступен в окне "Новый проект".</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 164</value>
+    <value>13, 181</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 13</value>
@@ -146,13 +155,19 @@
     <value>Узнать больше о шаблоне Weandrevit</value>
   </data>
   <data name="buttonOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>232, 193</value>
+    <value>232, 211</value>
+  </data>
+  <data name="buttonOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 23</value>
   </data>
   <data name="buttonOk.Text" xml:space="preserve">
     <value>Установить</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 193</value>
+    <value>12, 211</value>
+  </data>
+  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 23</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Нет, спасибо</value>
@@ -166,8 +181,20 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Это сообщение в будущем появляться не будет.</value>
   </data>
+  <data name="checkBoxShortcuts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 158</value>
+  </data>
+  <data name="checkBoxShortcuts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 17</value>
+  </data>
+  <data name="checkBoxShortcuts.Text" xml:space="preserve">
+    <value>Подключить горячие клавиши (Рекомендуется!)</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>398, 228</value>
+    <value>398, 245</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -537,8 +564,10 @@
         4DDwA//h/AA/w/8AB4P/wAAH//gAD//+AB///4Af///gP///+H//////
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>433, 284</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>369, 252</value>
   </data>
 </root>
