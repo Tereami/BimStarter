@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RevitAreaReinforcement
+namespace Tools.Shortcuts
 {
     public partial class FormAddShortcutsCustom2 : Form
     {

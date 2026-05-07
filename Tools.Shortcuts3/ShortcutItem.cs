@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Tools.Extensions.Shortcuts
+namespace Tools.Shortcuts
 {
     public class ShortcutItem
     {

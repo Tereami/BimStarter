@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
-namespace Tools.Extensions.Shortcuts
+namespace Tools.Shortcuts
 {
     public class ShortcutManager
     {
         public List<ShortcutItem> shortcuts = new List<ShortcutItem>();
 
         public string xmlPath;
-
         public string xmlFileBackup;
 
         public ShortcutManager(int RevitVersion)
@@ -67,6 +67,9 @@ namespace Tools.Extensions.Shortcuts
             }
         }
 
+
+        
+
         public bool Save()
         {
             MakeBackup();
@@ -107,6 +110,49 @@ namespace Tools.Extensions.Shortcuts
             }
 
             return incorrects;
+        }
+
+        public static void RestoreIncorrectShortcuts(int revitVersion, List<ShortcutItem> requiredShortcuts)
+        {
+            string shortcutsHelpUrl = "https://weandrevit.ru/gorjachie-klavishi-dlja-russkogo-jazyka";
+            string bimStarterFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Autodesk\Revit\Addins\20xx\BimStarter");
+            string weandrevitXmlPath = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts.xml");
+            string shortcutsReadmeFile = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts ПАМЯТКА.docx");
+            string restoreRebarXmlPath = System.IO.Path.Combine(bimStarterFolder, "RevitAreaReinforcement_data", "KeyboardShortcuts", revitVersion.ToString());
+
+
+            FormAddShortcutsSelect form1 = new FormAddShortcutsSelect();
+            form1.ShowDialog();
+            if (form1.DialogResult != DialogResult.Yes && form1.DialogResult != DialogResult.No)
+                return;
+
+            if (form1.DialogResult == DialogResult.Yes)
+            {
+                //подключение горячих клавиш Weadnrevit
+                FormAddShortcutsDefault formHotkeysDefault = new FormAddShortcutsDefault(weandrevitXmlPath, shortcutsReadmeFile, shortcutsHelpUrl);
+                formHotkeysDefault.ShowDialog();
+            }
+            else if (form1.DialogResult == DialogResult.No)
+            {
+                //подключение горячих клавиш только для ремонта арматуры
+                FormAddShortcutsCustom formHotkeysCustom = new FormAddShortcutsCustom(restoreRebarXmlPath, shortcutsHelpUrl);
+                if (formHotkeysCustom.ShowDialog() == DialogResult.Yes)
+                {
+                    string userXmlFilePath = formHotkeysCustom.userXmlPath;
+                    ShortcutManager userShortcutsManager = new ShortcutManager(userXmlFilePath);
+                    foreach (ShortcutItem reqShortcut in requiredShortcuts)
+                    {
+                        userShortcutsManager.AddShortcut(reqShortcut);
+                    }
+                    if (!userShortcutsManager.Save())
+                    {
+                        MessageBox.Show("Failed to save the required shortcuts");
+                        return;
+                    }
+                    FormAddShortcutsCustom2 formHotkeysCustom2 = new FormAddShortcutsCustom2(userXmlFilePath);
+                    formHotkeysCustom2.ShowDialog();
+                }
+            }
         }
 
         public void MakeBackup()

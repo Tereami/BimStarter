@@ -1,4 +1,4 @@
-﻿namespace RevitAreaReinforcement
+﻿namespace Tools.Shortcuts
 {
     partial class FormAddShortcutsCustom
     {

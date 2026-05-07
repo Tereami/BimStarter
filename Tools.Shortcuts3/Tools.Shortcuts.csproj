@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<ProjectGuid>2ead14c2-4cd8-46f9-aebb-70334a895e50</ProjectGuid>
+		<ProjectGuid>ecfdf946-0663-4484-86ef-2c73f04e8e7f</ProjectGuid>
 		<Deterministic>False</Deterministic>
 		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -18,6 +18,7 @@
 		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 		<NoWarn>1701;1702;CA1416</NoWarn>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2017|AnyCPU' ">
 		<TargetFramework>net46</TargetFramework>
 		<DefineConstants>TRACE;DEBUG;R2017</DefineConstants>
@@ -211,134 +212,24 @@
 			</ItemGroup>
 		</When>
 	</Choose>
-
-	<ItemGroup>
-	  <None Remove="Resources\dialog_picture.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="Resources\dialog_picture.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Tools.Extensions\Tools.Extensions.csproj" />
-	  <ProjectReference Include="..\Tools.Forms\Tools.Forms.csproj" />
-	  <ProjectReference Include="..\Tools.Geometry\Tools.Geometry.csproj" />
-	  <ProjectReference Include="..\Tools.Logger\Tools.Logger.csproj" />
-	  <ProjectReference Include="..\Tools.Model\Tools.Model.csproj" />
-	  <ProjectReference Include="..\Tools.Shortcuts3\Tools.Shortcuts.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="MyStrings.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>MyStrings.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="MyStrings.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="MyStrings.ru-RU.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	  </EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-	  <None Update="RevitAreaReinforcement_data\Command.Russian.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\Command.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateAreaRebar.Russian.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateAreaRebar.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateAreaRebar_large.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateAreaRebar_small.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateFloorRebar.Russian.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateFloorRebar.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateFloorRebar_large.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandCreateFloorRebar_small.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandRestoreRebarArea.Russian.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandRestoreRebarArea.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandRestoreRebarArea_large.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\CommandRestoreRebarArea_small.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\Command_large.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\Command_small.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2017\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2018\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2019\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2020\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2021\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2022\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2023\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2024\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2025\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2026\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\KeyboardShortcuts\2027\RestoreRebarShortcuts.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\RestoreAreaRebar.exe">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="RevitAreaReinforcement_data\speed.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(ProjectDir)bin\*.*&quot; &quot;C:\rbsrelease&quot; /Y /I /E&#xD;&#xA;del /S  &quot;C:\rbsrelease\*.pdb&quot;" />
 	</Target>
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 		<Exec Command="rmdir /S /Q &quot;$(ProjectDir)bin&quot;&#xD;&#xA;mkdir $(ProjectDir)bin" />
 	</Target>
+	<ItemGroup>
+	  <Compile Update="FormAddShortcutsCustom.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Update="FormAddShortcutsCustom2.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Update="FormAddShortcutsDefault.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Update="FormAddShortcutsSelect.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	</ItemGroup>
 </Project>
