@@ -127,35 +127,11 @@
   <data name="buttonSelectXml.Text" xml:space="preserve">
     <value>Нажмите кнопку и выберите ваш файл горячих клавиш</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>509, 13</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Перейдите Вид - Пользовательский интерфейс - Сочетания клавиш - Импорт, выберите ваш файл.</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 13</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Выберите "Заменить существующие настройки".</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 13</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Далее закройте это окно.</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Также вы можете добавить нужные сочетания клавиш в ваш файл вручную.</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 13</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Запустите плагин повторно.</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 13</value>
@@ -185,7 +161,7 @@
     <value>Не используйте функцию"Объединить с существующими настройками".</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>409, 285</value>
+    <value>412, 198</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>
@@ -194,6 +170,6 @@
     <value>Веб справка</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>615, 314</value>
+    <value>615, 222</value>
   </data>
 </root>

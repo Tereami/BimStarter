@@ -129,7 +129,7 @@ namespace RibbonBimStarter
             }
 
             Tools.SettingsSaver.Saver<TemplateInstallerSettings> saver = new Tools.SettingsSaver.Saver<TemplateInstallerSettings>();
-            TemplateInstallerSettings templateSets = saver.Activate("TemplateInstaller");
+            TemplateInstallerSettings templateSets = saver.Activate("TemplateInstaller_" + revitVersion);
 
             if (templateSets.InstallAccepted == false)
                 return Result.Succeeded;

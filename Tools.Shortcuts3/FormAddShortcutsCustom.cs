@@ -14,17 +14,17 @@ namespace Tools.Shortcuts
 {
     public partial class FormAddShortcutsCustom : Form
     {
-        private readonly string xmlFileRestoreRebar;
+        private readonly string xmlFileFolder;
         private readonly string url;
 
         public string userXmlPath = string.Empty;
 
-        public FormAddShortcutsCustom(string xmlFileRestoreRebar, string url)
+        public FormAddShortcutsCustom(string xmlFileFolder, string url)
         {
             InitializeComponent();
-            this.xmlFileRestoreRebar = xmlFileRestoreRebar;
+            this.xmlFileFolder = xmlFileFolder;
             this.url = url;
-            textBoxXmlPath.Text = xmlFileRestoreRebar;
+            textBoxXmlPath.Text = xmlFileFolder;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -38,10 +38,9 @@ namespace Tools.Shortcuts
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string folder = Path.GetDirectoryName(xmlFileRestoreRebar);
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
-                FileName = folder,
+                FileName = xmlFileFolder,
                 UseShellExecute = true
             });
         }
@@ -56,9 +55,9 @@ namespace Tools.Shortcuts
             if(od.ShowDialog() == DialogResult.OK)
             {
                 userXmlPath = od.FileName;
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
             }
-
-            this.DialogResult = DialogResult.Yes;
         }
     }
 }

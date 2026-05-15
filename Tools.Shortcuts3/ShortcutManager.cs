@@ -118,7 +118,7 @@ namespace Tools.Shortcuts
             string bimStarterFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Autodesk\Revit\Addins\20xx\BimStarter");
             string weandrevitXmlPath = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts.xml");
             string shortcutsReadmeFile = System.IO.Path.Combine(bimStarterFolder, "Template", "KeyboardShortcuts ПАМЯТКА.docx");
-            string restoreRebarXmlPath = System.IO.Path.Combine(bimStarterFolder, "RevitAreaReinforcement_data", "KeyboardShortcuts", revitVersion.ToString());
+            string restoreRebarXmlFolder = System.IO.Path.Combine(bimStarterFolder, "RevitAreaReinforcement_data", "KeyboardShortcuts", revitVersion.ToString());
 
 
             FormAddShortcutsSelect form1 = new FormAddShortcutsSelect();
@@ -135,7 +135,7 @@ namespace Tools.Shortcuts
             else if (form1.DialogResult == DialogResult.No)
             {
                 //подключение горячих клавиш только для ремонта арматуры
-                FormAddShortcutsCustom formHotkeysCustom = new FormAddShortcutsCustom(restoreRebarXmlPath, shortcutsHelpUrl);
+                FormAddShortcutsCustom formHotkeysCustom = new FormAddShortcutsCustom(restoreRebarXmlFolder, shortcutsHelpUrl);
                 if (formHotkeysCustom.ShowDialog() == DialogResult.Yes)
                 {
                     string userXmlFilePath = formHotkeysCustom.userXmlPath;
